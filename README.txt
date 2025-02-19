@@ -19,3 +19,4 @@ the following resources:
 
 - **/fragments/**
  
+ Link to the project dashboard: https://github.com/orgs/DP2-IIS-C1048/projects/2/views/1
