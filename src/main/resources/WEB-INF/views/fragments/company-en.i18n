@@ -10,9 +10,8 @@
 
 master.company.title = The company
 master.company.text = \
-	Acme One, Inc. is a fictitious company whose project helps \
-	the students get started with instantiating a starter \
-	project.
+	Acme ANS, Inc. is an airnav company based in Seville, \
+	named best airnav company in 2003 by AECA.
 master.company.name = Acme ANS, Inc.
 master.company.address = 01 Acme ANS Drive, Wondercity, Wonderland
 master.company.phone = +1 000 111 222
