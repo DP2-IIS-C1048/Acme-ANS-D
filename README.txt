@@ -18,5 +18,8 @@ taking into account that you must link the appropriate version of the Acme-Frame
 the following resources:
 
 - **/fragments/**
- 
- Link to the project dashboard: https://github.com/orgs/DP2-IIS-C1048/projects/2/views/1
+
+We will plan our tasks using a dashboard. The dashboard will be the same for both
+the group tasks and individual tasks.
+
+Link to the project dashboard: https://github.com/orgs/DP2-IIS-C1048/projects/2/views/1
