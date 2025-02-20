@@ -40,10 +40,5 @@
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-25.1.0/target/classes</locationURI>
 		</link>
-		<link>
-			<name>target/classes</name>
-			<type>2</type>
-			<location>//C:/WORKSPACE/WS_DP2/Workspace-25/Projects/Acme-ANS-D/target/classes/</location>
-		</link>
 	</linkedResources>
 </projectDescription>
