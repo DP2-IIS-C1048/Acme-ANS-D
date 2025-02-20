@@ -22,6 +22,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student5" action="https://ev.us.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student4" action="https://palosfrontera.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student1" action="https://wordly.org/es"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
