@@ -28,8 +28,8 @@
 	<parent>
 		<groupId>Acme</groupId>
 		<artifactId>pom</artifactId>
-		<version>25.1.0</version>
-		<relativePath>../../pom-25.1.0.xml</relativePath>
+		<version>25.2.0</version>
+		<relativePath>../../pom-25.2.0.xml</relativePath>
 	</parent>
 	
 </project>

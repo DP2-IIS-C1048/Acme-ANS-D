@@ -9,3 +9,4 @@
 # they accept any liabilities with respect to them.
 
 25.1.0 This is the first version of Acme One
+25.2.0 This is the second version of Acme One
