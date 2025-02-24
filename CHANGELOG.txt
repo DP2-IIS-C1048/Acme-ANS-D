@@ -8,5 +8,5 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-25.1.0 This is the first version of Acme One
-25.2.0 This is the second version of Acme One
+25.1.0 This is the first version of Acme ANS
+25.2.0 This is the second version of Acme ANS
