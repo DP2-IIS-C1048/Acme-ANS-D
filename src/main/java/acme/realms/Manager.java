@@ -1,45 +1,49 @@
 
-package acme.entities.airline_manager;
+package acme.realms;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidString;
+import acme.client.components.validation.ValidUrl;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class AirlineManager extends AbstractEntity {
+public class Manager extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Pattern(regexp = "^[A-Z]{2,3}\\d{6}$", message = "Identifier must have 2-3 uppercase letters followed by 6 digits.")
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
 	@Automapped
 	private String				identifierNumber;
 
 	@Mandatory
-	@Min(value = 0, message = "Years of experience cannot be negative.")
+	@Min(value = 0)
 	@Automapped
 	private Integer				yearsOfExperience;
 
 	@Mandatory
-	@Past(message = "Birth date must be in the past.")
-	@Automapped
+	@ValidMoment(past = true)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				birth;
 
 	@Optional
+	@ValidUrl
 	@Automapped
 	private String				picture;
 }
