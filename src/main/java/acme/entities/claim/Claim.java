@@ -5,12 +5,12 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.validation.Valid;
-import javax.validation.constraints.Past;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidEmail;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +23,7 @@ public class Claim extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Past()
+	@ValidMoment(past = true)
 	@Automapped
 	private Date				registrationMoment;
 
