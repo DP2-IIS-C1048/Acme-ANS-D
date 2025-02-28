@@ -6,13 +6,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
-import javax.validation.constraints.Past;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
@@ -41,7 +41,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				airline;
 
 	@Mandatory
-	@Past()
+	@ValidMoment(past = true)
 	@Automapped
 	private Date				moment;
 
