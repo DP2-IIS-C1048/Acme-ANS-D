@@ -1,0 +1,3 @@
+key,key:userAccount,licenseNumber,phoneNumber,specialisation,annualHealthTest,yearsOfExperience,certifications
+technician-01,user-account-technician-01,"AB123456","123456789",FALSE,
+technician-02,user-account-technician-02,"XYZ987654","987654321",TRUE,"Licencia A,Licencia B1,Licencia B2"
