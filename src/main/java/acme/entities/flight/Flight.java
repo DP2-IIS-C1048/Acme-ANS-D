@@ -23,21 +23,21 @@ public class Flight extends AbstractEntity {
 	@Mandatory
 	@ValidString(max = 50)
 	@Automapped
-	String						tag;
+	private String						tag;
 
 	@Mandatory
 	@Automapped
-	Boolean						indication;
+	private Boolean						indication;
 
 	@Mandatory
 	@ValidMoney
 	@Automapped
-	Money						cost;
+	private Money						cost;
 
 	@Optional
 	@ValidString(max = 255)
 	@Automapped
-	String						description;
+	private String						description;
 
 	// Relationships ----------------------------------------------------------
 
