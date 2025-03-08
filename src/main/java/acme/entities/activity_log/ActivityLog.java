@@ -3,6 +3,7 @@ package acme.entities.activity_log;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -14,7 +15,14 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidActivityLog;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
+@ValidActivityLog
 public class ActivityLog extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -25,12 +33,12 @@ public class ActivityLog extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				typeOfIncident;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				description;
 
@@ -39,15 +47,9 @@ public class ActivityLog extends AbstractEntity {
 	@Automapped
 	private Integer				severityLevel;
 
-	/*
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private FlightCrewMember	flightCrewMember;
+	private FlightAssignment	flightAssignment;
 
-	@Mandatory
-	@Valid
-	@ManyToOne
-	private Leg					leg;
-	 */
 }
