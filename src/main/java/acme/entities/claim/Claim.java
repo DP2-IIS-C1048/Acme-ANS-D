@@ -23,7 +23,7 @@ public class Claim extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(min = "2000/01/01 00:00:00", max = "2025/01/01 00:00:00", past = true)
 	@Automapped
 	private Date				registrationMoment;
 
@@ -33,7 +33,7 @@ public class Claim extends AbstractEntity {
 	private String				passengerEmail;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				description;
 
