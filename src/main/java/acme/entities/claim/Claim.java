@@ -22,6 +22,11 @@ public class Claim extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private AssistanceAgent assitanceAgent;
+
 	@Mandatory
 	@ValidMoment(min = "2000/01/01 00:00:00", max = "2025/01/01 00:00:00", past = true)
 	@Automapped
