@@ -25,7 +25,7 @@ public class Airline extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				name;
 
@@ -45,7 +45,7 @@ public class Airline extends AbstractEntity {
 	private AirlineType			type;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(min = "2000/01/01 00:00:00", max = "2025/01/01 00:00:00", past = true)
 	@Automapped
 	private Date				foundationMoment;
 
