@@ -26,12 +26,17 @@ public class AssistanceAgent extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
+	@ValidString(min = 8, max = 9, pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
 	private String				employeeCode;
 
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private Airline				airline;
+
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				spokenLanguages;
 
@@ -41,7 +46,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				airline;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(min = "2000/01/01 00:00:00", max = "2025/01/01 00:00:00", past = true)
 	@Automapped
 	private Date				moment;
 
