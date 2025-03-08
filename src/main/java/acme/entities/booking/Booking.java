@@ -3,8 +3,6 @@ package acme.entities.booking;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -15,7 +13,6 @@ import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidCreditCard;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
@@ -31,12 +28,12 @@ public class Booking extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$", max = 8, min = 6)
 	@Column(unique = true)
 	private String				locatorCode;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(past = true, min = "2000/01/01 00:00:00")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Moment				purchaseMoment;
 
@@ -46,27 +43,22 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0.00, max = 1000000)
 	@Automapped
 	private Money				price;
 
 	@Optional
-	@ValidCreditCard
+	@ValidString(pattern = "\\d{4}")
 	@Automapped
 	private String				lastNibble;
 
-	@Mandatory
-	@Valid
-	@ManyToOne
-	private Customer			customer;
-
-	@Mandatory
-	@Valid
-	@ManyToOne
-	private Flight				flight;
-
-	@Mandatory
-	@Valid
-	@OneToOne
-	private Passanger			passenger;
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private Customer			customer;
+	//
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private Flight				flight;
 }
