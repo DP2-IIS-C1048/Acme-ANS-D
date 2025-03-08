@@ -2,6 +2,7 @@
 package acme.realms;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
@@ -33,7 +34,7 @@ public class FlightCrewMember extends AbstractRole {
 	private String				phoneNumber;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				languageSkills; //Set of languages ​​separated by ";"
 
@@ -42,22 +43,18 @@ public class FlightCrewMember extends AbstractRole {
 	@Automapped
 	private AvailabilityStatus	availabilityStatus;
 
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @OneToOne
-	 * private Airlane airlane;
-	 */
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Airlane				airlane;
 
 	@Mandatory
-	@ValidMoney(min = 0, max = 150000)
+	@ValidMoney(min = 0, max = 1000000)
 	@Automapped
 	private Money				salary;
 
 	@Optional
-	@ValidNumber(min = 1, max = 80)
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
 	private Integer				yearsOfExperience;
 }
