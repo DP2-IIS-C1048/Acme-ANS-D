@@ -23,12 +23,12 @@ public class TrackingLog extends AbstractEntity {
 	private static final long		serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidMoment(past = true)
+	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
 	@Automapped
 	private Date					lastUpdateMoment;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String					step;
 
