@@ -21,9 +21,12 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 	public boolean isValid(final Leg leg, final ConstraintValidatorContext context) {
 		assert context != null;
 		boolean result;
+
 		if (leg == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
+			Date arrivalDate = leg.getScheduledArrival();
+			Date departureDate = leg.getScheduledDeparture();
 			{
 				//				boolean uniqueFlightNumber;
 				//				Leg existingLeg;
@@ -46,11 +49,18 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				//				super.state(context, correctIATA, "*", "javax.validation.constraints.IATACode.message");
 			}
 			{
-				Date arrivalDate = leg.getScheduledArrival();
-				Date departureDate = leg.getScheduledDeparture();
 
-				boolean correctArrivalDepartureDates = departureDate.before(arrivalDate);
+				boolean correctArrivalDepartureDates = departureDate != null && arrivalDate != null && departureDate.before(arrivalDate);
 				super.state(context, correctArrivalDepartureDates, "*", "javax.validation.constraints.arrivalDepartureDates.message");
+			}
+			{
+				//				boolean uniqueArrivalAndDepartureDate;
+				//				Leg existingLeg;
+				//
+				//				existingLeg = this.repository.findLegByFlightAndArrivalAndDepartureDate(leg.getFlight(), departureDate, arrivalDate);
+				//				uniqueArrivalAndDepartureDate = uniqueArrivalAndDepartureDate = departureDate != null && arrivalDate != null && (existingLeg == null || leg.equals(existingLeg));
+				//
+				//				super.state(context, uniqueArrivalAndDepartureDate, "flightNumber", "acme.validation.job.duplicated-leg-arrivalDepartureDates.message");
 			}
 		}
 		result = !super.hasErrors(context);
