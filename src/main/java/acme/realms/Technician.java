@@ -1,11 +1,11 @@
 
-package acme.entities.technician;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -17,9 +17,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Technician extends AbstractEntity {
+public class Technician extends AbstractRole {
+
+	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
@@ -39,7 +43,7 @@ public class Technician extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@Automapped
-	private Boolean				annualHealthTest;
+	private Boolean				annualHealthTestPassed;
 
 	@Mandatory
 	@ValidNumber(min = 0, max = 115, integer = 3, fraction = 0)
@@ -50,5 +54,9 @@ public class Technician extends AbstractEntity {
 	@ValidString(pattern = "^([^,]*,)*[^,]+$") // Separados por coma
 	@Automapped
 	private String				certifications;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
