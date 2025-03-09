@@ -21,23 +21,23 @@ public class Flight extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private String						tag;
+	private String				tag;
 
 	@Mandatory
 	@Automapped
-	private Boolean						indication;
+	private boolean				indication;
 
 	@Mandatory
 	@ValidMoney
 	@Automapped
-	private Money						cost;
+	private Money				cost;
 
 	@Optional
-	@ValidString(max = 255)
+	@ValidString(min = 0, max = 255)
 	@Automapped
-	private String						description;
+	private String				description;
 
 	// Relationships ----------------------------------------------------------
 
