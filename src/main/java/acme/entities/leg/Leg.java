@@ -4,6 +4,7 @@ package acme.entities.leg;
 import java.time.Duration;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,20 +16,21 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLeg;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidLeg
 public class Leg extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	//Pendiente custom validator pero necesito airport
 	@ValidString(min = 7, max = 7)
-	@Automapped
+	@Column(unique = true)
 	private String				flightNumber;
 
 	@Mandatory
@@ -43,8 +45,8 @@ public class Leg extends AbstractEntity {
 
 
 	@Transient
-	private Double getDuration() {
-		Double duration;
+	private double getDuration() {
+		double duration;
 		Duration aux = Duration.between(this.scheduledDeparture.toInstant(), this.scheduledArrival.toInstant());
 		duration = aux.toMinutes() / 60.0;
 		return duration;
@@ -70,5 +72,10 @@ public class Leg extends AbstractEntity {
 	//		@Valid
 	//		@ManyToOne(optional = false)
 	//		private Aircraft	aircraft;
+	//
+	//		@Mandatory
+	//		@Valid
+	//		@ManyToOne(optional = false)
+	//		private Flight	flight;
 
 }
