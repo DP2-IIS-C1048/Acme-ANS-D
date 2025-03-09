@@ -1,5 +1,5 @@
 
-package acme.entities.maintenance_records;
+package acme.entities.maintenance;
 
 public enum TaskType {
 
