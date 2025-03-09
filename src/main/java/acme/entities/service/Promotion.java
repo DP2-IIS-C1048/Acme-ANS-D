@@ -1,14 +1,16 @@
 
 package acme.entities.service;
 
-import acme.client.components.basis.AbstractEntity;
-import acme.client.components.mappings.Automapped;
-import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
-import acme.client.components.validation.ValidUrl;
+import javax.persistence.Column;
 
-public class Service extends AbstractEntity {
+import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
+import acme.client.components.mappings.Automapped;
+import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidString;
+
+public class Promotion extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -16,28 +18,18 @@ public class Service extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Mandatory
-	@ValidString(min = 1, max = 50)
-	@Automapped
-	private String				name;
+	@Optional
+	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$") // Los dos ultimos digitos deben pertenecer al año actual
+	@Column(unique = true)
+	private String				code;
 
-	@Mandatory
-	@ValidUrl
+	@Optional
+	@ValidMoney
 	@Automapped
-	private String				pictureUrl;
-
-	@Mandatory
-	@ValidNumber(min = 0)
-	@Automapped
-	private Integer				averageDwellTime;
+	private Money				moneyToDiscount;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	//	@Optional
-	//	@Valid
-	//	@OneToOne(optional = true)
-	//	private Promotion promotion;
 
 }
