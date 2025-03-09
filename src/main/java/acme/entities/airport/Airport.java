@@ -11,6 +11,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidAirport;
 import acme.datatypes.OperationalScope;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,12 +19,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidAirport
 public class Airport extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(max = 50, min = 1)
+	@ValidString(max = 50)
 	@Automapped
 	private String				name;
 
@@ -38,12 +40,12 @@ public class Airport extends AbstractEntity {
 	private OperationalScope	operationalScope;
 
 	@Mandatory
-	@ValidString(max = 50, min = 1)
+	@ValidString(max = 50)
 	@Automapped
 	private String				city;
 
 	@Mandatory
-	@ValidString(max = 50, min = 1)
+	@ValidString(max = 50)
 	@Automapped
 	private String				country;
 
@@ -58,7 +60,7 @@ public class Airport extends AbstractEntity {
 	private String				email;
 
 	@Optional
-	@ValidString(min = 0, max = 50)
+	@ValidString(max = 50)
 	@Automapped
 	private String				adress;
 
