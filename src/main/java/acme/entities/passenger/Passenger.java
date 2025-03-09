@@ -1,13 +1,14 @@
 
-package acme.realms;
+package acme.entities.passenger;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 
-import acme.client.components.basis.AbstractRole;
+import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
@@ -17,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Passenger extends AbstractRole {
+public class Passenger extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -37,12 +38,12 @@ public class Passenger extends AbstractRole {
 	private String				passportNumber;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = true)
 	@Automapped
 	private Date				dateOfBirth;
 
-	@Mandatory
-	@ValidString(max = 256)
+	@Optional
+	@ValidString(max = 50)
 	@Automapped
 	private String				specialNeeds;
 }
