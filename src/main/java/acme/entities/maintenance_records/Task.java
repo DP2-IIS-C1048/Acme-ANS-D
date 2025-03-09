@@ -41,4 +41,9 @@ public class Task extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	//	@Optional
+	//	@Valid
+	//	@ManyToOne
+	//	private Technician technician
+
 }
