@@ -1,5 +1,5 @@
 
-package acme.realms;
+package acme.realms.flight.crew.member;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -13,12 +13,14 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidFlightCrewMember;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidFlightCrewMember
 public class FlightCrewMember extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
