@@ -42,7 +42,7 @@ public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrew
 				existingFlightCrewMember = this.repository.findFlightCrewMemberByemployeeCode(flightCrewMember.getEmployeeCode());
 				uniqueFlightCrewMember = existingFlightCrewMember == null || existingFlightCrewMember.equals(flightCrewMember);
 
-				super.state(context, uniqueFlightCrewMember, "identifier", "acme.validation.customer.duplicated-identifier.message");
+				super.state(context, uniqueFlightCrewMember, "employee-code", "acme.validation.customer.duplicated-identifier.message");
 			}
 			{
 				boolean validEmployeeCode = false;
@@ -52,7 +52,7 @@ public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrew
 
 				if (name.charAt(0) == employeeCode.charAt(0) && surName.charAt(0) == employeeCode.charAt(1))
 					validEmployeeCode = true;
-				super.state(context, validEmployeeCode, "identifier", "acme.validation.flight-crew-member.invalid-identifier.message");
+				super.state(context, validEmployeeCode, "employee-code", "acme.validation.flight-crew-member.invalid-identifier.message");
 
 			}
 		}
