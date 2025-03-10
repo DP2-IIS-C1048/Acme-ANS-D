@@ -12,3 +12,6 @@
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = El código del empleado está duplicado
 acme.validation..flight.crew.member.employee-code.message = Las primeras dos o tres letras del código del empleado deben corresponder con las iniciales
+acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
+acme.validation.aircraft.duplicated-registration-number.message = Número de registro ya usado
+
