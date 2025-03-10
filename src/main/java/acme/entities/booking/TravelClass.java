@@ -1,4 +1,4 @@
-package acme.datatypes;
+package acme.entities.booking;
 
 public enum TravelClass {
 

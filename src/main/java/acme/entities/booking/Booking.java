@@ -17,7 +17,6 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidBooking;
-import acme.datatypes.TravelClass;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,12 +29,12 @@ public class Booking extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$", max = 8, min = 6)
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
 	@Column(unique = true)
 	private String				locatorCode;
 
 	@Mandatory
-	@ValidMoment(past = true, min = "2000/01/01 00:00:00")
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Moment				purchaseMoment;
 
@@ -45,7 +44,7 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Mandatory
-	@ValidMoney(min = 0.00, max = 1000000)
+	@ValidMoney
 	@Automapped
 	private Money				price;
 
