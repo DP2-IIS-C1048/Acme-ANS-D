@@ -39,6 +39,60 @@ public class Flight extends AbstractEntity {
 	@Automapped
 	private String				description;
 
+	//	@Transient
+	//	public Leg getFirstLeg() {
+	//		LegRepository repository;
+	//
+	//		repository = SpringHelper.getBean(LegRepository.class);
+	//		wrapper = repository.findFirstLegByFlightNumber(this.getId());
+	//		return repository.findFirstLegByFlightId(this.getId());
+	//	}
+	//
+	//	@Transient
+	//	public Leg getLastLeg() {
+	//		LegRepository repository;
+	//
+	//		repository = SpringHelper.getBean(LegRepository.class);
+	//		return repository.findLastLegByFlightId(this.getId());
+	//	}
+	//
+	//	@Transient
+	//	public Date getScheduledDeparture() {
+	//		Leg firstLeg = this.getFirstLeg();
+	//		return firstLeg != null ? firstLeg.getScheduledDeparture() : null;
+	//	}
+	//
+	//	@Transient
+	//	public Date getScheduledArrival() {
+	//		Leg lastLeg = this.getLastLeg();
+	//		return lastLeg != null ? lastLeg.getScheduledArrival() : null;
+	//	}
+	//
+	//	@Transient
+	//	public String getOriginCity() {
+	//		Leg firstLeg = this.getFirstLeg();
+	//		return firstLeg != null && firstLeg.getAirport() != null ? firstLeg.getAirport().getCity() : null;
+	//	}
+	//
+	//	@Transient
+	//	public String getDestinationCity() {
+	//		Leg lastLeg = this.getLastLeg();
+	//		return lastLeg != null && lastLeg.getAirport() != null ? lastLeg.getAirport().getCity() : null;
+	//	}
+	//
+	//	@Transient
+	//	public Integer getLayovers() {
+	//		LegRepository repository;
+	//
+	//		repository = SpringHelper.getBean(LegRepository.class);
+	//		return repository.getNumbersOfLegsByFlightId(this.getId());
+	//	}
+
 	// Relationships ----------------------------------------------------------
+
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne(optional = false)
+	//	private Airline				airline;
 
 }
