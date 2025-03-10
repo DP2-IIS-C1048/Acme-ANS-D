@@ -9,4 +9,6 @@
 # they accept any liabilities with respect to them.
 
 
+acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = Número de registro ya usado
+
