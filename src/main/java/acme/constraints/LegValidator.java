@@ -5,12 +5,19 @@ import java.util.Date;
 
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.leg.Leg;
+import acme.entities.leg.LegRepository;
 
 @Validator
 public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
+
+	@Autowired
+	private LegRepository repository;
+
 
 	@Override
 	protected void initialise(final ValidLeg annotation) {
@@ -28,13 +35,13 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 			Date arrivalDate = leg.getScheduledArrival();
 			Date departureDate = leg.getScheduledDeparture();
 			{
-				//				boolean uniqueFlightNumber;
-				//				Leg existingLeg;
-				//
-				//				existingLeg = this.repository.findLegByFlightNumber(leg.getFlightNumber());
-				//				uniqueFlightNumber = existingLeg == null || leg.equals(existingLeg);
-				//
-				//				super.state(context, uniqueFlightNumber, "flightNumber", "acme.validation.job.duplicated-flightNumber.message");
+				boolean uniqueFlightNumber;
+				Leg existingLeg;
+
+				existingLeg = this.repository.findLegByFlightNumber(leg.getFlightNumber());
+				uniqueFlightNumber = existingLeg == null || leg.equals(existingLeg);
+
+				super.state(context, uniqueFlightNumber, "flightNumber", "acme.validation.leg.duplicated-flightNumber.message");
 			}
 			{
 				//				boolean correctIATA;
@@ -51,16 +58,16 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 			{
 
 				boolean correctArrivalDepartureDates = departureDate != null && arrivalDate != null && departureDate.before(arrivalDate);
-				super.state(context, correctArrivalDepartureDates, "*", "javax.validation.constraints.arrivalDepartureDates.message");
+				super.state(context, correctArrivalDepartureDates, "*", "javax.validation.constraints.leg.arrivalDepartureDates.message");
 			}
 			{
 				//				boolean uniqueArrivalAndDepartureDate;
-				//				Leg existingLeg;
+				//				List<Leg> existingLegs;
 				//
-				//				existingLeg = this.repository.findLegByFlightAndArrivalAndDepartureDate(leg.getFlight(), departureDate, arrivalDate);
-				//				uniqueArrivalAndDepartureDate = uniqueArrivalAndDepartureDate = departureDate != null && arrivalDate != null && (existingLeg == null || leg.equals(existingLeg));
+				//				existingLegs = this.repository.findLegsByFlightIdAndArrivalDepartureDate(leg.getFlight().getId(), departureDate, arrivalDate);
+				//				uniqueArrivalAndDepartureDate = departureDate != null && arrivalDate != null && (existingLegs.isEmpty() || existingLegs.size() == 1 && existingLegs.contains(leg));
 				//
-				//				super.state(context, uniqueArrivalAndDepartureDate, "flightNumber", "acme.validation.job.duplicated-leg-arrivalDepartureDates.message");
+				//				super.state(context, uniqueArrivalAndDepartureDate, "flightNumber", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
 			}
 		}
 		result = !super.hasErrors(context);
