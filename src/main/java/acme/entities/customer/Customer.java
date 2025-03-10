@@ -23,32 +23,32 @@ public class Customer extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$", max = 9, min = 8)
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
 	@Column(unique = true)
 	private String				identifier;
 
 	@Mandatory
-	@ValidString(pattern = "^\\+?\\d{6,15}$", min = 6, max = 16)
+	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1)
 	@Automapped
 	private String				physicalAddress;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				city;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				country;
 
 	@Optional
-	@ValidNumber(max = 50000)
+	@ValidNumber(min = 1, max = 50000)
 	@Automapped
 	private Integer				earnedPoints;
 
