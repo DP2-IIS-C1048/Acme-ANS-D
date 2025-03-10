@@ -24,7 +24,7 @@ public class Service extends AbstractEntity {
 	@Mandatory
 	@ValidUrl
 	@Automapped
-	private String				pictureUrl;
+	private String				picture;
 
 	@Mandatory
 	@ValidNumber(min = 0)
