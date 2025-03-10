@@ -40,7 +40,7 @@ public class Review extends AbstractEntity {
 	private String				subject;
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				text;
 
