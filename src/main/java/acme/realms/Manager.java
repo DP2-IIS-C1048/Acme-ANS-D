@@ -39,7 +39,7 @@ public class Manager extends AbstractRole {
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				birth;
+	private Date				dateOfBirth;
 
 	@Optional
 	@ValidUrl
