@@ -27,8 +27,13 @@ public class Claim extends AbstractEntity {
 	//	@ManyToOne
 	//	private AssistanceAgent assitanceAgent;
 
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private Leg					leg;
+
 	@Mandatory
-	@ValidMoment(min = "2000/01/01 00:00:00", max = "2025/01/01 00:00:00", past = true)
+	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
 	@Automapped
 	private Date				registrationMoment;
 
