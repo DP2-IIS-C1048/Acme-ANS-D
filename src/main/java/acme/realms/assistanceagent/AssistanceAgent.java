@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
@@ -15,6 +16,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.entities.airline.Airline;
 import constraints.ValidAssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,11 +33,6 @@ public class AssistanceAgent extends AbstractRole {
 	@ValidString(min = 8, max = 9, pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
 	private String				employeeCode;
-
-	//	@Mandatory
-	//	@Valid
-	//	@ManyToOne
-	//	private Airline				airline;
 
 	@Mandatory
 	@ValidString(min = 1, max = 255)
@@ -61,5 +58,10 @@ public class AssistanceAgent extends AbstractRole {
 	@Valid
 	@Automapped
 	private String				photo;
+
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Airline				airline;
 
 }

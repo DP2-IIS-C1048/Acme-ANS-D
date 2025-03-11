@@ -14,6 +14,7 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidFlightCrewMember;
+import acme.entities.airline.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,7 +49,7 @@ public class FlightCrewMember extends AbstractRole {
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private Airlane				airlane;
+	private Airline				airline;
 
 	@Mandatory
 	@ValidMoney(min = 0.0, max = 10000000.0)
