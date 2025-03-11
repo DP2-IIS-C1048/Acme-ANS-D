@@ -16,13 +16,12 @@ public interface LegRepository extends AbstractRepository {
 	@Query("""
 		    SELECT l
 		    FROM Leg l
-		    WHERE l.flight.id = :flightId
-		    AND (
+		    WHERE (
 		        (l.scheduledDeparture BETWEEN :departureDate AND :arrivalDate)
 		        OR
 		        (l.scheduledArrival BETWEEN :departureDate AND :arrivalDate)
 		    )
 		""")
-	List<Leg> findLegsByFlightIdAndArrivalDepartureDate(int flightId, Date departureDate, Date arrivalDate);
+	List<Leg> findLegsByArrivalDepartureDate(Date departureDate, Date arrivalDate);
 
 }

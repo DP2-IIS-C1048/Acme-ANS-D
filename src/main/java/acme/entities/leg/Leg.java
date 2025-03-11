@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -17,6 +18,9 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidLeg;
+import acme.entities.aircraft.Aircraft;
+import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -56,26 +60,26 @@ public class Leg extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@Automapped
-	private LegStatus status;
+	private LegStatus	status;
 
-	//		@Mandatory
-	//		@Valid
-	//		@ManyToOne(optional = false)
-	//		private Airport		departureAirport;
-	//	
-	//		@Mandatory
-	//		@Valid
-	//		@ManyToOne(optional = false)
-	//		private Airport		arrivalAirport;
-	//	
-	//		@Mandatory
-	//		@Valid
-	//		@ManyToOne(optional = false)
-	//		private Aircraft	aircraft;
-	//
-	//		@Mandatory
-	//		@Valid
-	//		@ManyToOne(optional = false)
-	//		private Flight	flight;
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airport		departureAirport;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airport		arrivalAirport;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Aircraft	aircraft;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Flight		flight;
 
 }
