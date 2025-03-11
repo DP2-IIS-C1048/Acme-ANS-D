@@ -47,4 +47,9 @@ public class TrackingLog extends AbstractEntity {
 	@Automapped
 	private String					resolution;
 
+	//	@Mandatory
+	//	@Valid
+	//	@ManyToOne
+	//	private Claim				claim;
+
 }
