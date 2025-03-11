@@ -1,13 +1,23 @@
 
 package acme.entities.service;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
+
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class Service extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -35,9 +45,9 @@ public class Service extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	//	@Optional
-	//	@Valid
-	//	@OneToOne(optional = true)
-	//	private Promotion promotion;
+	@Optional
+	@Valid
+	@OneToOne(optional = true)
+	private Promotion			promotion;
 
 }
