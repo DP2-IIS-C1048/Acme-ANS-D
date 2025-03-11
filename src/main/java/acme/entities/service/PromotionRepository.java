@@ -11,7 +11,7 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface PromotionRepository extends AbstractRepository {
 
-	@Query("select p.promotionCode from Promotion p")
+	@Query("select p.code from Promotion p")
 	List<String> findAllPromotionCodes();
 
 }
