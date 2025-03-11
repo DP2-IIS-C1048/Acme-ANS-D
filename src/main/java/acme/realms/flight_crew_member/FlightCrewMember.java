@@ -1,5 +1,5 @@
 
-package acme.realms.flight.crew.member;
+package acme.realms.flight_crew_member;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;

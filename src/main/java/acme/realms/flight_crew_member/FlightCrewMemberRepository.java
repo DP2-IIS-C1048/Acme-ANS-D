@@ -1,5 +1,5 @@
 
-package acme.realms.flight.crew.member;
+package acme.realms.flight_crew_member;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
