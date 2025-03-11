@@ -43,11 +43,6 @@ public class AssistanceAgent extends AbstractRole {
 	private String				spokenLanguages;
 
 	@Mandatory
-	@Valid
-	@Automapped
-	private String				airline;
-
-	@Mandatory
 	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
 	@Automapped
 	private Date				moment;
