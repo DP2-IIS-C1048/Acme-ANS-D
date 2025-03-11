@@ -23,7 +23,7 @@ public class Task extends AbstractEntity {
 	private TaskType			type;
 
 	@Mandatory
-	@ValidString
+	@ValidString(min = 1)
 	@Automapped
 	private String				description;
 
