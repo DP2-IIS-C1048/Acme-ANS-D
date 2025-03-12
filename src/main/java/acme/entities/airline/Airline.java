@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -25,7 +27,11 @@ import lombok.Setter;
 @ValidAirline
 public class Airline extends AbstractEntity {
 
+	// Serialisation version --------------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidString(min = 1, max = 50)
@@ -49,7 +55,7 @@ public class Airline extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
-	@Automapped
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				foundationMoment;
 
 	@Optional
@@ -61,5 +67,9 @@ public class Airline extends AbstractEntity {
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phoneNumber;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 }
