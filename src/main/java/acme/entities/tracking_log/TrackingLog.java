@@ -22,7 +22,11 @@ import lombok.Setter;
 @Setter
 public class TrackingLog extends AbstractEntity {
 
+	// Serialisation version --------------------------------------------------
+
 	private static final long		serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
@@ -45,9 +49,13 @@ public class TrackingLog extends AbstractEntity {
 	private TrackingLogIndicator	indicator;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String					resolution;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@Mandatory
 	@Valid
