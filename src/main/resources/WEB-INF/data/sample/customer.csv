@@ -1,0 +1,50 @@
+key,key:userAccount,identifier,phone_number,physical_address,city,country,earned_pionts
+customer1,user-account-customer-01,"JJF829129",02546343,"Calle xd","Ciudad xd","Omán",50
+
+customer2,user-account-customer-02,"KU759746",517850361060,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit ame","Lorem ipsum dolor sit ame",25000
+#Variar physical_address
+customer2,user-account-customer-02,"RN009588",+047445163771,"L","Lorem ipsum dolor sit ame","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"DMQ262882",+2883188107270,"L","Lo","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"LS467087",848397,"L","Lorem ipsum dolor sit amet, consectetur adipiscin","Lorem ipsum dolor sit ame","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"LHX049273",89098633731046,"L","Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"MY651009",+982336414,"L","โลเร็ม อิปซัม","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"ZV518835",819481,"L","لوريم إيبسوم","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"PNT30845",+2184556,"L","洛伦·伊普森","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"VQN671893",+1737225,"L","<marquee>Hacked</marquee>","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"IJJ882438",684681,"L","<script>alert(‘Hacked!’);</script>","Lorem ipsum dolor sit ame",25000
+customer2,user-account-customer-02,"BP143383",7983111,"L","' or 'A' = 'A ","Lorem ipsum dolor sit ame",25000
+#Solo llevas comprobado para physical_address= "L" xdnt
+
+customer2,user-account-customer-02,"XNI508289",+67074876536409,
+customer2,user-account-customer-02,"TD939403",296749,
+customer2,user-account-customer-02,"KNP580536",+047201372723,
+customer2,user-account-customer-02,"NU697025",754125615336760,
+customer2,user-account-customer-02,"QZV788876",88533959802996,
+customer2,user-account-customer-02,"EG193744",+758933232,
+customer2,user-account-customer-02,"RWK899878",+175541087060784,
+customer2,user-account-customer-02,"TVD851329",312978,
+customer2,user-account-customer-02,"RP860123",+014493336051,
+customer2,user-account-customer-02,"VMO793471",003913844,
+customer2,user-account-customer-02,"JP750874",+03825270379525,
+customer2,user-account-customer-02,"UZ061420",+582090457,
+customer2,user-account-customer-02,"NJ331380",01662629,
+customer2,user-account-customer-02,"ODG765861",844934750,
+customer2,user-account-customer-02,"XRU719527",75493256378,
+customer2,user-account-customer-02,"VN223378",+394866313189,
+customer2,user-account-customer-02,"WUF676908",+7606597493,
+customer2,user-account-customer-02,"YD086450",911994040092656,
+customer2,user-account-customer-02,"EFB300182",807680277805289,
+customer2,user-account-customer-02,"VJB244301",82027374188,
+customer2,user-account-customer-02,"NO972735",88184985398,
+customer2,user-account-customer-02,"TLD247563",566430483710,
+customer2,user-account-customer-02,"SN528384",673851736695797,
+customer2,user-account-customer-02,"CIP482030",+226890,
+customer2,user-account-customer-02,"RKF409089",+68699626967,
+customer2,user-account-customer-02,"OIP992262",33357995775,
+customer2,user-account-customer-02,"UPQ084474",+700426430,
+customer2,user-account-customer-02,"SP033409",983359,
+customer2,user-account-customer-02,"PIR131431",+1878174840793,
+customer2,user-account-customer-02,"TPI988680",112861210445,
+customer2,user-account-customer-02,"NF730420",+077581626880344,
+
+

@@ -6,3 +6,6 @@ user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider',
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
 user-account-assistance-agent-01,true,"UserIdentity{employeeCode: 'RRM', spokenLanguages: 'spanish,english', airline: }",agent1,agent1
+user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
+user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'ગ્રાહક', email: 'covadonga@acme.com'}",customer2,customer2
+user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
