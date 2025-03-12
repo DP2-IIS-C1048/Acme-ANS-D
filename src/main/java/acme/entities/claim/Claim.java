@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -23,11 +25,15 @@ import lombok.Setter;
 @Setter
 public class Claim extends AbstractEntity {
 
+	// Serialisation version --------------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
-	@Automapped
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationMoment;
 
 	@Mandatory
@@ -49,6 +55,10 @@ public class Claim extends AbstractEntity {
 	@Valid
 	@Automapped
 	private ClaimIndicator		indicator;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@Mandatory
 	@Valid
