@@ -19,8 +19,8 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidBooking;
-import acme.entities.customer.Customer;
 import acme.entities.flight.Flight;
+import acme.realms.customer.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
