@@ -67,6 +67,46 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 				super.state(context, uniqueArrivalAndDepartureDate, "*", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
 			}
+			{
+				boolean validLegDates;
+				Integer totalLegs;
+
+				totalLegs = leg.getFlight().getLayovers();
+				if (totalLegs > 0) {
+					if (leg.getScheduledArrival().before(leg.getFlight().getScheduledDeparture()))
+						validLegDates = true;
+					else if (leg.getScheduledDeparture().after(leg.getFlight().getScheduledArrival()))
+						validLegDates = true;
+					else
+						validLegDates = false;
+				} else
+					validLegDates = true;
+
+				super.state(context, validLegDates, "*", "acme.validation.leg.invalid-leg-dates.message");
+
+			}
+			{
+				boolean validAirports;
+				Integer totalLegs;
+				Leg firstLeg;
+				Leg lastLeg;
+
+				totalLegs = leg.getFlight().getLayovers();
+				if (totalLegs > 0) {
+					firstLeg = leg.getFlight().getFirstLeg();
+					lastLeg = leg.getFlight().getLastLeg();
+					if (leg.getArrivalAirport().getIataCode().equals(firstLeg.getDepartureAirport().getIataCode()))
+						validAirports = true;
+					else if (leg.getDepartureAirport().getIataCode().equals(lastLeg.getDepartureAirport().getIataCode()))
+						validAirports = true;
+					else
+						validAirports = false;
+				} else
+					validAirports = true;
+
+				super.state(context, validAirports, "*", "acme.validation.leg.invalid-leg-airports.message");
+
+			}
 		}
 		result = !super.hasErrors(context);
 		return result;

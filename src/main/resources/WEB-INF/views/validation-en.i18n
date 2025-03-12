@@ -19,3 +19,14 @@ acme.validation.leg.duplicated-flightNumber.message = The flight number is alrea
 acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the airline's IATA code
 acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
+acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
+acme.validation.leg.invalid-leg-airports.message = The entered arrival airport does not match the departure airport of the first leg or the entered departure airport does not match the arrival airport of the last leg
+
+acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
+acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
+
+
+
+
+
+

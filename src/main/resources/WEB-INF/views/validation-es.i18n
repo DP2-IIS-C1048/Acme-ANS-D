@@ -11,7 +11,7 @@
 
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = El código del empleado está duplicado
-acme.validation..flight.crew.member.employee-code.message = Las primeras dos o tres letras del código del empleado deben corresponder con las iniciales
+acme.validation.flight.crew.member.employee-code.message = Las primeras dos o tres letras del código del empleado deben corresponder con las iniciales
 
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = Número de registro ya usado
@@ -20,4 +20,14 @@ acme.validation.leg.duplicated-flightNumber.message = El número de vuelo ya est
 acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea
 acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de salida debe ser anterior que la de llegada
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = Las fechas de salida o de llegada coinciden en el intervalo de otro tramo
+acme.validation.leg.invalid-leg-dates.message = El tramo introducido no es posterior o anterior al último tramo o primer tramo
+acme.validation.leg.invalid-leg-airports.message = El aeropuerto de llegada introducido no coincide con el aeropuerto de salida del primer tramo o el aeropuerto de salida introducido no coincide con el aeropuerto de llegada del último tramo
+
+acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
+acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
+
+
+
+
+
 
