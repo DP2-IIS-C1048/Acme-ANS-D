@@ -8,6 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
+acme.validation.flight.crew.member.duplicated-employee-code.message = The employee Code is duplicated
+acme.validation..flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
+
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = The registration number is duplicated
+
+acme.validation.leg.duplicated-flightNumber.message = The flight number is already in use
+acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the airline's IATA code
+acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
+acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
+acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
+acme.validation.leg.invalid-leg-airports.message = The entered arrival airport does not match the departure airport of the first leg or the entered departure airport does not match the arrival airport of the last leg
+
+acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
+acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
+
+
+
+
+
 

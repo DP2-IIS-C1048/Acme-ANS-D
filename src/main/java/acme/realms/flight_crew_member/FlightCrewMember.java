@@ -1,9 +1,6 @@
 
-package acme.realms.assistanceagent;
+package acme.realms.flight_crew_member;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -13,10 +10,10 @@ import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidAssistanceAgent;
+import acme.constraints.ValidFlightCrewMember;
 import acme.entities.airline.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,44 +21,43 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@ValidAssistanceAgent
-public class AssistanceAgent extends AbstractRole {
+@ValidFlightCrewMember
+public class FlightCrewMember extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(min = 8, max = 9, pattern = "^[A-Z]{2,3}\\d{6}$")
-	@Column(unique = true)
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
+	@Automapped
 	private String				employeeCode;
+
+	@Mandatory
+	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@Automapped
+	private String				phoneNumber;
 
 	@Mandatory
 	@ValidString(min = 1, max = 255)
 	@Automapped
-	private String				spokenLanguages;
+	private String				languageSkills; //Set of languages ​​separated by ";"
 
 	@Mandatory
-	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
-	@Automapped
-	private Date				moment;
-
-	@Optional
-	@ValidString(max = 255)
-	@Automapped
-	private String				briefBio;
-
-	@Mandatory
-	@ValidMoney
-	@Automapped
-	private Money				salary;
-
-	@Optional
 	@Valid
 	@Automapped
-	private String				photo;
+	private AvailabilityStatus	availabilityStatus;
 
 	@Mandatory
 	@Valid
 	@ManyToOne
 	private Airline				airline;
 
+	@Mandatory
+	@ValidMoney(min = 0.0, max = 10000000.0)
+	@Automapped
+	private Money				salary;
+
+	@Optional
+	@ValidNumber(min = 0, max = 120)
+	@Automapped
+	private Integer				yearsOfExperience;
 }

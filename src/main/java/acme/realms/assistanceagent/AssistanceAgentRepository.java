@@ -9,6 +9,6 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface AssistanceAgentRepository extends AbstractRepository {
 
-	@Query("Select a from AssistanceAgent where a.employeeCode = :employeeCode")
+	@Query("Select a from AssistanceAgent a where a.employeeCode = :employeeCode")
 	AssistanceAgent findAssistanceAgentByEmployeeCode(String employeeCode);
 }

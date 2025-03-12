@@ -1,5 +1,5 @@
 
-package acme.entities.customer;
+package acme.realms.customer;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

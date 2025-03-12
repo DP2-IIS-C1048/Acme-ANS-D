@@ -6,6 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.activity_log.ActivityLog;
+import acme.entities.leg.LegStatus;
 
 @Validator
 public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, ActivityLog> {

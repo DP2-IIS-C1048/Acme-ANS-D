@@ -1,42 +1,39 @@
 
-package acme.entities.activity_log;
+package acme.entities.claim;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidActivityLog;
-import acme.entities.flight_assignment.FlightAssignment;
+import acme.entities.leg.Leg;
+import acme.realms.assistanceagent.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@ValidActivityLog
-public class ActivityLog extends AbstractEntity {
+public class Claim extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidMoment(past = true)
-	@Temporal(TemporalType.TIMESTAMP)
+	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
+	@Automapped
 	private Date				registrationMoment;
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
+	@ValidEmail
 	@Automapped
-	private String				typeOfIncident;
+	private String				passengerEmail;
 
 	@Mandatory
 	@ValidString(min = 1, max = 255)
@@ -44,13 +41,22 @@ public class ActivityLog extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 10, fraction = 0)
+	@Valid
 	@Automapped
-	private Integer				severityLevel;
+	private ClaimType			type;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private ClaimIndicator		indicator;
 
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private FlightAssignment	flightAssignment;
+	private AssistanceAgent		assitanceAgent;
 
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Leg					leg;
 }

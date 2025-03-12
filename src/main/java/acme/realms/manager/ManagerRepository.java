@@ -7,7 +7,7 @@ import acme.client.repositories.AbstractRepository;
 
 public interface ManagerRepository extends AbstractRepository {
 
-	@Query("SELECT m FROM Manager m WHERE m.identifier = :identifier")
-	Manager findManagerByIndentifier(String identifier);
+	@Query("SELECT m FROM Manager m WHERE m.identifierNumber = :identifierNumber")
+	Manager findManagerByIndentifier(String identifierNumber);
 
 }

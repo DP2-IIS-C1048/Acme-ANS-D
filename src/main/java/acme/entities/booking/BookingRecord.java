@@ -7,6 +7,8 @@ import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
+import acme.entities.passenger.Passenger;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,8 +24,8 @@ public class BookingRecord extends AbstractEntity {
 	@ManyToOne
 	private Booking				booking;
 
-	//	@Optional
-	//	@Valid
-	//	@ManyToOne
-	//	private Passenger			passenger;
+	@Optional
+	@Valid
+	@ManyToOne
+	private Passenger			passenger;
 }
