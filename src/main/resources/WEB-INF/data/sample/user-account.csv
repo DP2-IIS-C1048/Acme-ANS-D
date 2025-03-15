@@ -5,4 +5,10 @@ user-account-consumer-03,true,"UserIdentity{name: 'Manolo', surname: '之乎路�
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
-user-account-assistance-agent-01,true,"UserIdentity{employeeCode: 'RRM', spokenLanguages: 'spanish,english', airline: }",agent1,agent1
+user-account-flight-crew-01,true,"UserIdentity{name: 'David', surname: 'Basado', email: 'david@acme.com'}",flightcrew1,flightcrew1
+user-account-flight-crew-02,true,"UserIdentity{name: 'Jesús', surname: 'Corrales', email: 'jesus@acme.com'}",flightcrew2,flightcrew2
+user-account-flight-crew-03,true,"UserIdentity{name: 'Rodrigo', surname: 'García', email: 'rodrigo@acme.com'}",flightcrew3,flightcrew3
+user-account-flight-crew-04,true,"UserIdentity{name: 'Juan', surname: 'Rogríguez', email: 'juan@acme.com'}",flightcrew4,flightcrew4
+user-account-flight-crew-05,true,"UserIdentity{name: 'Mónica', surname: 'Ruibal', email: 'monica@acme.com'}",flightcrew5,flightcrew5
+
+

@@ -1,0 +1,56 @@
+key,name,iata-code,website,type,foundation-moment,email-address,phone-number
+# base entity
+airline-00,GST Airlines,BAX,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+# name - standard variations
+airline-01,A,ABC,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-02,AB,DEF,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-03,NombreMuyLargoConCuarentaYNueveCaracteres!!!!ABCD,GHI,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-04,NombreMuyLargoConCincuentaYNueveCaracteres!!!!ABCD,JKL,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-05,伦·伊普,MNO,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-06,Robert'); DROP TABLE Airlines;--,PQR,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-07,<script>alert('XSS')</script>,STU,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+# website - standard variations
+airline-08,GST Airlines,VWX,http://lorem.com/ipsum,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-09,GST Airlines,YZA,ftp://a,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-10,GST Airlines,BCD,ftp://a.b,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-11,GST Airlines,EFG,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-12,GST Airlines,HIJ,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-13,GST Airlines,KLM,https://www.lorem-ipsum.org,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-14,GST Airlines,NOP,ftp://www.lorem-ipsum.org,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-15,GST Airlines,QRS,http://www.lorem-ipsum.org/dolor/sit.html,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-16,GST Airlines,TUV,http://www.lorem-ipsum.org/dolor/sit.html#dolor,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-17,GST Airlines,WXY,http://example.org?a=1&b=2,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-18,GST Airlines,ZBC,http://example.org?,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-19,GST Airlines,CDE,http://example.org?a,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-20,GST Airlines,FGH,http://example.org?a&b,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-21,GST Airlines,IJK,http://example.org/,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-22,GST Airlines,LMN,http://example.org/a,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-23,GST Airlines,OPQ,http://example.org/a/b,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-24,GST Airlines,RST,http://example.org/a/b?,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-25,GST Airlines,UVW,http://example.org/a/b?a&b,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+# type - standard variations
+airline-26,GST Airlines,LAC,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-27,GST Airlines,POD,http://gst.com/airline,STANDARD,2020/01/01 00:00,gst@gmail.com,123456789
+airline-28,GST Airlines,WDG,http://gst.com/airline,LOW_COST,2020/01/01 00:00,gst@gmail.com,123456789
+# foundationt-moment - standard variations
+airline-29,GST Airlines,AAA,http://gst.com/airline,LUXURY,2000/01/01 00:00,gst@gmail.com,123456789
+airline-30,GST Airlines,AAB,http://gst.com/airline,LUXURY,2000/01/01 00:01,gst@gmail.com,123456789
+airline-31,GST Airlines,AAC,http://gst.com/airline,LUXURY,2024/12/31 23:59,gst@gmail.com,123456789
+airline-32,GST Airlines,AAD,http://gst.com/airline,LUXURY,2025/01/01 00:00,gst@gmail.com,123456789
+airline-33,GST Airlines,AAE,http://gst.com/airline,LUXURY,2010/06/15 12:30,gst@gmail.com,123456789
+airline-34,GST Airlines,AAF,http://gst.com/airline,LUXURY,2020/09/10 15:45,gst@gmail.com,123456789
+# email-address - standard variations
+airline-35,GST Airlines,AAG,http://gst.com/airline,LUXURY,2020/01/01 00:00,acme@lorem-ipsum.org,123456789
+airline-37,GST Airlines,AAI,http://gst.com/airline,LUXURY,2020/01/01 00:00,a@b.e,123456789
+airline-38,GST Airlines,AAJ,http://gst.com/airline,LUXURY,2020/01/01 00:00,a@b.es,123456789
+airline-39,GST Airlines,AAK,http://gst.com/airline,LUXURY,2020/01/01 00:00,a@b.esx,123456789
+airline-40,GST Airlines,AAL,http://gst.com/airline,LUXURY,2020/01/01 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud/exercitation/ullamco/laboris/nisi/ut.aliquip/ex.ea.commodo/consequat/duis/aute.irure.doloris.edu,123456789
+airline-41,GST Airlines,AAM,http://gst.com/airline,LUXURY,2020/01/01 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,123456789
+airline-42,GST Airlines,ABM,http://gst.com/airline,LUXURY,2020/01/01 00:00,null,123456789
+# phone-number - standard variations
+airline-43,GST Airlines,AEY,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,1234567
+airline-44,GST Airlines,OLK,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,12345678901234
+airline-45,GST Airlines,POP,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789012345
+airline-46,GST Airlines,REQ,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,+123456
+airline-47,GST Airlines,HJX,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,+123456789012345
+airline-48,GST Airlines,LOL,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,null
