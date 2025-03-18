@@ -8,4 +8,4 @@ user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטי�
 user-account-assistance-agent-01,true,"UserIdentity{employeeCode: 'RRM', spokenLanguages: 'spanish,english', airline: }",agent1,agent1
 user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'ગ્રાહક', email: 'covadonga@acme.com'}",customer2,customer2
-user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
+user-account-customer-03,true,"UserIdentity{name: 'José', surname: 'Bonaparte', email: 'jbon@acme.com'}",customer3,customer3
