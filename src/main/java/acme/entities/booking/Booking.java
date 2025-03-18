@@ -48,7 +48,7 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0, max = 100000)
 	@Automapped
 	private Money				price;
 
@@ -59,11 +59,11 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Customer			customer;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Flight				flight;
 }
