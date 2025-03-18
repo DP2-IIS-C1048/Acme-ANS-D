@@ -28,12 +28,12 @@ public class Technician extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
+	@ValidString(min = 8, max = 9, pattern = "^[A-Z]{2-3}\\d{6}$")
 	@Column(unique = true)
 	private String				license;
 
 	@Mandatory
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@ValidString(min = 6, max = 16, pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phone;
 
@@ -53,7 +53,7 @@ public class Technician extends AbstractRole {
 	private Integer				yearsOfExperience;
 
 	@Optional
-	@ValidString(pattern = "^([^,]*,)*[^,]+$") // Separados por coma
+	@ValidString(min = 0, max = 255, pattern = "^(?:(?:[^,]*,)*[^,]+)?$\r\n")
 	@Automapped
 	private String				certifications;
 
