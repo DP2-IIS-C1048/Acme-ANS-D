@@ -1,52 +1,6 @@
 key,key:userAccount,identifier,phone_number,physical_address,city,country,earned_pionts
-# base entity
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Omán",25000
-# phone number variations
-customer2,user-account-customer-02,"Cગ્રા759746","123456","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","1234567","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","123456789012345","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","12345678901234","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","+123456","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","+1234567","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","+12345678901234","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","+1234567890","Calle xd","Ciudad xd","Omán",25000
-customer2,user-account-customer-02,"Cગ્રા759746","+123456789012345","Calle xd","Ciudad xd","Omán",25000
-# physical address variations
-customer1,user-account-customer-01,"GCF829129","1234567890","L","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Lo","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","โลเร็ม อิปซัม","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","لوريم إيبسوم","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","洛伦·伊普森","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","<marquee>Hacked</marquee>","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","<script>alert(‘Hacked!’);</script>","Ciudad xd","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","' or 'A' = 'A ","Ciudad xd","Omán",25000
-# city variations
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","L","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Lo","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Lorem ipsum dolor sit amet, consectetur adipiscin","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Lorem ipsum dolor sit amet, consectetur adipiscing","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","โลเร็ม อิปซัม","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","لوريم إيبسوم","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","洛伦·伊普森","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","<marquee>Hacked</marquee>","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","<script>alert(‘Hacked!’);</script>","Omán",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","' or 'A' = 'A ","Omán",25000
-# country variations
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","L",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Lo",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Lorem ipsum dolor sit amet, consectetur adipiscin",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Lorem ipsum dolor sit amet, consectetur adipiscing",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","โลเร็ม อิปซัม",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","لوريم إيبسوم",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","洛伦·伊普森",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","<marquee>Hacked</marquee>",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","<script>alert(‘Hacked!’);</script>",25000
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","' or 'A' = 'A ",25000
-# earned_points variation
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Omán",0
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Omán",1
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Omán",24999
-customer1,user-account-customer-01,"GCF829129","1234567890","Calle xd","Ciudad xd","Omán",25000
+customer1,user-account-customer-01,"GCF829129","1234567890","Calle Loca","Ciudad de Locos","Omán",25000
+customer2,user-account-customer-02,"CEW345212","+1234567890","Calle Croisant","Baguete","Francia",2000
+customer3,user-account-customer-03,"JBN049328","1234567809","Calle Perú","Ciudad Limón","Perú",5000
+
 
