@@ -32,7 +32,7 @@ public class Task extends AbstractEntity {
 	private TaskType			type;
 
 	@Mandatory
-	@ValidString(min = 1, max = 255)
+	@ValidString(min = 1)
 	@Automapped
 	private String				description;
 
@@ -52,7 +52,7 @@ public class Task extends AbstractEntity {
 
 	@Optional
 	@Valid
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	private Technician			technician;
 
 }
