@@ -33,7 +33,7 @@ public class Technician extends AbstractRole {
 	private String				license;
 
 	@Mandatory
-	@ValidString(min = 6, max = 16, pattern = "^\\+?\\d{6,15}$")
+	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
 	private String				phone;
 
@@ -53,7 +53,7 @@ public class Technician extends AbstractRole {
 	private Integer				yearsOfExperience;
 
 	@Optional
-	@ValidString(min = 0, max = 255, pattern = "^(?:(?:[^,]*,)*[^,]+)?$\r\n")
+	@ValidString(min = 0, pattern = "^(?:(?:[^,]*,)*[^,]+)?$\r\n")
 	@Automapped
 	private String				certifications;
 
