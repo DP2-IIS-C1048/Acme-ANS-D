@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>250</y>
+      <w>410</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+MaintenanceRecord
+--
++ maintenanceMoment: Date {Mandatory, ValidMoment(min = "2000/01/01 00:00:00"), Temporal(TemporalType.TIMESTAMP)}
++ status: MaintenanceStatus {Mandatory, Valid, Automapped}
++ inspectionDueDate: Date {Mandatory, ValidMoment(past = false), Temporal(TemporalType.TIMESTAMP)}
++ estimatedCost: Money {Mandatory, ValidMoney(min = 0, max = 20000), Automapped}
++ notes: String {Optional, ValidString(min = 0), Automapped}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>585</x>
+      <y>250</y>
+      <w>325</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Task
+--
++ type: TaskType {Mandatory, Valid, Automapped}
++ description: String {Mandatory, ValidString(min = 1), Automapped}
++ priority: Integer {Mandatory, ValidNumber(min = 0, max = 10, integer = 2, fraction = 0), Automapped}
++ duration: Integer {Mandatory, ValidNumber(min = 0, max = 6000, integer = 4, fraction = 0), Automapped}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>170</y>
+      <w>60</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Technician
+
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>365</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Involves
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>535</x>
+      <y>305</y>
+      <w>230</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>Involves &gt;
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>430.0;10.0;430.0;150.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>265</x>
+      <y>315</y>
+      <w>225</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt; Involves
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0;430.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>545</x>
+      <y>175</y>
+      <w>210</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt; Registered By
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;400.0;20.0;400.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>175</y>
+      <w>230</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>Registered By &gt;
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>440.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1025</x>
+      <y>260</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Aircraft
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>905</x>
+      <y>270</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>About &gt;
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>240.0;20.0;140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
