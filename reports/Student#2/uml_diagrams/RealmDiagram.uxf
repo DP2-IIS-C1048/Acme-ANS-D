@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>&lt;&lt;Entity&gt;&gt;
+Announcement
+--
++ moment: Date {Mandatory, ValidMoment(past=true), Automapped}
++ title: String {Mandatory, ValidShortText, Automapped}
++ status: AnnouncementStatus {Mandatory, Valid, Automapped}
++ text: String {Mandatory, ValidLongText, Automapped}
++ moreInfo: String {Mandatory, ValidUrl, Automapped}
+bg=green
+</help_text>
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>140</y>
+      <w>896</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Customer{ValidCustomer}
+--
++ identifier: String {Mandatory, ValidString(pattern = "^[A-Z]{2,3}\\d{6}$"), Column(unique = true)}
++ phoneNumber: String {Mandatory, ValidString(pattern = "^\\+?\\d{6,15}$"), Automapped}
++ physicalAddress: String {Mandatory, ValidString(min = 1), Automapped}
++ city: String {Mandatory, ValidString(min = 1, max = 50), Automapped}
++ country: String {Mandatory, ValidString(min = 1, max = 50), Automapped}
++ earnedPoints: Integer {Optional, ValidNumber(min = 1, max = 50000), Automapped}
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
