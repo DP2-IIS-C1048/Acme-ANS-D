@@ -4,6 +4,8 @@ package acme.entities.passenger;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -39,7 +41,7 @@ public class Passenger extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment(past = true, min = "1850/01/01 00:00:00")
-	@Automapped
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dateOfBirth;
 
 	@Optional
