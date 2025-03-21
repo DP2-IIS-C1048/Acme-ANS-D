@@ -1,0 +1,17 @@
+key,maintenanceMoment,status,inspectionDueDate,estimatedCost,notes,key:aircraft,key:technician
+# base entity
+maintenance-record-00,2025/01/05 10:00,COMPLETED,2025/01/07,10000,"I love this plane!",aircraft-00,technician-00
+# maintenanceMoment - standard variations
+# maintenanceMoment - singular values
+# status - standard variations
+# status - singular values
+# inspectionDueDate - standard variations
+# inspectionDueDate - singular values
+# estimatedCost - standard variations
+# estimatedCost - singular values
+# notes - standard variations
+# notes - singular values
+# aircraft - standard variations
+# aircraft - singular values
+# technician - standard variations
+# technician - singular values
