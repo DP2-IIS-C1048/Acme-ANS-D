@@ -25,6 +25,8 @@ acme.validation.leg.invalid-leg-airports.message = The entered arrival airport d
 acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
 acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
 
+acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
+
 
 
 
