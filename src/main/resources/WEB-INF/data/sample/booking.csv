@@ -1,0 +1,17 @@
+key,locatorCode,purchaseMoment,travelClass,price,lastNibble,customer,flight
+# base entity
+booking-00,"TTXA65N",02/07/2012 0:00,ECONOMY,EUR 50.00,4826,passenger-00,flight-00
+# locatorCode is unique so it has no standard variations
+# purchaseMoment - standard variations
+booking-01,"EP88E4Q",01/01/2000 0:00,ECONOMY,EUR 50.00,4826,passenger-01,flight-01
+booking-02,"2Z01R9",01/01/2000 0:01,ECONOMY,EUR 50.00,4826,passenger-02,flight-02
+booking-03,"FTXEOV",31/12/2024 23:59,ECONOMY,EUR 50.00,4826,passenger-03,flight-03
+booking-04,"BH1W66I",01/01/2025 0:00,ECONOMY,EUR 50.00,4826,passenger-04,flight-04
+# travelClass - standard variations
+booking-05,"JQBDAF0Z",02/07/2012 0:00,BUSINESS,EUR 50.00,4826,passenger-05,flight-01
+# price - standard variations
+booking-06,"P4VVHT2P",02/07/2012 0:00,ECONOMY,EUR 0.00,4826,passenger-06,flight-01
+booking-07,"E430QQY",02/07/2012 0:00,ECONOMY,EUR 0.01,4826,passenger-07,flight-01
+booking-08,"TMNKIXKR",02/07/2012 0:00,ECONOMY,EUR 99999.99,4826,passenger-08,flight-01
+booking-09,"Q65WD3",02/07/2012 0:00,ECONOMY,EUR 100000.00,4826,passenger-09,flight-01
+# lastNibble is allways a number of four digits so it has no standard variations
