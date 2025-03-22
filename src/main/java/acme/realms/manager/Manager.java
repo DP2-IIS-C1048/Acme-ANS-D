@@ -50,9 +50,4 @@ public class Manager extends AbstractRole {
 	@ValidUrl
 	@Automapped
 	private String				picture;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Airline				airline;
 }

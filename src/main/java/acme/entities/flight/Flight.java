@@ -36,7 +36,7 @@ public class Flight extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	private boolean				indication;
+	private boolean				requiresSelfTransfer;
 
 	@Mandatory
 	@ValidMoney(min = 0, max = 200000)
@@ -99,11 +99,6 @@ public class Flight extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Airline	airline;
 
 	@Mandatory
 	@Valid

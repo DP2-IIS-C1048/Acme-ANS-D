@@ -33,17 +33,17 @@ public class Leg extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(min = 7, max = 7)
+	@ValidString(pattern="^[A-Z]{3}\\d{4}$")
 	@Column(unique = true)
 	private String				flightNumber;
 
 	@Mandatory
-	@ValidMoment(min = "2000/01/01 00:00", max = "2200/12/31 23:59")
+	@ValidMoment(min = "2000/01/01 00:00", max = "2200/12/31 23:58")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledDeparture;
 
 	@Mandatory
-	@ValidMoment(min = "2000/01/01 00:00", max = "2200/12/31 23:59")
+	@ValidMoment(min = "2000/01/01 00:01", max = "2200/12/31 23:59")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledArrival;
 
