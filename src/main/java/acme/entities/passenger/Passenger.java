@@ -40,7 +40,7 @@ public class Passenger extends AbstractEntity {
 	private String				passportNumber;
 
 	@Mandatory
-	@ValidMoment(past = true, min = "1850/01/01 00:00:00")
+	@ValidMoment(past = true, min = "2000/01/01 00:00")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				dateOfBirth;
 
