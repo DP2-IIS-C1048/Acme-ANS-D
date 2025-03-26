@@ -1,13 +1,16 @@
 
-package acme.entities.booking;
+package acme.features.authenticated.customer.booking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.services.GuiService;
+import acme.entities.booking.Booking;
+import acme.entities.booking.BookingRepository;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -19,6 +22,7 @@ public class ListingBookingByCustomerService extends AbstractService<Customer, B
 
 	@Override
 	public void authorise() {
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -31,4 +35,13 @@ public class ListingBookingByCustomerService extends AbstractService<Customer, B
 		super.getBuffer().addData(bookings);
 
 	}
+
+	@Override
+	public void unbind(final Booking booking) {
+		Dataset dataset;
+
+		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price");
+		super.getResponse().addData(dataset);
+	}
+
 }
