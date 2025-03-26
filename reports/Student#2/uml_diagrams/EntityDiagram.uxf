@@ -14,8 +14,8 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8</x>
-      <y>176</y>
+      <x>0</x>
+      <y>192</y>
       <w>160</w>
       <h>56</h>
     </coordinates>
@@ -28,8 +28,8 @@ bg=pink</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>296</x>
-      <y>152</y>
+      <x>288</x>
+      <y>168</y>
       <w>696</w>
       <h>120</h>
     </coordinates>
@@ -40,15 +40,16 @@ Booking {ValidBooking}
 + purchaseMoment: Date {Mandatory, ValidMoment(past = true, min = "2000/01/01 00:00"), Temporal(TemporalType.TIMESTAMP)}
 + travelClass: TravelClass {Mandatory, Valid, Automapped}
 + price: Money {Mandatory, ValidMoney, Automapped}
-+ lastNibble: String {Optional, ValidString(pattern = "\\d{4}"), Automapped}
+- lastNibble: String {Optional, ValidString(pattern = "\\d{4}"), Automapped}
++ draftMode: Boolean {Mandatory, Valid, Automapped}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>352</y>
+      <x>552</x>
+      <y>368</y>
       <w>168</w>
       <h>48</h>
     </coordinates>
@@ -61,8 +62,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>304</x>
-      <y>464</y>
+      <x>296</x>
+      <y>480</y>
       <w>696</w>
       <h>120</h>
     </coordinates>
@@ -72,7 +73,7 @@ Passenger
 + fullName: String {Mandatory, ValidString(min = 1), Automapped}
 + email: String {Mandatory, ValidEmail, Automapped}
 + passportNumber: String {Mandatory, ValidString(pattern = "^[A-Z0-9]{6,9}$"), Automapped}
-+ dateOfBirth: Date {Mandatory, ValidMoment(past = true, min = "1850/01/01 00:00:00"), Temporal(TemporalType.TIMESTAMP)}
++ dateOfBirth: Date {Mandatory, ValidMoment(past = true, min = "2000/01/01 00:00"), Temporal(TemporalType.TIMESTAMP)}
 + specialNeeds: String {Optional, ValidString(max = 50), Automapped}
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -80,8 +81,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>192</y>
+      <x>152</x>
+      <y>208</y>
       <w>152</w>
       <h>40</h>
     </coordinates>
@@ -95,8 +96,8 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>264</y>
+      <x>632</x>
+      <y>280</y>
       <w>32</w>
       <h>104</h>
     </coordinates>
@@ -109,8 +110,8 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>392</y>
+      <x>632</x>
+      <y>408</y>
       <w>32</w>
       <h>88</h>
     </coordinates>
