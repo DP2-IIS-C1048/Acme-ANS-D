@@ -1,38 +1,41 @@
-key,maintenanceMoment,status,inspectionDueDate,estimatedCost,notes,key:aircraft,key:technician
+key,maintenanceMoment,status,inspectionDueDate,estimatedCost,notes,draftMode,key:aircraft,key:technician
 # base entity
-maintenance-record-00,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
+maintenance-record-00,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
 # maintenanceMoment - standard variations
-maintenance-record-01,2000/01/01 00:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-02,2000/01/01 00:01,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-03,2024/12/31 23:59,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-04,2025/01/01 0:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
+maintenance-record-01,2000/01/01 00:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-02,2000/01/01 00:01,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-03,2024/12/31 23:59,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-04,2025/01/01 0:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
 # maintenanceMoment - No singular values
 # status - standard variations
-maintenance-record-05,2012/07/02 10:00,PENDING,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-06,2012/07/02 10:00,IN_PROGRESS,2012/07/02 12:00,10000,"I love this plane!",aircraft-00,technician-00
+maintenance-record-05,2012/07/02 10:00,PENDING,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-06,2012/07/02 10:00,IN_PROGRESS,2012/07/02 12:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
 # status - No singular values
 # inspectionDueDate - standard variations
-maintenance-record-07,2012/07/02 10:00,COMPLETED,2025/01/01 00:00,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-08,2012/07/02 10:00,COMPLETED,2025/01/01 00:01,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-09,2012/07/02 10:00,COMPLETED,2200/12/30 23:59,10000,"I love this plane!",aircraft-00,technician-00
-maintenance-record-10,2012/07/02 10:00,COMPLETED,2200/12/31 0:00,10000,"I love this plane!",aircraft-00,technician-00
+maintenance-record-07,2012/07/02 10:00,COMPLETED,2025/01/01 00:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-08,2012/07/02 10:00,COMPLETED,2025/01/01 00:01,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-09,2012/07/02 10:00,COMPLETED,2200/12/30 23:59,10000,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-10,2012/07/02 10:00,COMPLETED,2200/12/31 0:00,10000,"I love this plane!",FALSE,aircraft-00,technician-00
 # inspectionDueDate - No singular values
 # estimatedCost - standard variations
-maintenance-record-11,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,0,"I love this plane!",aircraft-00,technician-00
-maintenance-record-12,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,1,"I love this plane!",aircraft-00,technician-00
-maintenance-record-13,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,19999,"I love this plane!",aircraft-00,technician-00
-maintenance-record-14,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,20000,"I love this plane!",aircraft-00,technician-00
+maintenance-record-11,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,0,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-12,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,1,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-13,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,19999,"I love this plane!",FALSE,aircraft-00,technician-00
+maintenance-record-14,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,20000,"I love this plane!",FALSE,aircraft-00,technician-00
 # estimatedCost - No singular values
 # notes - standard variations
-maintenance-record-15,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,null,aircraft-00,technician-00
-maintenance-record-16,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"",aircraft-00,technician-00
-maintenance-record-17,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"L",aircraft-00,technician-00
-maintenance-record-18,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",aircraft-00,technician-00
-maintenance-record-19,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",aircraft-00,technician-00
-maintenance-record-20,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"โลเร็ม อิปซัม",aircraft-00,technician-00
-maintenance-record-21,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"لوريم إيبسوم",aircraft-00,technician-00
-maintenance-record-22,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"洛伦·伊普森",aircraft-00,technician-00
+maintenance-record-15,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,null,FALSE,aircraft-00,technician-00
+maintenance-record-16,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"",FALSE,aircraft-00,technician-00
+maintenance-record-17,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"L",FALSE,aircraft-00,technician-00
+maintenance-record-18,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",FALSE,aircraft-00,technician-00
+maintenance-record-19,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",FALSE,aircraft-00,technician-00
+maintenance-record-20,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"โลเร็ม อิปซัม",FALSE,aircraft-00,technician-00
+maintenance-record-21,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"لوريم إيبسوم",FALSE,aircraft-00,technician-00
+maintenance-record-22,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"洛伦·伊普森",FALSE,aircraft-00,technician-00
 # notes - No singular values
+# draftMode - standard variations
+maintenance-record-23,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,10000,"I love this plane!",TRUE,aircraft-00,technician-00
+# draftMode - no singular values
 # aircraft - standard variations
 # aircraft - singular values
 # technician - standard variations
