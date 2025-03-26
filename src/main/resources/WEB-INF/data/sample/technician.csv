@@ -36,9 +36,12 @@ technician-23,user-account-technician-03,"ABC123456","123456789","Engine Mainten
 technician-24,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,120,"Licencia A,Licencia B1,Licencia B2"
 # yearsOfExperience - no singular values
 # certifications - standard variations
-technician-25,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-technician-26,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,aa,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a"
-technician-27,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"b"
-technician-28,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,""
-technician-29,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"a,b"
+technician-25,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,null
+technician-26,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,""
+technician-27,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"L"
+technician-28,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+technician-29,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*"
+technician-30,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"โลเร็ม อิปซัม"
+technician-31,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"لوريم إيبسوم"
+technician-32,user-account-technician-03,"ABC123456","123456789","Engine Maintenance",TRUE,21,"洛伦·伊普森"
 # certifications - no singular values
