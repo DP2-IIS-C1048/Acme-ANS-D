@@ -1,0 +1,31 @@
+key,type,description,priority,estimatedDuration,key:technician
+# base entity
+task-00,MAINTENANCE,"This task is difficult",5,400,technician-00
+# type - standard variations
+task-01,INSPECTION,"This task is difficult",5,400,technician-00
+task-02,REPAIR,"This task is difficult",5,400,technician-00
+task-03,SYSTEM_CHECK,"This task is difficult",5,400,technician-00
+# type - no singular values
+# description - standard variations
+task-04,MAINTENANCE,"L",5,400,technician-00
+task-05,MAINTENANCE,"Lo",5,400,technician-00
+task-06,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",5,400,technician-00
+task-07,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5,400,technician-00
+task-08,MAINTENANCE,"โลเร็ม อิปซัม",5,400,technician-00
+task-09,MAINTENANCE,"لوريم إيبسوم",5,400,technician-00
+task-10,MAINTENANCE,"洛伦·伊普森",5,400,technician-00
+# description - no singular values
+# priority - standard variations
+task-11,MAINTENANCE,"This task is difficult",0,400,technician-00
+task-12,MAINTENANCE,"This task is difficult",1,400,technician-00
+task-13,MAINTENANCE,"This task is difficult",9,400,technician-00
+task-14,MAINTENANCE,"This task is difficult",10,400,technician-00
+# priority - no singular values
+# estimatedDuration - standard variations
+task-15,MAINTENANCE,"This task is difficult",5,0,technician-00
+task-16,MAINTENANCE,"This task is difficult",5,1,technician-00
+task-17,MAINTENANCE,"This task is difficult",5,5999,technician-00
+task-18,MAINTENANCE,"This task is difficult",5,6000,technician-00
+# estimatedDuration - no singular values
+# technician - standard variations
+# technician - no singular values
