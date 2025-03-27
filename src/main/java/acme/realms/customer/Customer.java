@@ -23,7 +23,7 @@ public class Customer extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
 	private String				identifier;
 
@@ -48,7 +48,7 @@ public class Customer extends AbstractRole {
 	private String				country;
 
 	@Optional
-	@ValidNumber(min = 1, max = 50000)
+	@ValidNumber(min = 0, max = 50000)
 	@Automapped
 	private Integer				earnedPoints;
 
