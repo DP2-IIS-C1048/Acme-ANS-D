@@ -27,6 +27,9 @@ acme.validation.manager.invalid-identifierNumber.message = The identifier number
 
 acme.validation.customer.duplicated-identifier.message = The customer identifier already exists
 
+acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
+
+
 
 
 
