@@ -10,14 +10,13 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
-import acme.entities.booking.BookingRepository;
 import acme.realms.customer.Customer;
 
 @GuiService
-public class ListingBookingByCustomerService extends AbstractService<Customer, Booking> {
+public class CustomerBookingListingService extends AbstractService<Customer, Booking> {
 
 	@Autowired
-	private BookingRepository repository;
+	private CustomerBookingRepository repository;
 
 
 	@Override
