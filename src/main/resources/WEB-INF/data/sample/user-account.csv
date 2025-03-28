@@ -40,3 +40,6 @@ user-account-technician-31,true,"UserIdentity{name: 'Lee', surname: 'Cheng', ema
 user-account-technician-32,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng32@acme.com'}",technician32,technician32
 user-account-technician-33,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng33@acme.com'}",technician33,technician33
 user-account-technician-34,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng34@acme.com'}",technician34,technician34
+user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
+user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'Estrada', email: 'covadonga@acme.com'}",customer2,customer2
+user-account-customer-03,true,"UserIdentity{name: 'José', surname: 'Bonaparte', email: 'jbon@acme.com'}",customer3,customer3
