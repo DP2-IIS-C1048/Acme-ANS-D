@@ -53,7 +53,7 @@ public class Technician extends AbstractRole {
 	private Integer				yearsOfExperience;
 
 	@Optional
-	@ValidString(pattern = "^([^,]*,)*[^,]+$") // Separados por coma
+	@ValidString(min = 0, pattern = "^(?:(?:[^,]*,)*[^,]+)?$\r\n")
 	@Automapped
 	private String				certifications;
 
