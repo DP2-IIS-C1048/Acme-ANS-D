@@ -18,6 +18,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidLeg;
+import acme.datatypes.LegStatus;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
 import acme.entities.flight.Flight;
@@ -33,7 +34,7 @@ public class Leg extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern="^[A-Z]{3}\\d{4}$")
+	@ValidString(pattern = "^[A,Z]{3}\\d{4}$")
 	@Column(unique = true)
 	private String				flightNumber;
 
@@ -46,6 +47,10 @@ public class Leg extends AbstractEntity {
 	@ValidMoment(min = "2000/01/01 00:01", max = "2200/12/31 23:59")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledArrival;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 
 	@Transient

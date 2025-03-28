@@ -48,7 +48,8 @@ review-35,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit a
 review-36,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0.01,TRUE
 review-37,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",9.99,TRUE
 review-38,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",10.00,TRUE
+review-39,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",null,TRUE
 # score - no singular values
 # recommended - standard variations
-review-39,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,FALSE
+review-40,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,FALSE
 # recommended - no singular values
