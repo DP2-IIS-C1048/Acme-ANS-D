@@ -32,9 +32,12 @@ maintenance-record-19,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"
 maintenance-record-20,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"โลเร็ม อิปซัม",FALSE,aircraft-00,technician-00
 maintenance-record-21,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"لوريم إيبسوم",FALSE,aircraft-00,technician-00
 maintenance-record-22,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"洛伦·伊普森",FALSE,aircraft-00,technician-00
+maintenance-record-23,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"<marquee>Hacked</marquee>",FALSE,aircraft-00,technician-00
+maintenance-record-24,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"<script>alert(‘Hacked!’);</script>",FALSE,aircraft-00,technician-00
+maintenance-record-25,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"' or 'A' = 'A",FALSE,aircraft-00,technician-00
 # notes - No singular values
 # draftMode - standard variations
-maintenance-record-23,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"I love this plane!",TRUE,aircraft-00,technician-00
+maintenance-record-26,2012/07/02 10:00,COMPLETED,2012/07/02 12:00,EUR 10000.00,"I love this plane!",TRUE,aircraft-00,technician-00
 # draftMode - no singular values
 # aircraft - standard variations
 # aircraft - singular values
