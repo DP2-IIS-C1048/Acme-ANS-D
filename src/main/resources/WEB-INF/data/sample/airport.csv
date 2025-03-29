@@ -1,4 +1,4 @@
-key,name,iataCode,operationalScope,city,country,website,email,adress,phoneNumber
+key,name,iataCode,operationalScope,city,country,website,email,adress,contactPhoneNumber
 # base data
 airport-01,"Aeropuerto Pekin",WKW,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
 # name standard variations
@@ -65,7 +65,7 @@ airport-55,"Aeropuerto Pekin",TKI,INTERNATIONAL,"Ciudad Rodrigo","Canada","https
 airport-56,"Aeropuerto Pekin",AAY,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","L","123456789"
 airport-57,"Aeropuerto Pekin",VII,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","Lorem ipsum dolor sit amet, consectetur adipiscin","123456789"
 airport-58,"Aeropuerto Pekin",WAM,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","Lorem ipsum dolor sit amet, consectetur adipiscing","123456789"
-airport-59,"Aeropuerto Pekin",TFZ,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com",โลเร็ม อิปซัม","123456789"
+airport-59,"Aeropuerto Pekin",TFZ,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","โลเร็ม อิปซัม","123456789"
 airport-60,"Aeropuerto Pekin",SDB,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","لوريم إيبسوم","123456789"
 airport-61,"Aeropuerto Pekin",VAQ,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","洛伦·伊普森","123456789"
 airport-62,"Aeropuerto Pekin",TZQ,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","<marquee>Hacked</marquee>","123456789"
