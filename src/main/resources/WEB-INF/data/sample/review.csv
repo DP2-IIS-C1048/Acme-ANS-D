@@ -1,0 +1,55 @@
+key,name,moment,subject,text,score,recommended
+# base entity
+review-00,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+# name - standard variations
+review-01,"L",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-02,"Lo",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-05,"โลเร็ม อิปซัม",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-06,"لوريم إيبسوم",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-07,"洛伦·伊普森",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-08,"<marquee>Hacked</marquee>",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-09,"<script>alert(‘Hacked!’);</script>",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-10,"' or 'A' = 'A",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+# name - no singular values
+# moment - standard variations
+review-11,"Lorem ipsum dolor sit amet",2000/01/01 00:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-12,"Lorem ipsum dolor sit amet",2000/01/01 00:01,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-13,"Lorem ipsum dolor sit amet",2200/12/31 23:58,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-14,"Lorem ipsum dolor sit amet",2200/12/31 23:59,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+# moment - no singular values
+# subject - standard variations
+review-15,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"L","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-16,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lo","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-17,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet, consectetur adipiscin","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-18,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-19,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"โลเร็ม อิปซัม","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-20,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"لوريم إيبسوم","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-21,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"洛伦·伊普森","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-22,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"<marquee>Hacked</marquee>","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-23,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"<script>alert(‘Hacked!’);</script>","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+review-24,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"' or 'A' = 'A","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,TRUE
+# subject - no singular values
+# text - standard variations
+review-25,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","L",5.00,TRUE
+review-26,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lo",5.00,TRUE
+review-27,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",5.00,TRUE
+review-28,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5.00,TRUE
+review-29,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","โลเร็ม อิปซัม",5.00,TRUE
+review-30,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","لوريم إيبسوم",5.00,TRUE
+review-31,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","洛伦·伊普森",5.00,TRUE
+review-32,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","<marquee>Hacked</marquee>",5.00,TRUE
+review-33,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","<script>alert(‘Hacked!’);</script>",5.00,TRUE
+review-34,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","' or 'A' = 'A ",5.00,TRUE
+# text - no singular values
+# score - standard variations
+review-35,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0.00,TRUE
+review-36,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0.01,TRUE
+review-37,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",9.99,TRUE
+review-38,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",10.00,TRUE
+review-39,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",null,TRUE
+# score - no singular values
+# recommended - standard variations
+review-40,"Lorem ipsum dolor sit amet",2020/01/01 01:00,"Lorem ipsum dolor sit amet","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5.00,FALSE
+# recommended - no singular values
