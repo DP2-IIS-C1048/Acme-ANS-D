@@ -2,7 +2,6 @@
 package acme.constraints;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -58,55 +57,55 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				boolean correctArrivalDepartureDates = departureDate != null && arrivalDate != null && departureDate.before(arrivalDate);
 				super.state(context, correctArrivalDepartureDates, "*", "acme.validation.constraints.leg.arrivalDepartureDates.message");
 			}
-			{
-				boolean uniqueArrivalAndDepartureDate;
-				List<Leg> existingLegs;
-
-				existingLegs = this.repository.findLegsByArrivalDepartureDate(departureDate, arrivalDate);
-				uniqueArrivalAndDepartureDate = existingLegs.isEmpty() || existingLegs.size() == 1 && existingLegs.contains(leg);
-
-				super.state(context, uniqueArrivalAndDepartureDate, "*", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
-			}
-			{
-				boolean validLegDates;
-				Integer totalLegs;
-
-				totalLegs = leg.getFlight().getLayovers();
-				if (totalLegs > 0) {
-					if (leg.getScheduledArrival().before(leg.getFlight().getScheduledDeparture()))
-						validLegDates = true;
-					else if (leg.getScheduledDeparture().after(leg.getFlight().getScheduledArrival()))
-						validLegDates = true;
-					else
-						validLegDates = false;
-				} else
-					validLegDates = true;
-
-				super.state(context, validLegDates, "*", "acme.validation.leg.invalid-leg-dates.message");
-
-			}
-			{
-				boolean validAirports;
-				Integer totalLegs;
-				Leg firstLeg;
-				Leg lastLeg;
-
-				totalLegs = leg.getFlight().getLayovers();
-				if (totalLegs > 0) {
-					firstLeg = leg.getFlight().getFirstLeg();
-					lastLeg = leg.getFlight().getLastLeg();
-					if (leg.getArrivalAirport().getIataCode().equals(firstLeg.getDepartureAirport().getIataCode()))
-						validAirports = true;
-					else if (leg.getDepartureAirport().getIataCode().equals(lastLeg.getDepartureAirport().getIataCode()))
-						validAirports = true;
-					else
-						validAirports = false;
-				} else
-					validAirports = true;
-
-				super.state(context, validAirports, "*", "acme.validation.leg.invalid-leg-airports.message");
-
-			}
+			//			{
+			//				boolean uniqueArrivalAndDepartureDate;
+			//				List<Leg> existingLegs;
+			//
+			//				existingLegs = this.repository.findLegsByArrivalDepartureDate(departureDate, arrivalDate);
+			//				uniqueArrivalAndDepartureDate = existingLegs.isEmpty() || existingLegs.size() == 1 && existingLegs.contains(leg);
+			//
+			//				super.state(context, uniqueArrivalAndDepartureDate, "*", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
+			//			}
+			//			{
+			//				boolean validLegDates;
+			//				Integer totalLegs;
+			//
+			//				totalLegs = leg.getFlight().getLayovers();
+			//				if (totalLegs > 0) {
+			//					if (leg.getScheduledArrival().before(leg.getFlight().getScheduledDeparture()))
+			//						validLegDates = true;
+			//					else if (leg.getScheduledDeparture().after(leg.getFlight().getScheduledArrival()))
+			//						validLegDates = true;
+			//					else
+			//						validLegDates = false;
+			//				} else
+			//					validLegDates = true;
+			//
+			//				super.state(context, validLegDates, "*", "acme.validation.leg.invalid-leg-dates.message");
+			//
+			//			}
+			//			{
+			//				boolean validAirports;
+			//				Integer totalLegs;
+			//				Leg firstLeg;
+			//				Leg lastLeg;
+			//
+			//				totalLegs = leg.getFlight().getLayovers();
+			//				if (totalLegs > 0) {
+			//					firstLeg = leg.getFlight().getFirstLeg();
+			//					lastLeg = leg.getFlight().getLastLeg();
+			//					if (leg.getArrivalAirport().getIataCode().equals(firstLeg.getDepartureAirport().getIataCode()))
+			//						validAirports = true;
+			//					else if (leg.getDepartureAirport().getIataCode().equals(lastLeg.getDepartureAirport().getIataCode()))
+			//						validAirports = true;
+			//					else
+			//						validAirports = false;
+			//				} else
+			//					validAirports = true;
+			//
+			//				super.state(context, validAirports, "*", "acme.validation.leg.invalid-leg-airports.message");
+			//
+			//			}
 		}
 		result = !super.hasErrors(context);
 		return result;
