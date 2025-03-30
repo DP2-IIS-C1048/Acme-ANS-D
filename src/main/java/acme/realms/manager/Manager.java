@@ -47,4 +47,5 @@ public class Manager extends AbstractRole {
 	@ValidUrl
 	@Automapped
 	private String				picture;
+
 }

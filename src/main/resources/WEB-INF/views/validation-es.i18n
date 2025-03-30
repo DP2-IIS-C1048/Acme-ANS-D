@@ -16,6 +16,9 @@ acme.validation.flight.crew.member.employee-code.message = Las primeras dos o tr
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = Número de registro ya usado
 
+acme.validation.flight.leg.message = Todas las legs tienen que estar en modo no borrador
+acme.validation.flight.Delete.message = El vuelo tiene que estar en modo borrador
+
 acme.validation.leg.duplicated-flightNumber.message = El número de vuelo ya está en uso
 acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea
 acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de salida debe ser anterior que la de llegada

@@ -15,6 +15,9 @@ acme.validation..flight.crew.member.employee-code.message			  = The first two or
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = The registration number is duplicated
 
+acme.validation.flight.leg.message = All legs must not be in draftMode
+acme.validation.flight.Delete.message = The flight must be in draftMode
+
 acme.validation.leg.duplicated-flightNumber.message = The flight number is already in use
 acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the airline's IATA code
 acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
