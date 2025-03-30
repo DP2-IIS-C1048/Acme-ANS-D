@@ -10,7 +10,6 @@ user-account-flight-crew-02,true,"UserIdentity{name: 'Jesús', surname: 'Corrale
 user-account-flight-crew-03,true,"UserIdentity{name: 'Rodrigo', surname: 'García', email: 'rodrigo@acme.com'}",flightcrew3,flightcrew3
 user-account-flight-crew-04,true,"UserIdentity{name: 'Juan', surname: 'Rogríguez', email: 'juan@acme.com'}",flightcrew4,flightcrew4
 user-account-flight-crew-05,true,"UserIdentity{name: 'Mónica', surname: 'Ruibal', email: 'monica@acme.com'}",flightcrew5,flightcrew5
-user-account-assistance-agent-01,true,"UserIdentity{employeeCode: 'RRM', spokenLanguages: 'spanish,english', airline: }",agent1,agent1
 user-account-manager-01,true,"UserIdentity{name: 'Tony', surname: 'Stark', email: 'tstark@acme.com'}",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'Peter', surname: 'Parker', email: 'pparker@acme.com'}",manager2,manager2
 user-account-manager-03,true,"UserIdentity{name: 'Stephen', surname: 'Vincent Strange', email: 'svicent@acme.com'}",manager3,manager3
