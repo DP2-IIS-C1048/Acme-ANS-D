@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -13,6 +15,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidTrackingLog;
 import acme.entities.claim.Claim;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidTrackingLog
 public class TrackingLog extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -30,7 +34,7 @@ public class TrackingLog extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment(min = "2000/01/01 00:00:00", past = true)
-	@Automapped
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date					lastUpdateMoment;
 
 	@Mandatory
@@ -59,7 +63,7 @@ public class TrackingLog extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Claim					claim;
 
 }
