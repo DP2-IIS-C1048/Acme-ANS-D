@@ -1,0 +1,6 @@
+key,key:userAccount,identifier,phone_number,physical_address,city,country,earned_points
+customer1,user-account-customer-01,"GCF829129","1234567890","Calle Loca","Ciudad de Locos","Omán",25000
+customer2,user-account-customer-02,"CEW345212","+1234567890","Calle Croisant","Baguete","Francia",2000
+customer3,user-account-customer-03,"JBN049328","1234567809","Calle Perú","Ciudad Limón","Perú",5000
+
+

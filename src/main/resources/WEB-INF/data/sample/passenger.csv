@@ -1,0 +1,36 @@
+key,fullName,email,passportNumber,dateOfBirth,specialNeeds
+# base entity
+passenger-00,"Alucard","alucard@gmail.com","XUYZT7NJD",2012/07/02 0:00,"Ninguna necesidad especial"
+# fullName - standard variations
+passenger-01,"L","alucard@gmail.com","WGZIW8",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-02,"Lo","alucard@gmail.com","0N0G49X7",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor","alucard@gmail.com","HBQ1XS408",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*","alucard@gmail.com","EJ5NP2CEL",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-05,"โลเร็ม อิปซัม","alucard@gmail.com","5R98AGR77",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-06,"لوريم إيبسوم","alucard@gmail.com","L878VDH",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-07,"洛伦·伊普森","alucard@gmail.com","ELBOI4L8R",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-08,"<marquee>Hacked</marquee>","alucard@gmail.com","CO7BQIFO",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-09,"<script>alert(‘Hacked!’);</script>","alucard@gmail.com","DJ603VYC",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-10,"' or 'A' = 'A ","alucard@gmail.com","0RJ3TIHW",2012/07/02 0:00,"Ninguna necesidad especial"
+# email - standard variations
+passenger-11,"Alucard","a@b.e","VU1KCAW92",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-12,"Alucard","a@b.es","9LWWD3ZI7",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-13,"Alucard","a@b.esx","J31567K",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-14,"Alucard","lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu","CK8JDDPW",2012/07/02 0:00,"Ninguna necesidad especial"
+passenger-15,"Alucard","lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org","PC2ORAE9S",2012/07/02 0:00,"Ninguna necesidad especial"
+# dateOfBirth - standard variations
+passenger-16,"Alucard","alucard@gmail.com","UORYGHZ",2000/01/01 0:00,"Ninguna necesidad especial"
+passenger-17,"Alucard","alucard@gmail.com","P805XFU",2000/01/01 0:01,"Ninguna necesidad especial"
+passenger-18,"Alucard","alucard@gmail.com","YXQ7MSWHN",2024/12/31 23:59,"Ninguna necesidad especial"
+passenger-19,"Alucard","alucard@gmail.com","LJOSO7E",2025/01/01 0:00,"Ninguna necesidad especial"
+# specialNeeds - standard variations
+passenger-20,"Alucard","alucard@gmail.com","TT50F9H8",2012/07/02 0:00,""
+passenger-21,"Alucard","alucard@gmail.com","XKGZCVGQ",2012/07/02 0:00,"L"
+passenger-22,"Alucard","alucard@gmail.com","43PQV8J",2012/07/02 0:00,"Lorem ipsum dolor sit amet, consectetur adipiscin"
+passenger-23,"Alucard","alucard@gmail.com","BIDGR9CU",2012/07/02 0:00,"Lorem ipsum dolor sit amet, consectetur adipiscing"
+passenger-24,"Alucard","alucard@gmail.com","98C4T62S",2012/07/02 0:00,"โลเร็ม อิปซัม"
+passenger-25,"Alucard","alucard@gmail.com","ICZ6VXL",2012/07/02 0:00,"لوريم إيبسوم"
+passenger-26,"Alucard","alucard@gmail.com","VC5W6B",2012/07/02 0:00,"洛伦·伊普森"
+passenger-27,"Alucard","alucard@gmail.com","EZ1TL0X",2012/07/02 0:00,"<marquee>Hacked</marquee>"
+passenger-28,"Alucard","alucard@gmail.com","OWATDRN",2012/07/02 0:00,"<script>alert(‘Hacked!’);</script>"
+passenger-29,"Alucard","alucard@gmail.com","0PAW45S",2012/07/02 0:00,"' or 'A' = 'A"

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>&lt;&lt;Entity&gt;&gt;
+Announcement
+--
++ moment: Date {Mandatory, ValidMoment(past=true), Automapped}
++ title: String {Mandatory, ValidShortText, Automapped}
++ status: AnnouncementStatus {Mandatory, Valid, Automapped}
++ text: String {Mandatory, ValidLongText, Automapped}
++ moreInfo: String {Mandatory, ValidUrl, Automapped}
+bg=green
+</help_text>
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>512</x>
+      <y>232</y>
+      <w>136</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+TravelClass
+--
++ ECONOMY
++ BUSINESS
+bg=LIGHT_GRAY</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
