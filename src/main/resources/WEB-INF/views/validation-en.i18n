@@ -29,6 +29,8 @@ acme.validation.customer.duplicated-identifier.message = The customer identifier
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
 
+customer.booking.publish.lastNibble-null = The lastNibble of this booking can't be null
+
 
 
 

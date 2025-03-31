@@ -1,0 +1,23 @@
+customer.booking.form.title = Booking form
+customer.booking.list.title = Booking list
+
+customer.booking.form.label.locatorCode = Locator Code:
+customer.booking.form.label.purchaseMoment = Purchase Moment:
+customer.booking.form.label.travelClass = Travel Class: 
+customer.booking.form.label.price = Price:
+customer.booking.form.label.lastNibble = Card last nibble:
+customer.booking.form.label.draftMode = Draft Mode:
+
+customer.booking.form.placeholder.travelClass = ECONOMY or BUSINESS
+    
+customer.booking.form.button.passengers = Passengers
+customer.booking.form.button.update = Update
+customer.booking.form.button.publish = Publish
+customer.booking.form.button.create = Create
+
+customer.booking.form.label.locatorCode = Locator Code:
+customer.booking.form.label.travelClass = Travel Class: 
+customer.booking.form.label.price = Price:
+customer.booking.form.label.draftMode = Modo borrador:
+
+customer.booking.list.button.create = Draft Mode

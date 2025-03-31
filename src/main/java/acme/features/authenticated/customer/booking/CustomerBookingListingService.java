@@ -27,9 +27,10 @@ public class CustomerBookingListingService extends AbstractService<Customer, Boo
 	@Override
 	public void load() {
 		List<Booking> bookings = new ArrayList<>();
-		int id;
-		id = super.getRequest().getPrincipal().getAccountId();
-		bookings = this.repository.findBookingsByCustomerId(id);
+		int customerId;
+
+		customerId = super.getRequest().getPrincipal().getAccountId();
+		bookings = this.repository.findBookingsByCustomerId(customerId);
 
 		super.getBuffer().addData(bookings);
 

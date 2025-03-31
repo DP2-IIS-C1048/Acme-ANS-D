@@ -1,0 +1,26 @@
+customer.booking.form.title = Formulario de reservas
+customer.booking.list.title = Lista de reservas
+
+customer.booking.form.label.locatorCode = Código de localización:
+customer.booking.form.label.purchaseMoment = Momento de compra:
+customer.booking.form.label.travelClass = Clase de vuelo: 
+customer.booking.form.label.price = Precio:
+customer.booking.form.label.lastNibble = Últimos números de la tarjeta:
+customer.booking.form.label.draftMode = Modo borrador:
+
+customer.booking.form.placeholder.travelClass = ECONOMY or BUSINESS
+    
+customer.booking.form.button.passengers = Pasajeros
+customer.booking.form.button.update = Actualizar
+customer.booking.form.button.publish = Publicar
+customer.booking.form.button.create = Crear
+
+customer.booking.form.label.locatorCode = Código de localización:
+customer.booking.form.label.travelClass = Clase de vuelo: 
+customer.booking.form.label.price = Precio:
+customer.booking.form.label.draftMode = Modo borrador:
+
+customer.booking.list.button.create = Crear
+ 
+ 
+customer.booking.publish.lastNibble-null = El lastNibble de este booking no puede ser nulo
