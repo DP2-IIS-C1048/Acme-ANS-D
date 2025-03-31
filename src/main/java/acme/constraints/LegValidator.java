@@ -47,7 +47,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				boolean correctIATA;
 
 				String flightNumber = leg.getFlightNumber();
-				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+				String airlineIataCode = leg.getAircraft() != null && leg.getAircraft().getAirline() != null ? leg.getAircraft().getAirline().getIataCode() : null;
 
 				correctIATA = flightNumber != null && airlineIataCode != null && flightNumber.startsWith(airlineIataCode);
 				super.state(context, correctIATA, "flightNumber", "acme.validation.constraints.leg.flightNumber-IATACode.message");
@@ -55,7 +55,16 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 			{
 
 				boolean correctArrivalDepartureDates = departureDate != null && arrivalDate != null && departureDate.before(arrivalDate);
-				super.state(context, correctArrivalDepartureDates, "*", "acme.validation.constraints.leg.arrivalDepartureDates.message");
+				super.state(context, correctArrivalDepartureDates, "scheduledDeparture", "acme.validation.constraints.leg.arrivalDepartureDates.message");
+			}
+			{
+				boolean invalidAirports;
+				if(leg.getArrivalAirport().getIataCode().equals(leg.getDepartureAirport().getIataCode())) {
+					invalidAirports = false;
+				} else {
+					invalidAirports = true;
+				}
+				super.state(context, invalidAirports, "arrivalAirport", "acme.validation.constraints.leg.invalid-airports.message");
 			}
 			//			{
 			//				boolean uniqueArrivalAndDepartureDate;

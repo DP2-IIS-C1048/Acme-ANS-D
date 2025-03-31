@@ -24,6 +24,10 @@ acme.validation.constraints.leg.arrivalDepartureDates.message = The departure da
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
 acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
 acme.validation.leg.invalid-leg-airports.message = The entered arrival airport does not match the departure airport of the first leg or the entered departure airport does not match the arrival airport of the last leg
+acme.validation.constraints.leg.arrivalAirport.message = The departure airport value cannot be empty.  
+acme.validation.constraints.leg.departureAirport.message = The arrival airport value cannot be empty.  
+acme.validation.constraints.leg.aircraft.message = The aircraft value cannot be empty.
+acme.validation.constraints.leg.invalid-airports.message = The arrival and departure airport can not be the same airport
 
 acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
 acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname

@@ -18,33 +18,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
-import acme.entities.flight.Flight;
+import acme.entities.leg.Leg;
 import acme.realms.manager.Manager;
 
 @GuiController
-public class ManagerLegController extends AbstractGuiController<Manager, Flight> {
+public class ManagerLegController extends AbstractGuiController<Manager, Leg> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerLegListService listService;
+	private ManagerLegListService		listService;
 
 	@Autowired
-	private ManagerLegShowService showService;
+	private ManagerLegShowService		showService;
 
 	@Autowired
-	private ManagerLegCreateService createService;
+	private ManagerLegCreateService		createService;
 
 	@Autowired
-	private ManagerLegUpdateService updateService;
+	private ManagerLegUpdateService		updateService;
 
 	@Autowired
-	private ManagerFlightDeleteService deleteService;
+	private ManagerLegDeleteService		deleteService;
 
 	@Autowired
-	private ManagerLegPublishService publishService;
+	private ManagerLegPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
+
 
 	@PostConstruct
 	protected void initialise() {

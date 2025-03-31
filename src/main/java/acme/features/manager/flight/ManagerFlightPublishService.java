@@ -72,6 +72,7 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	}
 	@Override
 	public void perform(final Flight flight) {
+		flight.setDraftMode(false);
 		this.repository.save(flight);
 	}
 	@Override

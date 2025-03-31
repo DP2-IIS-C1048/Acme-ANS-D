@@ -11,13 +11,12 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.manager.Manager;
 
 @GuiService
-public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
+public class ManagerLegDeleteService extends AbstractGuiService<Manager, Leg> {
 
 	@Autowired
 	private ManagerLegRepository repository;
@@ -26,28 +25,23 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		Flight flight;
+		int legId;
+		Leg leg;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
+		legId = super.getRequest().getData("id", int.class);
+		leg = this.repository.findLegById(legId);
+		status = leg != null && leg.getFlight() != null && leg.isDraftMode() && leg.getFlight().isDraftMode() && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager());
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Flight flight;
-		int masterId;
+		int id;
 		Leg leg;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
-
-		leg = new Leg();
-		leg.setFlight(flight);
-		leg.setDraftMode(true);
+		id = super.getRequest().getData("id", int.class);
+		leg = this.repository.findLegById(id);
 
 		super.getBuffer().addData(leg);
 	}
@@ -87,7 +81,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void perform(final Leg leg) {
-		this.repository.save(leg);
+		this.repository.delete(leg);
 	}
 
 	@Override

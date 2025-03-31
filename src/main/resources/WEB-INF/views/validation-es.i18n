@@ -25,6 +25,10 @@ acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de sali
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = Las fechas de salida o de llegada coinciden en el intervalo de otro tramo
 acme.validation.leg.invalid-leg-dates.message = El tramo introducido no es posterior o anterior al último tramo o primer tramo
 acme.validation.leg.invalid-leg-airports.message = El aeropuerto de llegada introducido no coincide con el aeropuerto de salida del primer tramo o el aeropuerto de salida introducido no coincide con el aeropuerto de llegada del último tramo
+acme.validation.constraints.leg.arrivalAirport.message = El valor del aeropuerto de salida no puede estar vacio
+acme.validation.constraints.leg.departureAirport.message = El valor del aeropuerto de llegada no puede estar vacio
+acme.validation.constraints.leg.aircraft.message = El valor de la aeronave no puede estar vacio
+acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 
 acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
 acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
