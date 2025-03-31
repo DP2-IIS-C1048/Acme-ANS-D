@@ -1,4 +1,4 @@
-key,tag,requiresSelfTransfer,cost,description,key:manager,draftMode
+key,tag,requires-self-transfer,cost,description,key:manager,draft-mode
 # base entity
 flight-00,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,false
 # tag - standard variations
