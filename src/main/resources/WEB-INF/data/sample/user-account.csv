@@ -54,4 +54,3 @@ user-account-manager-03,true,"UserIdentity{name: 'Stephen', surname: 'Vincent St
 user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'Estrada', email: 'covadonga@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'José', surname: 'Bonaparte', email: 'jbon@acme.com'}",customer3,customer3
->>>>>>> branch 'develop' of https://github.com/DP2-IIS-C1048/Acme-ANS-D.git
