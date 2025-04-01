@@ -48,7 +48,7 @@ public class Airline extends AbstractEntity {
 	private AirlineType			type;
 
 	@Mandatory
-	@ValidMoment(min = "01/01/2000 00:00", past = true)
+	@ValidMoment(past = true)
 	@Automapped
 	private Date				foundationMoment;
 

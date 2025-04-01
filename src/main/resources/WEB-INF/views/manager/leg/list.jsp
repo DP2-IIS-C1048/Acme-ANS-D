@@ -16,14 +16,14 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="manager.leg.list.label.flightNumber" path="flightNumber" width="20%"/>
-	<acme:list-column code="manager.leg.list.label.scheduledArrival" path="scheduledArrival" width="15%"/>
-	<acme:list-column code="manager.leg.list.label.scheduledDeparture" path="scheduledDeparture" width="15%"/>
-	<acme:list-column code="manager.leg.list.label.departureAirportIataCode" path="departureAirport.iataCode" width="10%"/>
-	<acme:list-column code="manager.leg.list.label.arrivalAirportIataCode" path="arrivalAirport.iataCode" width="10%"/>
-	<acme:list-column code="manager.leg.list.label.aircraftRegistrationNumber" path="aircraft.registrationNumber" width="15%"/>
-	<acme:list-column code="manager.leg.list.label.status" path="status" width="10%"/>
-	<acme:list-column code="manager.leg.list.label.draftMode" path="draftMode" width="5%"/>	
+	<acme:list-column code="manager.leg.list.label.flightNumber" path="flightNumber" width="20%" sortable="false"/>
+	<acme:list-column code="manager.leg.list.label.scheduledDeparture" path="scheduledDeparture" width="15%" sortable="true"/>
+	<acme:list-column code="manager.leg.list.label.scheduledArrival" path="scheduledArrival" width="15%" sortable="true"/>
+	<acme:list-column code="manager.leg.list.label.departureAirportIataCode" path="departureAirport.iataCode" width="10%" sortable="false"/>
+	<acme:list-column code="manager.leg.list.label.arrivalAirportIataCode" path="arrivalAirport.iataCode" width="10%" sortable="false"/>
+	<acme:list-column code="manager.leg.list.label.aircraftRegistrationNumber" path="aircraft.registrationNumber" width="15%" sortable="false"/>
+	<acme:list-column code="manager.leg.list.label.status" path="status" width="10%" sortable="false"/>
+	<acme:list-column code="manager.leg.list.label.draftMode" path="draftMode" width="5%" sortable="false"/>	
 	<acme:list-payload path="payload"/>
 </acme:list>
 

@@ -28,6 +28,7 @@ acme.validation.constraints.leg.arrivalAirport.message = The departure airport v
 acme.validation.constraints.leg.departureAirport.message = The arrival airport value cannot be empty.  
 acme.validation.constraints.leg.aircraft.message = The aircraft value cannot be empty.
 acme.validation.constraints.leg.invalid-airports.message = The arrival and departure airport can not be the same airport
+acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
 
 acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
 acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
