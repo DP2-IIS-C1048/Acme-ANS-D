@@ -5,10 +5,53 @@ user-account-consumer-03,true,"UserIdentity{name: 'Manolo', surname: '之乎路�
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
+user-account-flight-crew-01,true,"UserIdentity{name: 'David', surname: 'Basado', email: 'david@acme.com'}",flightcrew1,flightcrew1
+user-account-flight-crew-02,true,"UserIdentity{name: 'Jesús', surname: 'Corrales', email: 'jesus@acme.com'}",flightcrew2,flightcrew2
+user-account-flight-crew-03,true,"UserIdentity{name: 'Rodrigo', surname: 'García', email: 'rodrigo@acme.com'}",flightcrew3,flightcrew3
+user-account-flight-crew-04,true,"UserIdentity{name: 'Juan', surname: 'Rogríguez', email: 'juan@acme.com'}",flightcrew4,flightcrew4
+user-account-flight-crew-05,true,"UserIdentity{name: 'Mónica', surname: 'Ruibal', email: 'monica@acme.com'}",flightcrew5,flightcrew5
+user-account-technician-01,true,"UserIdentity{name: 'Jackie', surname: 'Chan', email: 'jackie@acme.com'}",technician1,technician1
+user-account-technician-02,true,"UserIdentity{name: 'Alejandro', surname: 'Galán', email: 'alegalan@acme.com'}",technician2,technician2
+user-account-technician-03,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng3@acme.com'}",technician3,technician3
+user-account-technician-04,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng4@acme.com'}",technician4,technician4
+user-account-technician-05,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng5@acme.com'}",technician5,technician5
+user-account-technician-06,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng6@acme.com'}",technician6,technician6
+user-account-technician-07,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng7@acme.com'}",technician7,technician7
+user-account-technician-08,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng8@acme.com'}",technician8,technician8
+user-account-technician-09,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng9@acme.com'}",technician9,technician9
+user-account-technician-10,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng10@acme.com'}",technician10,technician10
+user-account-technician-11,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng11@acme.com'}",technician11,technician11
+user-account-technician-12,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng12@acme.com'}",technician12,technician12
+user-account-technician-13,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng13@acme.com'}",technician13,technician13
+user-account-technician-14,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng14@acme.com'}",technician14,technician14
+user-account-technician-15,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng15@acme.com'}",technician15,technician15
+user-account-technician-16,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng16@acme.com'}",technician16,technician16
+user-account-technician-17,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng17@acme.com'}",technician17,technician17
+user-account-technician-18,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng18@acme.com'}",technician18,technician18
+user-account-technician-19,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng19@acme.com'}",technician19,technician19
+user-account-technician-20,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng20@acme.com'}",technician20,technician20
+user-account-technician-21,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng21@acme.com'}",technician21,technician21
+user-account-technician-22,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng22@acme.com'}",technician22,technician22
+user-account-technician-23,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng23@acme.com'}",technician23,technician23
+user-account-technician-24,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng24@acme.com'}",technician24,technician24
+user-account-technician-25,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng25@acme.com'}",technician25,technician25
+user-account-technician-26,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng26@acme.com'}",technician26,technician26
+user-account-technician-27,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng27@acme.com'}",technician27,technician27
+user-account-technician-28,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng28@acme.com'}",technician28,technician28
+user-account-technician-29,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng29@acme.com'}",technician29,technician29
+user-account-technician-30,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng30@acme.com'}",technician30,technician30
+user-account-technician-31,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng31@acme.com'}",technician31,technician31
+user-account-technician-32,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng32@acme.com'}",technician32,technician32
+user-account-technician-33,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng33@acme.com'}",technician33,technician33
+user-account-technician-34,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng34@acme.com'}",technician34,technician34
+user-account-technician-35,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng35@acme.com'}",technician35,technician35
+user-account-technician-36,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng36@acme.com'}",technician36,technician36
+user-account-technician-37,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng37@acme.com'}",technician37,technician37
+user-account-technician-38,true,"UserIdentity{name: 'Lee', surname: 'Cheng', email: 'leecheng38@acme.com'}",technician38,technician38
 user-account-manager-01,true,"UserIdentity{name: 'Tony', surname: 'Stark', email: 'tstark@acme.com'}",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'Peter', surname: 'Parker', email: 'pparker@acme.com'}",manager2,manager2
 user-account-manager-03,true,"UserIdentity{name: 'Stephen', surname: 'Vincent Strange', email: 'svicent@acme.com'}",manager3,manager3
-# user-account-assistance-agent-01,true,"UserIdentity{employeeCode: 'RRM', spokenLanguages: 'spanish,english', airline: }",agent1,agent1
 user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'Estrada', email: 'covadonga@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'José', surname: 'Bonaparte', email: 'jbon@acme.com'}",customer3,customer3
+
