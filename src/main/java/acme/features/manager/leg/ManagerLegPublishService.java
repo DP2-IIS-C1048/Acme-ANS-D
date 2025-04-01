@@ -93,7 +93,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		existingLegs = this.repository.findLegsPublishedByArrivalDepartureDate(departureDate, arrivalDate, leg.getFlight().getId());
 		uniqueArrivalAndDepartureDate = existingLegs.isEmpty() || !existingLegs.isEmpty() && existingLegs.contains(leg);
 
-		super.state(uniqueArrivalAndDepartureDate, "scheduledDeparture", "acme.validation.leg.duplicated-leg-departureDepartureDates.message");
+		super.state(uniqueArrivalAndDepartureDate, "scheduledDeparture", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
 		super.state(uniqueArrivalAndDepartureDate, "scheduledArrival", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
 
 		Integer totalLegs;
