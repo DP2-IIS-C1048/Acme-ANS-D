@@ -1,4 +1,4 @@
-key,name,iataCode,operationalScope,city,country,website,email,adress,contactPhoneNumber
+key,name,iata-code,operational-scope,city,country,website,email,adress,contact-phone-number
 # base data
 airport-01,"Aeropuerto Pekin",WKW,INTERNATIONAL,"Ciudad Rodrigo","Canada","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
 # name standard variations
@@ -28,7 +28,7 @@ airport-22,"Aeropuerto Pekin",WQS,INTERNATIONAL,"<script>alert(‘Hacked!’);</
 airport-23,"Aeropuerto Pekin",ZEV,INTERNATIONAL,"' or 'A' = 'A ","Canada","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
 # country standard variations
 airport-24,"Aeropuerto Pekin",YJO,INTERNATIONAL,"Ciudad Rodrigo","L","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
-airport-25,"Aeropuerto Pekin",PXI,INTERNATIONAL,"Ciudad Rodrigo","LoLorem ipsum dolor sit amet, consectetur adipiscin","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
+airport-25,"Aeropuerto Pekin",PXI,INTERNATIONAL,"Ciudad Rodrigo","Lorem ipsum dolor sit amet, consectetur adipiscin","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
 airport-26,"Aeropuerto Pekin",IPB,INTERNATIONAL,"Ciudad Rodrigo","Lorem ipsum dolor sit amet, consectetur adipiscing","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
 airport-27,"Aeropuerto Pekin",CLV,INTERNATIONAL,"Ciudad Rodrigo","โลเร็ม อิปซัม","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
 airport-28,"Aeropuerto Pekin",IWK,INTERNATIONAL,"Ciudad Rodrigo","لوريم إيبسوم","https://AirportWeb.com","airport@gmail.com","Mi casa","123456789"
