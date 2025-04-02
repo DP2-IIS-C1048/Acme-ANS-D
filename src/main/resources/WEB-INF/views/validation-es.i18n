@@ -31,6 +31,10 @@ acme.validation.constraints.leg.departureAirport.message = El valor del aeropuer
 acme.validation.constraints.leg.aircraft.message = El valor de la aeronave no puede estar vacio
 acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
+acme.validation.technician.duplicated-license.message = Esta licencia ya está en uso en este momento.
+acme.validation.promotion.duplicated-promotion-code.message = El código de promoción ya ha sido usado.
+acme.validation.promotion.promotion-code-pattern-mismatch.message = El formato del código de promoción no es correcto.
+acme.validation.promotion.promotion-code-last-digits.message = La promoción no está disponible.
 
 acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
 acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
