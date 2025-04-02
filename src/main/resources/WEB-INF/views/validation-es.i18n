@@ -16,12 +16,21 @@ acme.validation.flight.crew.member.employee-code.message = Las primeras dos o tr
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = Número de registro ya usado
 
+acme.validation.flight.leg.message = Todas las legs tienen que estar en modo no borrador
+acme.validation.flight.Delete.message = El vuelo tiene que estar en modo borrador
+
 acme.validation.leg.duplicated-flightNumber.message = El número de vuelo ya está en uso
 acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea
 acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de salida debe ser anterior que la de llegada
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = Las fechas de salida o de llegada coinciden en el intervalo de otro tramo
 acme.validation.leg.invalid-leg-dates.message = El tramo introducido no es posterior o anterior al último tramo o primer tramo
-acme.validation.leg.invalid-leg-airports.message = El aeropuerto de llegada introducido no coincide con el aeropuerto de salida del primer tramo o el aeropuerto de salida introducido no coincide con el aeropuerto de llegada del último tramo
+acme.validation.leg.invalid-leg-arrivalAirport.message = El aeropuerto de llegada introducido no coincide con el aeropuerto de salida del primer tramo
+acme.validation.leg.invalid-leg-departureAirport.message = El aeropuerto de salida introducido no coincide con el aeropuerto de llegada del último tramo
+acme.validation.constraints.leg.arrivalAirport.message = El valor del aeropuerto de salida no puede estar vacio
+acme.validation.constraints.leg.departureAirport.message = El valor del aeropuerto de llegada no puede estar vacio
+acme.validation.constraints.leg.aircraft.message = El valor de la aeronave no puede estar vacio
+acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
+acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
 
 acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
 acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
