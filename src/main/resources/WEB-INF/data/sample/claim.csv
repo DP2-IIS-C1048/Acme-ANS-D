@@ -31,9 +31,9 @@ claim-20,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, con
 claim-21,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","SECURITY_INCIDENT",assistance-agent-01,leg-00
 claim-22,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","OTHER_ISSUES",assistance-agent-01,leg-00
 # type - no singular values
-# assitance-agent - standard variations
-claim-00,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-02,leg-00
-# assitance-agent - no singular values
+# assitanceAgent - standard variations
+claim-23,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-02,leg-00
+# assitanceAgent - no singular values
 # leg - standard variations
-claim-00,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-01,leg-01
+claim-24,02/07/2012 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-01,leg-01
 # leg - no singular values
