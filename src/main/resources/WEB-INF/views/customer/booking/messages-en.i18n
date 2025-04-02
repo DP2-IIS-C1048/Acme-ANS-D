@@ -20,4 +20,9 @@ customer.booking.form.label.travelClass = Travel Class:
 customer.booking.form.label.price = Price:
 customer.booking.form.label.draftMode = Modo borrador:
 
-customer.booking.list.button.create = Draft Mode
+customer.booking.list.button.create = Create
+
+customer.booking.list.label.locatorCode = Locator Code:
+customer.booking.list.label.travelClass = Travel Class: 
+customer.booking.list.label.price = Price:
+customer.booking.list.label.draftMode = Draft Mode:

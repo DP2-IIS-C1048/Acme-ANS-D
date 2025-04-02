@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.customer.booking;
+package acme.features.customer.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,7 +10,7 @@ import acme.entities.booking.Booking;
 import acme.realms.customer.Customer;
 
 @GuiService
-public class CustomerBookingUpdateService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingShowService extends AbstractGuiService<Customer, Booking> {
 
 	@Autowired
 	private CustomerBookingRepository repository;
@@ -28,7 +28,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		customer = null;
 		if (booking != null)
 			customer = booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && !booking.getDraftMode();
+		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -45,32 +45,10 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 	}
 
 	@Override
-	public void bind(final Booking booking) {
-		int customerId;
-		Customer customer;
-
-		customerId = super.getRequest().getData("customer", int.class);
-		customer = this.repository.findCustomerById(customerId);
-
-		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
-		booking.setCustomer(customer);
-	}
-
-	@Override
-	public void validate(final Booking booking) {
-		;
-	}
-
-	@Override
-	public void perform(final Booking booking) {
-		this.repository.save(booking);
-	}
-
-	@Override
 	public void unbind(final Booking booking) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}

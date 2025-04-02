@@ -21,6 +21,10 @@ customer.booking.form.label.price = Precio:
 customer.booking.form.label.draftMode = Modo borrador:
 
 customer.booking.list.button.create = Crear
- 
- 
+
+customer.booking.list.label.locatorCode = Código de localización:
+customer.booking.list.label.travelClass = Clase de vuelo: 
+customer.booking.list.label.price = Precio:
+customer.booking.list.label.draftMode = Modo borrador:
+
 customer.booking.publish.lastNibble-null = El lastNibble de este booking no puede ser nulo
