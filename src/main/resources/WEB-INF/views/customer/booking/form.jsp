@@ -21,6 +21,7 @@
 	<acme:input-textbox code="customer.booking.form.label.travelClass" path="travelClass"/>
 	<acme:input-money code="customer.booking.form.label.price" path="price"/>
 	<acme:input-textbox code="customer.booking.form.label.lastNibble" path="lastNibble"/>
+	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}"/>
 	<acme:input-checkbox code="customer.booking.form.label.draftMode" path="draftMode"/>		
 	
 	<jstl:choose>	 

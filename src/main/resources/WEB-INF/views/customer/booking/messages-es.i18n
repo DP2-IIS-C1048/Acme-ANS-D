@@ -18,6 +18,7 @@ customer.booking.form.button.create = Crear
 customer.booking.form.label.locatorCode = Código de localización:
 customer.booking.form.label.travelClass = Clase de vuelo: 
 customer.booking.form.label.price = Precio:
+customer.booking.form.label.flight = Vuelo:
 customer.booking.form.label.draftMode = Modo borrador:
 
 customer.booking.list.button.create = Crear

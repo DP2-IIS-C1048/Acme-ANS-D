@@ -28,7 +28,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		customer = null;
 		if (booking != null)
 			customer = booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && booking.getDraftMode();
+		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && booking.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
