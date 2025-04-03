@@ -57,4 +57,4 @@ user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'Estrada
 user-account-customer-03,true,"UserIdentity{name: 'José', surname: 'Bonaparte', email: 'jbon@acme.com'}",customer3,customer3
 user-account-assistance-agent-01,true,"UserIdentity{name: 'Juan', surname: 'Muñoz', email: 'juanmu@acme.com'}",assistanceagent1,assistanceagent1
 user-account-assistance-agent-02,true,"UserIdentity{name: 'Jose', surname: 'Rodríguez', email: 'josero@acme.com'}",assistanceagent2,assistanceagent2
-user-account-assistance-agent-03,true,"UserIdentity{name: 'Pepa', surname: 'Cabeza ', email: 'pepa@acme.com'}",assistanceagent3,assistanceagent3
+user-account-assistance-agent-03,true,"UserIdentity{name: 'Pepa', surname: 'Cabeza Rojas', 'email: pepa@acme.com'}",assistanceagent3,assistanceagent3
