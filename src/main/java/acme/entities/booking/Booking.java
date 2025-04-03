@@ -19,8 +19,8 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidBooking;
-import acme.entities.customer.Customer;
 import acme.entities.flight.Flight;
+import acme.realms.customer.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,7 +38,7 @@ public class Booking extends AbstractEntity {
 	private String				locatorCode;
 
 	@Mandatory
-	@ValidMoment(past = true, min = "2000/01/01 00:00")
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				purchaseMoment;
 
@@ -48,7 +48,7 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0, max = 100000)
 	@Automapped
 	private Money				price;
 
@@ -59,11 +59,16 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Customer			customer;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Flight				flight;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private Boolean 			draftMode;
 }
