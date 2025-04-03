@@ -8,7 +8,6 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.realms.technician.Technician;
@@ -42,17 +41,21 @@ public class Task extends AbstractEntity {
 	private Integer				priority;
 
 	@Mandatory
-	@ValidNumber(min = 0)
+	@ValidNumber(min = 0, max = 6000)
 	@Automapped
-	private Integer				duration;
+	private Integer				estimatedDuration;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
-	@Optional
+	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Technician			technician;
 
 }
