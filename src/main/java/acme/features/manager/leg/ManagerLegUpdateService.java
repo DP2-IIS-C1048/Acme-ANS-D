@@ -67,7 +67,7 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 		departureAirportId = super.getRequest().getData("departureAirport", int.class);
 		departureAirport = this.repository.findAirportById(departureAirportId);
 
-		super.bindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status");
+		super.bindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture");
 
 		leg.setAircraft(aircraft);
 		leg.setArrivalAirport(arrivalAirport);

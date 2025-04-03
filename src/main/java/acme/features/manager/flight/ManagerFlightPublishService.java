@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.components.ExchangeRate;
 import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.realms.manager.Manager;
@@ -56,6 +57,10 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 
 	@Override
 	public void validate(final Flight flight) {
+		{
+			boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
+			super.state(validCurrency, "cost", "acme.validation.currency.message");
+		}
 		{
 			boolean allLegsNoDraftMode;
 			Collection<Leg> legs;
