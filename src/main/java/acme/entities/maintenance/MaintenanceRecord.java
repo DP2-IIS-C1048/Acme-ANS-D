@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -33,7 +35,7 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment
-	@Automapped
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				maintenanceMoment;
 
 	@Mandatory
@@ -42,20 +44,23 @@ public class MaintenanceRecord extends AbstractEntity {
 	private MaintenanceStatus	status;
 
 	@Mandatory
-	@ValidMoment
-	@Automapped
+	@ValidMoment(past = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				inspectionDueDate;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0, max = 20000)
 	@Automapped
 	private Money				estimatedCost;
 
 	@Optional
-	@ValidString
+	@ValidString(min = 0)
 	@Automapped
 	private String				notes;
 
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

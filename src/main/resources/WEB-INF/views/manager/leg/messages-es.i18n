@@ -1,0 +1,46 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.leg.form.title = Formulario del tramo
+manager.leg.list.title = Lista de tramos
+
+manager.leg.form.label.title = Título:
+manager.leg.form.label.flightNumber = Número de vuelo:
+manager.leg.form.label.scheduledArrival = Llegada programada:
+manager.leg.form.label.scheduledDeparture = Salida programada:
+manager.leg.form.label.departureAirport = Aeropuerto de salida:
+manager.leg.form.label.arrivalAirport = Aeropuerto de llegada:
+manager.leg.form.label.aircraft = Aeronave:
+manager.leg.form.label.status = Estado:
+manager.leg.form.label.draftMode = Modo borrador:
+manager.leg.form.button.landed = Aterrizado:
+manager.leg.form.button.delayed = Retrasado:
+manager.leg.form.button.cancelled = Cancelado:
+
+
+manager.leg.form.button.create = Crear	
+manager.leg.form.button.update = Actualizar
+manager.leg.form.button.delete = Borrar
+manager.leg.form.button.publish = Publicar
+manager.leg.form.button.landed = Aterrizado
+manager.leg.form.button.delayed = Retrasado
+manager.leg.form.button.cancelled = Cancelado
+
+
+manager.leg.list.label.flightNumber = Nº vuelo
+manager.leg.list.label.scheduledArrival = Llegada programada
+manager.leg.list.label.scheduledDeparture = Salida programada
+manager.leg.list.label.departureAirportIataCode = IATA aeropuerto de salida
+manager.leg.list.label.arrivalAirportIataCode = IATA aeropuerto de llegada
+manager.leg.list.label.aircraftRegistrationNumber = Nº de aeronave
+manager.leg.list.label.status = Estado
+manager.leg.list.label.draftMode = Modo borrador
+
+manager.leg.list.button.create = Crear
