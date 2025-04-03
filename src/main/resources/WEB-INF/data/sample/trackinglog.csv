@@ -29,8 +29,8 @@ trackinglog-18,02/07/2012 0:00,"Lorem ipsum dolor sit ame",99.99,PENDING,null,ke
 trackinglog-19,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,REJECTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
 # indicator - no singular values
 # resolution - standard variations
-trackinglog-20,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"L",key-claim-00
-trackinglog-21,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lo",key-claim-00
+trackinglog-20,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"",key-claim-00
+trackinglog-21,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"L",key-claim-00
 trackinglog-22,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",key-claim-00
 trackinglog-23,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",key-claim-00
 trackinglog-24,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"โลเร็ม อิปซัม",key-claim-00
