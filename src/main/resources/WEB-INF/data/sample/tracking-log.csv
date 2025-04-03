@@ -29,7 +29,7 @@ tracking-log-18,2012/07/02 0:00,"Lorem ipsum dolor sit ame",99.99,PENDING,null,c
 tracking-log-19,2012/07/02 0:00,"Lorem ipsum dolor sit ame",100.00,REJECTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",claim-00
 # indicator - no singular values
 # resolution - standard variations
-tracking-log-20,2012/07/02 0:00,"Lorem ipsum dolor sit ame",100.00,PENDING,"",claim-00
+tracking-log-20,2012/07/02 0:00,"Lorem ipsum dolor sit ame",50.00,PENDING,"",claim-00
 tracking-log-21,2012/07/02 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"L",claim-00
 tracking-log-22,2012/07/02 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",claim-00
 tracking-log-23,2012/07/02 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",claim-00
