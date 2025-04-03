@@ -1,0 +1,45 @@
+key,last-update-moment,step,resolution-percentage,indicator,resolution,key:claim
+# base entity
+trackinglog-00,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+# lastUpdateMoment - standard variations
+trackinglog-01,01/01/2000 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-02,01/01/2000 0:01,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-03,31/12/2024 23:59,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-04,01/01/2025 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+# lastUpdateMoment - no singular values
+# step - standard variations
+trackinglog-05,02/07/2012 0:00,"L",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-06,02/07/2012 0:00,"Lo",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-07,02/07/2012 0:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-08,02/07/2012 0:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-09,02/07/2012 0:00,"โลเร็ม อิปซัม",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-10,02/07/2012 0:00,"لوريم إيبسوم",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-11,02/07/2012 0:00,"洛伦·伊普森",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-12,02/07/2012 0:00,"<marquee>Hacked</marquee>",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-13,02/07/2012 0:00,"<script>alert(‘Hacked!’);</script>",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+trackinglog-14,02/07/2012 0:00,"' or 'A' = 'A ",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+# step - no singular values
+# resolutionPercentage - standard variations
+trackinglog-15,02/07/2012 0:00,"Lorem ipsum dolor sit ame",50.00,PENDING,null,key-claim-00
+trackinglog-16,02/07/2012 0:00,"Lorem ipsum dolor sit ame",0.00,PENDING,null,key-claim-00
+trackinglog-17,02/07/2012 0:00,"Lorem ipsum dolor sit ame",0.01,PENDING,null,key-claim-00
+trackinglog-18,02/07/2012 0:00,"Lorem ipsum dolor sit ame",99.99,PENDING,null,key-claim-00
+# resolutionPercentage - no singular values
+# indicator - standard variations
+trackinglog-19,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,REJECTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-00
+# indicator - no singular values
+# resolution - standard variations
+trackinglog-20,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"",key-claim-00
+trackinglog-21,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"L",key-claim-00
+trackinglog-22,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",key-claim-00
+trackinglog-23,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",key-claim-00
+trackinglog-24,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"โลเร็ม อิปซัม",key-claim-00
+trackinglog-25,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"لوريم إيبسوم",key-claim-00
+trackinglog-26,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"洛伦·伊普森",key-claim-00
+trackinglog-27,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"<marquee>Hacked</marquee>",key-claim-00
+trackinglog-28,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"<script>alert(‘Hacked!’);</script>",key-claim-00
+trackinglog-29,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"' or 'A' = 'A ",key-claim-00
+# resolution - no singular values
+# claim - standard variations
+trackinglog-00,02/07/2012 0:00,"Lorem ipsum dolor sit ame",100.00,ACCEPTED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",key-claim-01
+# claim - no singular values
