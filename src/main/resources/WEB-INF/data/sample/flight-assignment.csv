@@ -1,0 +1,31 @@
+key,duty,last-update,current-status,remarks,key:flight-crew-member,key:leg
+# base entity
+flight-assignment-00,PILOT,2020/01/01 00:00,CONFIRMED,no consta,flight-crew-member-01,leg-00
+# duty - standard variations
+flight-assignment-01,PILOT,2020/01/01 00:00,CONFIRMED,no consta,flight-crew-member-01,leg-01
+flight-assignment-02,COPILOT,2020/01/01 00:00,CONFIRMED,no consta,flight-crew-member-02,leg-01
+flight-assignment-03,LEAD_ATTENDANT,2020/01/01 00:00,CONFIRMED,no consta,flight-crew-member-03,leg-01
+flight-assignment-04,CABID_ATTENDANT,2020/01/01 00:00,CONFIRMED,no consta,flight-crew-member-04,leg-01
+# last-update - standard variations
+flight-assignment-05,PILOT,2000/01/01 00:00,CONFIRMED,no consta,flight-crew-member-01,leg-02
+flight-assignment-06,PILOT,2000/01/01 00:01,CONFIRMED,no consta,flight-crew-member-02,leg-03
+flight-assignment-07,PILOT,2024/12/31 23:59,CONFIRMED,no consta,flight-crew-member-03,leg-04
+flight-assignment-08,PILOT,2025/01/01 00:00,CONFIRMED,no consta,flight-crew-member-04,leg-05
+flight-assignment-09,COPILOT,2010/06/15 12:30,CONFIRMED,no consta,flight-crew-member-01,leg-02
+flight-assignment-10,COPILOT,2020/09/10 15:45,CONFIRMED,no consta,flight-crew-member-02,leg-03
+# current-status - standard variations
+flight-assignment-11,COPILOT,2020/01/01 00:00,CONFIRMED,no consta,flight-crew-member-03,leg-04
+flight-assignment-12,COPILOT,2020/01/01 00:00,PENDING,no consta,flight-crew-member-04,leg-05
+flight-assignment-13,LEAD_ATTENDANT,2020/01/01 00:00,CANCELLED,no consta,flight-crew-member-01,leg-06
+# remarks - standard variations
+flight-assignment-14,LEAD_ATTENDANT,2020/01/01 00:00,CONFIRMED,null,flight-crew-member-02,leg-02
+flight-assignment-15,LEAD_ATTENDANT,2020/01/01 00:00,CONFIRMED,a,flight-crew-member-03,leg-07
+flight-assignment-16,LEAD_ATTENDANT,2020/01/01 00:00,CONFIRMED,ab,flight-crew-member-04,leg-08
+flight-assignment-17,CABID_ATTENDANT,2020/01/01 00:00,CONFIRMED,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,flight-crew-member-01,leg-08
+flight-assignment-18,CABID_ATTENDANT,2020/01/01 00:00,CONFIRMED,bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,flight-crew-member-02,leg-09
+flight-assignment-19,CABID_ATTENDANT,2020/01/01 00:00,CONFIRMED,اختبار テスト,flight-crew-member-03,leg-10
+flight-assignment-20,CABID_ATTENDANT,2020/01/01 00:00,CONFIRMED,测试,flight-crew-member-04,leg-11
+flight-assignment-21,PILOT,2020/01/01 00:00,CONFIRMED,тестирование,flight-crew-member-01,leg-12
+flight-assignment-22,PILOT,2020/01/01 00:00,CONFIRMED,' OR 1=1; --,flight-crew-member-02,leg-13
+flight-assignment-23,PILOT,2020/01/01 00:00,CONFIRMED,<script>alert('XSS')</script>,flight-crew-member-03,leg-14
+flight-assignment-24,PILOT,2020/01/01 00:00,CONFIRMED,Todo correcto,flight-crew-member-04,leg-15

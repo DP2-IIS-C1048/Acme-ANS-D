@@ -1,0 +1,19 @@
+key,locator-code,purchase-moment,travel-class,price,last-nibble,key:customer,key:flight,draft-mode
+# base entity
+booking-00,"TTXA65N",2012/07/02 00:00,ECONOMY,EUR 50.00,"4826",customer-01,flight-00,false
+# locatorCode is unique so it has no standard variations
+# purchaseMoment - standard variations
+booking-01,"EP88E4Q",2000/01/01 00:00,ECONOMY,EUR 50.00,"4826",customer-01,flight-01,false
+booking-02,"2Z01R9",2000/01/01 00:01,ECONOMY,EUR 50.00,"4826",customer-01,flight-02,false
+booking-03,"FTXEOV",2024/12/31 23:59,ECONOMY,EUR 50.00,"4826",customer-01,flight-03,false
+booking-04,"BH1W66I",2025/01/01 00:00,ECONOMY,EUR 50.00,"4826",customer-01,flight-04,false
+# travelClass - standard variations
+booking-05,"JQBDAF0Z",2012/07/02 00:00,BUSINESS,EUR 50.00,"4826",customer-01,flight-01,false
+# price - standard variations
+booking-06,"P4VVHT2P",2012/07/02 00:00,ECONOMY,EUR 0.00,"4826",customer-01,flight-01,false
+booking-07,"E430QQY",2012/07/02 00:00,ECONOMY,EUR 0.01,"4826",customer-01,flight-01,false
+booking-08,"TMNKIXKR",2012/07/02 00:00,ECONOMY,EUR 99999.99,"4826",customer-01,flight-01,false
+booking-09,"Q65WD3",2012/07/02 00:00,ECONOMY,EUR 100000.00,"4826",customer-01,flight-01,false
+# lastNibble is allways a number of four digits so it has no standard variations
+# price - standard variations
+booking-10,"JQ1V0Z",2012/07/02 00:00,ECONOMY,EUR 50.00,"4826",customer-01,flight-01,true

@@ -1,0 +1,42 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.flight.form.title = Formulario de vuelos
+manager.flight.list.title = Lista de vuelos
+
+manager.flight.form.label.tag = Etiqueta:
+manager.flight.form.label.requiresSelfTransfer = Requiere transferencia propia:
+manager.flight.form.label.cost = Coste: 
+manager.flight.form.label.description = Descripción:
+manager.flight.form.label.scheduledDeparture = Salida programada:
+manager.flight.form.label.scheduledArrival = Llegada programada:
+manager.flight.form.label.originCity = Ciudad de origen:
+manager.flight.form.label.destinationCity = Ciudad de destino:
+manager.flight.form.label.numberOfLayovers = Número de escalas:
+manager.flight.form.label.draftMode = Modo borrador:
+
+
+
+manager.flight.form.placeholder.score = 0,00 - 100,00
+		
+manager.flight.form.button.legs = Tramos
+manager.flight.form.button.update = Actualizar
+manager.flight.form.button.delete = Borrar
+manager.flight.form.button.publish = Publicar
+manager.flight.form.button.create = Crear
+
+manager.flight.list.label.tag = Etiqueta
+manager.flight.list.label.cost = Coste
+manager.flight.list.label.originCity = Ciudad de origen
+manager.flight.list.label.destinationCity = Ciudad de destino
+manager.flight.list.label.numberOfLayovers = Número de escalas
+manager.flight.list.label.draftMode = Modo borrador
+
+manager.flight.list.button.create = Crear
