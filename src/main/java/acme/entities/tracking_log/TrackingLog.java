@@ -54,7 +54,7 @@ public class TrackingLog extends AbstractEntity {
 	private TrackingLogIndicator	indicator;
 
 	@Optional
-	@ValidString(min = 1, max = 255)
+	@ValidString(min = 0, max = 255)
 	@Automapped
 	private String					resolution;
 
