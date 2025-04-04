@@ -25,6 +25,10 @@ manager.leg.form.button.create = Create
 manager.leg.form.button.update = Update
 manager.leg.form.button.delete = Delete
 manager.leg.form.button.publish = Publish
+manager.leg.form.button.landed = Landed
+manager.leg.form.button.delayed = Delayed
+manager.leg.form.button.cancelled = Cancelled
+
 
 manager.leg.list.label.flightNumber = Flight No.
 manager.leg.list.label.scheduledArrival = Scheduled arrival

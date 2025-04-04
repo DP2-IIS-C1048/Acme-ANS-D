@@ -28,7 +28,7 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 
 		boolean result;
 
-		if (assistanceAgent == null)
+		if (assistanceAgent == null || assistanceAgent.getEmployeeCode() == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			{
@@ -45,10 +45,16 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 				String name = assistanceAgent.getIdentity().getName();
 				String surName = assistanceAgent.getIdentity().getSurname();
 				String employeeCode = assistanceAgent.getEmployeeCode();
-
-				if (name.charAt(0) == employeeCode.charAt(0) && surName.charAt(0) == employeeCode.charAt(1))
-					validEmployeeCode = true;
-				super.state(context, validEmployeeCode, "employeeCode", "acme.validation.assistanceagent.invalid-employeeCode.message");
+				String[] surnames = surName.split(" ");
+				if (surnames.length > 1) {
+					if (name.charAt(0) == employeeCode.charAt(0) && surnames[0].charAt(0) == employeeCode.charAt(1) && surnames[1].charAt(0) == employeeCode.charAt(2))
+						validEmployeeCode = true;
+					super.state(context, validEmployeeCode, "employeeCode", "acme.validation.assistanceagent.invalid-employeeCode.message");
+				} else {
+					if (name.charAt(0) == employeeCode.charAt(0) && surnames[0].charAt(0) == employeeCode.charAt(1))
+						validEmployeeCode = true;
+					super.state(context, validEmployeeCode, "employeeCode", "acme.validation.assistanceagent.invalid-employeeCode.message");
+				}
 			}
 		}
 
