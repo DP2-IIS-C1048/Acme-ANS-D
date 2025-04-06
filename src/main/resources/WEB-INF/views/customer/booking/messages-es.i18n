@@ -8,7 +8,7 @@ customer.booking.form.label.price = Precio:
 customer.booking.form.label.lastNibble = Últimos números de la tarjeta:
 customer.booking.form.label.draftMode = Modo borrador:
 
-customer.booking.form.placeholder.travelClass = ECONOMY or BUSINESS
+customer.booking.form.placeholder.travelClass = ECONOMY o BUSINESS
     
 customer.booking.form.button.passengers = Pasajeros
 customer.booking.form.button.update = Actualizar

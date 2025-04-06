@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.components.ExchangeRate;
 import acme.entities.booking.Booking;
 import acme.realms.customer.Customer;
 
@@ -58,7 +59,10 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void validate(final Booking booking) {
-		;
+
+		boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
+
+		super.state(validCurrency, "price", "acme.validation.currency.message");
 	}
 
 	@Override
@@ -71,7 +75,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		Dataset dataset;
 
 		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
-
+		dataset.put("filght", booking.getFlight());
 		super.getResponse().addData(dataset);
 	}
 
