@@ -30,19 +30,15 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 	@Override
 	public void load() {
 		Collection<MaintenanceRecord> maintenanceRecords;
-
 		maintenanceRecords = this.repository.findAllMaintenanceRecords();
-
 		super.getBuffer().addData(maintenanceRecords);
 	}
 
 	@Override
 	public void unbind(final MaintenanceRecord mainenanceRecord) {
 		Dataset dataset;
-
-		dataset = super.unbindObject(mainenanceRecord, "title", "moment", "status");
+		dataset = super.unbindObject(mainenanceRecord, "maintenanceMoment", "inspectionDueDate", "draftMode");
 		super.addPayload(dataset, mainenanceRecord, "text");
-
 		super.getResponse().addData(dataset);
 	}
 
