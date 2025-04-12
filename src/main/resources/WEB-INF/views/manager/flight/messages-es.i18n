@@ -33,7 +33,7 @@ manager.flight.form.button.publish = Publicar
 manager.flight.form.button.create = Crear
 
 manager.flight.list.label.tag = Etiqueta
-manager.flight.list.label.cost = Coste:
+manager.flight.list.label.cost = Coste
 manager.flight.list.label.originCity = Ciudad de origen
 manager.flight.list.label.destinationCity = Ciudad de destino
 manager.flight.list.label.numberOfLayovers = Número de escalas

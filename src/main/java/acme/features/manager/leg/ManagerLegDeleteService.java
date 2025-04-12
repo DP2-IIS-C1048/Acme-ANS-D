@@ -67,7 +67,7 @@ public class ManagerLegDeleteService extends AbstractGuiService<Manager, Leg> {
 		departureAirportId = super.getRequest().getData("departureAirport", int.class);
 		departureAirport = this.repository.findAirportById(departureAirportId);
 
-		super.bindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
+		super.bindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "draftMode");
 
 		leg.setAircraft(aircraft);
 		leg.setArrivalAirport(arrivalAirport);

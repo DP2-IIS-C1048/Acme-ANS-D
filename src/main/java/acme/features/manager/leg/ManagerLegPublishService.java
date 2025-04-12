@@ -37,7 +37,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		leg = this.repository.findLegById(legId);
 		flight = leg == null ? null : leg.getFlight();
 		manager = flight == null ? null : flight.getManager();
-		status = flight != null && flight.isDraftMode() && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		status = flight != null && leg != null && flight.isDraftMode() && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
 
 		super.getResponse().setAuthorised(status);
 
@@ -75,7 +75,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		departureAirportId = super.getRequest().getData("departureAirport", int.class);
 		departureAirport = this.repository.findAirportById(departureAirportId);
 
-		super.bindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
+		super.bindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture");
 
 		leg.setAircraft(aircraft);
 		leg.setArrivalAirport(arrivalAirport);
@@ -112,7 +112,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		Leg firstLegPublished;
 		Leg lastLegPublished;
 
-		if (totalLegs > 0) {
+		if (totalLegs > 0 && !leg.getFlight().isRequiresSelfTransfer()) {
 			firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
 			lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
 
