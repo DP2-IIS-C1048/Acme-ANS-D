@@ -12,7 +12,7 @@ import acme.entities.maintenance.MaintenanceRecord;
 @Repository
 public interface TechnicianMaintenanceRecordRepository extends AbstractRepository {
 
-	@Query("select mr from MaintenanceRecord mr where m.id = :id")
+	@Query("select mr from MaintenanceRecord mr where mr.id = :id")
 	MaintenanceRecord findMaintenanceRecordById(int id);
 
 	@Query("select mr from MaintenanceRecord mr")
