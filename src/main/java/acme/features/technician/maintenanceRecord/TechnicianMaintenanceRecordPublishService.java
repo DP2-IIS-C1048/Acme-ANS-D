@@ -54,7 +54,7 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	public void validate(final MaintenanceRecord maintenanceRecord) {
 		{
 			boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
-			super.state(validCurrency, "cost", "acme.validation.currency.message");
+			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
 		}
 	}
 
