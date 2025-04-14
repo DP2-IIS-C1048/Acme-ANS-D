@@ -12,6 +12,7 @@ technician.maintenanceRecord.form.title = Maintenance record form
 technician.maintenanceRecord.list.title = Listing of maintenance records
 
 technician.maintenanceRecord.form.label.maintenanceMoment = Moment of maintenance:
+technician.maintenanceRecord.list.label.status = Status:
 technician.maintenanceRecord.form.label.inspectionDueDate = Inspection Due Date:
 technician.maintenanceRecord.form.label.estimatedCost = Estimated cost: 
 technician.maintenanceRecord.form.label.notes = Notes:
