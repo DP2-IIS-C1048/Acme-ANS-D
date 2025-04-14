@@ -25,4 +25,6 @@
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<acme:button code="technician.maintenanceRecord.list.button.create" action="/technician/maintenanceRecord/create"/>
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="technician.maintenanceRecord.list.button.create" action="/technician/maintenanceRecord/create"/>
+</jstl:if>
