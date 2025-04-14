@@ -35,11 +35,15 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 	}
 
 	@Override
-	public void unbind(final MaintenanceRecord mainenanceRecord) {
+	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
-		dataset = super.unbindObject(mainenanceRecord, "maintenanceMoment", "inspectionDueDate", "draftMode");
-		super.addPayload(dataset, mainenanceRecord, "text");
+
+		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "estimatedCost", "draftMode");
+		dataset.put("maintenanceMoment", maintenanceRecord.getMaintenanceMoment());
+		dataset.put("estimatedCost", maintenanceRecord.getEstimatedCost());
+
 		super.getResponse().addData(dataset);
+
 	}
 
 }
