@@ -8,25 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-technician.maintenance-record.form.title = Maintenance record form 
-technician.maintenance-record.list.title = Listing of maintenance records
+technician.maintenanceRecord.form.title = Maintenance record form 
+technician.maintenanceRecord.list.title = Listing of maintenance records
 
-technician.maintenance-record.form.label.maintenanceMoment = Moment of maintenance:
-technician.maintenance-record.form.label.inspectionDueDate = Inspection Due Date:
-technician.maintenance-record.form.label.estimatedCost = Estimated cost: 
-technician.maintenance-record.form.label.notes = Notes:
-technician.maintenance-record.form.label.draftMode = Draft mode (delete):
+technician.maintenanceRecord.form.label.maintenanceMoment = Moment of maintenance:
+technician.maintenanceRecord.form.label.inspectionDueDate = Inspection Due Date:
+technician.maintenanceRecord.form.label.estimatedCost = Estimated cost: 
+technician.maintenanceRecord.form.label.notes = Notes:
+technician.maintenanceRecord.form.label.draftMode = Draft mode (delete):
 
-technician.maintenance-record.form.button.tasks = Tasks
-technician.maintenance-record.form.button.update = Update
-technician.maintenance-record.form.button.delete = Delete
-technician.maintenance-record.form.button.publish = Publish
-technician.maintenance-record.form.button.create = Create
+technician.maintenanceRecord.form.button.tasks = Tasks
+technician.maintenanceRecord.form.button.update = Update
+technician.maintenanceRecord.form.button.delete = Delete
+technician.maintenanceRecord.form.button.publish = Publish
+technician.maintenanceRecord.form.button.create = Create
 
-technician.maintenance-record.list.label.maintenanceMoment = Moment of maintenance:
-technician.maintenance-record.list.label.inspectionDueDate = Inspection Due Date:
-technician.maintenance-record.list.label.estimatedCost = Estimated cost: 
-technician.maintenance-record.list.label.notes = Notes:
-technician.maintenance-record.list.label.draftMode = Draft mode (delete):
+technician.maintenanceRecord.list.label.maintenanceMoment = Moment of maintenance:
+technician.maintenanceRecord.list.label.inspectionDueDate = Inspection Due Date:
+technician.maintenanceRecord.list.label.estimatedCost = Estimated cost: 
+technician.maintenanceRecord.list.label.notes = Notes:
+technician.maintenanceRecord.list.label.draftMode = Draft mode (delete):
 
-technician.maintenance-record.list.button.create = Create
+technician.maintenanceRecord.list.button.create = Create
