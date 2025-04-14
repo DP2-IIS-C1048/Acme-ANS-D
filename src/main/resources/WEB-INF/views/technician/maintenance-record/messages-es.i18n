@@ -8,26 +8,26 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-technician.maintenanceRecord.form.title = Formulario de registros de mantenimiento
-technician.maintenanceRecord.list.title = Listado de registros de mantenimiento
+technician.maintenance-record.form.title = Formulario de registros de mantenimiento
+technician.maintenance-record.list.title = Listado de registros de mantenimiento
 
-technician.maintenanceRecord.form.label.maintenanceMoment = Momento en que se realizó el mantenimiento:
-technician.maintenanceRecord.list.label.status = Estado:
-technician.maintenanceRecord.form.label.inspectionDueDate = Fecha de próxima inspección:
-technician.maintenanceRecord.form.label.estimatedCost = Coste estimado: 
-technician.maintenanceRecord.form.label.notes = Notas:
-technician.maintenanceRecord.form.label.draftMode = Draft mode (borrar):
+technician.maintenance-record.form.label.maintenanceMoment = Momento en que se realizó el mantenimiento
+technician.maintenance-record.form.label.status = Estado
+technician.maintenance-record.form.label.inspectionDueDate = Fecha de próxima inspección
+technician.maintenance-record.form.label.estimatedCost = Coste estimado
+technician.maintenance-record.form.label.notes = Notas:
 
-technician.maintenanceRecord.form.button.tasks = Tareas
-technician.maintenanceRecord.form.button.update = Actualizar
-technician.maintenanceRecord.form.button.delete = Eliminar
-technician.maintenanceRecord.form.button.publish = Publicar
-technician.maintenanceRecord.form.button.create = Crear
+technician.maintenance-record.form.button.tasks = Tareas
+technician.maintenance-record.form.button.update = Actualizar
+technician.maintenance-record.form.button.delete = Eliminar
+technician.maintenance-record.form.button.publish = Publicar
+technician.maintenance-record.form.button.create = Crear
 
-technician.maintenanceRecord.list.label.maintenanceMoment = Momento de realización:
-technician.maintenanceRecord.list.label.inspectionDueDate = Próxima inspección:
-technician.maintenanceRecord.list.label.estimatedCost = Coste estimado: 
-technician.maintenanceRecord.list.label.notes = Notas:
-technician.maintenanceRecord.list.label.draftMode = Draft mode (borrar):
+technician.maintenance-record.list.label.maintenanceMoment = Momento de realización:
+technician.maintenance-record.list.label.status = Estado:
+technician.maintenance-record.list.label.inspectionDueDate = Próxima inspección:
+technician.maintenance-record.list.label.estimatedCost = Coste estimado: 
+technician.maintenance-record.list.label.notes = Notas:
+technician.maintenance-record.list.label.draftMode = Draft mode (borrar):
 
-technician.maintenanceRecord.list.button.create = Crear
+technician.maintenance-record.list.button.create = Crear
