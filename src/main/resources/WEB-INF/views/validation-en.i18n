@@ -44,8 +44,13 @@ acme.validation.manager.invalid-identifierNumber.message = The identifier number
 acme.validation.customer.duplicated-identifier.message = The customer identifier already exists
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
+acme.validation.booking.departure-not-in-future.message = This flight has already been deported.
 
-customer.booking.publish.lastNibble-null = The lastNibble of this booking can't be null
+acme.validation.booking.publish.lastNibble-null.message = The lastNibble of this booking can't be null.
+acme.validation.booking.publish.passengers-associated.message = This booking has no passengers associated.
+
+acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you.
+
 
 
 

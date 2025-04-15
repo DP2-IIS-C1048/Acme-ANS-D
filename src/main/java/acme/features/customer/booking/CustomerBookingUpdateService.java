@@ -1,13 +1,19 @@
 
 package acme.features.customer.booking;
 
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
 import acme.entities.booking.Booking;
+import acme.entities.flight.Flight;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -26,10 +32,8 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 		masterId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(masterId);
-		customer = null;
-		if (booking != null)
-			customer = booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && !booking.isDraftMode();
+		customer = booking == null ? null : booking.getCustomer();
+		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && booking.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -47,22 +51,33 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void bind(final Booking booking) {
-		int customerId;
-		Customer customer;
+		int flightId;
+		Flight flight;
 
-		customerId = super.getRequest().getData("customer", int.class);
-		customer = this.repository.findCustomerById(customerId);
+		flightId = super.getRequest().getData("flight", int.class);
+		flight = this.repository.findFlightById(flightId);
 
 		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
-		booking.setCustomer(customer);
+		booking.setFlight(flight);
 	}
 
 	@Override
 	public void validate(final Booking booking) {
+		{
+			Date moment;
+			moment = MomentHelper.getCurrentMoment();
 
-		boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
+			if (booking.getFlight() != null) {
+				boolean flightDepartureFuture = booking.getFlight().getScheduledDeparture().after(moment);
+				super.state(flightDepartureFuture, "flight", "acme.validation.booking.departure-not-in-future.message");
+			}
 
-		super.state(validCurrency, "price", "acme.validation.currency.message");
+		}
+		{
+			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
+
+			super.state(validCurrency, "price", "acme.validation.currency.message");
+		}
 	}
 
 	@Override
@@ -73,9 +88,16 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 	@Override
 	public void unbind(final Booking booking) {
 		Dataset dataset;
+		Collection<Flight> flights;
+		SelectChoices choices;
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
-		dataset.put("filght", booking.getFlight());
+		flights = this.repository.findAllFlights();
+		choices = SelectChoices.from(flights, "tag", booking.getFlight());
+
+		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "draftMode");
+		dataset.put("filght", choices.getSelected().getKey());
+		dataset.put("flights", choices);
+
 		super.getResponse().addData(dataset);
 	}
 

@@ -29,7 +29,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		booking = this.repository.findBookingById(masterId);
-		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
+		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,12 +50,22 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void bind(final BookingRecord bookingRecord) {
-		super.bindObject(bookingRecord, "booking", "passenger");
+		super.bindObject(bookingRecord, "passenger");
 	}
 
 	@Override
 	public void validate(final BookingRecord bookingRecord) {
-		;
+		{
+			boolean validPassenger = false;
+			Passenger passenger = bookingRecord.getPassenger();
+			Customer customer = this.repository.findBookingById(bookingRecord.getBooking().getId()).getCustomer();
+			Collection<Passenger> customerPassengers = this.repository.findPassengersByCustomerId(customer.getId());
+
+			if (customerPassengers.contains(passenger))
+				validPassenger = true;
+			super.state(validPassenger, "passenger", "acme.validation.booking-record.create.passenger-not-from-customer.message");
+
+		}
 	}
 
 	@Override
@@ -75,9 +85,9 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		passengers = this.repository.findPassengersByCustomerId(customerId);
 		choices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
 
-		dataset = super.unbindObject(bookingRecord, "booking", "passenger");
-		dataset.put("passenger", choices.getSelected().getKey());
+		dataset = super.unbindObject(bookingRecord, "passenger");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("passenger", choices.getSelected().getKey());
 		dataset.put("passengers", choices);
 
 		super.getResponse().addData(dataset);

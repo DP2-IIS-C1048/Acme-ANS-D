@@ -1,13 +1,17 @@
 
 package acme.features.customer.bookingRecord;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
+import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -20,11 +24,11 @@ public class CustomerBookingRecordShowService extends AbstractGuiService<Custome
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int bookingRecordId;
 		Booking booking;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		booking = this.repository.findBookingById(masterId);
+		bookingRecordId = super.getRequest().getData("id", int.class);
+		booking = this.repository.findBookingByBookingRecordId(bookingRecordId);
 		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
 
 		super.getResponse().setAuthorised(status);
@@ -35,7 +39,7 @@ public class CustomerBookingRecordShowService extends AbstractGuiService<Custome
 		BookingRecord bookingRecord;
 		int id;
 
-		id = super.getRequest().getData("masterId", int.class);
+		id = super.getRequest().getData("id", int.class);
 		bookingRecord = this.repository.findBookingRecordById(id);
 
 		super.getBuffer().addData(bookingRecord);
@@ -45,9 +49,18 @@ public class CustomerBookingRecordShowService extends AbstractGuiService<Custome
 	@Override
 	public void unbind(final BookingRecord bookingRecord) {
 		Dataset dataset;
+		Collection<Passenger> passengers;
+		SelectChoices choices;
+		int customerId;
 
-		dataset = super.unbindObject(bookingRecord, "booking", "passenger");
+		customerId = bookingRecord.getBooking().getCustomer().getId();
+		passengers = this.repository.findPassengersByCustomerId(customerId);
+		choices = SelectChoices.from(passengers, "fullName", bookingRecord.getPassenger());
+
+		dataset = super.unbindObject(bookingRecord, "passenger");
 		dataset.put("masterId", bookingRecord.getBooking().getId());
+		dataset.put("passenger", choices.getSelected().getKey());
+		dataset.put("passengers", choices);
 
 		super.getResponse().addData(dataset);
 

@@ -28,10 +28,10 @@
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="customer.booking.form.button.passsengers" action="/customer/bookingRecord/list?masterId=${id}"/> <%-- Esto hay que revisarlo --%>	
+			<acme:button code="customer.booking.form.button.passengers" action="/customer/booking-record/list?masterId=${id}"/>	
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish') && draftMode == true}">
-			<acme:button code="customer.booking.form.button.passsengers" action="/customer/bookingRecord/list?masterId=${id}"/>
+			<acme:button code="customer.booking.form.button.passengers" action="/customer/booking-record/list?masterId=${id}"/>
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
 		</jstl:when>
