@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.components.ExchangeRate;
 import acme.entities.maintenance.MaintenanceRecord;
 import acme.realms.technician.Technician;
 
@@ -52,10 +51,7 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		{
-			boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
-			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
-		}
+		;
 	}
 
 	@Override
@@ -68,11 +64,6 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 		Dataset dataset;
 
 		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
-		dataset.put("maintenanceMoment", maintenanceRecord.getMaintenanceMoment());
-		dataset.put("status", maintenanceRecord.getStatus());
-		dataset.put("inspectionDueDate", maintenanceRecord.getInspectionDueDate());
-		dataset.put("estimatedCost", maintenanceRecord.getEstimatedCost());
-		dataset.put("notes", maintenanceRecord.getNotes());
 
 		super.getResponse().addData(dataset);
 	}
