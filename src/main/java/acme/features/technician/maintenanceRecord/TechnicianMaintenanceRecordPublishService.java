@@ -1,13 +1,18 @@
 
 package acme.features.technician.maintenanceRecord;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
 import acme.entities.maintenance.MaintenanceRecord;
+import acme.entities.maintenance.MaintenanceStatus;
 import acme.realms.technician.Technician;
 
 @GuiService
@@ -47,7 +52,7 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
-		super.bindObject(maintenanceRecord, "maintenanceMoment", "status", "inspectionDueDate", "estimatedCost", "notes");
+		super.bindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes");
 	}
 
 	@Override
@@ -60,6 +65,8 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
+		Date now = MomentHelper.getCurrentMoment();
+		maintenanceRecord.setMaintenanceMoment(now);
 		maintenanceRecord.setDraftMode(false);
 		this.repository.save(maintenanceRecord);
 	}
@@ -67,13 +74,12 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
+		SelectChoices choices;
+
+		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 
 		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
-		dataset.put("maintenanceMoment", maintenanceRecord.getMaintenanceMoment());
-		dataset.put("status", maintenanceRecord.getStatus());
-		dataset.put("inspectionDueDate", maintenanceRecord.getInspectionDueDate());
-		dataset.put("estimatedCost", maintenanceRecord.getEstimatedCost());
-		dataset.put("notes", maintenanceRecord.getNotes());
+		dataset.put("statuses", choices);
 
 		super.getResponse().addData(dataset);
 	}
