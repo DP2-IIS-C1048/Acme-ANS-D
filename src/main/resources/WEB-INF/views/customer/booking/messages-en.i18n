@@ -10,6 +10,7 @@ customer.booking.form.label.lastNibble = Card last nibble:
 customer.booking.form.label.draftMode = Draft Mode:
 
 customer.booking.form.placeholder.travelClass = ECONOMY or BUSINESS
+customer.booking.form.placeholder.lastNibble = 0000
     
 customer.booking.form.button.passengers = Passengers
 customer.booking.form.button.update = Update

@@ -61,10 +61,20 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void validate(final Booking booking) {
+		{
+			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
+			super.state(validCurrency, "price", "acme.validation.currency.message");
+		}
+		{
+			Date moment;
+			moment = MomentHelper.getCurrentMoment();
 
-		boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
-		super.state(validCurrency, "price", "acme.validation.currency.message");
+			if (booking.getFlight() != null) {
+				boolean flightDepartureFuture = booking.getFlight().getScheduledDeparture().after(moment);
+				super.state(flightDepartureFuture, "flight", "acme.validation.booking.departure-not-in-future.message");
+			}
 
+		}
 	}
 
 	@Override
@@ -78,11 +88,15 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		Collection<Flight> flights;
 		SelectChoices choices;
 		Date moment;
+		Flight selectedFlight = booking.getFlight();
 
 		moment = MomentHelper.getCurrentMoment();
-
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
-		choices = SelectChoices.from(flights, "tag", booking.getFlight());
+
+		if (selectedFlight != null && !flights.contains(selectedFlight))
+			selectedFlight = null;
+
+		choices = SelectChoices.from(flights, "tag", selectedFlight);
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
 		dataset.put("flight", choices.getSelected().getKey());
