@@ -16,12 +16,20 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
-	<acme:input-textbox code="customer.booking.form.label.travelClass" path="travelClass" placeholder="customer.booking.form.placeholder.travelClass"/>
-	<acme:input-money code="customer.booking.form.label.price" path="price"/>
-	<acme:input-textbox code="customer.booking.form.label.lastNibble" path="lastNibble" placeholder="customer.booking.form.placeholder.lastNibble"/>
-	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}"/>			
-	
+	<jstl:if test="${draftMode == true}">
+		<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
+		<acme:input-textbox code="customer.booking.form.label.travelClass" path="travelClass" placeholder="customer.booking.form.placeholder.travelClass"/>
+		<acme:input-money code="customer.booking.form.label.price" path="price"/>
+		<acme:input-textbox code="customer.booking.form.label.lastNibble" path="lastNibble" placeholder="customer.booking.form.placeholder.lastNibble"/>
+		<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}"/>			
+	</jstl:if>	
+	<jstl:if test="${draftMode == false}">
+		<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode" readonly="true"/>
+		<acme:input-textbox code="customer.booking.form.label.travelClass" path="travelClass" placeholder="customer.booking.form.placeholder.travelClass" readonly="true"/>
+		<acme:input-money code="customer.booking.form.label.price" path="price" readonly="true"/>
+		<acme:input-textbox code="customer.booking.form.label.lastNibble" path="lastNibble" placeholder="customer.booking.form.placeholder.lastNibble" readonly="true"/>
+		<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}" readonly="true"/>			
+	</jstl:if>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="customer.booking.form.button.passengers" action="/customer/booking-record/list?masterId=${id}"/>	

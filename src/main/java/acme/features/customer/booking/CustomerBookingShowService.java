@@ -1,12 +1,15 @@
 
 package acme.features.customer.booking;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
@@ -51,13 +54,24 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	@Override
 	public void unbind(final Booking booking) {
 		Dataset dataset;
-		SelectChoices choices;
 		Collection<Flight> flights;
+		SelectChoices choices;
+		Date moment;
+		Flight selectedFlight;
 
-		flights = this.repository.findAllFlights();
-		choices = SelectChoices.from(flights, "tag", booking.getFlight());
+		moment = MomentHelper.getCurrentMoment();
+		selectedFlight = booking.getFlight();
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "draftMode");
+		flights = this.repository.findFlightsWithFirstLegAfter(moment);
+
+		if (!booking.isDraftMode() && selectedFlight != null && !flights.contains(selectedFlight)) {
+			flights = new ArrayList<>(flights);
+			flights.add(selectedFlight);
+		}
+
+		choices = SelectChoices.from(flights, "tag", selectedFlight);
+
+		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "draftMode");
 		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 

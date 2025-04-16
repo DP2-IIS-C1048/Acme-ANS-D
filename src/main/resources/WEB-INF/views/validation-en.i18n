@@ -45,6 +45,7 @@ acme.validation.customer.duplicated-identifier.message = The customer identifier
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
 acme.validation.booking.departure-not-in-future.message = This flight has already been deported.
+acme.validation.booking.is-not-draft-mode.message = This booking can't be updated. It isn't on draftMode
 
 acme.validation.booking.publish.lastNibble-null.message = The lastNibble of this booking can't be null.
 acme.validation.booking.publish.passengers-associated.message = This booking has no passengers associated.
