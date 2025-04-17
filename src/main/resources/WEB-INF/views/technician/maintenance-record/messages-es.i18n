@@ -15,7 +15,8 @@ technician.maintenance-record.form.label.maintenanceMoment = Momento en que se r
 technician.maintenance-record.form.label.status = Estado
 technician.maintenance-record.form.label.inspectionDueDate = Fecha de próxima inspección
 technician.maintenance-record.form.label.estimatedCost = Coste estimado
-technician.maintenance-record.form.label.notes = Notas:
+technician.maintenance-record.form.label.notes = Notas
+technician.maintenance-record.form.label.aircraft = Aeronave
 
 technician.maintenance-record.form.button.tasks = Tareas
 technician.maintenance-record.form.button.update = Actualizar
@@ -23,11 +24,10 @@ technician.maintenance-record.form.button.delete = Eliminar
 technician.maintenance-record.form.button.publish = Publicar
 technician.maintenance-record.form.button.create = Crear
 
-technician.maintenance-record.list.label.maintenanceMoment = Momento de realización:
-technician.maintenance-record.list.label.status = Estado:
-technician.maintenance-record.list.label.inspectionDueDate = Próxima inspección:
-technician.maintenance-record.list.label.estimatedCost = Coste estimado: 
-technician.maintenance-record.list.label.notes = Notas:
-technician.maintenance-record.list.label.draftMode = Draft mode (borrar):
+technician.maintenance-record.list.label.maintenanceMoment = Momento de realización
+technician.maintenance-record.list.label.status = Estado
+technician.maintenance-record.list.label.inspectionDueDate = Próxima inspección
+technician.maintenance-record.list.label.estimatedCost = Coste estimado
+technician.maintenance-record.list.label.notes = Notas
 
 technician.maintenance-record.list.button.create = Crear
