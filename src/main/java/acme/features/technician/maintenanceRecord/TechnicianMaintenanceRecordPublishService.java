@@ -1,13 +1,10 @@
 
 package acme.features.technician.maintenanceRecord;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
@@ -65,8 +62,6 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
-		Date now = MomentHelper.getCurrentMoment();
-		maintenanceRecord.setMaintenanceMoment(now);
 		maintenanceRecord.setDraftMode(false);
 		this.repository.save(maintenanceRecord);
 	}
