@@ -1,0 +1,41 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+master.menu.flight-crew-member = Flight assignments
+flight-crew-member.flight-assignment.list.title = Listing of flight assignments
+flight-crew-member.flight-assignment.list.label.flight-number = Flight number
+flight-crew-member.flight-assignment.list.label.duty = Duty
+flight-crew-member.flight-assignment.list.label.current-status = Current status
+flight-crew-member.flight-assignment.list.label.last-update = Last update
+flight-crew-member.flight-assignment.list.button.create = Create
+
+flight-crew-member.flight-assignment.form.title = Flight assignment
+flight-crew-member.flight-assignment.form.label.flight-number = Flight number
+flight-crew-member.flight-assignment.form.label.member = Member
+flight-crew-member.flight-assignment.form.label.member.nomember = No crew available
+flight-crew-member.flight-assignment.form.label.duty = Duty
+flight-crew-member.flight-assignment.form.label.current-status = Current status
+flight-crew-member.flight-assignment.form.label.last-update = Last update
+flight-crew-member.flight-assignment.form.label.remarks = Remarks
+
+flight-crew-member.flight-assignment.form.button.create = Create
+flight-crew-member.flight-assignment.form.button.update = Update
+flight-crew-member.flight-assignment.form.button.delete = Delete
+flight-crew-member.flight-assignment.form.button.publish = Publish
+
+flight-crew-member.activity-log.form.button.list = Show activity logs
+
+flight-crew-member.flight-assignment.validation.duty.publish = There cannot be more than one pilot or co-pilot for the same flight segment
+flight-crew-member.flight-assignment.validation.availability-status.publish = This crew member is not available
+flight-crew-member.flight-assignment.validation.flight-number.publish = This crew member is already assigned to this leg
+flight-crew-member.flight-assignment.validation.overlapping-leg = This leg overlaps with another leg of the same member
+
+
+
