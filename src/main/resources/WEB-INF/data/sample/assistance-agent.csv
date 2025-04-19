@@ -1,0 +1,4 @@
+key,employee-code,spoken-languages,moment,brief-bio,salary,photo,key:airline,key:user-account
+assistance-agent-01,JM526246,"spanish,english",2000/01/01 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U",EUR 35000.00,http://lorem.com/ipsum,airline-00,user-account-assistance-agent-01
+assistance-agent-02,JR149142,"german,english",2000/01/01 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U",EUR 35000.00,http://lorem.com/ipsum,airline-00,user-account-assistance-agent-02
+assistance-agent-03,PCR272440,"italian,english",2000/01/01 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U",EUR 35000.00,http://lorem.com/ipsum,airline-00,user-account-assistance-agent-03
