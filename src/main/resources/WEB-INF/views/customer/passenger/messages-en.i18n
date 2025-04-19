@@ -1,0 +1,8 @@
+customer.passenger.list.title = Listing of passengers
+customer.passenger.form.title = Passenger
+
+customer.list.label.fullName = Full name
+customer.list.label.dateOfBirth = Date of birth
+customer.list.label.passportNumber = Passport number
+
+customer.passenger.list.button.create = Create

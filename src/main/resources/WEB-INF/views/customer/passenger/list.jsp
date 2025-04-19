@@ -5,7 +5,11 @@
 
 <acme:list>
 	<acme:list-column code="authenticated.customer.list.label.fullName" path="fullName" width="40%"/>
-	<acme:list-column code="authenticated.customer.list.label.email" path="email" width="30%"/>
+	<acme:list-column code="authenticated.customer.list.label.dateOfBirth" path="dateOfBirth" width="30%"/>
 	<acme:list-column code="authenticated.customer.list.label.passportNumber" path="passportNumber" width="30%"/>		
 	<acme:list-payload path="payload"/>
 </acme:list>
+
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
+</jstl:if>
