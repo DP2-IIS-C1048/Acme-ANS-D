@@ -59,19 +59,16 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		flightId = super.getRequest().getData("flight", int.class);
 		flight = this.repository.findFlightById(flightId);
 
-		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
 		booking.setFlight(flight);
 	}
 
 	@Override
 	public void validate(final Booking booking) {
 		{
-			boolean isLastNibbleNotNull = false;
+			boolean isLastNibbleValid = booking.getLastNibble() != null && !booking.getLastNibble().trim().isEmpty();
 
-			if (booking.getLastNibble() != null)
-				isLastNibbleNotNull = true;
-
-			super.state(isLastNibbleNotNull, "*", "acme.validation.booking.publish.lastNibble-null.message");
+			super.state(isLastNibbleValid, "lastNibble", "acme.validation.booking.publish.lastNibble-null.message");
 		}
 		{
 			boolean passengersAssociated;
@@ -80,6 +77,9 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			passengersAssociated = !passengers.isEmpty();
 
 			super.state(passengersAssociated, "*", "acme.validation.booking.publish.passengers-associated.message");
+		}
+		{
+			super.state(booking.getFlight() != null, "flight", "acme.validation.booking.flight.not-found.messasge");
 		}
 		{
 			Date moment;
@@ -96,6 +96,22 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 			super.state(validCurrency, "price", "acme.validation.currency.message");
 		}
+		{
+			super.state(booking.isDraftMode(), "*", "acme.validation.booking.is-not-draft-mode.message");
+		}
+		{
+			boolean passengersAssociatedAreFromCustomer = true;
+			List<Passenger> bookingPassengers = this.repository.findPassengersByBookingId(booking.getId());
+			Collection<Passenger> customerPassengers = this.repository.findPassengersByCustomerId(booking.getCustomer().getId());
+
+			for (Passenger p : bookingPassengers)
+				if (!customerPassengers.contains(p)) {
+					passengersAssociatedAreFromCustomer = false;
+					break;
+				}
+
+			super.state(passengersAssociatedAreFromCustomer, "*", "acme.validation.booking.publish.passenger-associated-not-owned.message");
+		}
 	}
 
 	@Override
@@ -109,12 +125,19 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Dataset dataset;
 		Collection<Flight> flights;
 		SelectChoices choices;
+		Date moment;
+		Flight selectedFlight = booking.getFlight();
 
-		flights = this.repository.findAllFlights();
-		choices = SelectChoices.from(flights, "tag", booking.getFlight());
+		moment = MomentHelper.getCurrentMoment();
+		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "draftMode");
-		dataset.put("filght", choices.getSelected().getKey());
+		if (selectedFlight != null && !flights.contains(selectedFlight))
+			selectedFlight = null;
+
+		choices = SelectChoices.from(flights, "tag", selectedFlight);
+
+		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "draftMode");
+		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 
 		super.getResponse().addData(dataset);

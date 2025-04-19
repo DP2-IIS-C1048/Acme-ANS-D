@@ -57,7 +57,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		flightId = super.getRequest().getData("flight", int.class);
 		flight = this.repository.findFlightById(flightId);
 
-		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
 		booking.setFlight(flight);
 	}
 
@@ -78,6 +78,12 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 			super.state(validCurrency, "price", "acme.validation.currency.message");
 		}
+		{
+			super.state(booking.isDraftMode(), "*", "acme.validation.booking.is-not-draft-mode.message");
+		}
+		{
+			super.state(booking.getFlight() != null, "flight", "acme.validation.booking.flight.not-found.messasge");
+		}
 	}
 
 	@Override
@@ -90,12 +96,19 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		Dataset dataset;
 		Collection<Flight> flights;
 		SelectChoices choices;
+		Date moment;
+		Flight selectedFlight = booking.getFlight();
 
-		flights = this.repository.findAllFlights();
-		choices = SelectChoices.from(flights, "tag", booking.getFlight());
+		moment = MomentHelper.getCurrentMoment();
+		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
-		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "draftMode");
-		dataset.put("filght", choices.getSelected().getKey());
+		if (selectedFlight != null && !flights.contains(selectedFlight))
+			flights.add(selectedFlight);
+
+		choices = SelectChoices.from(flights, "tag", selectedFlight);
+
+		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
+		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 
 		super.getResponse().addData(dataset);
