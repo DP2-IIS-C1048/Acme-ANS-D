@@ -1,0 +1,75 @@
+
+package acme.features.authenticated.flight_crew_member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import acme.client.components.models.Dataset;
+import acme.client.components.principals.Authenticated;
+import acme.client.components.principals.UserAccount;
+import acme.client.helpers.PrincipalHelper;
+import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
+import acme.realms.flight_crew_member.FlightCrewMember;
+
+@GuiService
+public class AuthenticatedFlightCrewMemberCreateService extends AbstractGuiService<Authenticated, FlightCrewMember> {
+
+	@Autowired
+	private AuthenticatedFlightCrewMemberRepository repository;
+
+
+	@Override
+	public void authorise() {
+		boolean status;
+		status = !super.getRequest().getPrincipal().hasRealmOfType(FlightCrewMember.class);
+		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
+	public void load() {
+		FlightCrewMember flightCrewMember;
+		int userAccountId;
+		UserAccount userAccount;
+
+		userAccountId = super.getRequest().getPrincipal().getAccountId();
+		userAccount = this.repository.findUserAccountById(userAccountId);
+
+		flightCrewMember = new FlightCrewMember();
+		flightCrewMember.setUserAccount(userAccount);
+
+		super.getBuffer().addData(flightCrewMember);
+	}
+
+	@Override
+	public void bind(final FlightCrewMember flightCrewMember) {
+		super.bindObject(flightCrewMember, "sector"); //TODO
+	}
+
+	@Override
+	public void validate(final FlightCrewMember object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final FlightCrewMember object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final FlightCrewMember object) {
+		Dataset dataset;
+
+		dataset = super.unbindObject(object, "company", "sector"); //TODO
+
+		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals("POST"))
+			PrincipalHelper.handleUpdate();
+	}
+
+}
