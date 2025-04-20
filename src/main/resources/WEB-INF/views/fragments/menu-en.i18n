@@ -27,6 +27,10 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+master.menu.administrator.airline = Airlines
+master.menu.administrator.list-airlines = List airlines
+
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -50,3 +54,4 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+
