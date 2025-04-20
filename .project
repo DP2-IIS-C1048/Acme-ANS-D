@@ -40,6 +40,11 @@
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-25.3.0/target/classes</locationURI>
 		</link>
+		<link>
+			<name>target/classes</name>
+			<type>2</type>
+			<location>WORKSPACE_LOC/Projects/Acme-ANS-D03/target/classes/</location>
+		</link>
 	</linkedResources>
 	<filteredResources>
 		<filter>
