@@ -1,0 +1,25 @@
+administrator.aircraft.form.title = Formulario de aeoronave 
+administrator.aircraft.list.title = Listado de aeronaves
+
+administrator.aircraft.list.label.model = Modelo
+administrator.aircraft.list.label.registrationNumber = Número de registro
+administrator.aircraft.list.label.capacity = Capacidad
+administrator.aircraft.list.label.status = Estado
+
+administrator.aircraft.form.label.model = Modelo
+administrator.aircraft.form.label.registrationNumber = Número de registro
+administrator.aircraft.form.label.capacity = Capacidad
+administrator.aircraft.form.label.cargoWeight = Capacidad de carga
+administrator.aircraft.form.label.status = Estado
+administrator.aircraft.form.label.details = Detalles
+administrator.aircraft.form.label.airline = Aerolínea
+
+administrator.aircraft.form.placeholder.status = ACTIVE o MAINTENANCE
+
+administrator.aircraft.list.button.create = Crear
+
+administrator.aircraft.form.button.update = Actualizar
+administrator.aircraft.form.button.disable = Desactivar 
+administrator.aircraft.button.form.create = Crear
+
+administrator.aircraft.form.label.confirmation = Confirmar

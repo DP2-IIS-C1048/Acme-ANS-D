@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
+acme.validation.confirmation.message = Confirmar la operación.
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = El código del empleado está duplicado
 acme.validation.flight.crew.member.employee-code.message = Las primeras dos o tres letras del código del empleado deben corresponder con las iniciales
@@ -43,3 +43,7 @@ acme.validation.manager.invalid-identifierNumber.message = El identificador nume
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.
+
+acme.validation.aircraft.airline-not-found.message = No se encontró la aerolínea.
+
+acme.validation.administrator.aircraft.status-MAINTENANCE.message = La aeronave ya está en mantenimiento.
