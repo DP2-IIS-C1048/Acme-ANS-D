@@ -51,6 +51,10 @@ public class Claim extends AbstractEntity {
 	private ClaimIndicator		indicator;
 
 	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
+	@Mandatory
 	@Valid
 	@ManyToOne
 	private AssistanceAgent		assitanceAgent;
