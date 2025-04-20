@@ -41,6 +41,11 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.manager = manager
 master.menu.manager.list-my-flights= Ver mis vuelos
 
+# master.menu.assistanceagent ########################################################
+
+master.menu.assistanceagent = Assistance Agent
+master.menu.assistanceagent.list-my-claims= Ver mis claims
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta

@@ -56,11 +56,15 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private ClaimType			type;
 
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 
 	@Transient
-	private TrackingLogIndicator getIndicator() {
+	public TrackingLogIndicator getIndicator() {
 		TrackingLogRepository repository = SpringHelper.getBean(TrackingLogRepository.class);
 		TrackingLog mostRecentTrackingLog = repository.findOrderedTrackingLogs(this.getId()).get().get(0);
 		return mostRecentTrackingLog.getIndicator();
