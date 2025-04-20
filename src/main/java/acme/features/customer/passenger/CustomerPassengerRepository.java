@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.customer.passenger;
+package acme.features.customer.passenger;
 
 import java.util.Collection;
 
@@ -21,4 +21,7 @@ public interface CustomerPassengerRepository extends AbstractRepository {
 
 	@Query("select p.customer from Passenger p where p.id = :passengerId")
 	Customer findCustomerByPassengerId(int passengerId);
+
+	@Query("select c from Customer c where c.id = :customerId")
+	Customer findCustomerById(int customerId);
 }

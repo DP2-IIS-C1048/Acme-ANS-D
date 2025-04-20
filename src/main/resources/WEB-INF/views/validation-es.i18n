@@ -43,3 +43,5 @@ acme.validation.manager.invalid-identifierNumber.message = El identificador nume
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.
+
+acme.validation.customer.passenger.update.is-not-dratMode.message = Este pasajero no está en modo borrador.

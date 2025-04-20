@@ -45,6 +45,8 @@ acme.validation.customer.duplicated-identifier.message = The customer identifier
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
 
+acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
+
 
 
 

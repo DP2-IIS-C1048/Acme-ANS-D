@@ -1,16 +1,16 @@
 
-package acme.features.authenticated.customer.passenger;
+package acme.features.customer.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.services.AbstractService;
+import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
 
 @GuiService
-public class CustomerPassengerShowService extends AbstractService<Customer, Passenger> {
+public class CustomerPassengerShowService extends AbstractGuiService<Customer, Passenger> {
 
 	@Autowired
 	private CustomerPassengerRepository repository;
@@ -25,9 +25,7 @@ public class CustomerPassengerShowService extends AbstractService<Customer, Pass
 
 		masterId = super.getRequest().getData("id", int.class);
 		passenger = this.repository.findPassengerById(masterId);
-		customer = null;
-		if (passenger != null)
-			customer = this.repository.findCustomerByPassengerId(passenger.getId());
+		customer = passenger == null ? null : passenger.getCustomer();
 		status = super.getRequest().getPrincipal().hasRealm(customer) && passenger != null;
 
 		super.getResponse().setAuthorised(status);

@@ -1,16 +1,16 @@
 
-package acme.features.authenticated.customer.passenger;
+package acme.features.customer.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.services.AbstractService;
+import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
 
 @GuiService
-public class CustomerPassengerPublishService extends AbstractService<Customer, Passenger> {
+public class CustomerPassengerUpdateService extends AbstractGuiService<Customer, Passenger> {
 
 	@Autowired
 	private CustomerPassengerRepository repository;
@@ -52,12 +52,13 @@ public class CustomerPassengerPublishService extends AbstractService<Customer, P
 
 	@Override
 	public void validate(final Passenger passenger) {
-		;
+		{
+			super.state(passenger.getDraftMode(), "*", "acme.validation.customer.passenger.update.is-not-dratMode.message");
+		}
 	}
 
 	@Override
 	public void perform(final Passenger passenger) {
-		passenger.setDraftMode(false);
 		this.repository.save(passenger);
 	}
 
