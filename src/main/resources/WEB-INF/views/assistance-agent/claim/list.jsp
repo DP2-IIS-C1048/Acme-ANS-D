@@ -20,7 +20,7 @@
 	<acme:list-column code="assistanceAgent.claim.list.label.passengerEmail" path="passengerEmail" width="10%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.description" path="description" width="20%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.type" path="type" width="20%"/>
-	<acme:list-column code="assistanceAgent.claim.list.label.assitanceAgent" path="assitanceAgent" width="20%"/>
+	<acme:list-column code="assistanceAgent.claim.list.label.assistanceAgent" path="assistanceAgent" width="20%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.leg" path="leg" width="20%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.trackingLogType" path="trackingLogType" width="10%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.draftMode" path="draftMode" width="10%"/>
@@ -28,7 +28,7 @@
 </acme:list>
 
 <jstl:if test="${_command == 'list'}">
-	<acme:button code="assistanceAgent.claim.list.button.create" action="/manager/claim/create"/>
+	<acme:button code="assistanceAgent.claim.list.button.create" action="/assistanceagent/claim/create"/>
 </jstl:if>		
 	
 

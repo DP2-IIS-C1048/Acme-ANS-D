@@ -1,4 +1,4 @@
-key,registration-moment,passenger-email,description,type,key:assitance-agent,key:leg,draft-mode
+key,registration-moment,passenger-email,description,type,key:assistance-agent,key:leg,draft-mode
 # base entity
 claim-00,2012/07/02 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-01,leg-00,false
 # registrationMoment - standard variations
@@ -31,9 +31,9 @@ claim-21,2012/07/02 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, con
 claim-22,2012/07/02 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","SECURITY_INCIDENT",assistance-agent-01,leg-00,false
 claim-23,2012/07/02 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","OTHER_ISSUES",assistance-agent-01,leg-00,false
 # type - no singular values
-# assitanceAgent - standard variations
+# assistanceAgent - standard variations
 claim-24,2012/07/02 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-02,leg-00,false
-# assitanceAgent - no singular values
+# assistanceAgent - no singular values
 # leg - standard variations
 claim-25,2012/07/02 0:00,"acme@lorem-ipsum.org","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! U","FLIGHT_ISSUES",assistance-agent-01,leg-01,false
 # leg - no singular values

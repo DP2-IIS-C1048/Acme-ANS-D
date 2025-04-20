@@ -44,7 +44,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.assistanceagent" access="hasRealm('AssistanceAgent')">
-			<acme:menu-suboption code="master.menu.assistanceagent.list-my-claims" action="/assistanceagent/claim/list"/>
+			<acme:menu-suboption code="master.menu.assistanceagent.list-my-claims" action="/assistance-agent/claim/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.consumer" access="hasRealm('Consumer')">
