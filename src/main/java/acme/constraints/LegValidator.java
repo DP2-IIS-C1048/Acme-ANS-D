@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.MomentHelper;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegRepository;
 
@@ -56,7 +57,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 			{
 				boolean correctArrivalDepartureDates = true;
 				if (departureDate != null && arrivalDate != null)
-					correctArrivalDepartureDates = departureDate.before(arrivalDate);
+					correctArrivalDepartureDates = MomentHelper.isBefore(departureDate, arrivalDate);
 				super.state(context, correctArrivalDepartureDates, "scheduledDeparture", "acme.validation.constraints.leg.arrivalDepartureDates.message");
 				super.state(context, correctArrivalDepartureDates, "scheduledArrival", "acme.validation.constraints.leg.arrivalDepartureDates.message");
 			}
@@ -66,6 +67,10 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				if (leg.getArrivalAirport() != null && leg.getDepartureAirport() != null && leg.getArrivalAirport().getIataCode().equals(leg.getDepartureAirport().getIataCode()))
 					invalidAirports = false;
 				super.state(context, invalidAirports, "arrivalAirport", "acme.validation.constraints.leg.invalid-airports.message");
+			}
+			{
+				super.state(context, MomentHelper.isFuture(leg.getScheduledDeparture()), "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
+				super.state(context, MomentHelper.isFuture(leg.getScheduledArrival()), "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
 			}
 		}
 		result = !super.hasErrors(context);

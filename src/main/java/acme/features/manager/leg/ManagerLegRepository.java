@@ -85,4 +85,11 @@ public interface ManagerLegRepository extends AbstractRepository {
 	@Query("SELECT COUNT(l) FROM Leg l WHERE l.flight.id = :flightId AND l.draftMode = false")
 	Integer getNumbersOfLegsPublishedByFlightId(int flightId);
 
+	@Query("""
+		    SELECT a
+		    FROM Aircraft a
+		    WHERE a.status = 'ACTIVE'
+		""")
+	Collection<Aircraft> findActiveAircrafts();
+
 }

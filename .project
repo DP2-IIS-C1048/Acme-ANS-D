@@ -43,7 +43,7 @@
 		<link>
 			<name>target/classes</name>
 			<type>2</type>
-			<location>WORKSPACE_LOC/Projects/Acme-ANS-D03/target/classes/</location>
+			<locationURI>WORKSPACE_LOC/Projects/Acme-ANS-D03/target/classes</locationURI>
 		</link>
 	</linkedResources>
 	<filteredResources>
