@@ -52,3 +52,4 @@ acme.validation.booking.publish.passenger-associated-not-owned.message = Esta re
 acme.validation.booking.publish.lastNibble-null.message = Esta reserva no tiene un número de tarjeta válido.
 
 acme.validation.booking-record.create.passenger-not-from-customer.message = Este pasajero no está asociado contigo.
+acme.validation.booking-record.create.passenger-not-published.message = Este pasajero no se ha publicado.

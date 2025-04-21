@@ -66,6 +66,13 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 			super.state(validPassenger, "passenger", "acme.validation.booking-record.create.passenger-not-from-customer.message");
 
 		}
+		{
+			boolean passengerPublished;
+			Passenger passenger = bookingRecord.getPassenger();
+
+			passengerPublished = !passenger.isDraftMode();
+			super.state(passengerPublished, "passenger", "acme.validation.booking-record.create.passenger-not-published.message");
+		}
 	}
 
 	@Override
@@ -82,7 +89,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		Passenger selectedPassenger = bookingRecord.getPassenger();
 
 		customerId = bookingRecord.getBooking().getCustomer().getId();
-		passengers = this.repository.findPassengersByCustomerId(customerId);
+		passengers = this.repository.findPassengersPublishedByCustomerId(customerId);
 
 		if (selectedPassenger != null && !passengers.contains(selectedPassenger))
 			selectedPassenger = null;

@@ -53,7 +53,7 @@ acme.validation.booking.publish.passengers-associated.message = This booking has
 acme.validation.booking.publish.passenger-associated-not-owned.message = This booking has passengers that aren't yours.
 
 acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you.
-
+acme.validation.booking-record.create.passenger-not-published.message = This passenger is not published.
 
 
 
