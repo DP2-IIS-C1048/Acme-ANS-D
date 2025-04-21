@@ -64,7 +64,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
-		if (!booking.isDraftMode() && selectedFlight != null && !flights.contains(selectedFlight)) {
+		if (selectedFlight != null && !flights.contains(selectedFlight)) {
 			flights = new ArrayList<>(flights);
 			flights.add(selectedFlight);
 		}
