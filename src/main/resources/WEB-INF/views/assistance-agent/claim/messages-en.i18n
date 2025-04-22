@@ -8,33 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.flight.form.title = flight form 
-manager.flight.list.title = Listing of flights
+assistance-agent.claim.list.title = Listing of claims
 
-manager.flight.form.label.tag = Tag:
-manager.flight.form.label.requiresSelfTransfer = Requires Self-Transfer:
-manager.flight.form.label.cost = Cost: 
-manager.flight.form.label.description = Description:
-manager.flight.form.label.scheduledDeparture = Scheduled Departure:
-manager.flight.form.label.scheduledArrival = Scheduled Arrival:
-manager.flight.form.label.originCity = Origin City:
-manager.flight.form.label.destinationCity = Destination City:
-manager.flight.form.label.numberOfLayovers = Number of Layovers:
-manager.flight.form.label.draftMode = Draft Mode:
+assistanceAgent.claim.list.label.registrationMoment = Registration Moment
+assistanceAgent.claim.list.label.passengerEmail = Passenger Email
+assistanceAgent.claim.list.label.description = Description
+assistanceAgent.claim.list.label.type = Claim Type
+assistanceAgent.claim.list.label.assistanceAgent = Assistance Agent
+assistanceAgent.claim.list.label.leg = Leg
+assistanceAgent.claim.list.label.trackingLogType = State
+assistanceAgent.claim.list.label.draftMode = Draft Mode
 
-manager.flight.form.placeholder.score = 0.00 - 100.00
-
-manager.flight.form.button.legs = Legs
-manager.flight.form.button.update = Update
-manager.flight.form.button.delete = Delete
-manager.flight.form.button.publish = Publish
-manager.flight.form.button.create = Create
-
-manager.flight.list.label.tag = Tag
-manager.flight.list.label.cost = Cost:
-manager.flight.list.label.originCity = Origin City
-manager.flight.list.label.destinationCity = Destination City
-manager.flight.list.label.numberOfLayovers = Number of Layovers
-manager.flight.list.label.draftMode = Draft Mode
-
-manager.flight.list.button.create = Create
+assistanceAgent.claim.list.button.create = Create
