@@ -27,8 +27,13 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+
+master.menu.administrator.airport = Airport
+master.menu.administrator.list-airports = List airports
+
 master.menu.administrator.airline = Airlines
 master.menu.administrator.list-airlines = List airlines
+
 
 
 # master.menu.provider ########################################################
@@ -49,7 +54,7 @@ master.menu.flight-crew-member.flight-assignment.list-uncompleted = Uncompleted 
 # master.menu.manager ########################################################
 
 master.menu.manager = manager
-master.menu.manager.list-my-flights= See my flights
+master.menu.manager.list-my-flights= List my flights
 
 # master.menu.customer ##########################################################
 
