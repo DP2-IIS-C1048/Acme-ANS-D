@@ -34,6 +34,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 		else {
 			Date arrivalDate = leg.getScheduledArrival();
 			Date departureDate = leg.getScheduledDeparture();
+
 			{
 				boolean uniqueFlightNumber;
 				Leg existingLeg;
@@ -47,65 +48,25 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				boolean correctIATA;
 
 				String flightNumber = leg.getFlightNumber();
-				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+				String airlineIataCode = leg.getFlight() != null && leg.getFlight().getManager() != null && leg.getFlight().getManager().getAirline() != null ? leg.getFlight().getManager().getAirline().getIataCode() : null;
 
 				correctIATA = flightNumber != null && airlineIataCode != null && flightNumber.startsWith(airlineIataCode);
 				super.state(context, correctIATA, "flightNumber", "acme.validation.constraints.leg.flightNumber-IATACode.message");
 			}
 			{
-
-				boolean correctArrivalDepartureDates = departureDate != null && arrivalDate != null && departureDate.before(arrivalDate);
-				super.state(context, correctArrivalDepartureDates, "*", "acme.validation.constraints.leg.arrivalDepartureDates.message");
+				boolean correctArrivalDepartureDates = true;
+				if (departureDate != null && arrivalDate != null)
+					correctArrivalDepartureDates = departureDate.before(arrivalDate);
+				super.state(context, correctArrivalDepartureDates, "scheduledDeparture", "acme.validation.constraints.leg.arrivalDepartureDates.message");
+				super.state(context, correctArrivalDepartureDates, "scheduledArrival", "acme.validation.constraints.leg.arrivalDepartureDates.message");
 			}
-			//			{
-			//				boolean uniqueArrivalAndDepartureDate;
-			//				List<Leg> existingLegs;
-			//
-			//				existingLegs = this.repository.findLegsByArrivalDepartureDate(departureDate, arrivalDate);
-			//				uniqueArrivalAndDepartureDate = existingLegs.isEmpty() || existingLegs.size() == 1 && existingLegs.contains(leg);
-			//
-			//				super.state(context, uniqueArrivalAndDepartureDate, "*", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
-			//			}
-			//			{
-			//				boolean validLegDates;
-			//				Integer totalLegs;
-			//
-			//				totalLegs = leg.getFlight().getLayovers();
-			//				if (totalLegs > 0) {
-			//					if (leg.getScheduledArrival().before(leg.getFlight().getScheduledDeparture()))
-			//						validLegDates = true;
-			//					else if (leg.getScheduledDeparture().after(leg.getFlight().getScheduledArrival()))
-			//						validLegDates = true;
-			//					else
-			//						validLegDates = false;
-			//				} else
-			//					validLegDates = true;
-			//
-			//				super.state(context, validLegDates, "*", "acme.validation.leg.invalid-leg-dates.message");
-			//
-			//			}
-			//			{
-			//				boolean validAirports;
-			//				Integer totalLegs;
-			//				Leg firstLeg;
-			//				Leg lastLeg;
-			//
-			//				totalLegs = leg.getFlight().getLayovers();
-			//				if (totalLegs > 0) {
-			//					firstLeg = leg.getFlight().getFirstLeg();
-			//					lastLeg = leg.getFlight().getLastLeg();
-			//					if (leg.getArrivalAirport().getIataCode().equals(firstLeg.getDepartureAirport().getIataCode()))
-			//						validAirports = true;
-			//					else if (leg.getDepartureAirport().getIataCode().equals(lastLeg.getDepartureAirport().getIataCode()))
-			//						validAirports = true;
-			//					else
-			//						validAirports = false;
-			//				} else
-			//					validAirports = true;
-			//
-			//				super.state(context, validAirports, "*", "acme.validation.leg.invalid-leg-airports.message");
-			//
-			//			}
+			{
+				boolean invalidAirports = true;
+
+				if (leg.getArrivalAirport() != null && leg.getDepartureAirport() != null && leg.getArrivalAirport().getIataCode().equals(leg.getDepartureAirport().getIataCode()))
+					invalidAirports = false;
+				super.state(context, invalidAirports, "arrivalAirport", "acme.validation.constraints.leg.invalid-airports.message");
+			}
 		}
 		result = !super.hasErrors(context);
 		return result;

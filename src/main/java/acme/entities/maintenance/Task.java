@@ -36,14 +36,18 @@ public class Task extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 0)
+	@ValidNumber(min = 0, max = 10)
 	@Automapped
 	private Integer				priority;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 6000, integer = 4, fraction = 0)
+	@ValidNumber(min = 0, max = 6000)
 	@Automapped
 	private Integer				estimatedDuration;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 

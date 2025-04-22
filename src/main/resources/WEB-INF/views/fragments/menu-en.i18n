@@ -42,6 +42,17 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.flight-crew-member.flight-assignment.list-completed = Completed flight assignments
 master.menu.flight-crew-member.flight-assignment.list-uncompleted = Uncompleted flight assignments
 
+# master.menu.manager ########################################################
+
+master.menu.manager = manager
+master.menu.manager.list-my-flights= See my flights
+
+# master.menu.customer ##########################################################
+
+master.menu.customer = Customer
+master.menu.customer.list-my-passengers = My Passengers
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
