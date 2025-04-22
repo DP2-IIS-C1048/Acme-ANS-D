@@ -45,9 +45,9 @@ public class AdministratorAirlineShowService extends AbstractGuiService<Administ
 
 		choices = SelectChoices.from(AirlineType.class, airline.getType());
 
-		dataset = super.unbindObject(airline, "name", "iataCode", "website", "emailAddress", "phoneNumber", "foundationMoment");
+		dataset = super.unbindObject(airline, "name", "iataCode", "website", "emailAddress", "phoneNumber", "foundationMoment", "type");
 
-		dataset.put("type", choices);
+		dataset.put("types", choices);
 
 		super.getResponse().addData(dataset);
 	}
