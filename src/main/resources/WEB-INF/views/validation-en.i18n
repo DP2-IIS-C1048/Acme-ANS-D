@@ -10,6 +10,7 @@
 
 acme.validation.length = Text too long
 acme.validation.range = Number out of range
+acme.validation.airline.duplicated-iataCode.message = An airline with this IATA code already exists
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = The employee Code is duplicated
 acme.validation.flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
