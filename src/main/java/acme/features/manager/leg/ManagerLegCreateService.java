@@ -22,7 +22,6 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	@Autowired
 	private ManagerLegRepository repository;
 
-
 	@Override
 	public void authorise() {
 		boolean status;
@@ -31,7 +30,8 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		flight = this.repository.findFlightById(masterId);
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
+		status = flight != null && flight.isDraftMode()
+				&& super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -103,7 +103,8 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 		airports = this.repository.findAllAirports();
 		aircrafts = this.repository.findAllAircrafts();
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status",
+				"draftMode");
 		choiceAircrafts = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
 		choiceDepartureAirports = SelectChoices.from(airports, "iataCode", leg.getDepartureAirport());
 		choiceArrivalAirports = SelectChoices.from(airports, "iataCode", leg.getArrivalAirport());
