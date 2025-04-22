@@ -41,6 +41,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.flight-crew-member ##########################################################
+
+master.menu.flight-crew-member.flight-assignment.list-completed = Completed flight assignments
+master.menu.flight-crew-member.flight-assignment.list-uncompleted = Uncompleted flight assignments
+
 # master.menu.manager ########################################################
 
 master.menu.manager = manager
@@ -60,4 +65,3 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
-

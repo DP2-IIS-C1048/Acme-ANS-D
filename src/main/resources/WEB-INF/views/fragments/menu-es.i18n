@@ -39,6 +39,12 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.flight-crew-member ##########################################################
+
+master.menu.flight-crew-member.flight-assignment.list-completed = Asignaciones de vuelos completadas
+master.menu.flight-crew-member.flight-assignment.list-uncompleted = Asignaciones de vuelos incompletas
+
+
 # master.menu.manager ########################################################
 
 master.menu.manager = manager
