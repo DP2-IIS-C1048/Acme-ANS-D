@@ -23,7 +23,7 @@ flight-crew-member.flight-assignment.form.label.member = Miembro
 flight-crew-member.flight-assignment.form.label.duty = Responsabilidad
 flight-crew-member.flight-assignment.form.label.current-status = Estado actual
 flight-crew-member.flight-assignment.form.label.last-update = Última actualización
-flight-crew-member.flight-assignment.form.label.remarks = Observaciones
+flight-crew-member.flight-assignment.form.label.remarks = Observaciones (Opcional)
 
 flight-crew-member.flight-assignment.form.button.create = Crear
 flight-crew-member.flight-assignment.form.button.update = Actualizar
