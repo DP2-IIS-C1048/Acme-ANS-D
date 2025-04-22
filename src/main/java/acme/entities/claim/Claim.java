@@ -1,6 +1,7 @@
 
 package acme.entities.claim;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -18,6 +19,7 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
 import acme.entities.leg.Leg;
+import acme.entities.tracking_log.TrackingLog;
 import acme.entities.tracking_log.TrackingLogIndicator;
 import acme.entities.tracking_log.TrackingLogRepository;
 import acme.realms.assistanceagent.AssistanceAgent;
@@ -65,6 +67,7 @@ public class Claim extends AbstractEntity {
 	@Transient
 	public TrackingLogIndicator getIndicator() {
 		TrackingLogRepository repository = SpringHelper.getBean(TrackingLogRepository.class);
+		Collection<TrackingLog> res = repository.findOrderedTrackingLogs(this.getId());
 		return TrackingLogIndicator.PENDING;
 	}
 
