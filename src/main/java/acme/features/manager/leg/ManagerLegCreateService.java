@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
@@ -22,6 +23,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	@Autowired
 	private ManagerLegRepository repository;
 
+
 	@Override
 	public void authorise() {
 		boolean status;
@@ -30,8 +32,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		flight = this.repository.findFlightById(masterId);
-		status = flight != null && flight.isDraftMode()
-				&& super.getRequest().getPrincipal().hasRealm(flight.getManager());
+		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -94,6 +95,9 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		aircrafts = this.repository.findActiveAircrafts();
 
 		super.state(aircrafts.contains(leg.getAircraft()), "aircraft", "acme.validation.leg.aircraft-active.message");
+
+		super.state(MomentHelper.isFuture(leg.getScheduledDeparture()), "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
+		super.state(MomentHelper.isFuture(leg.getScheduledArrival()), "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
 	}
 
 	@Override

@@ -143,6 +143,9 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 		super.state(aircrafts.contains(leg.getAircraft()), "aircraft", "acme.validation.leg.aircraft-active.message");
 
+		super.state(MomentHelper.isFuture(leg.getScheduledDeparture()), "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
+		super.state(MomentHelper.isFuture(leg.getScheduledArrival()), "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
+
 	}
 
 	@Override
