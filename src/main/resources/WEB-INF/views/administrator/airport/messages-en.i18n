@@ -16,10 +16,9 @@ administrator.airport.form.label.iataCode = IATA code:
 administrator.airport.form.label.city = City:
 administrator.airport.form.label.country = Country:
 administrator.airport.form.label.website = Website:
-administrator.airport.form.label.email = Email:
+administrator.airport.form.label.emailAddress = Email address:
 administrator.airport.form.label.contactPhoneNumber = Contact phone number:
 administrator.airport.form.label.operationalScope = Operational scope:
-administrator.airport.form.label.adress = Address:
 administrator.airport.form.label.confirmation = Confirm that the airport is correct.
 
 administrator.airport.form.button.create = Create
