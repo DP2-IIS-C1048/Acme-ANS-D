@@ -9,6 +9,7 @@
 # they accept any liabilities with respect to them.
 
 assistance-agent.claim.list.title = Listado de quejas
+assistance-agent.claim.form.title = Formulario de Queja
 
 assistanceAgent.claim.list.label.registrationMoment = Momento de Registro
 assistanceAgent.claim.list.label.passengerEmail = Email del Pasajero
@@ -19,4 +20,17 @@ assistanceAgent.claim.list.label.leg = Tramo
 assistanceAgent.claim.list.label.trackingLogType = Estado
 assistanceAgent.claim.list.label.draftMode = Modo Borrador
 
+assistanceAgent.claim.form.label.registrationMoment = Momento de Registro
+assistanceAgent.claim.form.label.passengerEmail = Email de Pasajero
+assistanceAgent.claim.form.label.type = Tipo de Queja
+ssistanceAgent.claim.form.label.description = Descripción
+assistanceAgent.claim.form.label.trackingLogType = Estado
+assistanceAgent.claim.form.label.draftMode = Modo Borrador
+
 assistanceAgent.claim.list.button.create = Crear
+assistanceAgent.claim.form.button.create = Crear
+
+assistanceAgent.claim.form.button.trackingLogs = Tracking Logs
+assistanceAgent.claim.form.button.update = Actualizar
+assistanceAgent.claim.form.button.delete = Borrar
+assistanceAgent.claim.form.button.publish = Publicar
