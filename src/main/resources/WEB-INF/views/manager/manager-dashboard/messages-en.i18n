@@ -1,3 +1,5 @@
+manager.manager-dashboard.form.title = Manager Dashboard
+
 manager.dashboard.form.title.general-indicators=General Indicators
 manager.dashboard.form.label.ranking-position=Ranking Position
 manager.dashboard.form.label.years-to-retire=Years to Retire

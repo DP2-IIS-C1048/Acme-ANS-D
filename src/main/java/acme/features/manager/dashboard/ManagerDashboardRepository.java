@@ -16,7 +16,7 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 	@Query("SELECT COUNT(m) +1 FROM Manager m WHERE m.yearsOfExperience > (SELECT m2.yearsOfExperience FROM Manager m2 WHERE m2.id = :managerId)")
 	Integer getExperienceRankingPosition(Integer managerId);
 
-	@Query("SELECT 65 - year(CURRENT_DATE) - year(m.dateOfBirth) FROM Manager m WHERE m.id = :managerId")
+	@Query("SELECT 65 - (FUNCTION('YEAR', CURRENT_DATE) - FUNCTION('YEAR', m.dateOfBirth)) FROM Manager m WHERE m.id = :managerId")
 	Integer getYearsToRetire(Integer managerId);
 
 	@Query("select 1.0 * count(a) / (select count(b) from Leg b WHERE b.flight.manager.id = :managerId) from Leg a WHERE a.flight.manager.id = :managerId AND a.status = acme.entities.leg.LegStatus.ON_TIME")
@@ -43,7 +43,7 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 		""")
 	List<Airport> findAirportsOrderedByPopularityAsc(Integer managerId);
 
-	@Query("SELECT l FROM Leg l WHERE l.flight.manager.id = :managerId AND l.status = :status")
+	@Query("SELECT COUNT(l) FROM Leg l WHERE l.flight.manager.id = :managerId AND l.status = :status")
 	Integer countLegsByStatus(Integer managerId, LegStatus status);
 
 	@Query("SELECT AVG(f.cost.amount) FROM Flight f WHERE f.manager.id = :managerId")
@@ -56,7 +56,7 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 	Double getMaxFlightCost(Integer managerId);
 
 	@Query("""
-		    SELECT STDDEV(f.cost)
+		    SELECT STDDEV(f.cost.amount)
 		    FROM Flight f
 		    WHERE f.manager.id = :managerId
 		""")
