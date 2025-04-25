@@ -1,0 +1,10 @@
+manager.dashboard.form.title.general-indicators=General Indicators
+manager.dashboard.form.label.ranking-position=Ranking Position
+manager.dashboard.form.label.years-to-retire=Years to Retire
+manager.dashboard.form.label.average-cost=Average Flight Cost
+manager.dashboard.form.label.min-cost=Minimum Flight Cost
+manager.dashboard.form.label.max-cost=Maximum Flight Cost
+manager.dashboard.form.label.standard-deviation=Flight Cost Standard Deviation
+manager.dashboard.form.label.most-popular-airport=Most Popular Airport
+manager.dashboard.form.label.least-popular-airport=Least Popular Airport
+manager.dashboard.form.title.legs-status-ratio=Legs by Status

@@ -52,8 +52,9 @@ master.menu.flight-crew-member.flight-assignment.list-uncompleted = Asignaciones
 
 # master.menu.manager ########################################################
 
-master.menu.manager = manager
+master.menu.manager = Manager
 master.menu.manager.list-my-flights= Ver mis vuelos
+master.menu.manager.show-dashboard = Mostrar dashboard
 
 # master.menu.customer ##########################################################
 
