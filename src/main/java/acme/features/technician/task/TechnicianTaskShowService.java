@@ -1,8 +1,6 @@
 
 package acme.features.technician.task;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -26,7 +24,17 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int taskId;
+		Technician technician;
+		Task task;
+
+		taskId = super.getRequest().getData("id", int.class);
+		task = this.repository.findTaskById(taskId);
+		technician = task.getTechnician();
+		status = super.getRequest().getPrincipal().hasRealm(technician);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -41,20 +49,15 @@ public class TechnicianTaskShowService extends AbstractGuiService<Technician, Ta
 	}
 
 	@Override
-	public void unbind(final Task Task) {
+	public void unbind(final Task task) {
 		Dataset dataset;
 		SelectChoices typeChoices;
-		Collection<Technician> technicians;
-		SelectChoices technicianChoices;
 
-		typeChoices = SelectChoices.from(TaskType.class, Task.getType());
-		technicians = this.repository.findAllTechnicians();
-		technicianChoices = SelectChoices.from(technicians, "license", Task.getTechnician());
+		typeChoices = SelectChoices.from(TaskType.class, task.getType());
 
-		dataset = super.unbindObject(Task, "type", "description", "priority", "estimatedDuration", "draftMode");
+		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("types", typeChoices);
-		dataset.put("technician", technicianChoices.getSelected().getKey());
-		dataset.put("technicians", technicianChoices);
+		dataset.put("technician", task.getTechnician().getLicense());
 
 		super.getResponse().addData(dataset);
 	}
