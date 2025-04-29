@@ -73,6 +73,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 			passengerPublished = !passenger.isDraftMode();
 			super.state(passengerPublished, "passenger", "acme.validation.booking-record.create.passenger-not-published.message");
 		}
+		/// Se permite que un pasajero esté en dos Bookings a la vez cuyos vuelos salen a la vez porque en la vida real las empresas dejan que pase esto
 	}
 
 	@Override
@@ -94,7 +95,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		if (selectedPassenger != null && !passengers.contains(selectedPassenger))
 			selectedPassenger = null;
 
-		choices = SelectChoices.from(passengers, "fullName", selectedPassenger);
+		choices = SelectChoices.from(passengers, "passportNumber", selectedPassenger);
 
 		dataset = super.unbindObject(bookingRecord, "passenger");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));

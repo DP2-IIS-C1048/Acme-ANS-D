@@ -91,9 +91,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			}
 
 		}
-		{
+		if (booking.getPrice() != null && booking.getPrice().getCurrency() != null) {
 			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
-
 			super.state(validCurrency, "price", "acme.validation.currency.message");
 		}
 		{
@@ -104,13 +103,24 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			List<Passenger> bookingPassengers = this.repository.findPassengersByBookingId(booking.getId());
 			Collection<Passenger> customerPassengers = this.repository.findPassengersByCustomerId(booking.getCustomer().getId());
 
-			for (Passenger p : bookingPassengers)
-				if (!customerPassengers.contains(p)) {
+			for (Passenger passenger : bookingPassengers)
+				if (!customerPassengers.contains(passenger)) {
 					passengersAssociatedAreFromCustomer = false;
 					break;
 				}
 
 			super.state(passengersAssociatedAreFromCustomer, "*", "acme.validation.booking.publish.passenger-associated-not-owned.message");
+		}
+		{
+			boolean passengerPublished = true;
+			List<Passenger> bookingPassengers = this.repository.findPassengersByBookingId(booking.getId());
+
+			for (Passenger passenger : bookingPassengers)
+				if (passenger.isDraftMode()) {
+					passengerPublished = false;
+					break;
+				}
+			super.state(passengerPublished, "passenger", "acme.validation.booking.published.passenger-not-published.message");
 		}
 	}
 

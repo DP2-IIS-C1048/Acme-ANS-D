@@ -6,7 +6,8 @@ customer.booking.form.label.purchaseMoment = Purchase Moment:
 customer.booking.form.label.travelClass = Travel Class: 
 customer.booking.form.label.price = Price:
 customer.booking.form.label.flight = Flight:
-customer.booking.form.label.lastNibble = Card last nibble:
+customer.booking.form.label.lastNibble = Card last nibble (Optional):
+customer.booking.form.label.purchaseMoment = Purchase Moment:
 customer.booking.form.label.draftMode = Draft Mode:
 
 customer.booking.form.placeholder.travelClass = ECONOMY or BUSINESS

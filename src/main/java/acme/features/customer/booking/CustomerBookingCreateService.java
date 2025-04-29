@@ -62,10 +62,6 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	@Override
 	public void validate(final Booking booking) {
 		{
-			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
-			super.state(validCurrency, "price", "acme.validation.currency.message");
-		}
-		{
 			Date moment;
 			moment = MomentHelper.getCurrentMoment();
 
@@ -74,6 +70,10 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 				super.state(flightDepartureFuture, "flight", "acme.validation.booking.departure-not-in-future.message");
 			}
 
+		}
+		if (booking.getPrice() != null && booking.getPrice().getCurrency() != null) {
+			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
+			super.state(validCurrency, "price", "acme.validation.currency.message");
 		}
 	}
 
