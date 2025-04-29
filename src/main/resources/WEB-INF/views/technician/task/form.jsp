@@ -24,7 +24,7 @@
 	
 	<jstl:if test="${_command != 'create'}">
 		
-		<acme:input-select code="technician.task.form.label.technician" path="technician" choices="${technicians}"/>
+		<acme:input-textbox code="technician.task.form.label.technician" path="technician" readonly="true"/>
 	
 	</jstl:if>
 	
