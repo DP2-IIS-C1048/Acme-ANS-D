@@ -37,7 +37,6 @@
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			
-			<acme:button code="technician.task.form.button.tasks" action="/technician/task/list?masterId=${id}"/>
 			<acme:submit code="technician.task.form.button.update" action="/technician/task/update"/>
 			<acme:submit code="technician.task.form.button.delete" action="/technician/task/delete"/>
 			<acme:submit code="technician.task.form.button.publish" action="/technician/task/publish"/>
