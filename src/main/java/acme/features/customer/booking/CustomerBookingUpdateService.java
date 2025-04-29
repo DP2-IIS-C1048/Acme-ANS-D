@@ -106,7 +106,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		if (selectedFlight != null && !flights.contains(selectedFlight))
 			flights.add(selectedFlight);
 
-		choices = SelectChoices.from(flights, "tag", selectedFlight);
+		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
 		dataset.put("flight", choices.getSelected().getKey());

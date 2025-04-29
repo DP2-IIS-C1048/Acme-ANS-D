@@ -69,7 +69,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 			flights.add(selectedFlight);
 		}
 
-		choices = SelectChoices.from(flights, "tag", selectedFlight);
+		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "purchaseMoment", "draftMode");
 		dataset.put("flight", choices.getSelected().getKey());
