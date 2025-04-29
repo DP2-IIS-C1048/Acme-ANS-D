@@ -50,11 +50,11 @@ public class TechnicianTaskUpdateService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void bind(final Task task) {
-		int technicianId;
+		String technicianId;
 		Technician technician;
 
-		technicianId = super.getRequest().getData("technician", int.class);
-		technician = this.repository.findTechnicianById(technicianId);
+		technicianId = super.getRequest().getData("technician", String.class);
+		technician = this.repository.findTechnicianByLicense(technicianId);
 
 		super.bindObject(task, "type", "description", "priority", "estimatedDuration");
 		task.setTechnician(technician);

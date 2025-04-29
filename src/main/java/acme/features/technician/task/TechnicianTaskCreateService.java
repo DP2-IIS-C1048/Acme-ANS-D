@@ -1,8 +1,6 @@
 
 package acme.features.technician.task;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -62,17 +60,11 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	public void unbind(final Task task) {
 		Dataset dataset;
 		SelectChoices typeChoices;
-		Collection<Technician> technicians;
-		SelectChoices technicianChoices;
 
 		typeChoices = SelectChoices.from(TaskType.class, task.getType());
-		technicians = this.repository.findAllTechnicians();
-		technicianChoices = SelectChoices.from(technicians, "license", task.getTechnician());
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("types", typeChoices);
-		dataset.put("technician", technicianChoices.getSelected().getKey());
-		dataset.put("technicians", technicianChoices);
 
 		super.getResponse().addData(dataset);
 	}

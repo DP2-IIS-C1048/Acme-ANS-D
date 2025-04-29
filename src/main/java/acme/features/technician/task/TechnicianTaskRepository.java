@@ -25,4 +25,7 @@ public interface TechnicianTaskRepository extends AbstractRepository {
 	@Query("select t from Technician t where t.id = :id")
 	Technician findTechnicianById(int id);
 
+	@Query("select t from Technician t where t.license = :license")
+	Technician findTechnicianByLicense(String license);
+
 }
