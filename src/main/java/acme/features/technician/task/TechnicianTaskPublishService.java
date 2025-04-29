@@ -71,6 +71,7 @@ public class TechnicianTaskPublishService extends AbstractGuiService<Technician,
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("types", choices);
+		dataset.put("technician", task.getTechnician().getLicense());
 
 		super.getResponse().addData(dataset);
 	}
