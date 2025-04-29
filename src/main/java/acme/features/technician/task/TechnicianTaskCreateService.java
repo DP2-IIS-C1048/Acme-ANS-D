@@ -45,14 +45,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void bind(final Task task) {
-		int technicianId;
-		Technician technician;
-
-		technicianId = super.getRequest().getData("technician", int.class);
-		technician = this.repository.findTechnicianById(technicianId);
-
 		super.bindObject(task, "type", "description", "priority", "estimatedDuration");
-		task.setTechnician(technician);
 	}
 
 	@Override
