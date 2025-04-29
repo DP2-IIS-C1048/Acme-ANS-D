@@ -31,6 +31,7 @@ acme.validation.constraints.leg.invalid-airports.message = The arrival and depar
 acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
 
 acme.validation.technician.duplicated-license.message = This license already exists.
+acme.validation.task.delete.message = The task must be in Draft Mode.
 acme.validation.promotion.duplicated-promotion-code.message = This promotion code has already been used.
 acme.validation.promotion.promotion-code-pattern-mismatch.message = The format of the promotion code is not correct.
 acme.validation.promotion.promotion-code-last-digits.message = The promotion is not available.

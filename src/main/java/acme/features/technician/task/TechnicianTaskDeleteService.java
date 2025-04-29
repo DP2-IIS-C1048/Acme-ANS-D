@@ -55,7 +55,9 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void validate(final Task task) {
-		;
+		{
+			super.state(task.isDraftMode(), "*", "acme.validation.task.delete.message");
+		}
 	}
 
 	@Override
