@@ -44,10 +44,8 @@ public class TechnicianInvolvesListService extends AbstractService<Technician, I
 		Dataset dataset;
 		int masterId;
 
-		dataset = super.unbindObject(involves, "task");
-		dataset.put("type", involves.getTask().getType());
-		dataset.put("priority", involves.getTask().getPriority());
-		dataset.put("estimatedDuration", involves.getTask().getEstimatedDuration());
+		dataset = super.unbindObject(involves, "tasks");
+		dataset.put("maintenanceRecord", involves.getMaintenanceRecord());
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().addGlobal("masterId", masterId);
