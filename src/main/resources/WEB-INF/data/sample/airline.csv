@@ -11,12 +11,12 @@ airline-06,Robert'); DROP TABLE Airlines;--,PQR,http://gst.com/airline,LUXURY,20
 airline-07,<script>alert('XSS')</script>,STU,http://gst.com/airline,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 # website - standard variations
 airline-08,GST Airlines,VWX,http://lorem.com/ipsum,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
-airline-09,GST Airlines,YZA,ftp://a,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
-airline-10,GST Airlines,BCD,ftp://a.b,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-09,GST Airlines,YZA,http://a,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-10,GST Airlines,BCD,http://a.b,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 airline-11,GST Airlines,EFG,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 airline-12,GST Airlines,HIJ,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 airline-13,GST Airlines,KLM,https://www.lorem-ipsum.org,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
-airline-14,GST Airlines,NOP,ftp://www.lorem-ipsum.org,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
+airline-14,GST Airlines,NOP,http://www.lorem-ipsum.org,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 airline-15,GST Airlines,QRS,http://www.lorem-ipsum.org/dolor/sit.html,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 airline-16,GST Airlines,TUV,http://www.lorem-ipsum.org/dolor/sit.html#dolor,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789
 airline-17,GST Airlines,WXY,http://example.org?a=1&b=2,LUXURY,2020/01/01 00:00,gst@gmail.com,123456789

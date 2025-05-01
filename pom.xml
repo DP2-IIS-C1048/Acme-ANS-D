@@ -21,15 +21,15 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<artifactId>Acme-ANS-D03</artifactId>
+	<artifactId>Acme-ANS-D04</artifactId>
 	<!-- <version>X.Y.Z</version> --> <!-- Omit the version tag unless it's different from the parent version -->
 	<packaging>war</packaging>
 	
 	<parent>
 		<groupId>Acme</groupId>
 		<artifactId>pom</artifactId>
-		<version>25.3.0</version>
-		<relativePath>../../pom-25.3.0.xml</relativePath>
+		<version>25.4.0</version>
+		<relativePath>../../pom-25.4.0.xml</relativePath>
 	</parent>
 	
 </project>
