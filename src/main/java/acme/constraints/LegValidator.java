@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.MomentHelper;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegRepository;
 
@@ -56,7 +57,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 			{
 				boolean correctArrivalDepartureDates = true;
 				if (departureDate != null && arrivalDate != null)
-					correctArrivalDepartureDates = departureDate.before(arrivalDate);
+					correctArrivalDepartureDates = MomentHelper.isBefore(departureDate, arrivalDate);
 				super.state(context, correctArrivalDepartureDates, "scheduledDeparture", "acme.validation.constraints.leg.arrivalDepartureDates.message");
 				super.state(context, correctArrivalDepartureDates, "scheduledArrival", "acme.validation.constraints.leg.arrivalDepartureDates.message");
 			}

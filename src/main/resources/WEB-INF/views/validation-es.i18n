@@ -8,7 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
+acme.validation.length = Texto demasiado largo
+acme.validation.range = Número fuera de rango
+acme.validation.airline.duplicated-iataCode.message = Ya existe una aerolínea con ese código IATA
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = El código del empleado está duplicado
 acme.validation.flight.crew.member.employee-code.message = Las primeras dos o tres letras del código del empleado deben corresponder con las iniciales
@@ -24,16 +26,20 @@ acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de v
 acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de salida debe ser anterior que la de llegada
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = Las fechas de salida o de llegada coinciden en el intervalo de otro tramo
 acme.validation.leg.invalid-leg-dates.message = El tramo introducido no es posterior o anterior al último tramo o primer tramo
-acme.validation.leg.invalid-leg-arrivalAirport.message = El aeropuerto de llegada introducido no coincide con el aeropuerto de salida del primer tramo
-acme.validation.leg.invalid-leg-departureAirport.message = El aeropuerto de salida introducido no coincide con el aeropuerto de llegada del último tramo ya que el vuelo es de transferencia propia
+acme.validation.leg.invalid-leg-arrivalAirport.message = El aeropuerto de llegada introducido no coincide con el aeropuerto de salida del primer tramo pero el vuelo no es de transferencia propia
+acme.validation.leg.invalid-leg-departureAirport.message = El aeropuerto de salida introducido no coincide con el aeropuerto de llegada del último tramo pero el vuelo no es de transferencia propia
+acme.validation.leg.invalid-leg-arrivalAirport-selfTransfer.message = El aeropuerto de llegada introducido coincide con el aeropuerto de salida del primer tramo pero el vuelo es de transferencia propia
+acme.validation.leg.invalid-leg-departureAirport-selfTransfer.message = El aeropuerto de salida introducido coincide con el aeropuerto de llegada del último tramo pero el vuelo es de transferencia propia
 acme.validation.constraints.leg.arrivalAirport.message = El valor del aeropuerto de salida no puede estar vacio
 acme.validation.constraints.leg.departureAirport.message = El valor del aeropuerto de llegada no puede estar vacio
 acme.validation.constraints.leg.aircraft.message = El valor de la aeronave no puede estar vacio
 acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
+acme.validation.leg.aircraft-active.message=La aeronave seleccionada debe estar activa.
 acme.validation.constraints.leg.status-LANDED.message = El tramo no puede cambiar de estado ya que ya ha aterrizado
 acme.validation.constraints.leg.status-CANCELLED.message = El tramo no puede cambiar de estado ya que fue cancelado
 acme.validation.constraints.leg.status-ON_TIME.message = El tramo no puede volver al estado "ON_TIME" ya que anteriormente estaba en otro estado.
+acme.validation.leg.invalid-futureDates.message = La fecha tiene que ser posterior a la actual
 
 acme.validation.currency.message = El tipo de moneda no está disponible
 
@@ -43,3 +49,5 @@ acme.validation.manager.invalid-identifierNumber.message = El identificador nume
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.
+
+acme.validation.customer.passenger.update.is-not-dratMode.message = Este pasajero no está en modo borrador.
