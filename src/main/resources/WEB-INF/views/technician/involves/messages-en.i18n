@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+technician.involves.form.title = Tasks form 
+technician.involves.list.title = Listing of tasks
+
+technician.involves.form.label.type = Task type
+technician.involves.form.label.description = Description
+technician.involves.form.label.priority = Priority
+technician.involves.form.label.estimatedDuration = Estimated duration
+technician.involves.form.label.technician = Technician
+
+technician.involves.form.button.update = Update
+technician.involves.form.button.delete = Delete
+technician.involves.form.button.publish = Publish
+technician.involves.form.button.create = Create
+
+technician.involves.list.label.type = Task type
+technician.involves.list.label.description = Description
+technician.involves.list.label.priority = Priority
+technician.involves.list.label.estimatedDuration = Estimated duration
+technician.involves.list.label.technician = Technician
+
+technician.involves.list.button.create = Create
