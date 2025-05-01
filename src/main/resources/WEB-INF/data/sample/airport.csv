@@ -37,7 +37,7 @@ airport-30,"Aeropuerto Pekin",ZQQ,INTERNATIONAL,"Ciudad Rodrigo","<marquee>Hacke
 airport-31,"Aeropuerto Pekin",KLX,INTERNATIONAL,"Ciudad Rodrigo","<script>alert(‘Hacked!’);</script>","https://AirportWeb.com","airport@gmail.com","123456789"
 airport-32,"Aeropuerto Pekin",SRM,INTERNATIONAL,"Ciudad Rodrigo","' or 'A' = 'A ","https://AirportWeb.com","airport@gmail.com","123456789"
 # website standard variations
-airport-33,"Aeropuerto Pekin",FHJ,INTERNATIONAL,"Ciudad Rodrigo","Canada","http://a","airport@gmail.com","123456789"
+airport-33,"Aeropuerto Pekin",FHJ,INTERNATIONAL,"Ciudad Rodrigo","Canada","http://a.b","airport@gmail.com","123456789"
 airport-34,"Aeropuerto Pekin",MVA,INTERNATIONAL,"Ciudad Rodrigo","Canada","http://a.b","airport@gmail.com","123456789"
 airport-35,"Aeropuerto Pekin",PEA,INTERNATIONAL,"Ciudad Rodrigo","Canada","http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/","airport@gmail.com","123456789"
 airport-36,"Aeropuerto Pekin",LLB,INTERNATIONAL,"Ciudad Rodrigo","Canada","http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X","airport@gmail.com","123456789"
