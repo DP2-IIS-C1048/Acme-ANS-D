@@ -51,3 +51,15 @@ acme.validation.customer.duplicated-identifier.message = El identificador del cu
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.
 
 acme.validation.customer.passenger.update.is-not-dratMode.message = Este pasajero no está en modo borrador.
+
+acme.validation.booking.departure-not-in-future.message = Este vuelo ya ha salido.
+acme.validation.booking.is-not-draft-mode.message = No se puede actualizar esta reserva. No está en modo borrador
+acme.validation.booking.flight.not-found.messasge = No se encontró ese vuelo
+
+acme.validation.booking.publish.passengers-associated.message = Esta reserva no tiene pasajeros asociados.
+acme.validation.booking.publish.passenger-associated-not-owned.message = Esta reserva tiene pasajeros que no te pertenecen.
+acme.validation.booking.published.passenger-not-published.message = Esta reserva tiene pasajeros no publicados.
+acme.validation.booking.publish.lastNibble-null.message = Esta reserva no tiene un número de tarjeta válido.
+
+acme.validation.booking-record.create.passenger-not-from-customer.message = Este pasajero no está asociado contigo.
+acme.validation.booking-record.create.passenger-not-published.message = Este pasajero no se ha publicado.

@@ -28,7 +28,7 @@ public class CustomerPassengerPublishService extends AbstractGuiService<Customer
 		customer = null;
 		if (passenger != null)
 			customer = this.repository.findCustomerByPassengerId(passenger.getId());
-		status = super.getRequest().getPrincipal().hasRealm(customer) && passenger != null && passenger.getDraftMode();
+		status = super.getRequest().getPrincipal().hasRealm(customer) && passenger != null && passenger.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -53,7 +53,7 @@ public class CustomerPassengerPublishService extends AbstractGuiService<Customer
 	@Override
 	public void validate(final Passenger passenger) {
 		{
-			super.state(passenger.getDraftMode(), "*", "acme.validation.customer.passenger.update.is-not-dratMode.message");
+			super.state(passenger.isDraftMode(), "*", "acme.validation.customer.passenger.update.is-not-dratMode.message");
 		}
 	}
 

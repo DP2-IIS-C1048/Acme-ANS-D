@@ -62,6 +62,11 @@ master.menu.customer = Customer
 master.menu.customer.list-my-passengers = My Passengers
 
 
+# master.menu.customer ##########################################################
+
+master.menu.customer = Customer
+master.menu.customer.list-my-bookings = My Bookings
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
