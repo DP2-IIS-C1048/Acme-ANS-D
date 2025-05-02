@@ -1,43 +1,43 @@
 key,tag,requires-self-transfer,cost,description,key:manager,draft-mode
 # base entity
-flight-00,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,FALSE
+flight-00,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
 # tag - standard variations
-flight-01,"L",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-02,"Lo",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-05,"โลเร็ม อิปซัม",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-06,"لوريم إيبسوم",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-07,"洛伦·伊普森",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-08,"<marquee>Hacked</marquee>",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-09,"<script>alert(‘Hacked!’);</script>",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-10,"' or 'A' = 'A",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
+flight-01,"L",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-02,"Lo",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-05,"โลเร็ม อิปซัม",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-06,"لوريم إيبسوم",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-07,"洛伦·伊普森",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-08,"<marquee>Hacked</marquee>",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-09,"<script>alert(‘Hacked!’);</script>",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-10,"' or 'A' = 'A",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
 # tag - no singular values
 # requiresSelfTransfer - standard variations
-flight-11,"Lorem ipsum dolor sit ame",FALSE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
+flight-11,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
 # requiresSelfTransfer - no singular values
 # cost - standard variations
-flight-12,"Lorem ipsum dolor sit ame",TRUE,EUR 0.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-13,"Lorem ipsum dolor sit ame",TRUE,EUR 0.01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-14,"Lorem ipsum dolor sit ame",TRUE,EUR 199999.99,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
-flight-15,"Lorem ipsum dolor sit ame",TRUE,EUR 200000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,TRUE
+flight-12,"Lorem ipsum dolor sit ame",true,EUR 0.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-13,"Lorem ipsum dolor sit ame",true,EUR 0.01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-14,"Lorem ipsum dolor sit ame",true,EUR 199999.99,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
+flight-15,"Lorem ipsum dolor sit ame",true,EUR 200000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,true
 # cost - no singular values
 # description - standard variations
-flight-16,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,,manager-01,TRUE
-flight-17,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"L",manager-01,TRUE
-flight-18,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",manager-01,TRUE
-flight-19,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",manager-01,TRUE
-flight-20,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"โลเร็ม อิปซัม",manager-01,TRUE
-flight-21,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"لوريم إيبسوم",manager-01,TRUE
-flight-22,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"洛伦·伊普森",manager-01,TRUE
-flight-23,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"<marquee>Hacked</marquee>",manager-01,TRUE
-flight-24,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"<script>alert(‘Hacked!’);</script>",manager-01,TRUE
-flight-25,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"' or 'A' = 'A",manager-01,TRUE
+flight-16,"Lorem ipsum dolor sit ame",true,EUR 1000.00,,manager-01,true
+flight-17,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"L",manager-01,true
+flight-18,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",manager-01,true
+flight-19,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",manager-01,true
+flight-20,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"โลเร็ม อิปซัม",manager-01,true
+flight-21,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"لوريم إيبسوم",manager-01,true
+flight-22,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"洛伦·伊普森",manager-01,true
+flight-23,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"<marquee>Hacked</marquee>",manager-01,true
+flight-24,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"<script>alert(‘Hacked!’);</script>",manager-01,true
+flight-25,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"' or 'A' = 'A",manager-01,true
 # description - no singular values
 # manager - standard variations
-flight-26,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-02,TRUE
+flight-26,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-02,true
 # manager - no singular values
 # draftMode - standard variations
-flight-27,"Lorem ipsum dolor sit ame",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,FALSE
-# draftMode - no singular values
-flight-28,"Lorem ipsum dolor sit ame2",TRUE,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,FALSE
+flight-27,"Lorem ipsum dolor sit ame",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,false
+flight-28,"Lorem ipsum dolor sit ame2",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,false
+flight-29,"Lorem ipsum dolor sit ame2",true,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",manager-01,false
