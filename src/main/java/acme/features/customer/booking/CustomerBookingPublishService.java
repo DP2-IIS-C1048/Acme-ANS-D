@@ -66,7 +66,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 	@Override
 	public void validate(final Booking booking) {
 		{
-			boolean isLastNibbleValid = booking.getLastNibble() != null && !booking.getLastNibble().trim().isEmpty();
+			boolean isLastNibbleValid = booking.getLastNibble() != null;
 
 			super.state(isLastNibbleValid, "lastNibble", "acme.validation.booking.publish.lastNibble-null.message");
 		}
