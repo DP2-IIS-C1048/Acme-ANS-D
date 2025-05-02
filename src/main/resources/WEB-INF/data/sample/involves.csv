@@ -1,3 +1,26 @@
 key,key:maintenanceRecord,key:task
 # base entity
 involves-00,maintenance-record-00,task-00
+involves-01,maintenance-record-01,task-01
+involves-02,maintenance-record-02,task-02
+involves-03,maintenance-record-03,task-03
+involves-04,maintenance-record-04,task-04
+involves-05,maintenance-record-05,task-05
+involves-06,maintenance-record-06,task-06
+involves-07,maintenance-record-07,task-07
+involves-08,maintenance-record-08,task-08
+involves-09,maintenance-record-09,task-09
+involves-10,maintenance-record-10,task-10
+involves-11,maintenance-record-11,task-11
+involves-12,maintenance-record-12,task-12
+involves-13,maintenance-record-13,task-13
+involves-14,maintenance-record-14,task-14
+involves-15,maintenance-record-15,task-15
+involves-16,maintenance-record-16,task-16
+involves-17,maintenance-record-17,task-17
+involves-18,maintenance-record-18,task-18
+involves-19,maintenance-record-19,task-19
+involves-20,maintenance-record-20,task-20
+involves-21,maintenance-record-21,task-21
+involves-22,maintenance-record-22,task-23
+involves-23,maintenance-record-23,task-24
