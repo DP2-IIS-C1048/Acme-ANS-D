@@ -1,46 +1,44 @@
 key,flight-number,scheduled-departure,scheduled-arrival,status,key:departure-airport,key:arrival-airport,key:aircraft,key:flight,draft-mode
 # base entity
-leg-00,ABC1234,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-01,true
+leg-00,ABC1234,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-01,false
 # flightNumber - standard variations
 # flightNumber - no singular values
-leg-01,DEF1234,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-40,flight-26,true
-leg-02,ABC0000,2020/01/02 01:00,2020/01/02 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-02,true
-leg-03,ABC0001,2020/01/03 01:00,2020/01/03 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-03,true
-leg-04,ABC9998,2020/01/04 01:00,2020/01/04 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-05,true
-leg-05,ABC9999,2020/01/05 01:00,2020/01/05 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-06,true
+leg-01,DEF1234,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-40,flight-26,false
+leg-02,ABC0000,2020/01/02 01:00,2020/01/02 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-02,false
+leg-03,ABC0001,2020/01/03 01:00,2020/01/03 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-03,false
+leg-04,ABC9998,2020/01/04 01:00,2020/01/04 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-05,false
+leg-05,ABC9999,2020/01/05 01:00,2020/01/05 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-06,false
 # scheduledDeparture - standard variations
-leg-06,ABC0006,2000/01/01 00:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-02,flight-07,true
-leg-07,ABC0007,2000/01/01 00:01,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-03,flight-08,true
-leg-08,ABC0008,2200/12/31 23:57,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-04,flight-09,true
-leg-09,ABC0009,2200/12/31 23:58,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-05,flight-10,true
+leg-06,ABC0006,2000/01/01 00:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-02,flight-07,false
+leg-07,ABC0007,2000/01/01 00:01,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-03,flight-08,false
+leg-08,ABC0008,2200/12/31 23:57,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-04,flight-09,false
+leg-09,ABC0009,2200/12/31 23:58,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-05,flight-10,false
 # scheduledDeparture - no singular values
 # scheduledArrival - standard variations
-leg-10,ABC0010,2000/01/01 00:00,2000/01/01 00:01,"ON_TIME",airport-01,airport-02,aircraft-06,flight-11,true
-leg-11,ABC0011,2000/01/01 00:00,2000/01/01 00:02,"ON_TIME",airport-01,airport-02,aircraft-07,flight-12,true
-leg-12,ABC0012,2020/01/01 01:00,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-08,flight-13,true
-leg-13,ABC0013,2020/01/01 01:00,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-09,flight-14,true
+leg-10,ABC0010,2000/01/01 00:00,2000/01/01 00:01,"ON_TIME",airport-01,airport-02,aircraft-06,flight-11,false
+leg-11,ABC0011,2000/01/01 00:00,2000/01/01 00:02,"ON_TIME",airport-01,airport-02,aircraft-07,flight-12,false
+leg-12,ABC0012,2020/01/01 01:00,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-08,flight-13,false
+leg-13,ABC0013,2020/01/01 01:00,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-09,flight-14,false
 # scheduledArrival - no singular values
 # status - standard variations
-leg-14,ABC0014,2020/01/01 01:00,2020/01/01 03:00,"CANCELLED",airport-01,airport-02,aircraft-01,flight-15,true
-leg-15,ABC0015,2020/01/01 01:00,2020/01/01 03:00,"DELAYED",airport-01,airport-02,aircraft-01,flight-16,true
-leg-16,ABC0016,2020/01/01 01:00,2020/01/01 03:00,"LANDED",airport-01,airport-02,aircraft-01,flight-17,true
+leg-14,ABC0014,2020/01/01 01:00,2020/01/01 03:00,"CANCELLED",airport-01,airport-02,aircraft-01,flight-15,false
+leg-15,ABC0015,2020/01/01 01:00,2020/01/01 03:00,"DELAYED",airport-01,airport-02,aircraft-01,flight-16,false
+leg-16,ABC0016,2020/01/01 01:00,2020/01/01 03:00,"LANDED",airport-01,airport-02,aircraft-01,flight-17,false
 # status - no singular values
 # departureAirport - standard variations
-leg-17,ABC0017,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-03,airport-02,aircraft-01,flight-18,true
+leg-17,ABC0017,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-03,airport-02,aircraft-01,flight-18,false
 # departureAirport - no singular values
 # arrivalAirport - standard variations
-leg-18,ABC0018,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-03,aircraft-01,flight-19,true
+leg-18,ABC0018,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-03,aircraft-01,flight-19,false
 # arrivalAirport - no singular values
 # aircraft - standard variations
 # aircraft - no singular values
 # flight - standard variations
 # flight - singular values
-leg-19,ABC0019,2020/01/01 04:00,2020/01/01 05:00,"ON_TIME",airport-02,airport-03,aircraft-01,flight-01,true
-leg-20,ABC0020,2020/01/02 04:00,2020/01/02 05:00,"ON_TIME",airport-02,airport-01,aircraft-01,flight-02,true
+leg-19,ABC0019,2020/01/01 04:00,2020/01/01 05:00,"ON_TIME",airport-02,airport-03,aircraft-01,flight-01,false
+leg-20,ABC0020,2020/01/02 04:00,2020/01/02 05:00,"ON_TIME",airport-02,airport-01,aircraft-01,flight-02,false
 # draftMode - standard variations
-leg-21,ABC0021,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-27,false
-leg-22,ABC0022,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-02,flight-28,false
-leg-23,ABC0023,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-03,flight-29,false
-leg-24,ABC0024,2200/01/01 01:00,2200/01/01 03:00,"ON_TIME",airport-14,airport-15,aircraft-04,flight-30,false
-leg-25,ABC0025,2200/01/01 01:00,2200/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-05,flight-31,false
+leg-21,ABC0021,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-27,true
+leg-22,ABC0022,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-02,flight-28,true
+leg-23,ABC0023,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-03,flight-29,true
 # draftMode - no singular values
