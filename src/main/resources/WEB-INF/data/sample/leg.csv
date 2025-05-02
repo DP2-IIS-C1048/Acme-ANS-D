@@ -41,4 +41,6 @@ leg-20,ABC0020,2020/01/02 04:00,2020/01/02 05:00,"ON_TIME",airport-02,airport-01
 leg-21,ABC0021,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-27,false
 leg-22,ABC0022,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-02,flight-28,false
 leg-23,ABC0023,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-03,flight-29,false
+leg-24,ABC0024,2200/01/01 01:00,2200/01/01 03:00,"ON_TIME",airport-14,airport-15,aircraft-04,flight-30,false
+leg-25,ABC0025,2200/01/01 01:00,2200/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-05,flight-31,false
 # draftMode - no singular values
