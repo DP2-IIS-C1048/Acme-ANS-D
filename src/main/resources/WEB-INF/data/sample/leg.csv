@@ -23,10 +23,10 @@ leg-13,ABC0013,2020/01/01 01:00,2200/12/31 23:59,"ON_TIME",airport-01,airport-02
 # status - standard variations
 leg-14,ABC0014,2020/01/01 01:00,2020/01/01 03:00,"CANCELLED",airport-01,airport-02,aircraft-01,flight-15,false
 leg-15,ABC0015,2020/01/01 01:00,2020/01/01 03:00,"DELAYED",airport-01,airport-02,aircraft-01,flight-16,false
-leg-16,ABC0016,2020/01/01 01:00,2020/01/01 03:00,"LANDED",airport-01,airport-02,aircraft-01,flight-17,false
+leg-16,ABC0016,2020/01/01 01:00,2020/01/01 03:00,"LANDED",airport-01,airport-02,aircraft-01,flight-27,false
 # status - no singular values
 # departureAirport - standard variations
-leg-17,ABC0017,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-03,airport-02,aircraft-01,flight-18,false
+leg-17,ABC0017,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-03,airport-02,aircraft-01,flight-28,false
 # departureAirport - no singular values
 # arrivalAirport - standard variations
 leg-18,ABC0018,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-03,aircraft-01,flight-19,false
