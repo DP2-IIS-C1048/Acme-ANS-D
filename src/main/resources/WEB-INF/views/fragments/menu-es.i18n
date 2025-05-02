@@ -46,6 +46,7 @@ master.menu.manager.list-my-flights= Ver mis vuelos
 master.menu.technician = Técnico
 master.menu.technician.list-my-maintenance-records = Ver mis registros de mantenimiento
 master.menu.technician.list-my-tasks = Ver mis tareas
+master.menu.technician.list-all-tasks-published = Ver todas las tareas publicadas
 
 # master.menu.user-account ####################################################
 

@@ -19,8 +19,15 @@
 	<acme:list-column code="technician.task.list.label.type" path="type" width="10%"/>
 	<acme:list-column code="technician.task.list.label.priority" path="priority" width="10%"/>
 	<acme:list-column code="technician.task.list.label.estimatedDuration" path="estimatedDuration" width="10%"/>
+	
+	<jstl:if test="${_command == 'listAllPublished'}">
+		<acme:list-column code="technician.task.list.label.technician" path="technician" width="10%"/>
+	</jstl:if>
+	
 	<acme:list-payload path="payload"/>
 </acme:list>
+
+
 
 <jstl:if test="${_command == 'list'}">
 	<acme:button code="technician.task.list.button.create" action="/technician/task/create"/>
