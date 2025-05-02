@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 technician.involves.form.title = Tasks form 
-technician.involves.list.title = Listing of tasks
+technician.involves.list.title = Listing of tasks from Maintenance Record
 
 technician.involves.form.label.type = Task type
 technician.involves.form.label.description = Description
