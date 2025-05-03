@@ -8,9 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-technician.involves.form.title = Formulario de tareas
+technician.involves.form.title = Formulario para añadir tareas a un Registro de Mantenimiento
 technician.involves.list.title = Listado de tareas de un Registro de Mantenimiento
 
+technician.involves.form.label.tasksInvolved = Tarea
 technician.involves.form.label.type = Tipo de tarea
 technician.involves.form.label.description = Descripción
 technician.involves.form.label.priority = Prioridad

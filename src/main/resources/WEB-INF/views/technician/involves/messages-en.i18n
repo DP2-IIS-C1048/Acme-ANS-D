@@ -8,9 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-technician.involves.form.title = Tasks form 
+technician.involves.form.title = Add tasks to Maintenance Record form 
 technician.involves.list.title = Listing of tasks from Maintenance Record
 
+technician.involves.form.label.tasksInvolved = Task
 technician.involves.form.label.type = Task type
 technician.involves.form.label.description = Description
 technician.involves.form.label.priority = Priority

@@ -20,6 +20,11 @@
 	<acme:list-column code="technician.maintenance-record.list.label.status" path="status" width="10%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.inspectionDueDate" path="inspectionDueDate" width="10%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.estimatedCost" path="estimatedCost" width="10%"/>
+	
+	<jstl:if test="${_command == 'listAllPublished'}">
+		<acme:list-column code="technician.maintenance-record.list.label.technician" path="technician" width="10%"/>
+	</jstl:if>
+	
 	<acme:list-payload path="payload"/>
 </acme:list>
 

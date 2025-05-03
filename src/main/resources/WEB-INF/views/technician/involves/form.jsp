@@ -17,32 +17,7 @@
 
 <acme:form>
 
-	<acme:input-select code="technician.involves.form.label.type" path="type" choices="${types}"/>
-	<acme:input-textarea code="technician.involves.form.label.description" path="description"/>
-	<acme:input-integer code="technician.involves.form.label.priority" path="priority"/>
-	<acme:input-integer code="technician.involves.form.label.estimatedDuration" path="estimatedDuration"/>
-	
-	<jstl:if test="${_command != 'create'}">
-		
-		<acme:input-textbox code="technician.involves.form.label.technician" path="technician" readonly="true"/>
-	
-	</jstl:if>
-	
-	<jstl:choose>
-	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			
-			<acme:submit code="technician.involves.form.button.update" action="/technician/involves/update"/>
-			<acme:submit code="technician.involves.form.button.delete" action="/technician/involves/delete"/>
-			<acme:submit code="technician.involves.form.button.publish" action="/technician/involves/publish"/>
-		
-		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-		
-			<acme:submit code="technician.involves.form.button.create" action="/technician/involves/create"/>
-		
-		</jstl:when>	
-			
-	</jstl:choose>
+	<acme:input-select code="technician.involves.form.label.tasksInvolved" path="task" choices="${tasks}"/>
+	<acme:submit code="technician.involves.form.button.create" action="/technician/involves/create?maintenanceRecordId=${maintenanceRecordId}"/>
 	
 </acme:form>

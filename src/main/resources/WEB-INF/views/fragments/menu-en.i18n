@@ -18,7 +18,6 @@ master.menu.anonymous.favourite-link.student3 = 7717****: Basallote Braza, David
 master.menu.anonymous.favourite-link.student4 = 4928****: Rodíguez Muñoz, Rafael
 master.menu.anonymous.favourite-link.student5 = 2965****: Herrera Luján, Marco Antonio
 
-
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -47,6 +46,7 @@ master.menu.manager.list-my-flights= See my flights
 master.menu.technician = technician
 master.menu.technician.list-my-maintenance-records = See my maintenance records
 master.menu.technician.list-my-tasks = See my tasks
+master.menu.technician.list-all-maintenance-records-published = See all maintenance records published
 master.menu.technician.list-all-tasks-published = See all tasks published
 
 # master.menu.user-account ####################################################
