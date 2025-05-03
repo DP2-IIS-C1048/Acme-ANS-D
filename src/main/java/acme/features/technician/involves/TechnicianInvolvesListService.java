@@ -9,6 +9,7 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.maintenance.Involves;
+import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.Task;
 import acme.realms.technician.Technician;
 
@@ -28,30 +29,31 @@ public class TechnicianInvolvesListService extends AbstractGuiService<Technician
 	public void load() {
 		Collection<Involves> involves;
 		int maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord;
+		boolean isMaintenanceRecordInDraftMode;
 
 		maintenanceRecordId = super.getRequest().getData("masterId", int.class);
 		involves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecordId);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+		isMaintenanceRecordInDraftMode = maintenanceRecord.isDraftMode();
 
 		super.getBuffer().addData(involves);
 		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
+		super.getResponse().addGlobal("isMaintenanceRecordInDraftMode", isMaintenanceRecordInDraftMode);
 	}
 
 	@Override
 	public void unbind(final Involves involves) {
 		Dataset dataset;
 		Task task;
-		boolean isMaintenanceRecordInDraftMode;
 
 		dataset = super.unbindObject(involves);
 		task = involves.getTask();
-		isMaintenanceRecordInDraftMode = involves.getMaintenanceRecord().isDraftMode();
 
 		dataset.put("type", task.getType());
 		dataset.put("priority", task.getPriority());
 		dataset.put("estimatedDuration", task.getEstimatedDuration());
-		dataset.put("isMaintenanceRecordInDraftMode", isMaintenanceRecordInDraftMode);
 
 		super.getResponse().addData(dataset);
-
 	}
 }
