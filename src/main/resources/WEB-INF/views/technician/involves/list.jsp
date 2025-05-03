@@ -22,6 +22,6 @@
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
+<jstl:if test="${_command == 'list' && isMaintenanceRecordInDraftMode == true}">
 	<acme:button code="technician.involves.list.button.create" action="/technician/involves/create?maintenanceRecordId=${maintenanceRecordId}"/>
 </jstl:if>

@@ -40,13 +40,16 @@ public class TechnicianInvolvesListService extends AbstractGuiService<Technician
 	public void unbind(final Involves involves) {
 		Dataset dataset;
 		Task task;
+		boolean isMaintenanceRecordInDraftMode;
 
 		dataset = super.unbindObject(involves);
 		task = involves.getTask();
+		isMaintenanceRecordInDraftMode = involves.getMaintenanceRecord().isDraftMode();
 
 		dataset.put("type", task.getType());
 		dataset.put("priority", task.getPriority());
 		dataset.put("estimatedDuration", task.getEstimatedDuration());
+		dataset.put("isMaintenanceRecordInDraftMode", isMaintenanceRecordInDraftMode);
 
 		super.getResponse().addData(dataset);
 
