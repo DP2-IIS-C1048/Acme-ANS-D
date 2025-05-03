@@ -91,7 +91,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			}
 
 		}
-		if (booking.getPrice() != null && booking.getPrice().getCurrency() != null) {
+		if (booking.getPrice() != null) {
 			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
 			super.state(validCurrency, "price", "acme.validation.currency.message");
 		}
