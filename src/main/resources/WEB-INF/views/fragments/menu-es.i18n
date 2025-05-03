@@ -60,6 +60,7 @@ master.menu.manager.show-dashboard = Mostrar dashboard
 
 master.menu.customer = Cliente
 master.menu.customer.list-my-passengers = Mis Pasajeros
+master.menu.customer.list-my-bookings = Mis Reservas
 
 # master.menu.user-account ####################################################
 
