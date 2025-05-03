@@ -6,21 +6,17 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.services.AbstractService;
+import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.maintenance.Involves;
 import acme.entities.maintenance.Task;
 import acme.realms.technician.Technician;
 
 @GuiService
-public class TechnicianInvolvesListService extends AbstractService<Technician, Involves> {
-
-	// Internal state ---------------------------------------------------------
+public class TechnicianInvolvesListService extends AbstractGuiService<Technician, Involves> {
 
 	@Autowired
 	private TechnicianInvolvesRepository repository;
-
-	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
@@ -30,25 +26,27 @@ public class TechnicianInvolvesListService extends AbstractService<Technician, I
 
 	@Override
 	public void load() {
-		Collection<Task> tasks;
+		Collection<Involves> involves;
 		int maintenanceRecordId;
 
 		maintenanceRecordId = super.getRequest().getData("masterId", int.class);
-		tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecordId);
+		involves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecordId);
 
-		super.getBuffer().addData(tasks);
+		super.getBuffer().addData(involves);
+		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 	}
 
 	@Override
 	public void unbind(final Involves involves) {
 		Dataset dataset;
-		int masterId;
+		Task task;
 
-		dataset = super.unbindObject(involves, "tasks");
-		dataset.put("maintenanceRecord", involves.getMaintenanceRecord());
+		dataset = super.unbindObject(involves);
+		task = involves.getTask();
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		super.getResponse().addGlobal("masterId", masterId);
+		dataset.put("type", task.getType());
+		dataset.put("priority", task.getPriority());
+		dataset.put("estimatedDuration", task.getEstimatedDuration());
 
 		super.getResponse().addData(dataset);
 

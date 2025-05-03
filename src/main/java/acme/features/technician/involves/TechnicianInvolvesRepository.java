@@ -7,12 +7,20 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.maintenance.Involves;
+import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.Task;
 
 @Repository
 public interface TechnicianInvolvesRepository extends AbstractRepository {
 
-	@Query("select i.task from Involves i where i.maintenanceRecord.id = :id")
-	Collection<Task> findTasksByMaintenanceRecordId(int id);
+	@Query("select mr from MaintenanceRecord mr where mr.id = :id")
+	MaintenanceRecord findMaintenanceRecordById(int id);
+
+	@Query("select i from Involves i where i.maintenanceRecord.id = :id")
+	Collection<Involves> findInvolvesByMaintenanceRecordId(int id);
+
+	@Query("select t from Task t where t.draftMode = false")
+	Collection<Task> findAllTasksPublished();
 
 }
