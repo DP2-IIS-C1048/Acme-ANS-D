@@ -17,7 +17,18 @@
 
 <acme:form>
 
-	<acme:input-select code="technician.involves.form.label.tasksInvolved" path="task" choices="${tasks}"/>
-	<acme:submit code="technician.involves.form.button.create" action="/technician/involves/create?maintenanceRecordId=${maintenanceRecordId}"/>
+	<jstl:if test="${acme:anyOf(_command, 'show|delete'}">
+		<acme:input-textbox code="technician.involves.form.label.type" path="type" readonly="true"/>
+		<acme:input-textarea code="technician.involves.form.label.description" path="description" readonly="true"/>
+		<acme:input-integer code="technician.involves.form.label.priority" path="priority" readonly="true"/>
+		<acme:input-integer code="technician.involves.form.label.estimatedDuration" path="estimatedDuration" readonly="true"/>
+		
+		<acme:submit code="technician.involves.form.button.delete" action="/technician/involves/delete"/>
+	</jstl:if>
+
+	<jstl:if test="${_command = 'create'}">
+		<acme:input-select code="technician.involves.form.label.tasksInvolved" path="task" choices="${tasks}"/>
+		<acme:submit code="technician.involves.form.button.create" action="/technician/involves/create?maintenanceRecordId=${maintenanceRecordId}"/>
+	</jstl:if>
 	
 </acme:form>
