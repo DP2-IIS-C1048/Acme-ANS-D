@@ -75,8 +75,8 @@ public class ManagerDashboardShowService extends AbstractGuiService<Manager, Man
 	public void unbind(final ManagerDashboard dashboard) {
 		Dataset dataset = super.unbindObject(dashboard, "rankingPositionManager", "yearsToRetire", "ratioOnTimeLegs", "ratioDelayedLegs", "numberOfMyLegsWithStatusOnTime", "numberOfMyLegsWithStatusDelayed", "numberOfMyLegsWithStatusCancelled",
 			"numberOfMyLegsWithStatusLanded", "averageCostFlight", "minCostFlight", "maxCostFlight", "standardDeviationCostFlight");
-		dataset.put("mostPopularAirport", dashboard.getMostPopularAirport().getIataCode());
-		dataset.put("leastPopularAirport", dashboard.getLeastPopularAirport().getIataCode());
+		dataset.put("mostPopularAirport", dashboard.getMostPopularAirport() != null ? dashboard.getMostPopularAirport().getIataCode() : null);
+		dataset.put("leastPopularAirport", dashboard.getLeastPopularAirport() != null ? dashboard.getLeastPopularAirport().getIataCode() : null);
 
 		super.getResponse().addData(dataset);
 	}
