@@ -1,5 +1,5 @@
 
-package forms;
+package acme.forms;
 
 import acme.client.components.basis.AbstractForm;
 import acme.entities.airport.Airport;

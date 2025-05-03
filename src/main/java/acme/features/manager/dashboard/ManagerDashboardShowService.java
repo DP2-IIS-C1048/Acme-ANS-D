@@ -8,8 +8,8 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.airport.Airport;
 import acme.entities.leg.LegStatus;
+import acme.forms.ManagerDashboard;
 import acme.realms.manager.Manager;
-import forms.ManagerDashboard;
 
 @GuiService
 public class ManagerDashboardShowService extends AbstractGuiService<Manager, ManagerDashboard> {
