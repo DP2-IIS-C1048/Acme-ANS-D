@@ -19,6 +19,8 @@ assistanceAgent.claim.list.label.assistanceAgent = Assistance Agent
 assistanceAgent.claim.list.label.leg = Leg
 assistanceAgent.claim.list.label.trackingLogType = State
 assistanceAgent.claim.list.label.draftMode = Draft Mode
+assistanceAgent.claim.form.label.type = Claim Type
+assistanceAgent.claim.form.label.leg = Leg
 
 assistanceAgent.claim.form.label.registrationMoment = Registration Moment
 assistanceAgent.claim.form.label.passengerEmail = Passenger Email

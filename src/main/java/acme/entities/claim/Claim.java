@@ -1,7 +1,6 @@
 
 package acme.entities.claim;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -67,8 +66,8 @@ public class Claim extends AbstractEntity {
 	@Transient
 	public TrackingLogIndicator getIndicator() {
 		TrackingLogRepository repository = SpringHelper.getBean(TrackingLogRepository.class);
-		Collection<TrackingLog> res = repository.findOrderedTrackingLogs(this.getId());
-		return TrackingLogIndicator.PENDING;
+		TrackingLogIndicator res = repository.findOrderedTrackingLogs(this.getId()).flatMap(list -> list.stream().findFirst()).map(TrackingLog::getIndicator).orElse(TrackingLogIndicator.PENDING);
+		return res;
 	}
 
 	// Relationships ----------------------------------------------------------

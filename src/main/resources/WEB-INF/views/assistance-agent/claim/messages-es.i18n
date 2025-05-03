@@ -22,10 +22,11 @@ assistanceAgent.claim.list.label.draftMode = Modo Borrador
 
 assistanceAgent.claim.form.label.registrationMoment = Momento de Registro
 assistanceAgent.claim.form.label.passengerEmail = Email de Pasajero
-assistanceAgent.claim.form.label.type = Tipo de Queja
-ssistanceAgent.claim.form.label.description = Descripción
+asistanceAgent.claim.form.label.description = Descripción
 assistanceAgent.claim.form.label.trackingLogType = Estado
 assistanceAgent.claim.form.label.draftMode = Modo Borrador
+assistanceAgent.claim.form.label.type = Tipo de Queja
+assistanceAgent.claim.form.label.leg = Tramo
 
 assistanceAgent.claim.list.button.create = Crear
 assistanceAgent.claim.form.button.create = Crear
