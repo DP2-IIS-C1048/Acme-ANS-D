@@ -16,6 +16,8 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
+
+	<acme:list-column code="technician.maintenance-record.list.label.aircraft" path="aircraft" width="10%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.maintenanceMoment" path="maintenanceMoment" width="10%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.status" path="status" width="10%"/>
 	<acme:list-column code="technician.maintenance-record.list.label.inspectionDueDate" path="inspectionDueDate" width="10%"/>
