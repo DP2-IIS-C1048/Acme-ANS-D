@@ -2,6 +2,7 @@
 package acme.features.technician.involves;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -65,11 +66,16 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 		Dataset dataset;
 		SelectChoices taskChoices;
 		Collection<Task> possibleTasks;
+		Collection<Task> alreadyAddedTasks;
 		int maintenanceRecordId;
 
-		possibleTasks = this.repository.findAllTasksPublished();
-		taskChoices = SelectChoices.from(possibleTasks, "description", involves.getTask());
 		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
+
+		possibleTasks = this.repository.findTasksPublished();
+		alreadyAddedTasks = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecordId).stream().map(Involves::getTask).collect(Collectors.toList());
+		possibleTasks.removeAll(alreadyAddedTasks);
+
+		taskChoices = SelectChoices.from(possibleTasks, "description", involves.getTask());
 
 		dataset = super.unbindObject(involves);
 		dataset.put("task", taskChoices.getSelected().getKey());
