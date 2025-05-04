@@ -68,10 +68,6 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 			boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
 			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
 		}
-		{
-			Date now = MomentHelper.getCurrentMoment();
-			boolean inspectionDueDateIsInFuture = MomentHelper.isAfter(maintenanceRecord.getInspectionDueDate(), now);
-		}
 	}
 
 	@Override
