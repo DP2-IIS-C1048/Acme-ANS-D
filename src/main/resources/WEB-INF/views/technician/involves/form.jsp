@@ -27,8 +27,8 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
 			<acme:input-textbox code="technician.involves.form.label.type" path="type" readonly="true"/>
 			<acme:input-textarea code="technician.involves.form.label.description" path="description" readonly="true"/>
-			<acme:input-integer code="technician.involves.form.label.priority" path="priority" readonly="true"/>
-			<acme:input-integer code="technician.involves.form.label.estimatedDuration" path="estimatedDuration" readonly="true"/>
+			<acme:input-textbox code="technician.involves.form.label.priority" path="priority" readonly="true"/>
+			<acme:input-textbox code="technician.involves.form.label.estimatedDuration" path="estimatedDuration" readonly="true"/>
 			
 			<acme:submit code="technician.involves.form.button.delete" action="/technician/involves/delete"/>
 		</jstl:when>
