@@ -29,8 +29,6 @@
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-
-
 <jstl:if test="${_command == 'list'}">
 	<acme:button code="technician.task.list.button.create" action="/technician/task/create"/>
 </jstl:if>
