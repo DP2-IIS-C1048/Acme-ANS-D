@@ -15,7 +15,7 @@ technician.maintenance-record.form.label.maintenanceMoment = Moment of maintenan
 technician.maintenance-record.form.label.status = Status
 technician.maintenance-record.form.label.inspectionDueDate = Inspection Due Date
 technician.maintenance-record.form.label.estimatedCost = Estimated cost
-technician.maintenance-record.form.label.notes = Notes
+technician.maintenance-record.form.label.notes = Notes (optional)
 technician.maintenance-record.form.label.aircraft = Aircraft
 
 technician.maintenance-record.form.button.tasks = Tasks
