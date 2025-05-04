@@ -1,6 +1,8 @@
 
 package acme.features.technician.maintenanceRecord;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -8,6 +10,8 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
+import acme.entities.aircraft.Aircraft;
+import acme.entities.maintenance.Involves;
 import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.MaintenanceStatus;
 import acme.realms.technician.Technician;
@@ -58,6 +62,22 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 			boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
 			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
 		}
+		{
+			boolean isMaintenanceRecordCompleted = maintenanceRecord.getStatus().equals(MaintenanceStatus.COMPLETED);
+			super.state(isMaintenanceRecordCompleted, "status", "acme.validation.maintenance-record.valid-publication-status");
+		}
+		{
+			Collection<Involves> maintenanceRecordInvolves;
+			boolean maintenanceRecordHasTasks;
+			boolean maintenanceRecordHasAllTasksPublished;
+
+			maintenanceRecordInvolves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId());
+			maintenanceRecordHasTasks = maintenanceRecordInvolves.size() > 0;
+			maintenanceRecordHasAllTasksPublished = maintenanceRecordInvolves.stream().map(Involves::getTask).allMatch(t -> t.isDraftMode() == false);
+
+			super.state(maintenanceRecordHasTasks, "*", "acme.validation.maintenance-record.has-tasks");
+			super.state(maintenanceRecordHasAllTasksPublished, "*", "acme.validation.maintenance-record.all-tasks-are-published");
+		}
 	}
 
 	@Override
@@ -70,11 +90,17 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
 		SelectChoices choices;
+		Collection<Aircraft> aircrafts;
+		SelectChoices aircraftChoices;
 
 		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
+		aircrafts = this.repository.findAllAircrafts();
+		aircraftChoices = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
 
 		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
 		dataset.put("statuses", choices);
+		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
+		dataset.put("aircrafts", aircraftChoices);
 
 		super.getResponse().addData(dataset);
 	}

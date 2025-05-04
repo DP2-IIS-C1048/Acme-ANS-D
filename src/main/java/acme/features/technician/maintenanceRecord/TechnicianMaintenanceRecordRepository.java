@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.aircraft.Aircraft;
+import acme.entities.maintenance.Involves;
 import acme.entities.maintenance.MaintenanceRecord;
 
 @Repository
@@ -27,5 +28,8 @@ public interface TechnicianMaintenanceRecordRepository extends AbstractRepositor
 
 	@Query("select mr from MaintenanceRecord mr where draftMode = false")
 	Collection<MaintenanceRecord> findMaintenanceRecordsPublished();
+
+	@Query("select i from Involves i where i.maintenanceRecord.id = :id")
+	Collection<Involves> findInvolvesByMaintenanceRecordId(int id);
 
 }

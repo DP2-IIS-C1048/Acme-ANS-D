@@ -32,6 +32,10 @@ acme.validation.leg.invalid-aircraft.message = This aircraft is not available in
 
 acme.validation.technician.duplicated-license.message = This license already exists.
 acme.validation.task.delete.message = The task must be in Draft Mode.
+acme.validation.maintenance-record.valid-publication-status = The maintenance record must be completed
+acme.validation.maintenance-record.has-tasks = The maintenance record must have at least one task
+acme.validation.maintenance-record.all-tasks-are-published = The maintenance record must have all tasks published
+
 acme.validation.promotion.duplicated-promotion-code.message = This promotion code has already been used.
 acme.validation.promotion.promotion-code-pattern-mismatch.message = The format of the promotion code is not correct.
 acme.validation.promotion.promotion-code-last-digits.message = The promotion is not available.
