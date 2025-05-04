@@ -72,7 +72,7 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 			boolean maintenanceRecordHasAllTasksPublished;
 
 			maintenanceRecordInvolves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId());
-			maintenanceRecordHasTasks = maintenanceRecordInvolves.size() > 0;
+			maintenanceRecordHasTasks = !maintenanceRecordInvolves.isEmpty();
 			maintenanceRecordHasAllTasksPublished = maintenanceRecordInvolves.stream().map(Involves::getTask).allMatch(t -> t.isDraftMode() == false);
 
 			super.state(maintenanceRecordHasTasks, "*", "acme.validation.maintenance-record.has-tasks");
