@@ -22,7 +22,6 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void authorise() {
-
 		boolean status;
 		int taskId;
 		Task task;
@@ -34,7 +33,6 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 		status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
