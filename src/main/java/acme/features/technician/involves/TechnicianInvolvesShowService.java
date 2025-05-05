@@ -7,6 +7,7 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.maintenance.Involves;
+import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.Task;
 import acme.realms.technician.Technician;
 
@@ -30,11 +31,16 @@ public class TechnicianInvolvesShowService extends AbstractGuiService<Technician
 	public void load() {
 		Involves involves;
 		int id;
+		MaintenanceRecord maintenanceRecord;
+		boolean isMaintenanceRecordInDraftMode;
 
 		id = super.getRequest().getData("id", int.class);
 		involves = this.repository.findInvolvesById(id);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(involves.getMaintenanceRecord().getId());
+		isMaintenanceRecordInDraftMode = maintenanceRecord.isDraftMode();
 
 		super.getBuffer().addData(involves);
+		super.getResponse().addGlobal("isMaintenanceRecordInDraftMode", isMaintenanceRecordInDraftMode);
 	}
 
 	@Override

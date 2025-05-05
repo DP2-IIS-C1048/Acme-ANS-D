@@ -31,11 +31,11 @@
 			<acme:input-textbox code="technician.involves.form.label.estimatedDuration" path="estimatedDuration" readonly="true"/>
 			<acme:input-textbox code="technician.involves.form.label.technician" path="technician" readonly="true"/>
 			
-			<acme:submit code="technician.involves.form.button.delete" action="/technician/involves/delete"/>
+			<jstl:if test="${isMaintenanceRecordInDraftMode == true}">
+				<acme:submit code="technician.involves.form.button.delete" action="/technician/involves/delete"/>
+			</jstl:if>
 		</jstl:when>
-	
 		
-	
 	</jstl:choose>
 	
 </acme:form>
