@@ -36,3 +36,4 @@ flight-crew-member.flight-assignment.validation.duty.publish = Un tramo no puede
 flight-crew-member.flight-assignment.validation.availability-status.publish = Este miembro no está disponible actualmente
 flight-crew-member.flight-assignment.validation.flight-number.publish = Este miembro ya está asignado a este tramo
 flight-crew-member.flight-assignment.validation.overlapping-leg = Este tramo se solapa con otro tramo del mismo miembro
+flight-crew-member.flight-assignment.validation.current-status.publish = No puedes publicar una asignación de vuelo en estado pendiente.
