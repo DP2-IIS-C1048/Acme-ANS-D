@@ -18,8 +18,12 @@ import acme.realms.technician.Technician;
 @GuiService
 public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService<Technician, MaintenanceRecord> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	private TechnicianMaintenanceRecordRepository repository;
+
+	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
