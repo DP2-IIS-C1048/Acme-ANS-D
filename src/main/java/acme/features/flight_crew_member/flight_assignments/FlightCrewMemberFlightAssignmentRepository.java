@@ -32,7 +32,7 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select fcm from FlightCrewMember fcm where fcm.airline.id=:airlineId and fcm.availabilityStatus = :status")
 	Collection<FlightCrewMember> findAvailableFlightCrewMembersFromAirline(int airlineId, AvailabilityStatus status);
 
-	@Query("select l from Leg l where l.scheduledArrival>:now")
+	@Query("select l from Leg l where l.scheduledDeparture>:now")
 	Collection<Leg> findUncompletedLegs(Date now);
 
 	@Query("select al from ActivityLog al where al.flightAssignment.id = :flightAssignmentId")

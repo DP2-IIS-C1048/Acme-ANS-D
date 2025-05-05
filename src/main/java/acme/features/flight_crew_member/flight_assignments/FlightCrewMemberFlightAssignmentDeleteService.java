@@ -15,7 +15,6 @@ import acme.entities.flight_assignment.CurrentStatus;
 import acme.entities.flight_assignment.Duty;
 import acme.entities.flight_assignment.FlightAssignment;
 import acme.entities.leg.Leg;
-import acme.realms.flight_crew_member.AvailabilityStatus;
 import acme.realms.flight_crew_member.FlightCrewMember;
 
 @GuiService
@@ -71,28 +70,22 @@ public class FlightCrewMemberFlightAssignmentDeleteService extends AbstractGuiSe
 
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
-		Collection<FlightCrewMember> members;
 		Collection<Leg> legs;
-
-		SelectChoices memberChoices;
 		SelectChoices legChoices;
 		SelectChoices dutyChoices;
 		SelectChoices statusChoices;
-
 		Dataset dataset;
-		int airlineId = flightAssignment.getFlightCrewMember().getAirline().getId();
+		FlightCrewMember flightCrewMember;
+		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
 
-		members = this.repository.findAvailableFlightCrewMembersFromAirline(airlineId, AvailabilityStatus.AVAILABLE);
 		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
 
-		memberChoices = SelectChoices.from(members, "identity.fullName", flightAssignment.getFlightCrewMember());
-		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
+		legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
 		dutyChoices = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 		statusChoices = SelectChoices.from(CurrentStatus.class, flightAssignment.getCurrentStatus());
 
 		dataset = super.unbindObject(flightAssignment, "lastUpdate", "remarks", "draftMode");
-		dataset.put("member", memberChoices.getSelected().getKey());
-		dataset.put("members", memberChoices);
+		dataset.put("member", flightCrewMember.getIdentity().getFullName());
 		dataset.put("leg", legChoices.getSelected().getKey());
 		dataset.put("legs", legChoices);
 		dataset.put("duty", dutyChoices.getSelected().getKey());

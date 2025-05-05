@@ -17,11 +17,12 @@
 
 <acme:form> 
 	<acme:input-select code="flight-crew-member.flight-assignment.form.label.flight-number" path="leg" choices="${legs}"/>
-	<acme:input-select code="flight-crew-member.flight-assignment.form.label.member" path="member" choices="${members}"/>
+	<acme:input-textbox code="flight-crew-member.flight-assignment.form.label.member" path="member" readonly = "true"/>
 	<acme:input-select code="flight-crew-member.flight-assignment.form.label.duty" path="duty" choices="${duties}"/>
-	<acme:input-select code="flight-crew-member.flight-assignment.form.label.current-status" path="currentStatus" choices="${currentStatus}"/>
-	<jstl:if test="${_command != 'create' and draftMode == false}">
+	<jstl:if test="${_command != 'create'}">
 		<acme:input-moment code="flight-crew-member.flight-assignment.form.label.last-update" path="lastUpdate" readonly="true"/>
+		<acme:input-select code="flight-crew-member.flight-assignment.form.label.current-status" path="currentStatus" choices="${currentStatus}"/>
+		
 	</jstl:if>
 
 			
