@@ -42,6 +42,7 @@ public class TechnicianMaintenanceRecordListAllPublishedService extends Abstract
 
 		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "inspectionDueDate", "estimatedCost");
 		dataset.put("technician", maintenanceRecord.getTechnician().getLicense());
+		dataset.put("aircraft", maintenanceRecord.getAircraft().getRegistrationNumber());
 
 		super.getResponse().addData(dataset);
 
