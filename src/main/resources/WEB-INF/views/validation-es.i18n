@@ -37,6 +37,7 @@ acme.validation.task.delete.message = La tarea debe estar en modo borrador.
 acme.validation.maintenance-record.valid-publication-status = El registro de mantenimiento debe estar completado
 acme.validation.maintenance-record.has-tasks = El registro de mantenimiento debe tener al menos una tarea
 acme.validation.maintenance-record.all-tasks-are-published = El registro de mantenimiento debe tener todas sus tareas publicadas
+acme.validation.involves.involves-is-new = Ya has añadido esta tarea al registro de mantenimiento antes
 
 acme.validation.promotion.duplicated-promotion-code.message = El código de promoción ya ha sido usado.
 acme.validation.promotion.promotion-code-pattern-mismatch.message = El formato del código de promoción no es correcto.

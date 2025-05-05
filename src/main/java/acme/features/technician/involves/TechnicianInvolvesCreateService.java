@@ -53,7 +53,15 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 
 	@Override
 	public void validate(final Involves involves) {
-		;
+		{
+			Collection<Involves> alreadyCreatedInvolves;
+			boolean involvesIsNew;
+
+			alreadyCreatedInvolves = this.repository.findInvolvesByMaintenanceRecordId(involves.getId());
+			involvesIsNew = !alreadyCreatedInvolves.contains(involves);
+
+			super.state(involvesIsNew, "*", "");
+		}
 	}
 
 	@Override
