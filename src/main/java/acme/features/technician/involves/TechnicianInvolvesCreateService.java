@@ -57,10 +57,10 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 			Collection<Involves> alreadyCreatedInvolves;
 			boolean involvesIsNew;
 
-			alreadyCreatedInvolves = this.repository.findInvolvesByMaintenanceRecordId(involves.getId());
+			alreadyCreatedInvolves = this.repository.findInvolvesByMaintenanceRecordId(involves.getMaintenanceRecord().getId());
 			involvesIsNew = !alreadyCreatedInvolves.contains(involves);
 
-			super.state(involvesIsNew, "*", "");
+			super.state(involvesIsNew, "*", "acme.validation.involves.involves-is-new");
 		}
 	}
 
