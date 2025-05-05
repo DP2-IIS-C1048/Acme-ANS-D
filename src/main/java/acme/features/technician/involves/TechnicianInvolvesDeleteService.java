@@ -52,7 +52,10 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 
 	@Override
 	public void validate(final Involves involves) {
-		;
+		{
+			boolean maintenanceRecordIsAlreadyPublished = involves.getMaintenanceRecord().isDraftMode() == false;
+			super.state(maintenanceRecordIsAlreadyPublished, "*", "acme.validation.involves.maintenance-record-is-already-published");
+		}
 	}
 
 	@Override
