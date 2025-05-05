@@ -24,7 +24,6 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-
 		boolean status;
 		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
@@ -36,7 +35,6 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
