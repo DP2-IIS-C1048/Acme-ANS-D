@@ -13,7 +13,7 @@ assistance-agent.claim.form.title = Claim Form
 
 assistanceAgent.claim.list.label.registrationMoment = Registration Moment
 assistanceAgent.claim.list.label.passengerEmail = Passenger Email
-assistanceAgent.claim.list.label.description = Description
+assistanceAgent.claim.form.label.description = Description
 assistanceAgent.claim.list.label.type = Claim Type
 assistanceAgent.claim.list.label.assistanceAgent = Assistance Agent
 assistanceAgent.claim.list.label.leg = Leg

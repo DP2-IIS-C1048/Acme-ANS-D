@@ -32,15 +32,17 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 	public void load() {
 		Claim claim;
 		AssistanceAgent assistanceAgent;
+		Date registrationMoment;
 
 		assistanceAgent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
+		registrationMoment = MomentHelper.getCurrentMoment();
 
 		claim = new Claim();
-		claim.setRegistrationMoment(MomentHelper.getCurrentMoment());
+
+		claim.setRegistrationMoment(registrationMoment);
 		claim.setPassengerEmail("");
 		claim.setDescription("");
 		claim.setType(ClaimType.FLIGHT_ISSUES);
-		claim.setDraftMode(true);
 		claim.setAssistanceAgent(assistanceAgent);
 
 		super.getBuffer().addData(claim);
@@ -48,12 +50,12 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void bind(final Claim claim) {
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "id");
+		super.bindObject(claim, "passengerEmail", "description", "type", "leg");
 	}
 
 	@Override
 	public void validate(final Claim claim) {
-
+		;
 	}
 
 	@Override
@@ -74,14 +76,13 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		SelectChoices legChoices;
 
 		typeChoices = SelectChoices.from(ClaimType.class, claim.getType());
-		legs = this.repository.findAllLeg();
+		legs = this.repository.findAllPublishedLegs();
 		legChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "id");
+		dataset = super.unbindObject(claim, "passengerEmail", "description", "type", "draftMode", "leg");
 		dataset.put("types", typeChoices);
 		dataset.put("legs", legChoices);
 
 		super.getResponse().addData(dataset);
-		;
 	}
 }
