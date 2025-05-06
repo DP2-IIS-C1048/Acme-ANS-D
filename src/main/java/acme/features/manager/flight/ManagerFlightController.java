@@ -27,24 +27,25 @@ public class ManagerFlightController extends AbstractGuiController<Manager, Flig
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerFlightListService listService;
+	private ManagerFlightListService	listService;
 
 	@Autowired
-	private ManagerFlightShowService showService;
+	private ManagerFlightShowService	showService;
 
 	@Autowired
-	private ManagerFlightCreateService createService;
+	private ManagerFlightCreateService	createService;
 
 	@Autowired
-	private ManagerFlightUpdateService updateService;
+	private ManagerFlightUpdateService	updateService;
 
 	@Autowired
-	private ManagerFlightDeleteService deleteService;
+	private ManagerFlightDeleteService	deleteService;
 
 	@Autowired
-	private ManagerFlightPublishService publishService;
+	private ManagerFlightPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
+
 
 	@PostConstruct
 	protected void initialise() {
