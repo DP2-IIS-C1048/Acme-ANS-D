@@ -12,19 +12,17 @@ import acme.client.services.GuiService;
 import acme.entities.claim.Claim;
 import acme.entities.claim.ClaimType;
 import acme.entities.leg.Leg;
-import acme.entities.tracking_log.TrackingLog;
 import acme.realms.assistanceagent.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentClaimDeleteService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimPublishService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	@Autowired
-	AssistanceAgentClaimRepository repository;
+	private AssistanceAgentClaimRepository repository;
 
 
 	@Override
 	public void authorise() {
-
 		boolean status;
 		int claimId;
 		Claim claim;
@@ -36,7 +34,6 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		status = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
@@ -48,7 +45,6 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		claim = this.repository.findClaimById(id);
 
 		super.getBuffer().addData(claim);
-
 	}
 
 	@Override
@@ -63,11 +59,8 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 
 	@Override
 	public void perform(final Claim claim) {
-		Collection<TrackingLog> trackingLogs;
-		trackingLogs = this.repository.findAllTrackingLogsByClaimId(claim.getId());
-		this.repository.deleteAll(trackingLogs);
-		this.repository.delete(claim);
-
+		claim.setDraftMode(false);
+		this.repository.save(claim);
 	}
 
 	@Override
@@ -88,4 +81,5 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		super.getResponse().addData(dataset);
 
 	}
+
 }

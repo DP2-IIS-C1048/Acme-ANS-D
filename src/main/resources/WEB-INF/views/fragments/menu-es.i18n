@@ -44,7 +44,8 @@ master.menu.manager.list-my-flights= Ver mis vuelos
 # master.menu.assistanceagent ########################################################
 
 master.menu.assistanceagent = Assistance Agent
-master.menu.assistanceagent.list-my-claims= Ver mis claims
+master.menu.assistanceagent.list-my-claims= Listar quejas completadas
+master.menu.assistanceagent.list-my-claims-pending= Listar quejas en proceso
 
 # master.menu.user-account ####################################################
 
