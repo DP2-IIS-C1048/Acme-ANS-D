@@ -16,8 +16,14 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.flight-crew-member.form.label.phone-number" path="phone-number"/>
-	<acme:input-textbox code="authenticated.flight-crew-member.form.label.language-skills" path="language-skills"/>
+	<acme:input-textbox code="authenticated.flight-crew-member.form.label.phone-number" path="phoneNumber"/>
+	<acme:input-textbox code="authenticated.flight-crew-member.form.label.language-skills" path="languageSkills"/>
+	<acme:input-textbox code="authenticated.flight-crew-member.form.label.availability-status" path="availabilityStatus" readonly="true"/>
+	<acme:input-money code="authenticated.flight-crew-member.form.label.salary" path="salary"/>
+	<acme:input-integer code="authenticated.flight-crew-member.form.label.years-of-experience" path="yearsOfExperience"/>
+	<acme:input-select code="authenticated.flight-crew-member.form.label.airline" path="airline" choices="${airlines}"/>
+	
+	
 	<jstl:if test="${_command == 'create'}">
 		<acme:submit code="authenticated.flight-crew-member.form.button.create" action="/authenticated/flight-crew-member/create"/>
 	</jstl:if>
