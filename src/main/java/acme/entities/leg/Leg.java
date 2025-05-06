@@ -38,12 +38,12 @@ public class Leg extends AbstractEntity {
 	private String				flightNumber;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledDeparture;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledArrival;
 
@@ -58,6 +58,11 @@ public class Leg extends AbstractEntity {
 		Duration aux = Duration.between(this.scheduledDeparture.toInstant(), this.scheduledArrival.toInstant());
 		duration = aux.toMinutes() / 60.0;
 		return duration;
+	}
+
+	@Transient
+	public String getLegLabel() {
+		return this.flightNumber + ": " + this.getDepartureAirport().getCity() + " " + this.getScheduledDeparture() + " - " + this.getArrivalAirport().getCity() + " " + this.getScheduledArrival();
 	}
 
 

@@ -52,8 +52,10 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void validate(final Flight flight) {
-		boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
-		super.state(validCurrency, "cost", "acme.validation.currency.message");
+		if (flight.getCost() != null && flight.getCost().getCurrency() != null) {
+			boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
+			super.state(validCurrency, "cost", "acme.validation.currency.message");
+		}
 	}
 
 	@Override

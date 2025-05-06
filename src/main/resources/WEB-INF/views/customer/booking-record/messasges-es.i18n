@@ -1,0 +1,7 @@
+customer.booking-record.list.label.passenger = Pasajero
+customer.booking-record.list.button.create = Asociar Pasajero
+customer.booking-record.list.title = Pasajeros Asociados
+
+customer.booking-record.form.title = Pasajero
+customer.booking-record.form.label.passenger = Pasajero
+customer.booking-record.form.button.create = Crear
