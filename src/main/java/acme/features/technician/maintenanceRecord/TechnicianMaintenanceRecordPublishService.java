@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
@@ -77,6 +78,10 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 			super.state(maintenanceRecordHasTasks, "*", "acme.validation.maintenance-record.has-tasks");
 			super.state(maintenanceRecordHasAllTasksPublished, "*", "acme.validation.maintenance-record.all-tasks-are-published");
+		}
+		{
+			boolean inspectionDueDateIsAfterMaintenanceMoment = MomentHelper.isAfter(maintenanceRecord.getMaintenanceMoment(), maintenanceRecord.getInspectionDueDate());
+			super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
 		}
 	}
 

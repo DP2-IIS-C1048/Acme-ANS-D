@@ -35,6 +35,7 @@ acme.validation.task.delete.message = The task must be in Draft Mode
 acme.validation.maintenance-record.valid-publication-status = The maintenance record must be completed
 acme.validation.maintenance-record.has-tasks = The maintenance record must have at least one task
 acme.validation.maintenance-record.all-tasks-are-published = The maintenance record must have all tasks published
+acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment = Inspectio due date must be after maintenance moment
 acme.validation.involves.involves-is-new = You have already added this task to the maintenance record
 acme.validation.involves.maintenance-record-is-already-published = You can't delete tasks from a maintenance record that has already been published
 

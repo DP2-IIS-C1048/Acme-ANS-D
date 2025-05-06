@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
@@ -69,6 +70,10 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 		{
 			boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
 			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
+		}
+		{
+			boolean inspectionDueDateIsAfterMaintenanceMoment = MomentHelper.isAfter(maintenanceRecord.getMaintenanceMoment(), maintenanceRecord.getInspectionDueDate());
+			super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
 		}
 	}
 
