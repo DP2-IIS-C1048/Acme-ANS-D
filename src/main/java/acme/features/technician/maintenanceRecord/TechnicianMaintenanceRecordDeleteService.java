@@ -1,11 +1,14 @@
 
 package acme.features.technician.maintenanceRecord;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.maintenance.Involves;
 import acme.entities.maintenance.MaintenanceRecord;
 import acme.realms.technician.Technician;
 
@@ -58,6 +61,10 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
+		Collection<Involves> tasksAssociationsToMaintenanceRecord;
+		tasksAssociationsToMaintenanceRecord = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId());
+
+		this.repository.deleteAll(tasksAssociationsToMaintenanceRecord);
 		this.repository.delete(maintenanceRecord);
 	}
 
