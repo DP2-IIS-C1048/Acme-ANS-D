@@ -72,8 +72,10 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
 		}
 		{
-			boolean inspectionDueDateIsAfterMaintenanceMoment = MomentHelper.isAfter(maintenanceRecord.getMaintenanceMoment(), maintenanceRecord.getInspectionDueDate());
-			super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
+			if (maintenanceRecord.getInspectionDueDate() != null) {
+				boolean inspectionDueDateIsAfterMaintenanceMoment = MomentHelper.isAfter(maintenanceRecord.getInspectionDueDate(), maintenanceRecord.getMaintenanceMoment());
+				super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
+			}
 		}
 	}
 

@@ -65,12 +65,16 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
 		{
-			boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
-			super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
+			if (maintenanceRecord.getEstimatedCost() != null && maintenanceRecord.getEstimatedCost().getCurrency() != null) {
+				boolean validCurrency = ExchangeRate.isValidCurrency(maintenanceRecord.getEstimatedCost().getCurrency());
+				super.state(validCurrency, "estimatedCost", "acme.validation.currency.message");
+			}
 		}
 		{
-			boolean inspectionDueDateIsAfterMaintenanceMoment = MomentHelper.isAfter(maintenanceRecord.getMaintenanceMoment(), maintenanceRecord.getInspectionDueDate());
-			super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
+			if (maintenanceRecord.getInspectionDueDate() != null) {
+				boolean inspectionDueDateIsAfterMaintenanceMoment = MomentHelper.isAfter(maintenanceRecord.getInspectionDueDate(), maintenanceRecord.getMaintenanceMoment());
+				super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
+			}
 		}
 	}
 
