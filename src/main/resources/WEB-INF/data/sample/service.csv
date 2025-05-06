@@ -1,3 +1,27 @@
 key,name,picture,averageDwellTime,key:promotion
 # base entity
-service-00,"service-00",https://example.com,null
+service-00,"service-00","https://example.com/",1,null
+# name - standard variations
+service-01,"L","https://example.com/",1,null
+service-02,"Lo","https://example.com/",1,null
+service-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",https://example.com,1,null
+service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",https://example.com,1,null
+# name - no singular values
+# picture - standard variations
+service-05,"service-00","https://example1.com/",1,null
+service-06,"service-00","https://example2.com/",1,null
+service-07,"service-00","https://example3.com/",1,null
+service-08,"service-00","https://example4.com/",1,null
+# picture - no singular values
+# averageDwellTime - standard variations
+service-09,"service-00","https://example.com/",0.1,null
+service-10,"service-00","https://example.com/",0.2,null
+service-11,"service-00","https://example.com/",23.9,null
+service-12,"service-00","https://example.com/",24,null
+# averageDwellTime - no singular values
+# promotion - standard variations
+service-13,"service-00","https://example.com/",1,promotion-04
+service-14,"service-00","https://example.com/",1,promotion-05
+service-15,"service-00","https://example.com/",1,promotion-06
+service-16,"service-00","https://example.com/",1,promotion-07
+# promotion - no singular values
