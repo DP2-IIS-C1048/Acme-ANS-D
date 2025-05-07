@@ -1,19 +1,19 @@
 
 package acme.features.assistanceagent.trackinglog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claim.Claim;
 import acme.entities.tracking_log.TrackingLog;
+import acme.entities.tracking_log.TrackingLogIndicator;
 import acme.realms.assistanceagent.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentTrackingLogListService extends AbstractGuiService<AssistanceAgent, TrackingLog> {
+public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<AssistanceAgent, TrackingLog> {
 
 	@Autowired
 	private AssistanceAgentTrackingLogRepository repository;
@@ -22,33 +22,41 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int trackingLogId;
 		Claim claim;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		claim = this.repository.findClaimById(masterId);
-		status = claim != null & super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		trackingLogId = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimByTrackinglogId(trackingLogId);
+		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
-		Collection<TrackingLog> trackingLogs;
-		int masterId;
+		TrackingLog trackingLog;
+		int trackingLogId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		trackingLogs = this.repository.findAllTrackingLogsByClaimId(masterId);
+		trackingLogId = super.getRequest().getData("id", int.class);
+		trackingLog = this.repository.findTrackingLogById(trackingLogId);
 
-		super.getBuffer().addData(trackingLogs);
+		super.getBuffer().addData(trackingLog);
 
 	}
 
 	@Override
 	public void unbind(final TrackingLog trackingLog) {
 		Dataset dataset;
+		SelectChoices indicatorChoices;
+
+		indicatorChoices = SelectChoices.from(TrackingLogIndicator.class, trackingLog.getIndicator());
 
 		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "resolution", "draftMode");
+		dataset.put("indicator", indicatorChoices);
 
 		super.getResponse().addData(dataset);
+
 	}
+
 }

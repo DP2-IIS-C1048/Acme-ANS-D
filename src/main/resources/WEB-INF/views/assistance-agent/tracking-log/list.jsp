@@ -19,6 +19,7 @@
 	<acme:list-column code="assistanceAgent.tracking-log.list.label.lastUpdateMoment" path="lastUpdateMoment" width="20%"/>
 	<acme:list-column code="assistanceAgent.tracking-log.list.label.resolutionPercentage" path="resolutionPercentage" width="20%"/>
 	<acme:list-column code="assistanceAgent.tracking-log.list.label.indicator" path="indicator" width="20%"/>
+	<acme:list-column code="assistanceAgent.tracking-log.list.label.draftMode" path="draftMode" width="20%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
 

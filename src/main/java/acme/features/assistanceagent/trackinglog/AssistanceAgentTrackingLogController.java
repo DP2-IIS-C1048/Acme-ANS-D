@@ -14,12 +14,16 @@ import acme.realms.assistanceagent.AssistanceAgent;
 public class AssistanceAgentTrackingLogController extends AbstractGuiController<AssistanceAgent, TrackingLog> {
 
 	@Autowired
-	private AssistanceAgentTrackingLogListService listService;
+	private AssistanceAgentTrackingLogListService	listService;
+
+	@Autowired
+	private AssistanceAgentTrackingLogShowService	showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 
 	}
 }

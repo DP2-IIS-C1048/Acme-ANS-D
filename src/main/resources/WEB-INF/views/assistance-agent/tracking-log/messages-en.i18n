@@ -9,11 +9,25 @@
 # they accept any liabilities with respect to them.
 
 assistance-agent.tracking-log.list.title = Listing of Tracking Logs
+assistance-agent.tracking-log.form.title = Tracking Log Form
 
 assistanceAgent.tracking-log.list.label.lastUpdateMoment = Last Update Moment
 assistanceAgent.tracking-log.list.label.resolutionPercentage = Resolution Percentage
 assistanceAgent.tracking-log.list.label.indicator = State
+assistanceAgent.tracking-log.list.label.draftMode = Draft Mode
+
+assistanceAgent.tracking-log.form.label.lastUpdateMoment = Last Update Moment
+assistanceAgent.tracking-log.form.label.step = Step
+assistanceAgent.tracking-log.form.label.resolutionPercentage = Resolution Percentage
+assistanceAgent.tracking-log.form.label.resolution = Resolution
+assistanceAgent.tracking-log.form.label.indicator = State
+assistanceAgent.tracking-log.form.label.draftMode = Draft Mode
 
 
 assistanceAgent.tracking-log.list.button.create = Create
+assistanceAgent.tracking-log.form.button.create = Create
+
+assistanceAgent.tracking-log.form.button.update = Update
+assistanceAgent.tracking-log.form.button.delete = Delete
+assistanceAgent.tracking-log.form.button.publish = Publish
 
