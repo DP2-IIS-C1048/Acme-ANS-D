@@ -1,4 +1,4 @@
-<%--
+	<%--
 - form.jsp
 -
 - Copyright (C) 2012-2025 Rafael Corchuelo.
@@ -33,7 +33,7 @@
 			<acme:submit code="assistanceAgent.tracking-log.form.button.publish" action="/assistance-agent/tracking-log/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistanceAgent.tracking-log.form.button.create" action="/assistance-agent/tracking-log/create"/>
+			<acme:submit code="assistanceAgent.tracking-log.form.button.create" action="/assistance-agent/tracking-log/create?masterId=${masterId}"/>
 		</jstl:when>	
 	</jstl:choose>
 </acme:form>

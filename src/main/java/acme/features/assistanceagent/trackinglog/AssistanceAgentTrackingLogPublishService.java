@@ -13,7 +13,7 @@ import acme.entities.tracking_log.TrackingLogIndicator;
 import acme.realms.assistanceagent.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<AssistanceAgent, TrackingLog> {
+public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService<AssistanceAgent, TrackingLog> {
 
 	@Autowired
 	private AssistanceAgentTrackingLogRepository repository;
@@ -21,13 +21,18 @@ public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<As
 
 	@Override
 	public void authorise() {
+
 		boolean status;
 		int trackingLogId;
+		TrackingLog trackingLog;
 		Claim claim;
+		AssistanceAgent assistanceAgent;
 
 		trackingLogId = super.getRequest().getData("id", int.class);
-		claim = this.repository.findClaimByTrackinglogId(trackingLogId);
-		status = claim != null && super.getRequest().getPrincipal().hasRealm(claim.getAssistanceAgent());
+		trackingLog = this.repository.findTrackingLogById(trackingLogId);
+		claim = trackingLog == null ? null : trackingLog.getClaim();
+		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
+		status = claim != null && trackingLog != null && claim.isDraftMode() && trackingLog.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
 
 		super.getResponse().setAuthorised(status);
 
@@ -42,7 +47,22 @@ public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<As
 		trackingLog = this.repository.findTrackingLogById(id);
 
 		super.getBuffer().addData(trackingLog);
+	}
 
+	@Override
+	public void bind(final TrackingLog trackinglog) {
+		super.bindObject(trackinglog, "step", "resolutionPercentage", "indicator", "resolution", "draftMode");
+	}
+
+	@Override
+	public void validate(final TrackingLog trackingLog) {
+		;
+	}
+
+	@Override
+	public void perform(final TrackingLog trackingLog) {
+		trackingLog.setDraftMode(false);
+		this.repository.save(trackingLog);
 	}
 
 	@Override
@@ -52,12 +72,11 @@ public class AssistanceAgentTrackingLogShowService extends AbstractGuiService<As
 
 		indicatorChoices = SelectChoices.from(TrackingLogIndicator.class, trackingLog.getIndicator());
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "indicator", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "step", "resolutionPercentage", "indicator", "resolution", "draftMode");
 		dataset.put("indicator", indicatorChoices);
 		dataset.put("masterId", trackingLog.getClaim().getId());
 
 		super.getResponse().addData(dataset);
-
 	}
 
 }
