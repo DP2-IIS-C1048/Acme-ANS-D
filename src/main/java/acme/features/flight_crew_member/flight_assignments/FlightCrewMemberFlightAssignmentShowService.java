@@ -60,12 +60,16 @@ public class FlightCrewMemberFlightAssignmentShowService extends AbstractGuiServ
 		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
 
 		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
-		if (!flightAssignment.isDraftMode() || legs.isEmpty())
+		if (!flightAssignment.isDraftMode()) {
 			legs = List.of(flightAssignment.getLeg());
+			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
+		} else if (!legs.contains(flightAssignment.getLeg()) || legs.isEmpty())
+			legChoices = SelectChoices.from(legs, "LegLabel", null);
+		else
+			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
 
 		dataset = super.unbindObject(flightAssignment, "lastUpdate", "remarks", "draftMode");
 
-		legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
 		dutyChoices = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 		statusChoices = SelectChoices.from(CurrentStatus.class, flightAssignment.getCurrentStatus());
 		dataset.put("duty", dutyChoices.getSelected().getKey());
