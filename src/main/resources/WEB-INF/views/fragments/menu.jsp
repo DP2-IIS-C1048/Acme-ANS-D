@@ -25,6 +25,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student4" action="https://palosfrontera.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student5" action="https://ev.us.es/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.list-flight-assignments" action="/authenticated/flight-assignment/list" />
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>

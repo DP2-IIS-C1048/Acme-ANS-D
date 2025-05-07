@@ -18,6 +18,11 @@ master.menu.anonymous.favourite-link.student3 = 7717****: Basallote Braza, David
 master.menu.anonymous.favourite-link.student4 = 4928****: Rodíguez Muñoz, Rafael
 master.menu.anonymous.favourite-link.student5 = 2965****: Herrera Luján, Marco Antonio
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.list-flight-assignments = List flight assignments
+
 
 # master.menu.administrator ###################################################
 
