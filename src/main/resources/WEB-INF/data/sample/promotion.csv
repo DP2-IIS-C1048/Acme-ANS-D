@@ -7,8 +7,8 @@ promotion-02,"DCBA-25","EUR 5"
 promotion-03,"FFFF-25","EUR 5"
 # code - no singular values
 # moneyToDiscount - standard variations
-promotion-04,"AAAA-25","EUR 1"
-promotion-05,"AAAA-25","EUR 2"
-promotion-06,"AAAA-25","EUR 199"
-promotion-07,"AAAA-25","EUR 200"
+promotion-04,"AAAZ-25","EUR 1"
+promotion-05,"AAAY-25","EUR 2"
+promotion-06,"AAAX-25","EUR 199"
+promotion-07,"AAAW-25","EUR 200"
 # moneyToDiscount - no singular values
