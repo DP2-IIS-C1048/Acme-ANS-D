@@ -19,7 +19,9 @@ public class AuthenticatedFlightAssignmentShowService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().isAuthenticated();
+		int flightAssignmentId = super.getRequest().getData("id", int.class);
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+		status = super.getRequest().getPrincipal().isAuthenticated() && flightAssignment != null && !flightAssignment.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
