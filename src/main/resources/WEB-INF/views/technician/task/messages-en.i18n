@@ -17,6 +17,9 @@ technician.task.form.label.priority = Priority
 technician.task.form.label.estimatedDuration = Estimated duration
 technician.task.form.label.technician = Technician
 
+technician.task.form.placeholder.estimatedDuration = 0 - 6000
+technician.task.form.placeholder.priority = 0 - 10
+
 technician.task.form.button.update = Update
 technician.task.form.button.delete = Delete
 technician.task.form.button.publish = Publish
