@@ -62,7 +62,16 @@ public class AuthenticatedManagerCreateService extends AbstractGuiService<Authen
 
 	@Override
 	public void validate(final Manager manager) {
-		;
+
+		boolean validIdentifierNumber = false;
+		String name = manager.getIdentity().getName();
+		String surName = manager.getIdentity().getSurname();
+		String identifierNumber = manager.getIdentifierNumber();
+
+		if (name.charAt(0) == identifierNumber.charAt(0) && surName.charAt(0) == identifierNumber.charAt(1))
+			validIdentifierNumber = true;
+		super.state(validIdentifierNumber, "identifierNumber", "acme.validation.manager.invalid-identifierNumber.message");
+
 	}
 
 	@Override
