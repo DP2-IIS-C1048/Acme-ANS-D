@@ -76,6 +76,12 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 				super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
 			}
 		}
+		{
+			if (maintenanceRecord.getStatus() != null) {
+				boolean maintenanceRecordIsNotCompletedYet = !maintenanceRecord.getStatus().equals(MaintenanceStatus.COMPLETED);
+				super.state(maintenanceRecordIsNotCompletedYet, "status", "acme.validation.maintenance-record.maintenance-record-is-not-completed-yet");
+			}
+		}
 	}
 
 	@Override

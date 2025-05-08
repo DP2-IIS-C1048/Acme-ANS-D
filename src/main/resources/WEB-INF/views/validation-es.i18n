@@ -42,6 +42,7 @@ acme.validation.maintenance-record.valid-publication-status = El registro de man
 acme.validation.maintenance-record.has-tasks = El registro de mantenimiento debe tener al menos una tarea
 acme.validation.maintenance-record.all-tasks-are-published = El registro de mantenimiento debe tener todas sus tareas publicadas
 acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment = La fecha de inspección debe ser posterior a la fecha de mantenimiento
+acme.validation.maintenance-record.maintenance-record-is-not-completed-yet = No puedes crear un registro de mantenimiento ya completo
 acme.validation.involves.involves-is-new = Ya has añadido esta tarea al registro de mantenimiento antes
 acme.validation.involves.maintenance-record-is-already-published = No puedes eliminar tareas de un registro de mantenimiento que ha sido publicado
 
