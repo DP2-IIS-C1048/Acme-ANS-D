@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>70</y>
+      <w>371</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidLeg
+--
++ The flight number is already in use
++ The flight number must start with the airline's IATA code
++ The departure date must be earlier than the arrival date
++ The arrival and departure airport can not be the same airport
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>161</y>
+      <w>371</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Note: Additional Leg constraints validated in services:
+ - The departure or arrival dates overlap with another leg's interval
+ - The leg introduced is neither later than the first leg nor earlier than the last leg
+ - The entered arrival airport does not match the departure airport of the first leg, but the flight is not a self-transfer
+ - The entered departure airport does not match the arrival airport of the last leg, but the flight is not a self-transfer
+ - The entered arrival airport matches the departure airport of the first leg, but the flight is a self-transfer
+ - The entered departure airport matches the arrival airport of the last leg, but the flight is a self-transfer
+ - The departure airport value cannot be empty.
+ - The arrival airport value cannot be empty.
+ - The aircraft value cannot be empty.
+ - This aircraft is not available in that moment
+ - The selected aircraft must be active.
+ - The leg cannot change status as it has already landed.
+ - The leg cannot change status as it was cancelled.
+ - The leg cannot return to "ON_TIME" status as it was previously in another state.
+ - The date must be later than the current date
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>385</x>
+      <y>70</y>
+      <w>154</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Note Flight
+All legs must not be in draftMode
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>553</x>
+      <y>70</y>
+      <w>434</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidManager
+--
++ The manager's identifier number already exists.
++ The identifier number does not start with the initial of the first name and the initial of the surname.
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1001</x>
+      <y>70</y>
+      <w>308</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidAircraft
+--
++ The registration number is duplicated
+bg=red
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1001</x>
+      <y>126</y>
+      <w>308</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Note: Additional Aircraft constraints validated in services:
+ - This aircraft is not available in that moment
+ - The selected aircraft must be active.
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1323</x>
+      <y>70</y>
+      <w>210</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidAirline
+--
++ An airline with this IATA code already exists
+bg=red
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1547</x>
+      <y>70</y>
+      <w>210</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+ValidAirport
+--
++ An airport with this IATA code already exists
+bg=red
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

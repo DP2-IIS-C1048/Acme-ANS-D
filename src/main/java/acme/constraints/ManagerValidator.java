@@ -16,7 +16,6 @@ public class ManagerValidator extends AbstractValidator<ValidManager, Manager> {
 	@Autowired
 	private ManagerRepository repository;
 
-
 	@Override
 	protected void initialise(final ValidManager annotation) {
 		assert annotation != null;
@@ -36,19 +35,21 @@ public class ManagerValidator extends AbstractValidator<ValidManager, Manager> {
 			existingManager = this.repository.findManagerByIndentifier(manager.getIdentifierNumber());
 			uniqueIdentifierNumber = existingManager == null || manager.equals(existingManager);
 
-			super.state(context, uniqueIdentifierNumber, "flightNumber", "acme.validation.manager.duplicated-identifierNumber.message");
+			super.state(context, uniqueIdentifierNumber, "flightNumber",
+					"acme.validation.manager.duplicated-identifierNumber.message");
 		}
-		//			{
-		//				boolean validIdentifierNumber = false;
-		//				String name = manager.getIdentity().getName();
-		//				String surName = manager.getIdentity().getSurname();
-		//				String identifierNumber = manager.getIdentifierNumber();
-		//
-		//				if (name.charAt(0) == identifierNumber.charAt(0) && surName.charAt(0) == identifierNumber.charAt(1))
-		//					validIdentifierNumber = true;
-		//				super.state(context, validIdentifierNumber, "identifier", "acme.validation.manager.invalid-identifierNumber.message");
-		//
-		//			}
+		{
+			boolean validIdentifierNumber = false;
+			String name = manager.getIdentity().getName();
+			String surName = manager.getIdentity().getSurname();
+			String identifierNumber = manager.getIdentifierNumber();
+
+			if (name.charAt(0) == identifierNumber.charAt(0) && surName.charAt(0) == identifierNumber.charAt(1))
+				validIdentifierNumber = true;
+			super.state(context, validIdentifierNumber, "identifier",
+					"acme.validation.manager.invalid-identifierNumber.message");
+
+		}
 		result = !super.hasErrors(context);
 
 		return result;
