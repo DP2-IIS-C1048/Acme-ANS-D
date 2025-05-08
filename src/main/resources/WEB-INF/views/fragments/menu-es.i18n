@@ -48,6 +48,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.flight-crew-member.flight-assignment.list-completed = Asignaciones de vuelos completadas
 master.menu.flight-crew-member.flight-assignment.list-uncompleted = Asignaciones de vuelos incompletas
+master.menu.flight-crew-member.flight-assignment.show-dashboard = Mostrar dashboard
+
 
 
 # master.menu.manager ########################################################

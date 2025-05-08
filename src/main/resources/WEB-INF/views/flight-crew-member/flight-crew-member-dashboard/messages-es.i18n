@@ -1,0 +1,25 @@
+# validation-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+flight-crew-member.flight-crew-member-dashboard.form.title = Dashboard de miembro de la tripulación de vuelo
+
+flight-crew-member.dashboard.form.title.general-indicators = Indicadores generales
+flight-crew-member.dashboard.form.label.last-five-destinations = Últimos cinco destinos
+flight-crew-member.dashboard.form.label.legs-severity-0-to-3 = Número de tramos con nivel de severidad entre 0 y 3
+flight-crew-member.dashboard.form.label.legs-severity-4-to-7 = Número de tramos con nivel de severidad entre 4 y 7
+flight-crew-member.dashboard.form.label.legs-severity-8-to-10 = Número de tramos con nivel de severidad entre 8 y 10
+flight-crew-member.dashboard.form.label.last-leg-flight-crew-members = Miembros del equipo en el último tramo
+flight-crew-member.dashboard.form.label.pending-flight-assignments = Números de vuelo de los tramos con asignación de vuelo pendiente
+flight-crew-member.dashboard.form.label.confirmed-flight-assignments = Números de vuelo de los tramos con asignación de vuelo confirmada
+flight-crew-member.dashboard.form.label.cancelled-flight-assignments = Números de vuelo de los tramos con asignación de vuelo cancelada
+flight-crew-member.dashboard.form.label.average-assignments-per-month = Promedio de asignaciones de vuelo por mes
+flight-crew-member.dashboard.form.label.min-assignments-per-month = Mínimo de asignaciones de vuelo en un mes
+flight-crew-member.dashboard.form.label.max-assignments-per-month = Máximo de asignaciones de vuelo en un mes
+flight-crew-member.dashboard.form.label.stddev-assignments-last-month = Desviación estándar del número de asignaciones de vuelo en el último mes
