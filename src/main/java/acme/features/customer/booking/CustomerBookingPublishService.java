@@ -146,7 +146,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
-		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "draftMode");
+		dataset = super.unbindObject(booking, "purchaseMoment", "locatorCode", "travelClass", "price", "lastNibble", "draftMode");
 		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 

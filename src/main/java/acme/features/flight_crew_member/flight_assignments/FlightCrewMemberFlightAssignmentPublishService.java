@@ -71,7 +71,7 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 	public void validate(final FlightAssignment flightAssignment) {
 		if (flightAssignment.getCurrentStatus() != null && flightAssignment.getDuty() != null && flightAssignment.getLeg() != null) {
 			if (flightAssignment.getDuty() == Duty.PILOT || flightAssignment.getDuty() == Duty.COPILOT) {
-				Collection<FlightAssignment> assignmentsOfLeg = this.repository.findFlightAssignmentsByLegId(flightAssignment.getLeg().getId());
+				Collection<FlightAssignment> assignmentsOfLeg = this.repository.findPublishedFlightAssignmentsByLegId(flightAssignment.getLeg().getId());
 				for (FlightAssignment fa : assignmentsOfLeg)
 					if (fa.getDuty() == Duty.PILOT && flightAssignment.getDuty() == Duty.PILOT || fa.getDuty() == Duty.COPILOT && flightAssignment.getDuty() == Duty.COPILOT) {
 						super.state(false, "duty", "flight-crew-member.flight-assignment.validation.duty.publish");
