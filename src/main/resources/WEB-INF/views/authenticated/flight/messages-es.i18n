@@ -8,24 +8,25 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.flight.form.title = Formulario de vuelos
-manager.flight.list.title = Lista de vuelos
+authenticated.flight.form.title = Formulario de vuelos
+authenticated.flight.list.title = Lista de vuelos
 
-manager.flight.form.label.tag = Etiqueta:
-manager.flight.form.label.requiresSelfTransfer = Requiere transferencia propia:
-manager.flight.form.label.cost = Coste: 
-manager.flight.form.label.description = Descripción:
-manager.flight.form.label.scheduledDeparture = Salida programada:
-manager.flight.form.label.scheduledArrival = Llegada programada:
-manager.flight.form.label.originCity = Ciudad de origen:
-manager.flight.form.label.destinationCity = Ciudad de destino:
-manager.flight.form.label.numberOfLayovers = Número de escalas:
-manager.flight.form.label.draftMode = Modo borrador:
+authenticated.flight.form.label.tag = Etiqueta:
+authenticated.flight.form.label.requiresSelfTransfer = Requiere transferencia propia:
+authenticated.flight.form.label.cost = Coste: 
+authenticated.flight.form.label.description = Descripción:
+authenticated.flight.form.label.scheduledDeparture = Salida programada:
+authenticated.flight.form.label.scheduledArrival = Llegada programada:
+authenticated.flight.form.label.originCity = Ciudad de origen:
+authenticated.flight.form.label.destinationCity = Ciudad de destino:
+authenticated.flight.form.label.numberOfLayovers = Número de escalas:
+authenticated.flight.form.label.draftMode = Modo borrador:
 
-manager.flight.list.label.tag = Etiqueta
-manager.flight.list.label.cost = Coste
-manager.flight.list.label.originCity = Ciudad de origen
-manager.flight.list.label.destinationCity = Ciudad de destino
-manager.flight.list.label.numberOfLayovers = Número de escalas
-manager.flight.list.label.draftMode = Modo borrador
+authenticated.flight.list.label.tag = Etiqueta
+authenticated.flight.list.label.cost = Coste
+authenticated.flight.list.label.originCity = Ciudad de origen
+authenticated.flight.list.label.destinationCity = Ciudad de destino
+authenticated.flight.list.label.numberOfLayovers = Número de escalas
+authenticated.flight.list.label.draftMode = Modo borrador
 
+authenticated.flight.form.button.legs = Tramos

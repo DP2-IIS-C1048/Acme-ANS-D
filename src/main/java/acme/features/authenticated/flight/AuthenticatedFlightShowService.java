@@ -21,9 +21,11 @@ public class AuthenticatedFlightShowService extends AbstractGuiService<Authentic
 	public void authorise() {
 
 		boolean status;
-		boolean draftMode;
-		draftMode = super.getRequest().getData("draftMode", boolean.class);
-		status = super.getRequest().getPrincipal().isAuthenticated() && !draftMode;
+		int masterId;
+		Flight flight;
+		masterId = super.getRequest().getData("id", int.class);
+		flight = this.repository.findFlightById(masterId);
+		status = flight != null && super.getRequest().getPrincipal().isAuthenticated() && !flight.isDraftMode();
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -43,7 +45,7 @@ public class AuthenticatedFlightShowService extends AbstractGuiService<Authentic
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "leg.legLabel");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
 		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
 		dataset.put("scheduledArrival", flight.getScheduledArrival());
 		dataset.put("originCity", flight.getOriginCity());
