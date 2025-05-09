@@ -21,7 +21,8 @@ public class AssistanceAgentCompletedClaimListService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

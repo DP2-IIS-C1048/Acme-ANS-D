@@ -43,3 +43,10 @@ acme.validation.manager.invalid-identifierNumber.message = El identificador nume
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.
+
+acme.validation.claim.wrongLeg.message = La fecha de registro de la queja no puede ser anterior al momento de llegada del tramo seleccionado
+acme.validation.claim.wrongType.message = El tipo de queja seleccionado no esta dentro de los disponibles
+acme.validation.claim.wrongLeg2.message = El tramo seleccionado no esta dentro de los disponibles
+acme.validation.claim.thereIsTrackingLogs.message = No se puede eliminar una queja con registros asociados
+acme.validation.claim.draftMode.message = No se puede borrar una queja que no esta en modo borrador
+acme.validation.claim.nullLeg.message = No se puede publicar una queja si el tramo asociado es nulo

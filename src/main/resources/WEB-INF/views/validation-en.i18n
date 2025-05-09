@@ -45,9 +45,9 @@ acme.validation.customer.duplicated-identifier.message = The customer identifier
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
 
-
-
-
-
-
-
+acme.validation.claim.wrongLeg.message = The registration moment of the claim cannot be earlier than the arrival time of the selected leg
+acme.validation.claim.wrongType.message = The selected complaint type is not among the available options
+acme.validation.claim.wrongLeg2.message = The selected leg is not among the available options
+.validation.claim.thereIsTrackingLogs.message = A claim with associated trackinglogs cannot be deleted
+acme.validation.claim.draftMode.message = A claim that is not in draft mode cannot be deleted
+acme.validation.claim.nullLeg.message = A claim cannot be published if the associated leg is null
