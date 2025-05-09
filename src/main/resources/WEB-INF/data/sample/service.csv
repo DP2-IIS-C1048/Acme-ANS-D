@@ -22,6 +22,6 @@ service-11,"service-11","https://imgur.com/ndhMV7I.png",1,promotion-06,airport-0
 service-12,"service-12","https://imgur.com/OGjedzj.png",1,promotion-07,airport-01
 # promotion - no singular values
 # airport - standard variations
-service-11,"service-13","https://imgur.com/uLqB9CF.png",1,null,airport-02
-service-12,"service-14","https://imgur.com/HIYyNwo.png",1,null,airport-03
+service-13,"service-13","https://imgur.com/uLqB9CF.png",1,null,airport-02
+service-14,"service-14","https://imgur.com/HIYyNwo.png",1,null,airport-03
 # airport - no singular values
