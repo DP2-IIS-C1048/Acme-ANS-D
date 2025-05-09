@@ -9,4 +9,4 @@ manager.dashboard.form.label.max-cost=Coste Máximo del Vuelo
 manager.dashboard.form.label.standard-deviation=Desviación Estándar del Coste del Vuelo
 manager.dashboard.form.label.most-popular-airport=Aeropuerto Más Popular
 manager.dashboard.form.label.least-popular-airport=Aeropuerto Menos Popular
-manager.dashboard.form.title.legs-status-ratio=Piernas por Estado
+manager.dashboard.form.title.legs-status-ratio=Tramos por Estado
