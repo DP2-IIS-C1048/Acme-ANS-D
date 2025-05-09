@@ -59,8 +59,9 @@ master.menu.flight-crew-member.flight-assignment.show-dashboard = Show dashboard
 
 # master.menu.manager ########################################################
 
-master.menu.manager = manager
+master.menu.manager = Manager
 master.menu.manager.list-my-flights= List my flights
+master.menu.manager.show-dashboard = Show dashboard
 
 # master.menu.customer ##########################################################
 
