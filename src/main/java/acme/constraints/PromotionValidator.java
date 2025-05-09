@@ -62,7 +62,7 @@ public class PromotionValidator extends AbstractValidator<ValidPromotion, Promot
 
 				actualDate = LocalDate.now();
 				actualYearLastTwoDigits = String.valueOf(actualDate.getYear()).substring(2);
-				promotionCodeLastDigitsMeetActualYear = promotionCode.substring(promotionCode.length() - 2) == actualYearLastTwoDigits;
+				promotionCodeLastDigitsMeetActualYear = promotionCode.substring(promotionCode.length() - 2).equals(actualYearLastTwoDigits);
 
 				super.state(context, promotionCodeLastDigitsMeetActualYear, "code", "acme.validation.promotion.promotion-code-last-digits.message");
 			}
