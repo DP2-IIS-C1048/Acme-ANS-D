@@ -38,17 +38,6 @@ public class ManagerValidator extends AbstractValidator<ValidManager, Manager> {
 
 			super.state(context, uniqueIdentifierNumber, "flightNumber", "acme.validation.manager.duplicated-identifierNumber.message");
 		}
-		//			{
-		//				boolean validIdentifierNumber = false;
-		//				String name = manager.getIdentity().getName();
-		//				String surName = manager.getIdentity().getSurname();
-		//				String identifierNumber = manager.getIdentifierNumber();
-		//
-		//				if (name.charAt(0) == identifierNumber.charAt(0) && surName.charAt(0) == identifierNumber.charAt(1))
-		//					validIdentifierNumber = true;
-		//				super.state(context, validIdentifierNumber, "identifier", "acme.validation.manager.invalid-identifierNumber.message");
-		//
-		//			}
 		result = !super.hasErrors(context);
 
 		return result;
