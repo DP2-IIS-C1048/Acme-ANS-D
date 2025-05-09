@@ -171,6 +171,8 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 		airports = this.repository.findAllAirports();
 		aircrafts = this.repository.findActiveAircrafts();
+		if (!aircrafts.contains(leg.getAircraft()))
+			leg.setAircraft(null);
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
 		choiceAircrafts = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
 		choiceDepartureAirports = SelectChoices.from(airports, "iataCode", leg.getDepartureAirport());

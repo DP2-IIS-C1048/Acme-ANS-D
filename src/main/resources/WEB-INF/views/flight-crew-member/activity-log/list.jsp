@@ -18,7 +18,8 @@
 <acme:list>
 	<acme:list-column code="flight-crew-member.activity-log.list.label.type-of-incident" path="typeOfIncident" width="40%"/>
 	<acme:list-column code="flight-crew-member.activity-log.list.label.severity-level" path="severityLevel" width="30%"/>
-	<acme:list-column code="flight-crew-member.activity-log.list.label.registration-moment" path="registrationMoment" width="30%"/>	
+	<acme:list-column code="flight-crew-member.activity-log.list.label.registration-moment" path="registrationMoment" width="10%"/>	
+
 </acme:list>
 	
 <jstl:if test="${_command == 'list'}">

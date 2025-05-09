@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.leg.form.title = leg form
+authenticated.leg.list.title = Listing of legs
+
+authenticated.leg.form.label.title = Title:
+authenticated.leg.form.label.flightNumber = Flight number:
+authenticated.leg.form.label.scheduledArrival = Scheduled arrival:
+authenticated.leg.form.label.scheduledDeparture = Scheduled departure:
+authenticated.leg.form.label.departureAirport = Departure airport:
+authenticated.leg.form.label.arrivalAirport = Arrival airport:
+authenticated.leg.form.label.aircraft = Aircraft:
+authenticated.leg.form.label.status = Status:
+authenticated.leg.form.label.draftMode = Draft mode:
+
+authenticated.leg.list.label.flightNumber = Flight No.
+authenticated.leg.list.label.scheduledArrival = Scheduled arrival
+authenticated.leg.list.label.scheduledDeparture = Scheduled departure
+authenticated.leg.list.label.departureAirportIataCode = IATA departure airport
+authenticated.leg.list.label.arrivalAirportIataCode = IATA arrival airport
+authenticated.leg.list.label.aircraftRegistrationNumber = Aircraft No.
+authenticated.leg.list.label.status = Status
+authenticated.leg.list.label.draftMode = Draft mode
