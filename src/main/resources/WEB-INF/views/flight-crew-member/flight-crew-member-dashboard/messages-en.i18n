@@ -1,0 +1,25 @@
+# validation-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+flight-crew-member.dashboard.form.title.general-indicators = General indicators
+
+flight-crew-member.flight-crew-member-dashboard.form.title = Flight crew member dashboard
+flight-crew-member.dashboard.form.label.last-five-destinations = Last five destinations
+flight-crew-member.dashboard.form.label.legs-severity-0-to-3 = Number of legs with severity level between 0 and 3
+flight-crew-member.dashboard.form.label.legs-severity-4-to-7 = Number of legs with severity level between 4 and 7
+flight-crew-member.dashboard.form.label.legs-severity-8-to-10 = Number of legs with severity level between 8 and 10
+flight-crew-member.dashboard.form.label.last-leg-flight-crew-members = team members on the last leg
+flight-crew-member.dashboard.form.label.pending-flight-assignments = Flight numbers for legs with pending flight assignment status.
+flight-crew-member.dashboard.form.label.confirmed-flight-assignments = Flight numbers for legs with confirmed flight assignment status.
+flight-crew-member.dashboard.form.label.cancelled-flight-assignments = Flight numbers for legs with cancelled flight assignment status.
+flight-crew-member.dashboard.form.label.average-assignments-per-month = Average flight assignments per month
+flight-crew-member.dashboard.form.label.min-assignments-per-month = Minimum flight assignments in a month
+flight-crew-member.dashboard.form.label.max-assignments-per-month = Maximum flight assignments in a month
+flight-crew-member.dashboard.form.label.stddev-assignments-last-month = Standard deviation of the number of flight assignments in the last month
