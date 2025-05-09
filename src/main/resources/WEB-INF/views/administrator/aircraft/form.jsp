@@ -9,16 +9,19 @@
 	<acme:input-textbox code="administrator.aircraft.form.label.registrationNumber" path="registrationNumber"/>
 	<acme:input-integer code="administrator.aircraft.form.label.capacity" path="capacity"/>
 	<acme:input-integer code="administrator.aircraft.form.label.cargoWeight" path="cargoWeight"/>
-	<acme:input-textbox code="administrator.aircraft.form.label.status" path="status" placeholder="administrator.aircraft.form.placeholder.status"/>
+	<acme:input-select code="administrator.aircraft.form.label.status" path="status" choices="${statuses}"/>
 	<acme:input-textarea code="administrator.aircraft.form.label.details" path="details"/>
 	<acme:input-select code="administrator.aircraft.form.label.airline" path="airline" choices="${airlines}"/>
 
 	<acme:input-checkbox code="administrator.aircraft.form.label.confirmation" path="confirmation"/>
 	
-	<jstl:choose>	 
+	<jstl:choose>
+		<jstl:when test="${_command == 'show' && status != 'MAINTENANCE'}">
+			<acme:submit code="administrator.aircraft.form.button.disable" action="/administrator/aircraft/disable"/>
+			<acme:submit code="administrator.aircraft.form.button.update" action="/administrator/aircraft/update"/>
+		</jstl:when>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|disable')}">
 			<acme:submit code="administrator.aircraft.form.button.update" action="/administrator/aircraft/update"/>
-			<acme:submit code="administrator.aircraft.form.button.disable" action="/administrator/aircraft/disable"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="administrator.aircraft.form.button.create" action="/administrator/aircraft/create"/>

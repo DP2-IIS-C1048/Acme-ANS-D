@@ -11,6 +11,7 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
+import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airline.Airline;
 
 @GuiService
@@ -69,10 +70,12 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 		Dataset dataset;
 		Collection<Airline> airlines;
 		SelectChoices choices;
+		SelectChoices statusChoices;
 		Airline selectedAirline;
 
 		airlines = this.repository.findAllAirlines();
 		selectedAirline = aircraft.getAirline();
+		statusChoices = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
 
 		if (selectedAirline != null && !airlines.contains(selectedAirline))
 			selectedAirline = null;
@@ -82,6 +85,7 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
+		dataset.put("statuses", statusChoices);
 		dataset.put("airline", choices.getSelected().getKey());
 		dataset.put("airlines", choices);
 

@@ -80,10 +80,12 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		Dataset dataset;
 		Collection<Airline> airlines;
 		SelectChoices choices;
+		SelectChoices statusChoices;
 		Airline selectedAirline;
 
 		airlines = this.repository.findAllAirlines();
 		selectedAirline = aircraft.getAirline();
+		statusChoices = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
 
 		if (selectedAirline != null && !airlines.contains(selectedAirline))
 			airlines.add(selectedAirline);
@@ -91,6 +93,7 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		choices = SelectChoices.from(airlines, "iataCode", selectedAirline);
 
 		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		dataset.put("statuses", statusChoices);
 		dataset.put("airline", choices.getSelected().getKey());
 		dataset.put("airlines", choices);
 		dataset.put("confirmation", false);
