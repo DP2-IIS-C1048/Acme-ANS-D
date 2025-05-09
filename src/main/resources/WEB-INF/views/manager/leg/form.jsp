@@ -16,12 +16,12 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="manager.leg.form.label.flightNumber" path="flightNumber" readonly="${_command == 'status'}"/>
-		<acme:input-moment code="manager.leg.form.label.scheduledDeparture" path="scheduledDeparture" readonly="${_command == 'status'}"/>
-	<acme:input-moment code="manager.leg.form.label.scheduledArrival" path="scheduledArrival" readonly="${_command == 'status'}"/>
-	<acme:input-select code="manager.leg.form.label.departureAirport" path="departureAirport" choices="${departureAirports}" readonly="${_command == 'status'}"/>
-	<acme:input-select code="manager.leg.form.label.arrivalAirport" path="arrivalAirport" choices="${arrivalAirports}" readonly="${_command == 'status'}"/>
-	<acme:input-select code="manager.leg.form.label.aircraft" path="aircraft" choices="${aircrafts}" readonly="${_command == 'status'}"/>
+	<acme:input-textbox code="manager.leg.form.label.flightNumber" path="flightNumber" readonly="${draftMode == false}"/>
+	<acme:input-moment code="manager.leg.form.label.scheduledDeparture" path="scheduledDeparture" readonly="${draftMode == false}"/>
+	<acme:input-moment code="manager.leg.form.label.scheduledArrival" path="scheduledArrival" readonly="${draftMode == false}"/>
+	<acme:input-select code="manager.leg.form.label.departureAirport" path="departureAirport" choices="${departureAirports}" readonly="${draftMode == false}"/>
+	<acme:input-select code="manager.leg.form.label.arrivalAirport" path="arrivalAirport" choices="${arrivalAirports}" readonly="${draftMode == false}"/>
+	<acme:input-select code="manager.leg.form.label.aircraft" path="aircraft" choices="${aircrafts}" readonly="${draftMode == false}"/>
 	<acme:input-select code="manager.leg.form.label.status" path="status" choices="${statuses}" readonly="true" />
 <acme:input-checkbox code="manager.leg.form.label.draftMode" path="draftMode" readonly="true"/>
 

@@ -8,10 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+acme.validation.length = Text too long
+acme.validation.range = Number out of range
+acme.validation.airline.duplicated-iataCode.message = An airline with this IATA code already exists
 acme.validation.confirmation.message = Confirm the operation.
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = The employee Code is duplicated
-acme.validation..flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
+acme.validation.flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
 
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = The registration number is duplicated
@@ -24,27 +27,45 @@ acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight numb
 acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
 acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
-acme.validation.leg.invalid-leg-airports.message = The entered arrival airport does not match the departure airport of the first leg or the entered departure airport does not match the arrival airport of the last leg, since the flight requires self-transfer 
+acme.validation.leg.invalid-leg-arrivalAirport.message = The entered arrival airport does not match the departure airport of the first leg, but the flight is not a self-transfer
+acme.validation.leg.invalid-leg-departureAirport.message = The entered departure airport does not match the arrival airport of the last leg, but the flight is not a self-transfer
+acme.validation.leg.invalid-leg-arrivalAirport-selfTransfer.message = The entered arrival airport matches the departure airport of the first leg, but the flight is a self-transfer
+acme.validation.leg.invalid-leg-departureAirport-selfTransfer.message = The entered departure airport matches the arrival airport of the last leg, but the flight is a self-transfer 
 acme.validation.constraints.leg.arrivalAirport.message = The departure airport value cannot be empty.  
 acme.validation.constraints.leg.departureAirport.message = The arrival airport value cannot be empty.  
 acme.validation.constraints.leg.aircraft.message = The aircraft value cannot be empty.
 acme.validation.constraints.leg.invalid-airports.message = The arrival and departure airport can not be the same airport
 acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
+acme.validation.leg.aircraft-active.message=The selected aircraft must be active.
 acme.validation.constraints.leg.status-LANDED.message = The leg cannot change status as it has already landed.
 acme.validation.constraints.leg.status-CANCELLED.message = The leg cannot change status as it was cancelled.
 acme.validation.constraints.leg.status-ON_TIME.message = The leg cannot return to "ON_TIME" status as it was previously in another state.
+acme.validation.leg.invalid-futureDates.message = The date must be later than the current date
 
 
 
 acme.validation.currency.message = The currency is not available
 
 
-acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
-acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
+acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists.
+acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
 
-acme.validation.customer.duplicated-identifier.message = The customer identifier already exists
+acme.validation.customer.duplicated-identifier.message = The customer identifier already exists.
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
+acme.validation.booking.departure-not-in-future.message = This flight has already been deported.
+acme.validation.booking.is-not-draft-mode.message = This booking can't be updated. It isn't on draftMode.
+acme.validation.booking.flight.not-found.messasge = This flight couldn't be found.
+
+acme.validation.booking.publish.lastNibble-null.message = The lastNibble of this booking can't be null.
+acme.validation.booking.publish.passengers-associated.message = This booking has no passengers associated.
+acme.validation.booking.publish.passenger-associated-not-owned.message = This booking has passengers that aren't yours.
+acme.validation.booking.published.passenger-not-published.message = This booking has passengers not published.
+
+acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you.
+acme.validation.booking-record.create.passenger-not-published.message = This passenger is not published.
+
+acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
 
 acme.validation.aircraft.airline-not-found.message = Airline not found.
 
