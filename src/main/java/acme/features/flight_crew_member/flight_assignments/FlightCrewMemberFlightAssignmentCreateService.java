@@ -14,7 +14,6 @@ import acme.entities.flight_assignment.CurrentStatus;
 import acme.entities.flight_assignment.Duty;
 import acme.entities.flight_assignment.FlightAssignment;
 import acme.entities.leg.Leg;
-import acme.realms.flight_crew_member.AvailabilityStatus;
 import acme.realms.flight_crew_member.FlightCrewMember;
 
 @GuiService
@@ -26,7 +25,9 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRealmOfType(FlightCrewMember.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -38,19 +39,18 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 
 	@Override
 	public void bind(final FlightAssignment flightAssignment) {
-		int flightCrewMemberId;
 		FlightCrewMember flightCrewMember;
 		int legId;
 		Leg leg;
 
-		flightCrewMemberId = super.getRequest().getData("member", int.class);
-		flightCrewMember = this.repository.findFlightCrewMemberById(flightCrewMemberId);
 		legId = super.getRequest().getData("leg", int.class);
 		leg = this.repository.findLegById(legId);
-		flightAssignment.setFlightCrewMember(flightCrewMember);
+		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
 		flightAssignment.setLeg(leg);
+		flightAssignment.setFlightCrewMember(flightCrewMember);
 		flightAssignment.setLastUpdate(MomentHelper.getCurrentMoment());
-		super.bindObject(flightAssignment, "duty", "currentStatus", "remarks");
+		flightAssignment.setCurrentStatus(CurrentStatus.PENDING);
+		super.bindObject(flightAssignment, "duty", "remarks");
 	}
 
 	@Override
@@ -65,31 +65,23 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
-		Collection<FlightCrewMember> members;
 		Collection<Leg> legs;
-
-		SelectChoices memberChoices;
 		SelectChoices legChoices;
 		SelectChoices dutyChoices;
 		SelectChoices statusChoices;
 
 		FlightCrewMember flightCrewMember;
 		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-
 		Dataset dataset;
-		int airlineId = flightCrewMember.getAirline().getId();
 
-		members = this.repository.findAvailableFlightCrewMembersFromAirline(airlineId, AvailabilityStatus.AVAILABLE);
 		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
 
-		memberChoices = SelectChoices.from(members, "identity.fullName", null);
-		legChoices = SelectChoices.from(legs, "flightNumber", null);
+		legChoices = SelectChoices.from(legs, "LegLabel", null);
 		dutyChoices = SelectChoices.from(Duty.class, null);
 		statusChoices = SelectChoices.from(CurrentStatus.class, null);
 
 		dataset = super.unbindObject(flightAssignment, "draftMode");
-		dataset.put("member", memberChoices.getSelected().getKey());
-		dataset.put("members", memberChoices);
+		dataset.put("member", flightCrewMember.getIdentity().getFullName());
 		dataset.put("leg", legChoices.getSelected().getKey());
 		dataset.put("legs", legChoices);
 		dataset.put("duty", dutyChoices.getSelected().getKey());

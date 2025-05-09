@@ -18,6 +18,11 @@ master.menu.anonymous.favourite-link.student3 = 7717****: Basallote Braza, David
 master.menu.anonymous.favourite-link.student4 = 4928****: Rodíguez Muñoz, Rafael
 master.menu.anonymous.favourite-link.student5 = 2965****: Herrera Luján, Marco Antonio
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.list-flight= Ver vuelos
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -48,6 +53,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.flight-crew-member.flight-assignment.list-completed = Asignaciones de vuelos completadas
 master.menu.flight-crew-member.flight-assignment.list-uncompleted = Asignaciones de vuelos incompletas
+master.menu.flight-crew-member.flight-assignment.show-dashboard = Mostrar dashboard
+
 
 
 # master.menu.manager ########################################################
@@ -70,3 +77,5 @@ master.menu.user-account.become-provider = Hacerse proveedor
 master.menu.user-account.provider-profile = Perfil de proveedor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.consumer-profile = Perfil de consumidor
+master.menu.user-account.become-manager = Hacerse manager
+master.menu.user-account.manager-profile = Perfil de manager
