@@ -1,6 +1,9 @@
 
 package acme.features.assistanceagent.trackinglog;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -26,7 +29,7 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 		trackingLogId = super.getRequest().getData("id", int.class);
 		trackingLog = this.repository.findTrackingLogById(trackingLogId);
-		status = trackingLog != null && trackingLog.getClaim() != null && trackingLog.isDraftMode() && trackingLog.getClaim().isDraftMode() && super.getRequest().getPrincipal().hasRealm(trackingLog.getClaim().getAssistanceAgent());
+		status = trackingLog != null && trackingLog.getClaim() != null && trackingLog.isDraftMode() && !trackingLog.getClaim().isDraftMode() && super.getRequest().getPrincipal().hasRealm(trackingLog.getClaim().getAssistanceAgent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,7 +52,53 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		;
+		Collection<TrackingLogIndicator> allIndicators;
+		TrackingLogIndicator indicator;
+		boolean isNotWrongIndicator = true;
+		boolean isNotWrongResolutionPercentage = true;
+		boolean isNotWrongResolutionPercentage2 = true;
+		boolean isNotWrongResolution = true;
+		boolean isNotWrongResolution2 = true;
+		boolean isNotMaxCompleted = true;
+		boolean isWrongResolutionPercentage3 = true;
+
+		allIndicators = Arrays.asList(TrackingLogIndicator.values());
+		indicator = super.getRequest().getData("indicator", TrackingLogIndicator.class);
+		isNotWrongIndicator = allIndicators.contains(indicator);
+
+		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0)
+			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
+		else if (trackingLog.getIndicator() != null)
+			isNotWrongResolutionPercentage2 = !trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
+
+		if (trackingLog.getIndicator() != null && trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING))
+			isNotWrongResolution = trackingLog.getResolution() == null || trackingLog.getResolution().isBlank();
+		else
+			isNotWrongResolution2 = trackingLog.getResolution() != null && !trackingLog.getResolution().isBlank();
+
+		if (trackingLog.getClaim() != null) {
+			TrackingLog highestTrackingLog;
+			Collection<TrackingLog> trackingLogs = this.repository.findOrderTrackingLogs(trackingLog.getClaim().getId());
+			if (trackingLog.getResolutionPercentage() != null && trackingLogs.size() > 0) {
+				highestTrackingLog = trackingLogs.stream().findFirst().get();
+				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
+				if (highestTrackingLog.getId() != trackingLog.getId())
+					if (highestTrackingLog.getResolutionPercentage().equals(100.00) && trackingLog.getResolutionPercentage().equals(100.00))
+						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
+					else
+						isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
+			}
+
+		}
+
+		super.state(isNotWrongIndicator, "indicator", "acme.validation.trackingLog.wrongIndicator.message");
+		super.state(!trackingLog.getClaim().isDraftMode(), "draftMode", "acme.validation.trackingLog.claimDraftMode.message");
+		super.state(isNotWrongResolutionPercentage, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage.message");
+		super.state(isNotWrongResolutionPercentage2, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage2.message");
+		super.state(isNotWrongResolution, "resolution", "acme.validation.trackingLog.isNotWrongResolution.message");
+		super.state(isNotWrongResolution2, "resolution", "acme.validation.trackingLog.isNotWrongResolution2.message");
+		super.state(isNotMaxCompleted, "resolutionPercentage", "acme.validation.trackingLog.isNotMaxCompleted.message");
+		super.state(isWrongResolutionPercentage3, "resolutionPercentage", "acme.validation.trackingLog.isWrongResolutionPercentage3.message");
 	}
 
 	@Override

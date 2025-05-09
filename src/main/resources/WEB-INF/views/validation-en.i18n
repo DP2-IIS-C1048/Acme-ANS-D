@@ -49,5 +49,15 @@ acme.validation.claim.wrongLeg.message = The registration moment of the claim ca
 acme.validation.claim.wrongType.message = The selected complaint type is not among the available options
 acme.validation.claim.wrongLeg2.message = The selected leg is not among the available options
 .validation.claim.thereIsTrackingLogs.message = A claim with associated trackinglogs cannot be deleted
-acme.validation.claim.draftMode.message = A claim that is not in draft mode cannot be deleted
+acme.validation.claim.draftMode.message = A claim that is not in draft mode cannot be deleted/publish/updated
 acme.validation.claim.nullLeg.message = A claim cannot be published if the associated leg is null
+
+acme.validation.trackingLog.draftMode.message = A trackingLog that is not in draft mode cannot be deleted/publish/updated
+acme.validation.trackingLog.wrongIndicator.message = The selected tracking log indicator is not among the available options
+acme.validation.trackingLog.claimDraftMode.message = A tracking log cannot be created for a claim in draft mode.
+acme.validation.trackingLog.resolutionPercentage.message =For a tracking log to have a resolution percentage lower than 100, it must have a estate of PENDING
+acme.validation.trackingLog.resolutionPercentage2.message = For a tracking log to have a resolution percentage of 100, it must have a estate different of PENDING
+acme.validation.trackingLog.isNotWrongResolution.message = Resolutions are only available with a 100% percentage and when the estate is not PENDING
+acme.validation.trackingLog.isNotWrongResolution.message = You must enter a resolution when the estate is not PENDING and the percentage is 100%
+acme.validation.trackingLog.isNotMaxCompleted.message = There can only be 2 tracking logs with a resolution percentage equal to 100
+acme.validation.trackingLog.isWrongResolutionPercentage3.message =  The percentage of the new trackinglog must be higher than the highest recorded for this claim

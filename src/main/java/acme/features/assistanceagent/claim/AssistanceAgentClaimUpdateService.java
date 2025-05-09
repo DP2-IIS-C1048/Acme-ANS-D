@@ -85,6 +85,7 @@ public class AssistanceAgentClaimUpdateService extends AbstractGuiService<Assist
 		super.state(isNotWrongLeg2, "leg", "acme.validation.claim.wrongLeg2.message");
 		super.state(isNotWrongType, "type", "acme.validation.claim.wrongType.message");
 		super.state(isNotWrongLeg, "leg", "acme.validation.claim.wrongLeg.message");
+		super.state(claim.isDraftMode(), "draftMode", "acme.validation.claim.draftMode.message");
 	}
 
 	@Override
