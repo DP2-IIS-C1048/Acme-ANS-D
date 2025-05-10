@@ -2,6 +2,7 @@
 package acme.features.technician.involves;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,12 +64,14 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 	public void validate(final Involves involves) {
 		{
 			Collection<Involves> alreadyCreatedInvolves;
-			boolean involvesIsNew;
+			Collection<Task> involvesTasks;
+			boolean involvesTaskIsNew;
 
 			alreadyCreatedInvolves = this.repository.findInvolvesByMaintenanceRecordId(involves.getMaintenanceRecord().getId());
-			involvesIsNew = !alreadyCreatedInvolves.contains(involves);
+			involvesTasks = alreadyCreatedInvolves == null ? List.of() : alreadyCreatedInvolves.stream().map(Involves::getTask).toList();
+			involvesTaskIsNew = !involvesTasks.contains(involves.getTask());
 
-			super.state(involvesIsNew, "*", "acme.validation.involves.involves-is-new");
+			super.state(involvesTaskIsNew, "*", "acme.validation.involves.involves-is-new");
 		}
 	}
 
