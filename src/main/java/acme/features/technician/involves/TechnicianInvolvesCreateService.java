@@ -93,6 +93,9 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 		alreadyAddedTasks = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecordId).stream().map(Involves::getTask).toList();
 		possibleTasks.removeAll(alreadyAddedTasks);
 
+		if (!possibleTasks.contains(involves.getTask()))
+			involves.setTask(null);
+
 		taskChoices = SelectChoices.from(possibleTasks, "description", involves.getTask());
 
 		dataset = super.unbindObject(involves);
