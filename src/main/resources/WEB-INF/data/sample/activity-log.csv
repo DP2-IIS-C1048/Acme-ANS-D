@@ -1,0 +1,38 @@
+key,registration-moment,type-of-incident,description,severity-level,draft-mode,key:flight-assignment
+# base entity
+activityLog-00,2020/05/07 14:15,TURBULENCE,"Turbulencia moderada sobre el Atlántico Norte; leves sacudidas en cabina",4,false,flight-assignment-10
+
+# type-of-incident – standard variations
+activityLog-01,2020/05/07 14:15,ENGINE_FAILURE,"Fallo detectado en motor 2 a FL350; iniciados procedimientos de emergencia",9,false,flight-assignment-11
+activityLog-02,2020/05/07 14:15,MEDICAL_EMERGENCY,"Pasajero en fila 12 reporta dolor torácico; se solicita asistencia médica",8,false,flight-assignment-12
+activityLog-03,2020/05/07 14:15,SEVERE_WEATHER,"Célula tormentosa severa en ruta; cambio de altitud y rumbo autorizado",7,false,flight-assignment-13
+activityLog-04,2020/05/07 14:15,COMMUNICATION_LOSS,"Pérdida de comunicación VHF con ATC durante 2 minutos; restablecida correctamente",5,false,flight-assignment-14
+
+# registration-moment – standard variations
+activityLog-05,2000/01/01 00:00,TURBULENCE,"Registro de prueba muy antiguo: turbulencia histórica",3,false,flight-assignment-15
+activityLog-06,2024/12/31 23:59,TURBULENCE,"Turbulencia justo antes de 2025",3,false,flight-assignment-16
+activityLog-07,2025/01/01 00:00,TURBULENCE,"Turbulencia en el primer minuto de 2025",3,false,flight-assignment-17
+activityLog-08,2000/01/01 00:01,TURBULENCE,"Leve turbulencia minutos antes del registro base",3,false,flight-assignment-18
+
+# description – standard variations
+activityLog-09,2020/05/07 14:15,LOW_FUEL,"Alarma de combustible bajo a 500 kg restantes",10,false,flight-assignment-19
+activityLog-10,2020/05/07 14:15,LOW_FUEL,"B",10,false,flight-assignment-20
+activityLog-11,2020/05/07 14:15,LOW_FUEL,"Breb",10,false,flight-assignment-21
+activityLog-12,2020/05/07 14:15,LOW_FUEL,"E" * 254 (254 caracteres de descripción extenso comprobando límite),10,false,flight-assignment-22
+activityLog-13,2020/05/07 14:15,LOW_FUEL,"F" * 255 (255 caracteres de descripción al máximo permitido),10,false,flight-assignment-23
+
+# severity-level – standard variations
+activityLog-14,2020/05/07 14:15,DOOR_WARNING,"Advertencia de puerta 1L mal cerrada; revisada y asegurada",0,false,flight-assignment-24
+activityLog-15,2020/05/07 14:15,DOOR_WARNING,"Advertencia de puerta; nivel mínimo",1,false,flight-assignment-01
+activityLog-16,2020/05/07 14:15,DOOR_WARNING,"Advertencia de puerta; nivel máximo-1",9,false,flight-assignment-00
+activityLog-17,2020/05/07 14:15,DOOR_WARNING,"Advertencia de puerta; nivel máximo",10,false,flight-assignment-03
+
+# draft-mode – standard variations
+activityLog-18,2020/05/07 14:15,SECURITY_THREAT,"Pequeña disputa verbal entre pasajeros; calmada por tripulación",6,true,flight-assignment-00
+activityLog-19,2020/05/07 14:15,SECURITY_THREAT,"Disputa verbal grave entre pasajeros; intervención segura",6,false,flight-assignment-05
+
+activityLog-20,2020/05/07 14:15,ALTITUDE_DEVIATION,"Desviación de altitud de 200 ft; corregida inmediatamente",4,false,flight-assignment-00
+activityLog-21,2020/05/07 14:15,LANDING_GEAR,"Indicador de tren de aterrizaje en posición incorrecta; verificado sin anomalías",2,false,flight-assignment-06
+activityLog-22,2020/05/07 14:15,UPLOAD_TIMEOUT,"Retraso en transferencia de datos SATCOM; reintento exitoso",3,false,flight-assignment-02
+activityLog-23,2020/05/07 14:15,CONFIG_UPDATE,"Parámetros de navegación actualizados en FMC",4,false,flight-assignment-01
+activityLog-24,2020/05/07 14:15,CACHE_CLEARED,"Caché del sistema de entretenimiento reiniciada por fallo",3,false,flight-assignment-04
