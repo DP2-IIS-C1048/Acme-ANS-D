@@ -3,6 +3,7 @@ package acme.features.assistanceagent.trackinglog;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -90,7 +91,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 			TrackingLog highestTrackingLog;
 			Collection<TrackingLog> trackingLogs = this.repository.findOrderTrackingLogs(trackingLog.getClaim().getId());
 			if (trackingLog.getResolutionPercentage() != null && trackingLogs.size() > 0) {
-				highestTrackingLog = trackingLogs.stream().findFirst().get();
+				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
 				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
 				if (highestTrackingLog.getId() != trackingLog.getId())
 					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)

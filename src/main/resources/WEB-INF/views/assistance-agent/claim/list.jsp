@@ -24,8 +24,6 @@
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<jstl:if test="${_command == 'list'}">
-	<acme:button code="assistanceAgent.claim.list.button.create" action="/assistance-agent/claim/create"/>
-</jstl:if>		
+<acme:button code="assistanceAgent.claim.list.button.create" action="/assistance-agent/claim/create"/>		
 	
 
