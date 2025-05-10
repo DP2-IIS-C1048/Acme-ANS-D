@@ -2,6 +2,7 @@
 package acme.features.technician.maintenanceRecord;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -73,13 +74,16 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 			Collection<Involves> maintenanceRecordInvolves;
 			boolean maintenanceRecordHasTasks;
 			boolean maintenanceRecordHasAllTasksPublished;
+			boolean maintenanceRecordHasNotDuplicatedTasks;
 
 			maintenanceRecordInvolves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId());
 			maintenanceRecordHasTasks = !maintenanceRecordInvolves.isEmpty();
-			maintenanceRecordHasAllTasksPublished = maintenanceRecordInvolves.stream().map(Involves::getTask).allMatch(t -> t.isDraftMode() == false);
+			maintenanceRecordHasAllTasksPublished = maintenanceRecordInvolves.stream().map(Involves::getTask).allMatch(t -> !t.isDraftMode());
+			maintenanceRecordHasNotDuplicatedTasks = maintenanceRecordInvolves.stream().map(Involves::getTask).toList().size() == maintenanceRecordInvolves.stream().map(Involves::getTask).collect(Collectors.toSet()).size();
 
 			super.state(maintenanceRecordHasTasks, "*", "acme.validation.maintenance-record.has-tasks");
 			super.state(maintenanceRecordHasAllTasksPublished, "*", "acme.validation.maintenance-record.all-tasks-are-published");
+			super.state(maintenanceRecordHasNotDuplicatedTasks, "*", "acme.validation.maintenance-record.tasks-are-not-duplicated");
 		}
 		{
 			if (maintenanceRecord.getInspectionDueDate() != null) {

@@ -43,6 +43,7 @@ acme.validation.maintenance-record.has-tasks = The maintenance record must have 
 acme.validation.maintenance-record.all-tasks-are-published = The maintenance record must have all tasks published
 acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment = Inspection due date must be after maintenance moment
 acme.validation.maintenance-record.maintenance-record-is-not-completed-yet = You can not create a maintenance record completed
+acme.validation.maintenance-record.tasks-are-not-duplicated = You can't publish a maintenance record with duplicated tasks
 acme.validation.involves.involves-is-possible = It is not possible to add this task to the maintenance record
 acme.validation.involves.maintenance-record-is-already-published = You can't delete tasks from a maintenance record that has already been published
 
