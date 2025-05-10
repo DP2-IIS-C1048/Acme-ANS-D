@@ -10,7 +10,7 @@
 
 acme.validation.length = Texto demasiado largo
 acme.validation.range = Número fuera de rango
-acme.validation.airline.duplicated-iataCode.message = Ya existe una aerolínea con ese código IATA
+acme.validation.airline.duplicated-iataCode.message = Ya existe una aerolínea con ese código IATAacme.validation.confirmation.message = Confirmar la operación.
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = El código del empleado está duplicado
 acme.validation.flight.crew.member.employee-code.message = Las primeras dos o tres letras del código del empleado deben corresponder con las iniciales
@@ -63,3 +63,7 @@ acme.validation.booking.publish.lastNibble-null.message = Esta reserva no tiene 
 
 acme.validation.booking-record.create.passenger-not-from-customer.message = Este pasajero no está asociado contigo.
 acme.validation.booking-record.create.passenger-not-published.message = Este pasajero no se ha publicado.
+
+acme.validation.aircraft.airline-not-found.message = No se encontró la aerolínea.
+
+acme.validation.administrator.aircraft.status-MAINTENANCE.message = La aeronave ya está en mantenimiento.
