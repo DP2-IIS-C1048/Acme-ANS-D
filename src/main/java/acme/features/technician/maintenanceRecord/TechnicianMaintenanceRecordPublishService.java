@@ -91,6 +91,10 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 				super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
 			}
 		}
+		{
+			boolean maintenanceRecordIsInDraftMode = maintenanceRecord.isDraftMode();
+			super.state(maintenanceRecordIsInDraftMode, "*", "acme.validation.maintenance-record.is-in-draft-mode");
+		}
 	}
 
 	@Override

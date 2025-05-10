@@ -44,6 +44,7 @@ acme.validation.maintenance-record.all-tasks-are-published = El registro de mant
 acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment = La fecha de inspección debe ser posterior a la fecha de mantenimiento
 acme.validation.maintenance-record.maintenance-record-is-not-completed-yet = No puedes crear un registro de mantenimiento ya completo
 acme.validation.maintenance-record.tasks-are-not-duplicated = No puedes publicar un registro de mantenimiento con tareas duplicadas
+acme.validation.maintenance-record.is-in-draft-mode = Sólo puedes publicar un registro de mantenimiento si está en modo borrador
 acme.validation.involves.involves-is-possible = No es posible añadir esta tarea al registro de mantenimiento
 acme.validation.involves.maintenance-record-is-already-published = No puedes eliminar tareas de un registro de mantenimiento que ha sido publicado
 
