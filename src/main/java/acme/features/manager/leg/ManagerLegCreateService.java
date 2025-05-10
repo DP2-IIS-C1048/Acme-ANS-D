@@ -88,21 +88,21 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		boolean validAircraft;
 
 		if (leg.getAircraft() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
-			validAircraft = this.repository.isAircraftNotInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival());
+			validAircraft = this.repository.findLegsWithAircraftNotInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
 
 			super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
 		}
 		Collection<Aircraft> aircrafts;
 		aircrafts = this.repository.findActiveAircrafts();
 
-		if (leg.getAircraft() != null)
-			super.state(aircrafts.contains(leg.getAircraft()), "aircraft", "acme.validation.leg.aircraft-active.message");
+		if (leg.getAircraft() != null && !aircrafts.contains(leg.getAircraft()))
+			super.state(false, "aircraft", "acme.validation.leg.aircraft-active.message");
 
-		if (leg.getScheduledDeparture() != null)
-			super.state(MomentHelper.isFuture(leg.getScheduledDeparture()), "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
+		if (leg.getScheduledDeparture() != null && !MomentHelper.isFuture(leg.getScheduledDeparture()))
+			super.state(false, "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
 
-		if (leg.getScheduledArrival() != null)
-			super.state(MomentHelper.isFuture(leg.getScheduledArrival()), "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
+		if (leg.getScheduledArrival() != null && !MomentHelper.isFuture(leg.getScheduledArrival()))
+			super.state(false, "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
 
 	}
 

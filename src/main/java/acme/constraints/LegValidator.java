@@ -51,7 +51,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				String flightNumber = leg.getFlightNumber();
 				String airlineIataCode = leg.getFlight() != null && leg.getFlight().getManager() != null && leg.getFlight().getManager().getAirline() != null ? leg.getFlight().getManager().getAirline().getIataCode() : null;
 
-				correctIATA = flightNumber != null && airlineIataCode != null && flightNumber.startsWith(airlineIataCode);
+				correctIATA = !flightNumber.isBlank() && flightNumber.startsWith(airlineIataCode);
 				super.state(context, correctIATA, "flightNumber", "acme.validation.constraints.leg.flightNumber-IATACode.message");
 			}
 			{
