@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="flight-crew-member.flight-assignment.list.label.flight-number" path="leg.flightNumber" width="30%"/>
-	<acme:list-column code="flight-crew-member.flight-assignment.list.label.duty" path="duty" width="25%"/>
-	<acme:list-column code="flight-crew-member.flight-assignment.list.label.current-status" path="currentStatus" width="25%"/>
-	<acme:list-column code="flight-crew-member.flight-assignment.list.label.last-update" path="lastUpdate" width="20%"/>
+	<acme:list-column code="flight-crew-member.flight-assignment.list.label.flight-number" path="leg.legLabel" width="60%"/>
+	<acme:list-column code="flight-crew-member.flight-assignment.list.label.duty" path="duty" width="10%"/>
+	<acme:list-column code="flight-crew-member.flight-assignment.list.label.current-status" path="currentStatus" width="10%"/>
+	<acme:list-column code="flight-crew-member.flight-assignment.list.label.last-update" path="lastUpdate" width="15%"/>
 </acme:list>
 
 <jstl:if test="${_command == 'list-completed' or _command == 'list-uncompleted'}">

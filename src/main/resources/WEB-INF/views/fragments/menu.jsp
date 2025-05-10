@@ -25,6 +25,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student4" action="https://palosfrontera.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.student5" action="https://ev.us.es/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.list-flight" action="/authenticated/flight/list" />
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>
@@ -47,6 +51,7 @@
 
 		<acme:menu-option code="master.menu.manager" access="hasRealm('Manager')">
 			<acme:menu-suboption code="master.menu.manager.list-my-flights" action="/manager/flight/list"/>
+			<acme:menu-suboption code="master.menu.manager.show-dashboard" action="/manager/manager-dashboard/show" />
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
@@ -64,6 +69,8 @@
 		<acme:menu-option code="master.menu.flight-crew-member" access="hasRealm('FlightCrewMember')">
 			<acme:menu-suboption code="master.menu.flight-crew-member.flight-assignment.list-completed" action="/flight-crew-member/flight-assignment/list-completed"/>
 			<acme:menu-suboption code="master.menu.flight-crew-member.flight-assignment.list-uncompleted" action="/flight-crew-member/flight-assignment/list-uncompleted"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.flight-crew-member.flight-assignment.show-dashboard" action="/flight-crew-member/flight-crew-member-dashboard/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
@@ -79,6 +86,8 @@
 			<acme:menu-suboption code="master.menu.user-account.provider-profile" action="/authenticated/provider/update" access="hasRealm('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRealm('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer-profile" action="/authenticated/consumer/update" access="hasRealm('Consumer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRealm('Manager')"/>
+			<acme:menu-suboption code="master.menu.user-account.manager-profile" action="/authenticated/manager/update" access="hasRealm('Manager')"/>
 		</acme:menu-option>
 	</acme:menu-right>
 </acme:menu-bar>

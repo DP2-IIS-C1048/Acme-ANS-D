@@ -42,8 +42,8 @@ maintenance-record-26,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"
 # aircraft - standard variations
 maintenance-record-27,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-01,technician-00
 maintenance-record-28,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-02,technician-00
-# aircraft - singular values
+# aircraft - no singular values
 # technician - standard variations
 maintenance-record-29,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-01
 maintenance-record-30,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-02
-# technician - singular values
+# technician - no singular values

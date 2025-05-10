@@ -1,0 +1,13 @@
+key,code,moneyToDiscount
+# base entity
+promotion-00,"AAAA-25",0.05
+# code - standard variations
+promotion-01,"ABCD-25",0.05
+promotion-02,"DCBA-25",0.05
+promotion-03,"FFFF-25",0.05
+# code - no singular values
+# moneyToDiscount - standard variations
+promotion-04,"AAAZ-25",0.00
+promotion-05,"AAAY-25",0.01
+promotion-06,"AAAX-25",99.99
+promotion-07,"AAAW-25",100.00
