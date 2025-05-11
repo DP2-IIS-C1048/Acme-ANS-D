@@ -64,6 +64,14 @@ master.menu.manager = Manager
 master.menu.manager.list-my-flights= Ver mis vuelos
 master.menu.manager.show-dashboard = Mostrar dashboard
 
+# master.menu.technician ########################################################
+
+master.menu.technician = Técnico
+master.menu.technician.list-my-maintenance-records = Ver mis registros de mantenimiento
+master.menu.technician.list-my-tasks = Ver mis tareas
+master.menu.technician.list-all-maintenance-records-published = Ver todos los registros de mantenimiento publicados
+master.menu.technician.list-all-tasks-published = Ver todas las tareas publicadas
+
 # master.menu.customer ##########################################################
 
 master.menu.customer = Cliente
