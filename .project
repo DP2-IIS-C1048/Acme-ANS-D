@@ -36,14 +36,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>acme-framework-25.3.0</name>
+			<name>acme-framework-25.5.0</name>
 			<type>2</type>
-			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-25.3.0/target/classes</locationURI>
+			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-25.5.0/target/classes</locationURI>
 		</link>
 		<link>
 			<name>target/classes</name>
 			<type>2</type>
-			<location>WORKSPACE_LOC/Projects/Acme-ANS-D03/target/classes/</location>
+			<location>//C:/Users/34722/Documents/DP2/Workspace-25/Projects/Acme-ANS-D04/target/classes/</location>
 		</link>
 	</linkedResources>
 	<filteredResources>
