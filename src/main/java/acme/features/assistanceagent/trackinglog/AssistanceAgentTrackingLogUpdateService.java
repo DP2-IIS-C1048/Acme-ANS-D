@@ -3,6 +3,7 @@ package acme.features.assistanceagent.trackinglog;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -80,10 +81,10 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 			TrackingLog highestTrackingLog;
 			Collection<TrackingLog> trackingLogs = this.repository.findOrderTrackingLogs(trackingLog.getClaim().getId());
 			if (trackingLog.getResolutionPercentage() != null && trackingLogs.size() > 0) {
-				highestTrackingLog = trackingLogs.stream().findFirst().get();
+				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
 				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
 				if (highestTrackingLog.getId() != trackingLog.getId())
-					if (highestTrackingLog.getResolutionPercentage().equals(100.00) && trackingLog.getResolutionPercentage().equals(100.00))
+					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)
 						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
 					else
 						isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
@@ -99,6 +100,7 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 		super.state(isNotWrongResolution2, "resolution", "acme.validation.trackingLog.isNotWrongResolution2.message");
 		super.state(isNotMaxCompleted, "resolutionPercentage", "acme.validation.trackingLog.isNotMaxCompleted.message");
 		super.state(isWrongResolutionPercentage3, "resolutionPercentage", "acme.validation.trackingLog.isWrongResolutionPercentage3.message");
+
 	}
 
 	@Override

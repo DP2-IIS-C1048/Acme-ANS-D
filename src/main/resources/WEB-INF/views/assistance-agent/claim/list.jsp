@@ -18,7 +18,7 @@
 <acme:list>
 	<acme:list-column code="assistanceAgent.claim.list.label.registrationMoment" path="registrationMoment" width="20%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.type" path="type" width="20%"/>
-	<acme:list-column code="assistanceAgent.claim.list.label.leg" path="leg" width="20%"/>
+	<acme:list-column code="assistanceAgent.claim.list.label.leg" path="leg.flightNumber" width="20%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.trackingLogType" path="trackingLogType" width="20%"/>
 	<acme:list-column code="assistanceAgent.claim.list.label.draftMode" path="draftMode" width="20%"/>
 	<acme:list-payload path="payload"/>
