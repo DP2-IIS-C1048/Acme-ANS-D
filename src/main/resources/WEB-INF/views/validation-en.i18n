@@ -11,6 +11,7 @@
 acme.validation.length = Text too long
 acme.validation.range = Number out of range
 acme.validation.airline.duplicated-iataCode.message = An airline with this IATA code already exists
+acme.validation.confirmation.message = Confirm the operation.
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = The employee Code is duplicated
 acme.validation.flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
@@ -82,4 +83,11 @@ acme.validation.booking.published.passenger-not-published.message = This booking
 acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you.
 acme.validation.booking-record.create.passenger-not-published.message = This passenger is not published.
 
+
 acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
+acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
+
+acme.validation.aircraft.airline-not-found.message = Airline not found.
+
+acme.validation.administrator.aircraft.status-MAINTENANCE.message = The aircraft is already in maintenance.
+
