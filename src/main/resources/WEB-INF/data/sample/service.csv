@@ -1,0 +1,27 @@
+key,name,picture,averageDwellTime,key:promotion,key:airport
+# base entity
+service-00,"service-00","https://imgur.com/jXN0fmA.png",1,null,airport-01
+# name - standard variations
+service-01,"L","https://imgur.com/By36J3Q.png",1,null,airport-01
+service-02,"Lo","https://imgur.com/lx2IMNs.png",1,null,airport-01
+service-03,"Lorem ipsum dolor sit amet, consectetur adipiscin","https://imgur.com/5Tuo7JE.png",1,null,airport-01
+service-04,"Lorem ipsum dolor sit amet, consectetur adipiscing","https://imgur.com/1EqOtr6.png",1,null,airport-01
+# name - no singular values
+# picture - standard variations
+# picture - no singular values
+# averageDwellTime - standard variations
+service-05,"service-05","https://imgur.com/ikg1EHX.png",0.00,null,airport-01
+service-06,"service-06","https://imgur.com/vCcTMa7.png",0.01,null,airport-01
+service-07,"service-07","https://imgur.com/6bpswFH.png",99.99,null,airport-01
+service-08,"service-08","https://imgur.com/OPmMYfa.png",100.00,null,airport-01
+# averageDwellTime - no singular values
+# promotion - standard variations
+service-09,"service-09","https://imgur.com/R0XL2Q2.png",1,promotion-04,airport-01
+service-10,"service-10","https://imgur.com/RruaRQY.png",1,promotion-05,airport-01
+service-11,"service-11","https://imgur.com/ndhMV7I.png",1,promotion-06,airport-01
+service-12,"service-12","https://imgur.com/OGjedzj.png",1,promotion-07,airport-01
+# promotion - no singular values
+# airport - standard variations
+service-13,"service-13","https://imgur.com/uLqB9CF.png",1,null,airport-02
+service-14,"service-14","https://imgur.com/HIYyNwo.png",1,null,airport-03
+# airport - no singular values

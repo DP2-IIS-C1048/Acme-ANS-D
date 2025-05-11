@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
+import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airport.Airport;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
@@ -76,7 +78,25 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void validate(final Leg leg) {
-		;
+		boolean validAircraft;
+
+		if (leg.getAircraft() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
+			validAircraft = this.repository.isAircraftNotInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival());
+
+			super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
+		}
+		Collection<Aircraft> aircrafts;
+		aircrafts = this.repository.findActiveAircrafts();
+
+		if (leg.getAircraft() != null)
+			super.state(aircrafts.contains(leg.getAircraft()), "aircraft", "acme.validation.leg.aircraft-active.message");
+
+		if (leg.getScheduledDeparture() != null)
+			super.state(MomentHelper.isFuture(leg.getScheduledDeparture()), "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
+
+		if (leg.getScheduledArrival() != null)
+			super.state(MomentHelper.isFuture(leg.getScheduledArrival()), "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
+
 	}
 
 	@Override
@@ -95,9 +115,11 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 		SelectChoices choiceStatuses;
 
 		airports = this.repository.findAllAirports();
-		aircrafts = this.repository.findAllAircrafts();
+		aircrafts = this.repository.findActiveAircrafts();
+		if (!aircrafts.contains(leg.getAircraft()))
+			leg.setAircraft(null);
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
-		choiceAircrafts = SelectChoices.from(aircrafts, "displayName", leg.getAircraft());
+		choiceAircrafts = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
 		choiceDepartureAirports = SelectChoices.from(airports, "iataCode", leg.getDepartureAirport());
 		choiceArrivalAirports = SelectChoices.from(airports, "iataCode", leg.getArrivalAirport());
 		choiceStatuses = SelectChoices.from(LegStatus.class, leg.getStatus());

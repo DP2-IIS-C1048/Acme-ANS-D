@@ -1,0 +1,42 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.leg.form.title = leg form
+manager.leg.list.title = Listing of legs
+
+manager.leg.form.label.title = Title:
+manager.leg.form.label.flightNumber = Flight number:
+manager.leg.form.label.scheduledArrival = Scheduled arrival:
+manager.leg.form.label.scheduledDeparture = Scheduled departure:
+manager.leg.form.label.departureAirport = Departure airport:
+manager.leg.form.label.arrivalAirport = Arrival airport:
+manager.leg.form.label.aircraft = Aircraft:
+manager.leg.form.label.status = Status:
+manager.leg.form.label.draftMode = Draft mode:
+
+manager.leg.form.button.create = Create
+manager.leg.form.button.update = Update
+manager.leg.form.button.delete = Delete
+manager.leg.form.button.publish = Publish
+manager.leg.form.button.landed = Landed
+manager.leg.form.button.delayed = Delayed
+manager.leg.form.button.cancelled = Cancelled
+
+
+manager.leg.list.label.flightNumber = Flight No.
+manager.leg.list.label.scheduledArrival = Scheduled arrival
+manager.leg.list.label.scheduledDeparture = Scheduled departure
+manager.leg.list.label.departureAirportIataCode = IATA departure airport
+manager.leg.list.label.arrivalAirportIataCode = IATA arrival airport
+manager.leg.list.label.aircraftRegistrationNumber = Aircraft No.
+manager.leg.list.label.status = Status
+manager.leg.list.label.draftMode = Draft mode
+
+manager.leg.list.button.create = Create

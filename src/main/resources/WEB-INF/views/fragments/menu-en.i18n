@@ -18,14 +18,28 @@ master.menu.anonymous.favourite-link.student3 = 7717****: Basallote Braza, David
 master.menu.anonymous.favourite-link.student4 = 4928****: Rodíguez Muñoz, Rafael
 master.menu.anonymous.favourite-link.student5 = 2965****: Herrera Luján, Marco Antonio
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.list-flight= List flights
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.list-user-accounts = List user accounts
+master.menu.administrator.list-aircrafts = List aircrafts
 master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
+
+
+master.menu.administrator.airport = Airport
+master.menu.administrator.list-airports = List airports
+
+master.menu.administrator.airline = Airlines
+master.menu.administrator.list-airlines = List airlines
+
+
 
 # master.menu.provider ########################################################
 
@@ -37,10 +51,36 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.flight-crew-member ##########################################################
+
+master.menu.flight-crew-member.flight-assignment.list-completed = Completed flight assignments
+master.menu.flight-crew-member.flight-assignment.list-uncompleted = Uncompleted flight assignments
+master.menu.flight-crew-member.flight-assignment.show-dashboard = Show dashboard
+
 # master.menu.manager ########################################################
 
-master.menu.manager = manager
-master.menu.manager.list-my-flights= See my flights
+master.menu.manager = Manager
+master.menu.manager.list-my-flights= List my flights
+master.menu.manager.show-dashboard = Show dashboard
+
+# master.menu.customer ##########################################################
+
+master.menu.customer = Customer
+master.menu.customer.list-my-passengers = My Passengers
+
+
+# master.menu.customer ##########################################################
+
+master.menu.customer = Customer
+master.menu.customer.list-my-bookings = My Bookings
+
+# master.menu.technician ########################################################
+
+master.menu.technician = Technician
+master.menu.technician.list-my-maintenance-records = See my maintenance records
+master.menu.technician.list-my-tasks = See my tasks
+master.menu.technician.list-all-maintenance-records-published = See all maintenance records published
+master.menu.technician.list-all-tasks-published = See all tasks published
 
 # master.menu.assistanceagent ########################################################
 
@@ -56,3 +96,5 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+master.menu.user-account.become-manager = Become a manager
+master.menu.user-account.manager-profile = Manager profile
