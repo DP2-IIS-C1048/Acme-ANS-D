@@ -67,6 +67,9 @@ acme.validation.manager.invalid-identifierNumber.message = The identifier number
 acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists.
 acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
 
+acme.validation.customer.invalid-identifier.message = The customer's identifier number already exists.
+acme.validation.customer.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
+
 acme.validation.customer.duplicated-identifier.message = The customer identifier already exists.
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
