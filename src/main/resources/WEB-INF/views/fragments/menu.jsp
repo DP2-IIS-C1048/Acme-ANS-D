@@ -48,6 +48,10 @@
 			<acme:menu-suboption code="master.menu.administrator.list-airports" action="/administrator/airport/list"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.administrator.booking" access="hasRealm('Administrator')">
+			<acme:menu-suboption code="master.menu.administrator.list-bookings" action="/administrator/booking/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
