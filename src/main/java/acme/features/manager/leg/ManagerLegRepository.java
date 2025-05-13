@@ -29,13 +29,13 @@ public interface ManagerLegRepository extends AbstractRepository {
 	Collection<Leg> findLegsPublishedByArrivalDepartureDate(Date departureDate, Date arrivalDate, int flightId);
 
 	@Query("""
-		        SELECT COUNT(l) = 0
+		        SELECT l
 		        FROM Leg l
 		        WHERE l.aircraft.id = :aircraftId AND l.draftMode = false AND (
-		            (l.scheduledDeparture < :arrivalDate AND l.scheduledArrival > :departureDate)
+		            (:departureDate < l.scheduledArrival AND :arrivalDate > l.scheduledDeparture)
 		        )
 		""")
-	boolean isAircraftNotInUse(int aircraftId, Date departureDate, Date arrivalDate);
+	Collection<Leg> findLegsWithAircraftNotInUse(int aircraftId, Date departureDate, Date arrivalDate);
 
 	@Query("SELECT a FROM Aircraft a")
 	Collection<Aircraft> findAllAircrafts();
