@@ -71,7 +71,7 @@ acme.validation.customer.duplicated-identifier.message = The customer identifier
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
-acme.validation.booking.departure-not-in-future.message = This flight has already been deported.
+acme.validation.booking.departure-not-in-future.message = This flight has already been deported. This is not a code 500 because a customer can create a booking with a flight. Time after, he can show the booking. That flight is not on the list due to i only list that flights that have not been deported yet and that flight has already been deported. 
 acme.validation.booking.is-not-draft-mode.message = This booking can't be updated. It isn't on draftMode.
 acme.validation.booking.flight.not-found.messasge = This flight couldn't be found.
 
