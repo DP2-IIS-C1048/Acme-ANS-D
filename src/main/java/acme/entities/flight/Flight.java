@@ -100,6 +100,11 @@ public class Flight extends AbstractEntity {
 		return repository.getNumbersOfLegsByFlightId(this.getId());
 	}
 
+	@Transient
+	public String getFlightRoute() {
+		return this.getOriginCity() + " " + this.getScheduledDeparture() + " - " + this.getDestinationCity() + " " + this.getScheduledArrival();
+	}
+
 	// Relationships ----------------------------------------------------------
 
 
@@ -107,5 +112,4 @@ public class Flight extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Manager manager;
-
 }
