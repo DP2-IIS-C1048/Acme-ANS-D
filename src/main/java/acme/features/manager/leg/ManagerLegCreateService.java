@@ -11,6 +11,7 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
+import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airport.Airport;
 import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
@@ -34,6 +35,27 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		flight = this.repository.findFlightById(masterId);
 		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
+		if (status) {
+			String method;
+			int aircraftId, departureAirportId, arrivalAirportId;
+			Aircraft aircraft;
+			Airport departureAirport, arrivalAirport;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+
+				aircraftId = super.getRequest().getData("aircraft", int.class);
+				departureAirportId = super.getRequest().getData("departureAirport", int.class);
+				arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
+				aircraft = this.repository.findAircraftById(aircraftId);
+				departureAirport = this.repository.findAirportById(departureAirportId);
+				arrivalAirport = this.repository.findAirportById(arrivalAirportId);
+				status = (aircraftId == 0 || aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE)) && (arrivalAirportId == 0 || arrivalAirport != null) && (departureAirportId == 0 || departureAirport != null);
+			}
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -92,12 +114,6 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 			super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
 		}
-		Collection<Aircraft> aircrafts;
-		aircrafts = this.repository.findActiveAircrafts();
-
-		if (leg.getAircraft() != null && !aircrafts.contains(leg.getAircraft()))
-			super.state(false, "aircraft", "acme.validation.leg.aircraft-active.message");
-
 		if (leg.getScheduledDeparture() != null && !MomentHelper.isFuture(leg.getScheduledDeparture()))
 			super.state(false, "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
 
@@ -124,8 +140,6 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		airports = this.repository.findAllAirports();
 
 		aircrafts = this.repository.findActiveAircrafts();
-		if (!aircrafts.contains(leg.getAircraft()))
-			leg.setAircraft(null);
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
 
 		choiceAircrafts = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
