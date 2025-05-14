@@ -13,6 +13,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
 import acme.entities.booking.Booking;
+import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
 import acme.realms.customer.Customer;
 
@@ -86,10 +87,12 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	public void unbind(final Booking booking) {
 		Dataset dataset;
 		Collection<Flight> flights;
+		SelectChoices travelClassChoices;
 		SelectChoices choices;
 		Date moment;
 		Flight selectedFlight = booking.getFlight();
 
+		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		moment = MomentHelper.getCurrentMoment();
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
@@ -99,6 +102,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
+		dataset.put("travelClasses", travelClassChoices);
 		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 
