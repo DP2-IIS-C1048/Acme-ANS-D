@@ -26,8 +26,25 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
+		boolean status;
+		String method;
+		int flightId;
+		Date moment;
 
-		super.getResponse().setAuthorised(true);
+		method = super.getRequest().getMethod();
+		moment = MomentHelper.getCurrentMoment();
+
+		if (method.equals("GET"))
+			status = true;
+		else {
+			status = true;
+			flightId = super.getRequest().getData("flight", int.class);
+			Flight flightSelected = this.repository.findFlightById(flightId);
+			Collection<Flight> flightsAvilable = this.repository.findFlightsWithFirstLegAfter(moment);
+			if (flightSelected != null && !flightsAvilable.contains(flightSelected))
+				status = false;
+		}
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -95,9 +112,6 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		moment = MomentHelper.getCurrentMoment();
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
-
-		if (selectedFlight != null && !flights.contains(selectedFlight))
-			selectedFlight = null;
 
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 

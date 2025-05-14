@@ -34,8 +34,26 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		masterId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && booking.isDraftMode();
+		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
 
+		if (status) {
+			String method;
+			int flightId;
+			Date moment;
+
+			method = super.getRequest().getMethod();
+			moment = MomentHelper.getCurrentMoment();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				status = true;
+				flightId = super.getRequest().getData("flight", int.class);
+				Flight flightSelected = this.repository.findFlightById(flightId);
+				if (flightSelected == null)
+					status = false;
+			}
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -107,7 +125,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
 		if (selectedFlight != null && !flights.contains(selectedFlight))
-			flights.add(selectedFlight);
+			selectedFlight = null;
 
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
