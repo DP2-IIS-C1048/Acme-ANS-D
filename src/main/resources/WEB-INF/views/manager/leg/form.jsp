@@ -33,7 +33,7 @@
 			<acme:submit code="manager.leg.form.button.publish" action="/manager/leg/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="manager.leg.form.button.create" action="/manager/leg/create?masterId=${masterId}"/>
+			<acme:submit code="manager.leg.form.button.create" action="/manager/leg/create?flightId=${flightId}"/>
 		</jstl:when>
 		<jstl:when test="${draftMode == false}">
 			<acme:submit code="manager.leg.form.button.landed" action="/manager/leg/landed"/>
