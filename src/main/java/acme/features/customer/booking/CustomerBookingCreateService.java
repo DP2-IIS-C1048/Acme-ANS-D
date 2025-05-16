@@ -41,7 +41,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 			flightId = super.getRequest().getData("flight", int.class);
 			Flight flightSelected = this.repository.findFlightById(flightId);
 			Collection<Flight> flightsAvilable = this.repository.findFlightsWithFirstLegAfter(moment);
-			if (flightSelected != null && !flightsAvilable.contains(flightSelected))
+			if (flightSelected == null || flightSelected != null && !flightsAvilable.contains(flightSelected))
 				status = false;
 		}
 		super.getResponse().setAuthorised(status);

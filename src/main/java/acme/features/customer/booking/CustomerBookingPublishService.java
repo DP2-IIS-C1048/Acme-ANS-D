@@ -41,10 +41,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		if (status) {
 			String method;
 			int flightId;
-			Date moment;
 
 			method = super.getRequest().getMethod();
-			moment = MomentHelper.getCurrentMoment();
 
 			if (method.equals("GET"))
 				status = true;
