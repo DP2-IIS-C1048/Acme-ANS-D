@@ -58,8 +58,9 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftById(aircraftId);
 
-		super.bindObject(maintenanceRecord, "status", "inspectionDueDate", "estimatedCost", "notes");
+		super.bindObject(maintenanceRecord, "inspectionDueDate", "estimatedCost", "notes");
 		maintenanceRecord.setAircraft(aircraft);
+		maintenanceRecord.setStatus(MaintenanceStatus.PENDING);
 	}
 
 	@Override
@@ -76,12 +77,6 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 				super.state(inspectionDueDateIsAfterMaintenanceMoment, "inspectionDueDate", "acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment");
 			}
 		}
-		{
-			if (maintenanceRecord.getStatus() != null) {
-				boolean maintenanceRecordIsNotCompletedYet = !maintenanceRecord.getStatus().equals(MaintenanceStatus.COMPLETED);
-				super.state(maintenanceRecordIsNotCompletedYet, "status", "acme.validation.maintenance-record.maintenance-record-is-not-completed-yet");
-			}
-		}
 	}
 
 	@Override
@@ -92,16 +87,13 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
-		SelectChoices statusChoices;
 		Collection<Aircraft> aircrafts;
 		SelectChoices aircraftChoices;
 
-		statusChoices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
 		aircrafts = this.repository.findAllAircrafts();
 		aircraftChoices = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
-		dataset.put("statuses", statusChoices);
+		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "inspectionDueDate", "estimatedCost", "notes", "draftMode");
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);
 
