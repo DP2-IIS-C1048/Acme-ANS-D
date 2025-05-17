@@ -38,6 +38,22 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
+		if (status) {
+			String method;
+			int aircraftId;
+			Aircraft aircraft;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				aircraftId = super.getRequest().getData("aircraft", int.class);
+				aircraft = this.repository.findAircraftById(aircraftId);
+				status = aircraft != null || aircraftId == 0;
+			}
+		}
+
 		super.getResponse().setAuthorised(status);
 
 	}
