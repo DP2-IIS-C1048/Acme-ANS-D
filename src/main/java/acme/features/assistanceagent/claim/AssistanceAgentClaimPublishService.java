@@ -25,14 +25,32 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
-		int claimId;
-		Claim claim;
-		AssistanceAgent assistanceAgent;
+		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
+		super.getResponse().setAuthorised(status);
 
-		claimId = super.getRequest().getData("id", int.class);
-		claim = this.repository.findClaimById(claimId);
-		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
-		status = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
+		if (status) {
+			String method;
+			int claimId, legId, assistanceAgentId;
+			Claim claim;
+			Leg leg;
+			AssistanceAgent assistanceAgent;
+			Collection<Leg> legs;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
+				claimId = super.getRequest().getData("id", int.class);
+				claim = this.repository.findClaimById(claimId);
+				legId = super.getRequest().getData("leg", int.class);
+				legs = this.repository.findAllPublishedLegsByAirlineId(MomentHelper.getCurrentMoment(), assistanceAgent.getAirline().getId());
+				leg = this.repository.finLegById(legId);
+				status = legs.contains(leg) && claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,7 +68,7 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 
 	@Override
 	public void bind(final Claim claim) {
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg");
+		super.bindObject(claim, "passengerEmail", "description", "type", "leg");
 	}
 
 	@Override
@@ -84,11 +102,12 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		legs = this.repository.findAllPublishedLegsByAirlineId(MomentHelper.getCurrentMoment(), assistanceAgent.getAirline().getId());
 		if (!legs.contains(claim.getLeg()))
 			claim.setLeg(null);
-		legChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
+		legChoices = SelectChoices.from(legs, "LegLabel", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "passengerEmail", "description", "type", "draftMode", "leg");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode", "leg");
 		dataset.put("types", typeChoices);
 		dataset.put("legs", legChoices);
+		dataset.put("trackingLogType", claim.getIndicator());
 
 		super.getResponse().addData(dataset);
 

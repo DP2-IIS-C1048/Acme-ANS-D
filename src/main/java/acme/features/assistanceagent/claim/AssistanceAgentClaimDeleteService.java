@@ -91,11 +91,12 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		legs = this.repository.findAllPublishedLegsByAirlineId(MomentHelper.getCurrentMoment(), assistanceAgent.getAirline().getId());
 		if (!legs.contains(claim.getLeg()))
 			claim.setLeg(null);
-		legChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
+		legChoices = SelectChoices.from(legs, "LegLabel", claim.getLeg());
 
 		dataset = super.unbindObject(claim, "passengerEmail", "description", "type", "draftMode", "leg");
 		dataset.put("types", typeChoices);
 		dataset.put("legs", legChoices);
+		dataset.put("trackingLogType", claim.getIndicator());
 
 		super.getResponse().addData(dataset);
 

@@ -1,7 +1,6 @@
 
 package acme.features.assistanceagent.claim;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 
@@ -28,6 +27,32 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 	public void authorise() {
 		boolean status;
 		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
+		super.getResponse().setAuthorised(status);
+
+		if (status) {
+			String method;
+			int claimId, legId, assistanceAgentId;
+			Claim claim;
+			Leg leg;
+			AssistanceAgent assistanceAgent;
+			Collection<Leg> legs;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
+				claimId = super.getRequest().getData("id", int.class);
+				claim = this.repository.findClaimById(claimId);
+				legId = super.getRequest().getData("leg", int.class);
+				legs = this.repository.findAllPublishedLegsByAirlineId(MomentHelper.getCurrentMoment(), assistanceAgent.getAirline().getId());
+				leg = this.repository.finLegById(legId);
+				status = legs.contains(leg) && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
+			}
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -77,10 +102,6 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		leg = this.repository.finLegById(legId);
 		isNotWrongLeg2 = legs.contains(leg);
 
-		claimTypes = Arrays.asList(ClaimType.values());
-		type = super.getRequest().getData("type", ClaimType.class);
-		isNotWrongType = claimTypes.contains(type);
-
 		if (claim.getLeg() != null && claim.getRegistrationMoment() != null)
 			isNotWrongLeg = claim.getRegistrationMoment().after(claim.getLeg().getScheduledArrival());
 
@@ -115,11 +136,12 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		legs = this.repository.findAllPublishedLegsByAirlineId(MomentHelper.getCurrentMoment(), assistanceAgent.getAirline().getId());
 		if (!legs.contains(claim.getLeg()))
 			claim.setLeg(null);
-		legChoices = SelectChoices.from(legs, "flightNumber", claim.getLeg());
+		legChoices = SelectChoices.from(legs, "LegLabel", claim.getLeg());
 
 		dataset = super.unbindObject(claim, "passengerEmail", "description", "type", "draftMode", "leg");
 		dataset.put("types", typeChoices);
 		dataset.put("legs", legChoices);
+		dataset.put("trackingLogType", claim.getIndicator());
 
 		super.getResponse().addData(dataset);
 	}
