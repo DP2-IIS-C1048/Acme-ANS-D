@@ -39,6 +39,9 @@ master.menu.administrator.list-airports = Ver aeropuertos
 master.menu.administrator.airline = Aerolíneas
 master.menu.administrator.list-airlines = Ver aerolíneas
 
+master.menu.administrator.booking = Reservas
+master.menu.administrator.list-bookings= Ver Reservas
+
 
 # master.menu.provider ########################################################
 
