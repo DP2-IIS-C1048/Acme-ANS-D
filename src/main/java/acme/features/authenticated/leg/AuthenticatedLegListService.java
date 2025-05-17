@@ -27,7 +27,7 @@ public class AuthenticatedLegListService extends AbstractGuiService<Authenticate
 
 		flightId = super.getRequest().getData("flightId", int.class);
 		flight = this.repository.findFlightById(flightId);
-		status = super.getRequest().getPrincipal().isAuthenticated() && !flight.isDraftMode();
+		status = flight!=null && super.getRequest().getPrincipal().isAuthenticated() && !flight.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 

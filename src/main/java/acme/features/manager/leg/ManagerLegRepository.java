@@ -46,7 +46,7 @@ public interface ManagerLegRepository extends AbstractRepository {
 	@Query("SELECT f from Flight f where f.id = :id")
 	Flight findFlightById(int id);
 
-	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id ORDER BY l.scheduledDeparture ASC")
+	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id")
 	Collection<Leg> findAllLegsByFlightId(int id);
 
 	@Query("SELECT l.flight FROM Leg l WHERE l.id=:legId")
@@ -85,7 +85,7 @@ public interface ManagerLegRepository extends AbstractRepository {
 		""")
 	Leg findLastLegPublishedByFlightId(int flightId);
 
-	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id AND l.draftMode = false ORDER BY l.scheduledDeparture")
+	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id AND l.draftMode = false")
 	Collection<Leg> findAllLegsPublishedByFlightId(int id);
 
 	@Query("SELECT COUNT(l) FROM Leg l WHERE l.flight.id = :flightId AND l.draftMode = false")
