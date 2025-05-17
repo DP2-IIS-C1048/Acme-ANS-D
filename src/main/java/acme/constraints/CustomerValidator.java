@@ -39,7 +39,6 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 
 	@Override
 	public boolean isValid(final Customer customer, final ConstraintValidatorContext context) {
-		// HINT: job can be null
 		assert context != null;
 
 		boolean result;
@@ -47,26 +46,15 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 		if (customer == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			boolean uniqueCustomer;
+			boolean uniqueCustomer = false;
 			Customer existingCustomer;
 
-			existingCustomer = this.repository.findCustomerByIdentifier(customer.getIdentifier());
-			uniqueCustomer = existingCustomer == null || existingCustomer.equals(customer);
-
+			if (customer.getIdentifier() != null) {
+				existingCustomer = this.repository.findCustomerByIdentifier(customer.getIdentifier());
+				uniqueCustomer = existingCustomer == null || existingCustomer.equals(customer);
+			}
 			super.state(context, uniqueCustomer, "identifier", "acme.validation.customer.duplicated-identifier.message");
 		}
-		//Líneas comentadas para copiar y pegar despúes en el servicio y validar las iniciales del identifier.
-		//			{
-		//				boolean validIdentifier = false;
-		//				String name = customer.getIdentity().getName();
-		//				String surName = customer.getIdentity().getSurname();
-		//				String identifier = customer.getIdentifier();
-		//
-		//				if (name.charAt(0) == identifier.charAt(0) && surName.charAt(0) == identifier.charAt(1))
-		//					validIdentifier = true;
-		//				super.state(context, validIdentifier, "identifier", "acme.validation.customer.invalid-identifier.message");
-		//
-		//			}
 
 		result = !super.hasErrors(context);
 
