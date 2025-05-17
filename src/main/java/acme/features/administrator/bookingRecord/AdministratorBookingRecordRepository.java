@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
 import acme.entities.passenger.Passenger;
 
@@ -21,4 +22,10 @@ public interface AdministratorBookingRecordRepository extends AbstractRepository
 
 	@Query("select p from Passenger p where p.customer.id = :customerId")
 	Collection<Passenger> findPassengersByCustomerId(int customerId);
+
+	@Query("select b from Booking b where b.id = :bookingId")
+	Booking findBookingById(int bookingId);
+
+	@Query("select b.booking from BookingRecord b where b.id = :bookingRecordId")
+	Booking findBookingByBookingRecordId(int bookingRecordId);
 }

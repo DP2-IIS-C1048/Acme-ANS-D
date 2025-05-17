@@ -10,6 +10,7 @@ import acme.client.components.principals.Administrator;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
 import acme.entities.passenger.Passenger;
 
@@ -22,7 +23,15 @@ public class AdminisitratorBookingRecordShowService extends AbstractGuiService<A
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int bookingRecordId;
+		Booking booking;
+
+		bookingRecordId = super.getRequest().getData("id", int.class);
+		booking = this.repository.findBookingByBookingRecordId(bookingRecordId);
+		status = booking != null && !booking.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

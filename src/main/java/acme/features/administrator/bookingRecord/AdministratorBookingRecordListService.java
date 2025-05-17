@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
 import acme.client.services.AbstractGuiService;
+import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
 
 @Repository
@@ -20,7 +21,15 @@ public class AdministratorBookingRecordListService extends AbstractGuiService<Ad
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Booking booking;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		booking = this.repository.findBookingById(masterId);
+		status = booking != null && !booking.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
