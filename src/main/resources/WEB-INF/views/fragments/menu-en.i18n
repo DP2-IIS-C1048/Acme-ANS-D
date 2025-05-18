@@ -87,6 +87,8 @@ master.menu.technician.list-all-tasks-published = See all tasks published
 
 master.menu.user-account = Account
 master.menu.user-account.general-profile = General profile
+master.menu.user-account.become-flight-crew-member = Become a flight crew member
+master.menu.user-account.flight-crew-member-profile = Flight crew member profile
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
