@@ -51,7 +51,7 @@ public class AuthenticatedLegShowService extends AbstractGuiService<Authenticate
 		dataset.put("aircraft", leg.getAircraft().getRegistrationNumber());
 		dataset.put("departureAirport", leg.getDepartureAirport().getIataCode());
 		dataset.put("arrivalAirport", leg.getArrivalAirport().getIataCode());
-		dataset.put("masterId", leg.getFlight().getId());
+		dataset.put("flightId", leg.getFlight().getId());
 		super.getResponse().addData(dataset);
 	}
 }

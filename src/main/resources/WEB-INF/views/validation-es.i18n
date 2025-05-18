@@ -35,6 +35,23 @@ acme.validation.constraints.leg.departureAirport.message = El valor del aeropuer
 acme.validation.constraints.leg.aircraft.message = El valor de la aeronave no puede estar vacio
 acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
+
+acme.validation.technician.duplicated-license.message = Esta licencia ya está en uso en este momento
+acme.validation.task.delete.message = La tarea debe estar en modo borrador
+acme.validation.maintenance-record.valid-publication-status = El registro de mantenimiento debe estar completado
+acme.validation.maintenance-record.has-tasks = El registro de mantenimiento debe tener al menos una tarea
+acme.validation.maintenance-record.all-tasks-are-published = El registro de mantenimiento debe tener todas sus tareas publicadas
+acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment = La fecha de inspección debe ser posterior a la fecha de mantenimiento
+acme.validation.maintenance-record.maintenance-record-is-not-completed-yet = No puedes crear un registro de mantenimiento ya completo
+acme.validation.maintenance-record.tasks-are-not-duplicated = No puedes publicar un registro de mantenimiento con tareas duplicadas
+acme.validation.maintenance-record.is-in-draft-mode = Sólo puedes publicar un registro de mantenimiento si está en modo borrador
+acme.validation.involves.involves-is-possible = No es posible añadir esta tarea al registro de mantenimiento
+acme.validation.involves.maintenance-record-is-already-published = No puedes eliminar tareas de un registro de mantenimiento que ha sido publicado
+
+acme.validation.promotion.duplicated-promotion-code.message = El código de promoción ya ha sido usado
+acme.validation.promotion.promotion-code-pattern-mismatch.message = El formato del código de promoción no es correcto
+acme.validation.promotion.promotion-code-last-digits.message = La promoción no está disponible
+
 acme.validation.leg.aircraft-active.message=La aeronave seleccionada debe estar activa.
 acme.validation.constraints.leg.status-LANDED.message = El tramo no puede cambiar de estado ya que ya ha aterrizado
 acme.validation.constraints.leg.status-CANCELLED.message = El tramo no puede cambiar de estado ya que fue cancelado
@@ -45,6 +62,9 @@ acme.validation.currency.message = El tipo de moneda no está disponible
 
 acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
 acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
+
+acme.validation.customer.invalid-identifier.message = The customer's identifier number already exists.
+acme.validation.customer.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
 
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 

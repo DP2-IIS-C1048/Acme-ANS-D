@@ -4,7 +4,9 @@ package acme.entities.flight;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
@@ -24,6 +26,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "manager_id")
+})
 public class Flight extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -83,13 +88,13 @@ public class Flight extends AbstractEntity {
 	@Transient
 	public String getOriginCity() {
 		Leg firstLeg = this.getFirstLeg();
-		return firstLeg != null ? firstLeg.getDepartureAirport().getCity() : null;
+		return firstLeg != null && firstLeg.getDepartureAirport() != null ? firstLeg.getDepartureAirport().getCity() : null;
 	}
 
 	@Transient
 	public String getDestinationCity() {
 		Leg lastLeg = this.getLastLeg();
-		return lastLeg != null ? lastLeg.getArrivalAirport().getCity() : null;
+		return lastLeg != null && lastLeg.getArrivalAirport() != null ? lastLeg.getArrivalAirport().getCity() : null;
 	}
 
 	@Transient

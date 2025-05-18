@@ -22,11 +22,11 @@ public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int flightId;
 		Flight flight;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("flightId", int.class);
+		flight = this.repository.findFlightById(flightId);
 		status = flight != null && super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
 		super.getResponse().setAuthorised(status);
@@ -35,10 +35,10 @@ public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void load() {
 		Collection<Leg> legs;
-		int masterId;
+		int flightId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		legs = this.repository.findAllLegsByFlightId(masterId);
+		flightId = super.getRequest().getData("flightId", int.class);
+		legs = this.repository.findAllLegsByFlightId(flightId);
 
 		super.getBuffer().addData(legs);
 	}
@@ -54,15 +54,15 @@ public class ManagerLegListService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void unbind(final Collection<Leg> legs) {
-		int masterId;
+		int flightId;
 		Flight flight;
 		final boolean showCreate;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("flightId", int.class);
+		flight = this.repository.findFlightById(flightId);
 		showCreate = flight.isDraftMode();
 
-		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("flightId", flightId);
 		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 
