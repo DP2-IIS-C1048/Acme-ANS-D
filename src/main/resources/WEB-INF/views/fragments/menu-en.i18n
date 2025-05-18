@@ -21,7 +21,9 @@ master.menu.anonymous.favourite-link.student5 = 2965****: Herrera Luján, Marco 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
+master.menu.authenticated.list-flight-assignments = List flight assignments
 master.menu.authenticated.list-flight= List flights
+
 
 # master.menu.administrator ###################################################
 

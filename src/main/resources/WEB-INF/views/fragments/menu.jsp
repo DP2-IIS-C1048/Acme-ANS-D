@@ -27,6 +27,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.list-flight-assignments" action="/authenticated/flight-assignment/list" />
 			<acme:menu-suboption code="master.menu.authenticated.list-flight" action="/authenticated/flight/list" />
 		</acme:menu-option>
 
