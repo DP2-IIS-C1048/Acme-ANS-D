@@ -25,15 +25,18 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
-		super.getResponse().setAuthorised(status);
+		int claimId;
+		AssistanceAgent assistanceAgent;
+		Claim claim;
+		claimId = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimById(claimId);
+		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
+		status = claim != null && claim.isDraftMode() && super.getRequest().getPrincipal().hasRealm(assistanceAgent);
 
 		if (status) {
 			String method;
-			int claimId, legId, assistanceAgentId;
-			Claim claim;
+			int legId, assistanceAgentId;
 			Leg leg;
-			AssistanceAgent assistanceAgent;
 			Collection<Leg> legs;
 
 			method = super.getRequest().getMethod();
@@ -77,7 +80,6 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 		if (claim.getLeg() != null && claim.getRegistrationMoment() != null)
 			isNotWrongLeg = claim.getRegistrationMoment().after(claim.getLeg().getScheduledArrival());
 		super.state(isNotWrongLeg, "leg", "acme.validation.claim.wrongLeg.message");
-		super.state(claim.isDraftMode(), "draftMode", "acme.validation.claim.draftMode.message");
 		super.state(claim.getLeg() != null, "leg", "acme.validation.claim.nullLeg.message");
 	}
 

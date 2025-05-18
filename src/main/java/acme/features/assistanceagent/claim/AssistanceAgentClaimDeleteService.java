@@ -54,7 +54,7 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 
 	@Override
 	public void bind(final Claim claim) {
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg");
+		super.bindObject(claim, "passengerEmail", "description", "type", "leg");
 	}
 
 	@Override
@@ -63,7 +63,6 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		Collection<TrackingLog> trackingLogs = this.repository.findAllTrackingLogsByClaimId(claim.getId());
 		thereIsNotAnyTrackingLogs = trackingLogs.isEmpty();
 		super.state(thereIsNotAnyTrackingLogs, "*", "acme.validation.claim.thereIsTrackingLogs.message");
-		super.state(claim.isDraftMode(), "draftMode", "acme.validation.claim.draftMode.message");
 
 	}
 
@@ -93,7 +92,7 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 			claim.setLeg(null);
 		legChoices = SelectChoices.from(legs, "LegLabel", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "passengerEmail", "description", "type", "draftMode", "leg");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode", "leg");
 		dataset.put("types", typeChoices);
 		dataset.put("legs", legChoices);
 		dataset.put("trackingLogType", claim.getIndicator());

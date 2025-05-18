@@ -83,10 +83,11 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 			if (trackingLog.getResolutionPercentage() != null && trackingLogs.size() > 0) {
 				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
 				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
-				isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
-				if (highestTrackingLog.getId() != trackingLog.getId())
+				if (highestTrackingLog.getId() != trackingLog.getId()) {
 					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)
 						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
+				} else
+					isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
 			}
 
 		}
