@@ -29,7 +29,7 @@ public class ActivityLog extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidMoment(past = true, min = "2000/01/01 00:00")
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationMoment;
 

@@ -21,7 +21,9 @@ public class CompletedFlightAssignmentListService extends AbstractGuiService<Fli
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRealmOfType(FlightCrewMember.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class CompletedFlightAssignmentListService extends AbstractGuiService<Fli
 	public void unbind(final FlightAssignment flightAssignment) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flightAssignment, "duty", "lastUpdate", "currentStatus", "leg.flightNumber");
+		dataset = super.unbindObject(flightAssignment, "duty", "lastUpdate", "currentStatus", "leg.legLabel");
 		super.getResponse().addData(dataset);
 	}
 }

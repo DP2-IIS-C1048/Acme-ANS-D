@@ -2,6 +2,7 @@
 package acme.features.flight_crew_member.flight_assignments;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,6 +35,25 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		flightCrewMember = flightAssignment == null ? null : flightAssignment.getFlightCrewMember();
 		status = super.getRequest().getPrincipal().hasRealm(flightCrewMember) && flightAssignment != null && flightAssignment.isDraftMode();
+
+		if (status) {
+			String method;
+			int legtId;
+			String userFullNameInput;
+			Date lastUpdateInput;
+
+			method = super.getRequest().getMethod();
+			if (method.equals("GET"))
+				status = true;
+			else {
+				userFullNameInput = super.getRequest().getData("member", String.class);
+				lastUpdateInput = super.getRequest().getData("lastUpdate", Date.class);
+				legtId = super.getRequest().getData("leg", int.class);
+				Leg leg = this.repository.findLegById(legtId);
+				Collection<Leg> uncompletedLegs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
+				status = (legtId == 0 || uncompletedLegs.contains(leg)) && userFullNameInput.equals(flightCrewMember.getIdentity().getFullName()) && lastUpdateInput.equals(flightAssignment.getLastUpdate());
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}

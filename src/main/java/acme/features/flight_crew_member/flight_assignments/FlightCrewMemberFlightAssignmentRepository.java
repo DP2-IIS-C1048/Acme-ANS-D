@@ -32,7 +32,7 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select fcm from FlightCrewMember fcm where fcm.airline.id=:airlineId and fcm.availabilityStatus = :status")
 	Collection<FlightCrewMember> findAvailableFlightCrewMembersFromAirline(int airlineId, AvailabilityStatus status);
 
-	@Query("select l from Leg l where l.scheduledDeparture>:now")
+	@Query("select l from Leg l where l.scheduledDeparture>:now and l.draftMode = false")
 	Collection<Leg> findUncompletedLegs(Date now);
 
 	@Query("select al from ActivityLog al where al.flightAssignment.id = :flightAssignmentId")
@@ -44,8 +44,8 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("select l from Leg l where l.id = :legId")
 	Leg findLegById(int legId);
 
-	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId")
-	Collection<FlightAssignment> findFlightAssignmentsByLegId(int legId);
+	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId and fa.draftMode = false")
+	Collection<FlightAssignment> findPublishedFlightAssignmentsByLegId(int legId);
 
 	@Query("select fa from FlightAssignment fa where fa.flightCrewMember.id = :memberId and fa.draftMode = false and fa.leg.scheduledDeparture < :newArrival and fa.leg.scheduledArrival > :newDeparture")
 	Collection<FlightAssignment> findOverlappingPublishedFlightAssignments(int memberId, Date newDeparture, Date newArrival);

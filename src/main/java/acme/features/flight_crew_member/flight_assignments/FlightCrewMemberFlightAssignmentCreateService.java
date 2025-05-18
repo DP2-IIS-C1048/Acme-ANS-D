@@ -26,9 +26,27 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 	@Override
 	public void authorise() {
 		boolean status;
-		FlightCrewMember flightCrewMember;
-		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-		status = super.getRequest().getPrincipal().hasRealm(flightCrewMember);
+		status = super.getRequest().getPrincipal().hasRealmOfType(FlightCrewMember.class);
+
+		if (status) {
+			String method;
+			int legtId;
+			String userFullNameInput;
+			FlightCrewMember flightCrewMember;
+
+			method = super.getRequest().getMethod();
+			if (method.equals("GET"))
+				status = true;
+			else {
+				flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+				userFullNameInput = super.getRequest().getData("member", String.class);
+				legtId = super.getRequest().getData("leg", int.class);
+				Leg leg = this.repository.findLegById(legtId);
+				Collection<Leg> uncompletedLegs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
+				status = (legtId == 0 || uncompletedLegs.contains(leg)) && userFullNameInput.equals(flightCrewMember.getIdentity().getFullName());
+			}
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
