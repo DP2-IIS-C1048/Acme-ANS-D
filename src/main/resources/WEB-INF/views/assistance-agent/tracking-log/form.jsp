@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<jstl:if test="${_command == 'show'}">
+	<jstl:if test="${_command != 'create'}">
 		<acme:input-moment code="assistanceAgent.tracking-log.form.label.lastUpdateMoment" path="lastUpdateMoment" readonly="true"/>
 	</jstl:if>
 	<acme:input-textbox code="assistanceAgent.tracking-log.form.label.step" path="step"/>

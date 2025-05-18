@@ -24,12 +24,13 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 		if (trackingLog == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-		else if (trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING) && trackingLog.getResolutionPercentage() == 100.00)
-			super.state(context, false, "indicator", "acme.validation.trackinglog.invalid-indicator.message");
-		else if (!trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING) && trackingLog.getResolutionPercentage() != 100.00)
-			super.state(context, false, "indicator", "acme.validation.trackinglog.invalid-indicator.message");
-		else if (!trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING) && (trackingLog.getResolution() == null || trackingLog.getResolution().isBlank()))
-			super.state(context, false, "indicator", "acme.validation.trackinglog.invalid-resolution.message");
+		else if (trackingLog.getResolutionPercentage() != null && trackingLog.getIndicator() != null)
+			if (trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING) && trackingLog.getResolutionPercentage() == 100.00)
+				super.state(context, false, "indicator", "acme.validation.trackinglog.invalid-indicator.message");
+			else if (!trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING) && trackingLog.getResolutionPercentage() != 100.00)
+				super.state(context, false, "indicator", "acme.validation.trackinglog.invalid-indicator.message");
+			else if (!trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING) && (trackingLog.getResolution() == null || trackingLog.getResolution().isBlank()))
+				super.state(context, false, "indicator", "acme.validation.trackinglog.invalid-resolution.message");
 		result = !super.hasErrors(context);
 		return result;
 	}

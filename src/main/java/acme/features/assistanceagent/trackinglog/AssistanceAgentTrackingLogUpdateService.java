@@ -62,12 +62,12 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 		boolean isNotWrongResolution2 = true;
 		boolean isNotMaxCompleted = true;
 		boolean isWrongResolutionPercentage3 = true;
+		boolean isWrongResolutionPercentage4 = true;
 
 		allIndicators = Arrays.asList(TrackingLogIndicator.values());
 		indicator = super.getRequest().getData("indicator", TrackingLogIndicator.class);
 		isNotWrongIndicator = allIndicators.contains(indicator);
-
-		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0)
+		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getIndicator() != null)
 			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
 		else if (trackingLog.getIndicator() != null)
 			isNotWrongResolutionPercentage2 = !trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
@@ -83,11 +83,10 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 			if (trackingLog.getResolutionPercentage() != null && trackingLogs.size() > 0) {
 				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
 				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
+				isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
 				if (highestTrackingLog.getId() != trackingLog.getId())
 					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)
 						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
-					else
-						isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
 			}
 
 		}

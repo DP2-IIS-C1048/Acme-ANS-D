@@ -111,5 +111,5 @@ acme.validation.trackingLog.resolutionPercentage.message =For a tracking log to 
 acme.validation.trackingLog.resolutionPercentage2.message = For a tracking log to have a resolution percentage of 100, it must have a estate different of PENDING
 acme.validation.trackingLog.isNotWrongResolution.message = Resolutions are only available with a 100% percentage and when the estate is not PENDING
 acme.validation.trackingLog.isNotWrongResolution2.message = You must enter a resolution when the estate is not PENDING and the percentage is 100%
-acme.validation.trackingLog.isNotMaxCompleted.message = There can only be 2 tracking logs with a resolution percentage equal to 100
+acme.validation.trackingLog.isNotMaxCompleted.message = There can only be 2 tracking logs with a resolution percentage equal to 100 or there is one in draft mode with 100
 acme.validation.trackingLog.isWrongResolutionPercentage3.message =  The percentage of the new trackinglog must be higher than the highest recorded for this claim
