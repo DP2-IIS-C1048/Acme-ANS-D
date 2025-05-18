@@ -28,11 +28,11 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int flightId;
 		Flight flight;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("flightId", int.class);
+		flight = this.repository.findFlightById(flightId);
 		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
 
 		if (status) {
@@ -62,11 +62,11 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	@Override
 	public void load() {
 		Flight flight;
-		int masterId;
+		int flightId;
 		Leg leg;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("flightId", int.class);
+		flight = this.repository.findFlightById(flightId);
 
 		leg = new Leg();
 		leg.setFlight(flight);
@@ -110,7 +110,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		boolean validAircraft;
 
 		if (leg.getAircraft() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
-			validAircraft = this.repository.findLegsWithAircraftNotInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
+			validAircraft = this.repository.findLegsWithAircraftInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
 
 			super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
 		}
@@ -154,7 +154,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		dataset.put("arrivalAirport", choiceArrivalAirports.getSelected().getKey());
 		dataset.put("arrivalAirports", choiceArrivalAirports);
 		dataset.put("statuses", choiceStatuses);
-		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("flightId", super.getRequest().getData("flightId", int.class));
 
 		super.getResponse().addData(dataset);
 	}

@@ -157,7 +157,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		boolean validAircraft;
 
 		if (leg.getAircraft() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
-			validAircraft = this.repository.findLegsWithAircraftNotInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
+			validAircraft = this.repository.findLegsWithAircraftInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
 
 			super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
 		}
