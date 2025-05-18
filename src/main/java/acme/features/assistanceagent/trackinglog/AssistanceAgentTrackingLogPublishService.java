@@ -51,12 +51,12 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void bind(final TrackingLog trackinglog) {
-		super.bindObject(trackinglog, "step", "resolutionPercentage", "indicator", "resolution", "draftMode");
+		super.bindObject(trackinglog, "step", "resolutionPercentage", "indicator", "resolution");
 	}
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		super.state(trackingLog.isDraftMode(), "draftMode", "acme.validation.trackingLog.draftMode.message");
+		;
 	}
 
 	@Override

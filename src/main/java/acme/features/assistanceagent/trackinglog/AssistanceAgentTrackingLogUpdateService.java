@@ -1,7 +1,6 @@
 
 package acme.features.assistanceagent.trackinglog;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 
@@ -48,13 +47,11 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final TrackingLog trackinglog) {
-		super.bindObject(trackinglog, "step", "resolutionPercentage", "indicator", "resolution", "draftMode");
+		super.bindObject(trackinglog, "step", "resolutionPercentage", "indicator", "resolution");
 	}
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		Collection<TrackingLogIndicator> allIndicators;
-		TrackingLogIndicator indicator;
 		boolean isNotWrongIndicator = true;
 		boolean isNotWrongResolutionPercentage = true;
 		boolean isNotWrongResolutionPercentage2 = true;
@@ -64,9 +61,6 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 		boolean isWrongResolutionPercentage3 = true;
 		boolean isWrongResolutionPercentage4 = true;
 
-		allIndicators = Arrays.asList(TrackingLogIndicator.values());
-		indicator = super.getRequest().getData("indicator", TrackingLogIndicator.class);
-		isNotWrongIndicator = allIndicators.contains(indicator);
 		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getIndicator() != null)
 			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
 		else if (trackingLog.getIndicator() != null)
@@ -84,15 +78,14 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
 				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
 				if (highestTrackingLog.getId() != trackingLog.getId()) {
+					isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
 					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)
 						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
-				} else
-					isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
+				}
 			}
 
 		}
 
-		super.state(isNotWrongIndicator, "indicator", "acme.validation.trackingLog.wrongIndicator.message");
 		super.state(!trackingLog.getClaim().isDraftMode(), "draftMode", "acme.validation.trackingLog.claimDraftMode.message");
 		super.state(isNotWrongResolutionPercentage, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage.message");
 		super.state(isNotWrongResolutionPercentage2, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage2.message");
@@ -100,7 +93,6 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 		super.state(isNotWrongResolution2, "resolution", "acme.validation.trackingLog.isNotWrongResolution2.message");
 		super.state(isNotMaxCompleted, "resolutionPercentage", "acme.validation.trackingLog.isNotMaxCompleted.message");
 		super.state(isWrongResolutionPercentage3, "resolutionPercentage", "acme.validation.trackingLog.isWrongResolutionPercentage3.message");
-		super.state(trackingLog.isDraftMode(), "draftMode", "acme.validation.trackingLog.draftMode.message");
 
 	}
 

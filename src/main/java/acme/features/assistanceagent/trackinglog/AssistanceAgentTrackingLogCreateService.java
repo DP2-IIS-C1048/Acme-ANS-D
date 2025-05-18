@@ -1,7 +1,6 @@
 
 package acme.features.assistanceagent.trackinglog;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 
@@ -63,8 +62,6 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		Collection<TrackingLogIndicator> allIndicators;
-		TrackingLogIndicator indicator;
 		boolean isNotWrongIndicator = true;
 		boolean isNotWrongResolutionPercentage = true;
 		boolean isNotWrongResolutionPercentage2 = true;
@@ -72,10 +69,6 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		boolean isNotWrongResolution2 = true;
 		boolean isNotMaxCompleted = true;
 		boolean isWrongResolutionPercentage3 = true;
-
-		allIndicators = Arrays.asList(TrackingLogIndicator.values());
-		indicator = super.getRequest().getData("indicator", TrackingLogIndicator.class);
-		isNotWrongIndicator = allIndicators.contains(indicator);
 
 		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0)
 			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
@@ -102,7 +95,6 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 		}
 
-		super.state(isNotWrongIndicator, "indicator", "acme.validation.trackingLog.wrongIndicator.message");
 		super.state(!trackingLog.getClaim().isDraftMode(), "draftMode", "acme.validation.trackingLog.claimDraftMode.message");
 		super.state(isNotWrongResolutionPercentage, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage.message");
 		super.state(isNotWrongResolutionPercentage2, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage2.message");
