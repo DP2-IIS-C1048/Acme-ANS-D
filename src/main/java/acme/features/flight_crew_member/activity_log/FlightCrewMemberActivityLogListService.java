@@ -46,9 +46,9 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 		if (activityLog.isDraftMode() == true)
-			dataset = super.unbindObject(activityLog, "typeOfIncident", "description", "severityLevel");
+			dataset = super.unbindObject(activityLog, "typeOfIncident", "description", "severityLevel", "draftMode");
 		else
-			dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+			dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 		super.getResponse().addData(dataset);
 	}
 
