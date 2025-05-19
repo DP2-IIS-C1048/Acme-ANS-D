@@ -83,30 +83,11 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 	@Override
 	public void validate(final Claim claim) {
-		Collection<Leg> legs;
-		Collection<ClaimType> claimTypes;
-		ClaimType type;
-		int legId;
-		Leg leg;
-		int assistanceAgentId;
-		AssistanceAgent assistanceAgent;
 		boolean isNotWrongLeg = true;
-		boolean isNotWrongType = true;
-		boolean isNotWrongLeg2 = true;
-
-		assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
-		legs = this.repository.findAllPublishedLegsByAirlineId(MomentHelper.getCurrentMoment(), assistanceAgent.getAirline().getId());
-
-		legId = super.getRequest().getData("leg", int.class);
-		leg = this.repository.finLegById(legId);
-		isNotWrongLeg2 = legs.contains(leg);
 
 		if (claim.getLeg() != null && claim.getRegistrationMoment() != null)
 			isNotWrongLeg = claim.getRegistrationMoment().after(claim.getLeg().getScheduledArrival());
 
-		super.state(isNotWrongLeg2, "leg", "acme.validation.claim.wrongLeg2.message");
-		super.state(isNotWrongType, "type", "acme.validation.claim.wrongType.message");
 		super.state(isNotWrongLeg, "leg", "acme.validation.claim.wrongLeg.message");
 
 	}

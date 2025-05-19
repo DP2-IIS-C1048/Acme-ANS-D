@@ -1,6 +1,9 @@
 
 package acme.features.assistanceagent.trackinglog;
 
+import java.util.Collection;
+import java.util.Comparator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -56,7 +59,46 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		;
+		boolean isNotWrongResolutionPercentage = true;
+		boolean isNotWrongResolutionPercentage2 = true;
+		boolean isNotWrongResolution = true;
+		boolean isNotWrongResolution2 = true;
+		boolean isNotMaxCompleted = true;
+		boolean isWrongResolutionPercentage3 = true;
+
+		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getIndicator() != null)
+			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
+		else if (trackingLog.getIndicator() != null)
+			isNotWrongResolutionPercentage2 = !trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
+
+		if (trackingLog.getIndicator() != null && trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING))
+			isNotWrongResolution = trackingLog.getResolution() == null || trackingLog.getResolution().isBlank();
+		else
+			isNotWrongResolution2 = trackingLog.getResolution() != null && !trackingLog.getResolution().isBlank();
+
+		if (trackingLog.getClaim() != null) {
+			TrackingLog highestTrackingLog;
+			Collection<TrackingLog> trackingLogs = this.repository.findOrderTrackingLogs(trackingLog.getClaim().getId());
+			if (trackingLog.getResolutionPercentage() != null && trackingLogs.size() > 0) {
+				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
+				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
+				if (highestTrackingLog.getId() != trackingLog.getId()) {
+					isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
+					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)
+						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
+				}
+			}
+
+		}
+
+		super.state(!trackingLog.getClaim().isDraftMode(), "draftMode", "acme.validation.trackingLog.claimDraftMode.message");
+		super.state(isNotWrongResolutionPercentage, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage.message");
+		super.state(isNotWrongResolutionPercentage2, "resolutionPercentage", "acme.validation.trackingLog.resolutionPercentage2.message");
+		super.state(isNotWrongResolution, "resolution", "acme.validation.trackingLog.isNotWrongResolution.message");
+		super.state(isNotWrongResolution2, "resolution", "acme.validation.trackingLog.isNotWrongResolution2.message");
+		super.state(isNotMaxCompleted, "resolutionPercentage", "acme.validation.trackingLog.isNotMaxCompleted.message");
+		super.state(isWrongResolutionPercentage3, "resolutionPercentage", "acme.validation.trackingLog.isWrongResolutionPercentage3.message");
+
 	}
 
 	@Override

@@ -52,14 +52,12 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
-		boolean isNotWrongIndicator = true;
 		boolean isNotWrongResolutionPercentage = true;
 		boolean isNotWrongResolutionPercentage2 = true;
 		boolean isNotWrongResolution = true;
 		boolean isNotWrongResolution2 = true;
 		boolean isNotMaxCompleted = true;
 		boolean isWrongResolutionPercentage3 = true;
-		boolean isWrongResolutionPercentage4 = true;
 
 		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getIndicator() != null)
 			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);

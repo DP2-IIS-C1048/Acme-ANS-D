@@ -76,18 +76,7 @@ public class AssistanceAgentClaimUpdateService extends AbstractGuiService<Assist
 
 	@Override
 	public void validate(final Claim claim) {
-		Collection<ClaimType> claimTypes;
-		ClaimType type;
-		int legId;
-		Leg leg;
-		int assistanceAgentId;
-		AssistanceAgent assistanceAgent;
 		boolean isNotWrongLeg = true;
-		boolean isNotWrongType = true;
-		boolean isNotWrongLeg2 = true;
-
-		assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		assistanceAgent = this.repository.findAssistanceAgentById(assistanceAgentId);
 
 		if (claim.getLeg() != null && claim.getRegistrationMoment() != null)
 			isNotWrongLeg = claim.getRegistrationMoment().after(claim.getLeg().getScheduledArrival());

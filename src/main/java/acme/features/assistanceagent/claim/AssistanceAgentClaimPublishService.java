@@ -77,10 +77,11 @@ public class AssistanceAgentClaimPublishService extends AbstractGuiService<Assis
 	@Override
 	public void validate(final Claim claim) {
 		boolean isNotWrongLeg = true;
+
 		if (claim.getLeg() != null && claim.getRegistrationMoment() != null)
 			isNotWrongLeg = claim.getRegistrationMoment().after(claim.getLeg().getScheduledArrival());
+
 		super.state(isNotWrongLeg, "leg", "acme.validation.claim.wrongLeg.message");
-		super.state(claim.getLeg() != null, "leg", "acme.validation.claim.nullLeg.message");
 	}
 
 	@Override
