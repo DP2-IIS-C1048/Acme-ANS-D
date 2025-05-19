@@ -1,0 +1,17 @@
+administrator.booking.form.title = Booking form
+administrator.booking.list.title = Booking list
+
+administrator.booking.form.label.locatorCode = Locator Code:
+administrator.booking.form.label.purchaseMoment = Purchase Moment:
+administrator.booking.form.label.travelClass = Travel Class: 
+administrator.booking.form.label.price = Price:
+administrator.booking.form.label.flight = Flight:
+administrator.booking.form.label.lastNibble = Card last nibble (Optional):
+administrator.booking.form.label.purchaseMoment = Purchase Moment:
+administrator.booking.form.label.draftMode = Draft Mode:
+    
+administrator.booking.form.button.passengers = Passengers
+
+administrator.booking.list.label.locatorCode = Locator Code:
+administrator.booking.list.label.travelClass = Travel Class: 
+administrator.booking.list.label.price = Price:

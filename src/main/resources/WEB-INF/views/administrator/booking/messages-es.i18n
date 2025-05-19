@@ -1,0 +1,21 @@
+administrator.booking.form.title = Formulario de reservas
+administrator.booking.list.title = Lista de reservas
+
+administrator.booking.form.label.locatorCode = Código de localización:
+administrator.booking.form.label.purchaseMoment = Momento de compra:
+administrator.booking.form.label.travelClass = Clase de vuelo: 
+administrator.booking.form.label.price = Precio:
+administrator.booking.form.label.lastNibble = Últimos números de la tarjeta (Opcional):
+administrator.booking.form.label.purchaseMoment = Fecha de reserva:
+    
+administrator.booking.form.button.passengers = Pasajeros
+
+administrator.booking.form.label.locatorCode = Código de localización:
+administrator.booking.form.label.travelClass = Clase de vuelo: 
+administrator.booking.form.label.price = Precio:
+administrator.booking.form.label.flight = Vuelo:
+administrator.booking.form.label.draftMode = Modo borrador:
+
+administrator.booking.list.label.locatorCode = Código de localización:
+administrator.booking.list.label.travelClass = Clase de vuelo: 
+administrator.booking.list.label.price = Precio:
