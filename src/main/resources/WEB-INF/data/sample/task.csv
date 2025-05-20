@@ -35,6 +35,4 @@ task-22,MAINTENANCE,"This task is difficult",5,400,TRUE,technician-01
 # draftMode - no singular values
 # technician - standard variations
 task-23,MAINTENANCE,"This task is difficult",5,400,FALSE,technician-02
-task-24,MAINTENANCE,"This task is difficult",5,400,FALSE,technician-04
-task-25,MAINTENANCE,"This task is difficult",5,400,FALSE,technician-05
 # technician - no singular values
