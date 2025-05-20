@@ -36,6 +36,9 @@ acme.validation.constraints.leg.departureAirport.message = The arrival airport v
 acme.validation.constraints.leg.invalid-airports.message = The arrival and departure airport can not be the same airport
 acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
 acme.validation.constraints.leg.invalid-aircraft.message = The creation date of the aircraft's airline must be earlier than the departure date
+acme.validation.constraints.leg.invalid-departure-date.message = La fecha de salida debe ser posterior al 2000/01/01 00:00.
+acme.validation.constraints.leg.invalid-arrival-date.message = La fecha de llegada debe ser anterior al 2200/12/31 23:59.
+
 
 acme.validation.technician.duplicated-license.message = This license already exists
 acme.validation.task.delete.message = The task must be in Draft Mode
