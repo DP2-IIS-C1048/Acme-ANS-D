@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="flight-crew-member.activity-log.list.label.type-of-incident" path="typeOfIncident" width="40%"/>
-	<acme:list-column code="flight-crew-member.activity-log.list.label.severity-level" path="severityLevel" width="30%"/>
-	<acme:list-column code="flight-crew-member.activity-log.list.label.registration-moment" path="registrationMoment" width="10%"/>	
-
+	<acme:list-column code="flight-crew-member.activity-log.list.label.type-of-incident" path="typeOfIncident" width="50%"/>
+	<acme:list-column code="flight-crew-member.activity-log.list.label.severity-level" path="severityLevel" width="20%"/>
+	<acme:list-column code="flight-crew-member.activity-log.list.label.registration-moment" path="registrationMoment" width="15%"/>	
+	<acme:list-column code="flight-crew-member.activity-log.list.label.draft-mode" path="draftMode" width="15%"/>
 </acme:list>
 	
 <jstl:if test="${_command == 'list'}">

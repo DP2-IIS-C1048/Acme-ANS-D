@@ -3,7 +3,9 @@ package acme.entities.aircraft;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -21,6 +23,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidAircraft
+@Table(indexes = {
+	//Feature Leg
+	@Index(columnList = "status")//
+
+})
 public class Aircraft extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
