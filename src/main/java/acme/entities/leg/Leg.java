@@ -31,8 +31,6 @@ import lombok.Setter;
 @Setter
 @ValidLeg
 @Table(indexes = {
-	//Feature Flight
-	@Index(columnList = "flight_id"),// 
 	//Feature Leg
 	@Index(columnList = "flight_id,draftMode,scheduledDeparture,scheduledArrival"), // 
 	@Index(columnList = "aircraft_id,draftMode,scheduledDeparture,scheduledArrival"),// 

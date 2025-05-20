@@ -68,6 +68,14 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 					invalidAirports = false;
 				super.state(context, invalidAirports, "arrivalAirport", "acme.validation.constraints.leg.invalid-airports.message");
 			}
+
+			{
+				boolean invalidAircraft = true;
+
+				if (leg.getAircraft() != null && departureDate != null && MomentHelper.isBefore(departureDate, leg.getAircraft().getAirline().getFoundationMoment()))
+					invalidAircraft = false;
+				super.state(context, invalidAircraft, "aircraft", "acme.validation.constraints.leg.invalid-aircraft.message");
+			}
 		}
 		result = !super.hasErrors(context);
 		return result;

@@ -9,14 +9,14 @@ leg-03,ABC0001,2020/01/03 01:00,2020/01/03 03:00,"ON_TIME",airport-01,airport-02
 leg-04,ABC9998,2020/01/04 01:00,2020/01/04 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-05,false
 leg-05,ABC9999,2020/01/05 01:00,2020/01/05 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-06,false
 # scheduledDeparture - standard variations
-leg-06,ABC0006,2000/01/01 00:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-02,flight-07,false
-leg-07,ABC0007,2000/01/01 00:01,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-03,flight-08,false
+leg-06,ABC0006,2000/01/01 00:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-41,flight-07,false
+leg-07,ABC0007,2000/01/01 00:01,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-42,flight-08,false
 leg-08,ABC0008,2200/12/31 23:57,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-04,flight-09,false
 leg-09,ABC0009,2200/12/31 23:58,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-05,flight-10,false
 # scheduledDeparture - no singular values
 # scheduledArrival - standard variations
-leg-10,ABC0010,2000/01/01 00:00,2000/01/01 00:01,"ON_TIME",airport-01,airport-02,aircraft-06,flight-11,false
-leg-11,ABC0011,2000/01/01 00:00,2000/01/01 00:02,"ON_TIME",airport-01,airport-02,aircraft-07,flight-12,false
+leg-10,ABC0010,2000/01/01 00:00,2000/01/01 00:01,"ON_TIME",airport-01,airport-02,aircraft-43,flight-11,false
+leg-11,ABC0011,2000/01/01 00:00,2000/01/01 00:02,"ON_TIME",airport-01,airport-02,aircraft-44,flight-12,false
 leg-12,ABC0012,2020/01/01 01:00,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-08,flight-13,false
 leg-13,ABC0013,2020/01/01 01:00,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-09,flight-14,false
 # scheduledArrival - no singular values
