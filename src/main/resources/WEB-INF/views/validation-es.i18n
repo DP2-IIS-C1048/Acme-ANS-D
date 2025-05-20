@@ -109,3 +109,4 @@ acme.validation.trackingLog.isNotWrongResolution.message = Las resoluciones solo
 acme.validation.trackingLog.isNotWrongResolution2.message = Debes introducir una resolución cuando el estado no es PENDING y el porcentaje es del 100%
 acme.validation.trackingLog.isNotMaxCompleted.message = Solo pueden haber 2 registros con porcentage de resolución igual a 100 o uno en modo borrador con 100
 acme.validation.trackingLog.isWrongResolutionPercentage3.message =  El porcentaje del nuevo registro debe ser mayor que el mayor registrado para esta queja
+acme.validation.trackingLog.isWrongResolutionPercentage4.message = El porcentaje del registro no puede aumentar
