@@ -35,6 +35,30 @@ public class TechnicianInvolvesCreateService extends AbstractGuiService<Technici
 		maintenanceRecord = this.repository.findMaintenanceRecordById(id);
 		status = super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
 
+		if (status) {
+			String method;
+			Collection<Task> possibleTasks;
+			Collection<Task> alreadyAddedTasks;
+			int taskId;
+			Task task;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				taskId = super.getRequest().getData("task", int.class);
+				if (taskId != 0) {
+					task = this.repository.findTaskById(taskId);
+					possibleTasks = this.repository.findTasksPublished();
+					alreadyAddedTasks = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId()).stream().map(Involves::getTask).toList();
+					possibleTasks.removeAll(alreadyAddedTasks);
+					status = possibleTasks.contains(task);
+				}
+
+			}
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 

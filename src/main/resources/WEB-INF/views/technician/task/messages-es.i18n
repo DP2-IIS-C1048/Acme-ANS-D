@@ -16,6 +16,7 @@ technician.task.form.label.description = Descripción
 technician.task.form.label.priority = Prioridad
 technician.task.form.label.estimatedDuration = Duración estimada
 technician.task.form.label.technician = Técnico
+technician.task.list.label.draftMode = Modo borrador
 
 technician.task.form.placeholder.estimatedDuration = 0 - 6000
 technician.task.form.placeholder.priority = 0 - 10

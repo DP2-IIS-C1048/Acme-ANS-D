@@ -21,6 +21,10 @@
 	<acme:list-column code="technician.task.list.label.priority" path="priority" width="10%"/>
 	<acme:list-column code="technician.task.list.label.estimatedDuration" path="estimatedDuration" width="10%"/>
 	
+	<jstl:if test="${_command == 'list'}">
+		<acme:list-column code="technician.task.list.label.draftMode" path="draftMode" width="10%"/>
+	</jstl:if>
+	
 	<jstl:if test="${_command == 'listAllPublished'}">
 		<acme:list-column code="technician.task.list.label.technician" path="technician" width="10%"/>
 	</jstl:if>
