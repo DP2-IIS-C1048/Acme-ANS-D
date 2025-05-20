@@ -94,3 +94,25 @@ acme.validation.aircraft.airline-not-found.message = Airline not found.
 
 acme.validation.administrator.aircraft.status-MAINTENANCE.message = The aircraft is already in maintenance.
 
+
+acme.validation.assistanceagent.duplicated-employeeCode.message = EmployeeCode already exists
+acme.validation.assistanceagent.invalid-employeeCode.message = Incorrect employeeCode
+
+acme.validation.trackinglog.invalid-indicator.message = Incorrect resolution percentage
+acme.validation.trackinglog.invalid-resolution.message = Incorrect resolution
+
+acme.validation.claim.wrongLeg.message = The registration moment of the claim cannot be earlier than the arrival time of the selected leg
+acme.validation.claim.wrongType.message = The selected complaint type is not among the available options
+acme.validation.claim.thereIsTrackingLogs.message = A claim with associated trackinglogs cannot be deleted
+acme.validation.claim.draftMode.message = A claim that is not in draft mode cannot be deleted/publish/updated
+acme.validation.claim.nullLeg.message = A claim cannot be published if the associated leg is null
+
+acme.validation.trackingLog.draftMode.message = A trackingLog that is not in draft mode cannot be deleted/publish/updated
+acme.validation.trackingLog.wrongIndicator.message = The selected tracking log indicator is not among the available options
+acme.validation.trackingLog.claimDraftMode.message = A tracking log cannot be created for a claim in draft mode.
+acme.validation.trackingLog.resolutionPercentage.message =For a tracking log to have a resolution percentage lower than 100, it must have a estate of PENDING
+acme.validation.trackingLog.resolutionPercentage2.message = For a tracking log to have a resolution percentage of 100, it must have a estate different of PENDING
+acme.validation.trackingLog.isNotWrongResolution.message = Resolutions are only available with a 100% percentage and when the estate is not PENDING
+acme.validation.trackingLog.isNotWrongResolution2.message = You must enter a resolution when the estate is not PENDING and the percentage is 100%
+acme.validation.trackingLog.isNotMaxCompleted.message = There can only be 2 tracking logs with a resolution percentage equal to 100 or there is one in draft mode with 100
+acme.validation.trackingLog.isWrongResolutionPercentage3.message =  The percentage of the new trackinglog must be higher than the highest recorded for this claim

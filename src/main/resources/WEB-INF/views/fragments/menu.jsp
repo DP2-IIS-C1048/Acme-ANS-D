@@ -69,6 +69,11 @@
 			<acme:menu-suboption code="master.menu.technician.list-all-maintenance-records-published" action="/technician/maintenance-record/listAllPublished"/>
 			<acme:menu-suboption code="master.menu.technician.list-all-tasks-published" action="/technician/task/listAllPublished"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.assistanceagent" access="hasRealm('AssistanceAgent')">
+			<acme:menu-suboption code="master.menu.assistanceagent.list-my-claims" action="/assistance-agent/claim/list"/>
+			<acme:menu-suboption code="master.menu.assistanceagent.list-my-claims-pending" action="/assistance-agent/claim/pending"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.consumer" access="hasRealm('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>

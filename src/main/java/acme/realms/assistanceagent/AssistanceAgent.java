@@ -47,7 +47,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				spokenLanguages;
 
 	@Mandatory
-	@ValidMoment(min = "2000/01/01 00:00", past = true)
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				moment;
 

@@ -84,6 +84,12 @@ master.menu.customer = Cliente
 master.menu.customer.list-my-passengers = Mis Pasajeros
 master.menu.customer.list-my-bookings = Mis Reservas
 
+# master.menu.assistanceagent ########################################################
+
+master.menu.assistanceagent = Assistance Agent
+master.menu.assistanceagent.list-my-claims= Listar quejas completadas
+master.menu.assistanceagent.list-my-claims-pending= Listar quejas en proceso
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
