@@ -87,3 +87,25 @@ acme.validation.booking-record.create.passenger-not-published.message = Este pas
 acme.validation.aircraft.airline-not-found.message = No se encontró la aerolínea.
 
 acme.validation.administrator.aircraft.status-MAINTENANCE.message = La aeronave ya está en mantenimiento.
+
+acme.validation.assistanceagent.duplicated-employeeCode.message = Código de empleado duplicado ya existe
+acme.validation.assistanceagent.invalid-employeeCode.message = Código de empleado incorrecto
+
+acme.validation.trackinglog.invalid-indicator.message = Porcentaje de resolución incorrecto
+acme.validation.trackinglog.invalid-resolution.message = Resolución incorrecta
+
+acme.validation.claim.wrongLeg.message = La fecha de registro de la queja no puede ser anterior al momento de llegada del tramo seleccionado
+acme.validation.claim.wrongType.message = El tipo de queja seleccionado no esta dentro de los disponibles
+acme.validation.claim.thereIsTrackingLogs.message = No se puede eliminar una queja con registros asociados
+acme.validation.claim.draftMode.message = No se puede borrar/publicar/actualizar una queja que no esta en modo borrador
+acme.validation.claim.nullLeg.message = No se puede publicar una queja si el tramo asociado es nulo
+
+acme.validation.trackingLog.draftMode.message = No se puede borrar/publicar/actualizar un registro que no esta en modo borrador
+acme.validation.trackingLog.wrongIndicator.message = El indicador del registro seleccionado no esta dentro de los disponibles
+acme.validation.trackingLog.claimDraftMode.message = No se puede crear un registro asociado a una queja en modo borrador
+acme.validation.trackingLog.resolutionPercentage.message = Para que un registro tenga porcentaje de resolución menor que 100 debe tener estado PENDING
+acme.validation.trackingLog.resolutionPercentage2.message = Para que un registro tenga porcentaje de resolución igual 100 debe tener estado diferente a PENDING
+acme.validation.trackingLog.isNotWrongResolution.message = Las resoluciones solo están disponibles con un porcentaje del 100% y cuando el estado no es PENDING
+acme.validation.trackingLog.isNotWrongResolution2.message = Debes introducir una resolución cuando el estado no es PENDING y el porcentaje es del 100%
+acme.validation.trackingLog.isNotMaxCompleted.message = Solo pueden haber 2 registros con porcentage de resolución igual a 100 o uno en modo borrador con 100
+acme.validation.trackingLog.isWrongResolutionPercentage3.message =  El porcentaje del nuevo registro debe ser mayor que el mayor registrado para esta queja
