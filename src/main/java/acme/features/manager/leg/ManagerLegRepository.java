@@ -20,22 +20,22 @@ public interface ManagerLegRepository extends AbstractRepository {
 	Leg findLegById(int id);
 
 	@Query("""
-		        SELECT l
-		        FROM Leg l
-		        WHERE l.flight.id = :flightId AND l.draftMode = false AND (
-		            (l.scheduledDeparture < :arrivalDate AND l.scheduledArrival > :departureDate)
-		        )
-		""")
+			        SELECT l
+			        FROM Leg l
+			        WHERE l.flight.id = :flightId AND l.draftMode = false AND (
+			            (l.scheduledDeparture < :arrivalDate AND l.scheduledArrival > :departureDate)
+			        )
+			""")
 	Collection<Leg> findLegsPublishedByArrivalDepartureDate(Date departureDate, Date arrivalDate, int flightId);
 
 	@Query("""
-		        SELECT COUNT(l) = 0
-		        FROM Leg l
-		        WHERE l.aircraft.id = :aircraftId AND l.draftMode = false AND (
-		            (l.scheduledDeparture < :arrivalDate AND l.scheduledArrival > :departureDate)
-		        )
-		""")
-	boolean isAircraftNotInUse(int aircraftId, Date departureDate, Date arrivalDate);
+			        SELECT l
+			        FROM Leg l
+			        WHERE l.aircraft.id = :aircraftId AND l.draftMode = false AND (
+			            (:departureDate < l.scheduledArrival AND :arrivalDate > l.scheduledDeparture)
+			        )
+			""")
+	Collection<Leg> findLegsWithAircraftInUse(int aircraftId, Date departureDate, Date arrivalDate);
 
 	@Query("SELECT a FROM Aircraft a")
 	Collection<Aircraft> findAllAircrafts();
@@ -46,7 +46,7 @@ public interface ManagerLegRepository extends AbstractRepository {
 	@Query("SELECT f from Flight f where f.id = :id")
 	Flight findFlightById(int id);
 
-	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id ORDER BY l.scheduledDeparture ASC")
+	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id")
 	Collection<Leg> findAllLegsByFlightId(int id);
 
 	@Query("SELECT l.flight FROM Leg l WHERE l.id=:legId")
@@ -59,11 +59,17 @@ public interface ManagerLegRepository extends AbstractRepository {
 	Aircraft findAircraftById(int id);
 
 	@Query("""
-		    SELECT l
-		    FROM Leg l
-		    WHERE l.flight.id = :flightId
-		    AND l.scheduledDeparture = (SELECT MIN(l2.scheduledDeparture) FROM Leg l2 WHERE l2.flight.id = :flightId AND l2.draftMode = false)
-		""")
+			    SELECT l
+			    FROM Leg l
+			    WHERE l.flight.id = :flightId
+			    AND l.draftMode = false
+			    AND l.scheduledDeparture = (
+			        SELECT MIN(l2.scheduledDeparture)
+			        FROM Leg l2
+			        WHERE l2.flight.id = :flightId
+			        AND l2.draftMode = false
+			    )
+			""")
 	Leg findFirstLegPublishedByFlightId(int flightId);
 
 	@Query("""
@@ -79,7 +85,7 @@ public interface ManagerLegRepository extends AbstractRepository {
 		""")
 	Leg findLastLegPublishedByFlightId(int flightId);
 
-	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id AND l.draftMode = false ORDER BY l.scheduledDeparture")
+	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id AND l.draftMode = false")
 	Collection<Leg> findAllLegsPublishedByFlightId(int id);
 
 	@Query("SELECT COUNT(l) FROM Leg l WHERE l.flight.id = :flightId AND l.draftMode = false")

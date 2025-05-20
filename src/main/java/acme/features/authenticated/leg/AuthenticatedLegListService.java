@@ -22,22 +22,22 @@ public class AuthenticatedLegListService extends AbstractGuiService<Authenticate
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int flightId;
 		Flight flight;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flight = this.repository.findFlightById(masterId);
-		status = super.getRequest().getPrincipal().isAuthenticated() && !flight.isDraftMode();
+		flightId = super.getRequest().getData("flightId", int.class);
+		flight = this.repository.findFlightById(flightId);
+		status = flight!=null && super.getRequest().getPrincipal().isAuthenticated() && !flight.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Collection<Leg> legs;
-		int masterId;
+		int flightId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		legs = this.repository.findAllLegsByFlightId(masterId);
+		flightId = super.getRequest().getData("flightId", int.class);
+		legs = this.repository.findAllLegsByFlightId(flightId);
 
 		super.getBuffer().addData(legs);
 
@@ -54,11 +54,11 @@ public class AuthenticatedLegListService extends AbstractGuiService<Authenticate
 
 	@Override
 	public void unbind(final Collection<Leg> legs) {
-		int masterId;
+		int flightId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
+		flightId = super.getRequest().getData("flightId", int.class);
 
-		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("flightId", flightId);
 
 	}
 

@@ -14,6 +14,7 @@ flight-crew-member.flight-assignment.list.label.flight-number = Flight number
 flight-crew-member.flight-assignment.list.label.duty = Duty
 flight-crew-member.flight-assignment.list.label.current-status = Current status
 flight-crew-member.flight-assignment.list.label.last-update = Last update
+flight-crew-member.flight-assignment.list.draft-mode = Draft mode
 flight-crew-member.flight-assignment.list.button.create = Create
 
 flight-crew-member.flight-assignment.form.title = Flight assignment

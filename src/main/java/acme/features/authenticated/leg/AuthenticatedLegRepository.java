@@ -19,7 +19,7 @@ public interface AuthenticatedLegRepository extends AbstractRepository {
 	@Query("SELECT l from Leg l where l.id = :id")
 	Leg findLegById(int id);
 
-	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id ORDER BY l.scheduledDeparture ASC")
+	@Query("SELECT l FROM Leg l WHERE l.flight.id = :id")
 	Collection<Leg> findAllLegsByFlightId(int id);
 
 	@Query("SELECT l.flight FROM Leg l WHERE l.id=:legId")

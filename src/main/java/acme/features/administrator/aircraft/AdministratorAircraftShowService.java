@@ -1,6 +1,7 @@
 
-package acme.features.adminstrator.aircraft;
+package acme.features.administrator.aircraft;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airline.Airline;
 
 @GuiService
-public class AdministratorAircraftDisableService extends AbstractGuiService<Administrator, Aircraft> {
+public class AdministratorAircraftShowService extends AbstractGuiService<Administrator, Aircraft> {
 
 	@Autowired
 	private AdministratorAircraftRepository repository;
@@ -30,7 +31,7 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		aircraftId = super.getRequest().getData("id", int.class);
 		aircraft = this.repository.findAircraftById(aircraftId);
 
-		status = aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE);
+		status = aircraft != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -47,35 +48,6 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 	}
 
 	@Override
-	public void bind(final Aircraft aircraft) {
-		;
-	}
-
-	@Override
-	public void validate(final Aircraft aircraft) {
-		{
-			super.state(aircraft.getAirline() != null, "airline", "acme.validation.aircraft.airline-not-found.message");
-		}
-		{
-			boolean confirmation;
-
-			confirmation = super.getRequest().getData("confirmation", boolean.class);
-			super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
-		}
-		{
-			Aircraft originalAircraft = this.repository.findAircraftById(aircraft.getId());
-			if (!originalAircraft.getStatus().equals(AircraftStatus.ACTIVE))
-				super.state(false, "status", "acme.validation.administrator.aircraft.status-MAINTENANCE.message");
-		}
-	}
-
-	@Override
-	public void perform(final Aircraft aircraft) {
-		aircraft.setStatus(AircraftStatus.MAINTENANCE);
-		this.repository.save(aircraft);
-	}
-
-	@Override
 	public void unbind(final Aircraft aircraft) {
 		Dataset dataset;
 		Collection<Airline> airlines;
@@ -87,8 +59,10 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		selectedAirline = aircraft.getAirline();
 		statusChoices = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
 
-		if (selectedAirline != null && !airlines.contains(selectedAirline))
+		if (selectedAirline != null && !airlines.contains(selectedAirline)) {
+			airlines = new ArrayList<>(airlines);
 			airlines.add(selectedAirline);
+		}
 
 		choices = SelectChoices.from(airlines, "iataCode", selectedAirline);
 
@@ -96,8 +70,6 @@ public class AdministratorAircraftDisableService extends AbstractGuiService<Admi
 		dataset.put("statuses", statusChoices);
 		dataset.put("airline", choices.getSelected().getKey());
 		dataset.put("airlines", choices);
-		dataset.put("confirmation", false);
-		dataset.put("readonly", false);
 
 		super.getResponse().addData(dataset);
 	}

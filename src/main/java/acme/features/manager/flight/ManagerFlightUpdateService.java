@@ -20,12 +20,12 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int flightId;
 		Flight flight;
 		Manager manager;
 
-		masterId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("id", int.class);
+		flight = this.repository.findFlightById(flightId);
 		manager = flight == null ? null : flight.getManager();
 		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
 
@@ -52,7 +52,7 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void validate(final Flight flight) {
-		if (flight.getCost() != null && flight.getCost().getCurrency() != null) {
+		if (flight.getCost() != null) {
 			boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
 			super.state(validCurrency, "cost", "acme.validation.currency.message");
 		}

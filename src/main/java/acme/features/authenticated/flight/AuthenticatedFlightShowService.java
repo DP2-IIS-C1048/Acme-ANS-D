@@ -21,10 +21,10 @@ public class AuthenticatedFlightShowService extends AbstractGuiService<Authentic
 	public void authorise() {
 
 		boolean status;
-		int masterId;
+		int flightId;
 		Flight flight;
-		masterId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("id", int.class);
+		flight = this.repository.findFlightById(flightId);
 		status = flight != null && super.getRequest().getPrincipal().isAuthenticated() && !flight.isDraftMode();
 		super.getResponse().setAuthorised(status);
 

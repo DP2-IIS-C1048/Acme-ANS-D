@@ -63,6 +63,9 @@ acme.validation.currency.message = El tipo de moneda no está disponible
 acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
 acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
 
+acme.validation.customer.invalid-identifier.message = The customer's identifier number already exists.
+acme.validation.customer.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
+
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.

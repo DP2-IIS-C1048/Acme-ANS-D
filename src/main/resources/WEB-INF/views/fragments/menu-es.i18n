@@ -21,7 +21,10 @@ master.menu.anonymous.favourite-link.student5 = 2965****: Herrera Luján, Marco 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autenticado
+
+master.menu.authenticated.list-flight-assignments = Ver asignaciones de vuelo
 master.menu.authenticated.list-flight= Ver vuelos
+
 
 # master.menu.administrator ###################################################
 
@@ -38,6 +41,9 @@ master.menu.administrator.list-airports = Ver aeropuertos
 
 master.menu.administrator.airline = Aerolíneas
 master.menu.administrator.list-airlines = Ver aerolíneas
+
+master.menu.administrator.booking = Reservas
+master.menu.administrator.list-bookings= Ver Reservas
 
 
 # master.menu.provider ########################################################
@@ -88,9 +94,12 @@ master.menu.assistanceagent.list-my-claims-pending= Listar quejas en proceso
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-profile = Perfil general
+master.menu.user-account.become-flight-crew-member = Hacerse miembro de tripulación de vuelo
+master.menu.user-account.flight-crew-member-profile = Perfil de miembro de tripulación de vuelo
 master.menu.user-account.become-provider = Hacerse proveedor
 master.menu.user-account.provider-profile = Perfil de proveedor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.consumer-profile = Perfil de consumidor
 master.menu.user-account.become-manager = Hacerse manager
 master.menu.user-account.manager-profile = Perfil de manager
+master.menu.user-account.customer-profile = Perfil de Customer

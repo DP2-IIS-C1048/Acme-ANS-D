@@ -30,6 +30,22 @@ public class AuthenticatedManagerCreateService extends AbstractGuiService<Authen
 
 		status = !super.getRequest().getPrincipal().hasRealmOfType(Manager.class);
 
+		if (status) {
+			String method;
+			int airlineId;
+			Airline airline;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+
+				airlineId = super.getRequest().getData("airline", int.class);
+				airline = this.repository.findAirlineById(airlineId);
+				status = airlineId == 0 || airline != null;
+			}
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -68,7 +84,7 @@ public class AuthenticatedManagerCreateService extends AbstractGuiService<Authen
 		String surName = manager.getIdentity().getSurname();
 		String identifierNumber = manager.getIdentifierNumber();
 
-		if (name.charAt(0) == identifierNumber.charAt(0) && surName.charAt(0) == identifierNumber.charAt(1))
+		if (!identifierNumber.isBlank() && name.charAt(0) == identifierNumber.charAt(0) && surName.charAt(0) == identifierNumber.charAt(1))
 			validIdentifierNumber = true;
 		super.state(validIdentifierNumber, "identifierNumber", "acme.validation.manager.invalid-identifierNumber.message");
 
