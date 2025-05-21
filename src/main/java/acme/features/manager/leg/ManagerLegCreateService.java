@@ -37,7 +37,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 		if (status) {
 			String method;
-			int aircraftId, departureAirportId, arrivalAirportId;
+			int aircraftId, departureAirportId, arrivalAirportId, legId;
 			Aircraft aircraft;
 			Airport departureAirport, arrivalAirport;
 
@@ -46,14 +46,20 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 			if (method.equals("GET"))
 				status = true;
 			else {
+				legId = super.getRequest().getData("id", int.class);
 
-				aircraftId = super.getRequest().getData("aircraft", int.class);
-				departureAirportId = super.getRequest().getData("departureAirport", int.class);
-				arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
-				aircraft = this.repository.findAircraftById(aircraftId);
-				departureAirport = this.repository.findAirportById(departureAirportId);
-				arrivalAirport = this.repository.findAirportById(arrivalAirportId);
-				status = (aircraftId == 0 || aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE)) && (arrivalAirportId == 0 || arrivalAirport != null) && (departureAirportId == 0 || departureAirport != null);
+				if (legId == 0) {
+					aircraftId = super.getRequest().getData("aircraft", int.class);
+					departureAirportId = super.getRequest().getData("departureAirport", int.class);
+					arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
+					aircraft = this.repository.findAircraftById(aircraftId);
+					departureAirport = this.repository.findAirportById(departureAirportId);
+					arrivalAirport = this.repository.findAirportById(arrivalAirportId);
+					status = (aircraftId == 0 || aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE)) && (arrivalAirportId == 0 || arrivalAirport != null) && (departureAirportId == 0 || departureAirport != null);
+
+				} else
+					status = false;
+
 			}
 		}
 		super.getResponse().setAuthorised(status);
