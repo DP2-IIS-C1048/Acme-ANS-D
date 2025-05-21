@@ -91,6 +91,14 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 			passengerPublished = !passenger.isDraftMode();
 			super.state(passengerPublished, "passenger", "acme.validation.booking-record.create.passenger-not-published.message");
 		}
+		{
+			boolean passengerNotInBooking;
+			Passenger passenger = bookingRecord.getPassenger();
+
+			Collection<Passenger> bookingRecordPassengers = this.repository.findPassengersByBookingRecordId(bookingRecord.getId());
+			passengerNotInBooking = !bookingRecordPassengers.contains(passenger);
+			super.state(passengerNotInBooking, "passenger", "acme.validation.booking-record.create.passenger-already-associated.message");
+		}
 		/// Se permite que un pasajero esté en dos Bookings a la vez cuyos vuelos salen a la vez porque en la vida real las empresas dejan que pase esto
 	}
 

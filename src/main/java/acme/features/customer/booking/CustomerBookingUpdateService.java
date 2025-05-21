@@ -36,22 +36,6 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		customer = booking == null ? null : booking.getCustomer();
 		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
 
-		if (status) {
-			String method;
-			int flightId;
-
-			method = super.getRequest().getMethod();
-
-			if (method.equals("GET"))
-				status = true;
-			else {
-				status = true;
-				flightId = super.getRequest().getData("flight", int.class);
-				Flight flightSelected = this.repository.findFlightById(flightId);
-				if (flightSelected == null)
-					status = false;
-			}
-		}
 		super.getResponse().setAuthorised(status);
 	}
 
