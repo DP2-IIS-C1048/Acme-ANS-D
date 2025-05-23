@@ -40,6 +40,7 @@ acme.validation.constraints.leg.invalid-arrival-date.message = La fecha de llega
 
 
 acme.validation.technician.duplicated-license.message = Esta licencia ya está en uso en este momento
+acme.validation.technician.duplicated-involves.message = Ya has añadido esta tarea al registro de mantenimiento
 acme.validation.task.delete.message = La tarea debe estar en modo borrador
 acme.validation.maintenance-record.valid-publication-status = El registro de mantenimiento debe estar completado
 acme.validation.maintenance-record.has-tasks = El registro de mantenimiento debe tener al menos una tarea
