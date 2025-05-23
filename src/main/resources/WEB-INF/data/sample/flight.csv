@@ -26,7 +26,7 @@ flight-15,"Lorem ipsum dolor sit ame",false,EUR 200000.00,"Lorem ipsum dolor sit
 flight-16,"Lorem ipsum dolor sit ame",false,EUR 1000.00,,manager-01,false
 flight-17,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"L",manager-01,false
 flight-18,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",manager-01,false
-flight-19,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",manager-01,false
+flight-19,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",manager-01,true
 flight-20,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"โลเร็ม อิปซัม",manager-01,true
 flight-21,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"لوريم إيبسوم",manager-01,true
 flight-22,"Lorem ipsum dolor sit ame",false,EUR 1000.00,"洛伦·伊普森",manager-01,true
