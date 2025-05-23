@@ -22,7 +22,7 @@ acme.validation.flight.leg.message = Todas las legs tienen que estar en modo no 
 acme.validation.flight.Delete.message = El vuelo tiene que estar en modo borrador
 
 acme.validation.leg.duplicated-flightNumber.message = El número de vuelo ya está en uso
-acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea
+acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea del manager
 acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de salida debe ser anterior que la de llegada
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = Las fechas de salida o de llegada coinciden en el intervalo de otro tramo
 acme.validation.leg.invalid-leg-dates.message = El tramo introducido no es posterior o anterior al último tramo o primer tramo

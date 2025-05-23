@@ -6,8 +6,8 @@ leg-00,ABC1234,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02
 leg-01,DEF1234,2020/01/01 01:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-40,flight-26,false
 leg-02,ABC0000,2020/01/02 01:00,2020/01/02 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-02,false
 leg-03,ABC0001,2020/01/03 01:00,2020/01/03 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-03,false
-leg-04,ABC9998,2020/01/04 01:00,2020/01/04 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-05,false
-leg-05,ABC9999,2020/01/05 01:00,2020/01/05 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-06,false
+leg-04,ABC9998,2030/01/04 01:00,2030/01/04 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-05,false
+leg-05,ABC9999,2030/01/05 01:00,2030/01/05 03:00,"ON_TIME",airport-01,airport-02,aircraft-01,flight-06,false
 # scheduledDeparture - standard variations
 leg-06,ABC0006,2000/01/01 00:00,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-41,flight-07,false
 leg-07,ABC0007,2000/01/01 00:01,2020/01/01 03:00,"ON_TIME",airport-01,airport-02,aircraft-42,flight-08,false
@@ -17,8 +17,8 @@ leg-09,ABC0009,2200/12/31 23:58,2200/12/31 23:59,"ON_TIME",airport-01,airport-02
 # scheduledArrival - standard variations
 leg-10,ABC0010,2000/01/01 00:00,2000/01/01 00:01,"ON_TIME",airport-01,airport-02,aircraft-43,flight-11,false
 leg-11,ABC0011,2000/01/01 00:00,2000/01/01 00:02,"ON_TIME",airport-01,airport-02,aircraft-44,flight-12,false
-leg-12,ABC0012,2020/01/01 01:00,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-08,flight-13,false
-leg-13,ABC0013,2020/01/01 01:00,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-09,flight-14,false
+leg-12,ABC0012,2030/01/01 01:00,2200/12/31 23:58,"ON_TIME",airport-01,airport-02,aircraft-08,flight-13,false
+leg-13,ABC0013,2030/01/01 01:00,2200/12/31 23:59,"ON_TIME",airport-01,airport-02,aircraft-09,flight-14,false
 # scheduledArrival - no singular values
 # status - standard variations
 leg-14,ABC0014,2020/01/01 01:00,2020/01/01 03:00,"CANCELLED",airport-01,airport-02,aircraft-10,flight-15,false

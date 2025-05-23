@@ -23,7 +23,7 @@ acme.validation.flight.leg.message = All legs must not be in draftMode
 acme.validation.flight.Delete.message = The flight must be in draftMode
 
 acme.validation.leg.duplicated-flightNumber.message = The flight number is already in use
-acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the airline's IATA code
+acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the IATA code of the airline associated with the manager
 acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
 acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
