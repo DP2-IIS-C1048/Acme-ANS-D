@@ -38,6 +38,7 @@ acme.validation.constraints.leg.invalid-airports.message = The arrival and depar
 acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
 
 acme.validation.technician.duplicated-license.message = This license already exists
+acme.validation.technician.duplicated-involves.message = You have already added this task to the maintenance record
 acme.validation.task.delete.message = The task must be in Draft Mode
 acme.validation.maintenance-record.valid-publication-status = The maintenance record must be completed
 acme.validation.maintenance-record.has-tasks = The maintenance record must have at least one task
