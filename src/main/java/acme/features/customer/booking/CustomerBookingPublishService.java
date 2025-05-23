@@ -54,20 +54,12 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void bind(final Booking booking) {
-		int flightId;
-		Flight flight;
-
-		flightId = super.getRequest().getData("flight", int.class);
-		flight = this.repository.findFlightById(flightId);
-
-		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
-		booking.setFlight(flight);
 	}
 
 	@Override
 	public void validate(final Booking booking) {
 		{
-			boolean isLastNibbleValid = booking.getLastNibble() != null;
+			boolean isLastNibbleValid = !booking.getLastNibble().isBlank() && booking.getLastNibble() != null;
 
 			super.state(isLastNibbleValid, "lastNibble", "acme.validation.booking.publish.lastNibble-null.message");
 		}

@@ -24,7 +24,9 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId, customerId;
+		int masterId;
+		int customerId;
+		int bookingRecordId;
 		Booking booking;
 
 		masterId = super.getRequest().getData("masterId", int.class);
@@ -41,12 +43,19 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 			if (method.equals("GET"))
 				status = true;
 			else {
-				status = true;
 				passengerId = super.getRequest().getData("passenger", int.class);
-				Passenger passengerSelected = this.repository.findPassengerById(passengerId);
-				Collection<Passenger> passengersAvilable = this.repository.findPassengersPublishedByCustomerId(customerId);
-				if (passengerSelected == null || passengerSelected.isDraftMode() && !passengersAvilable.contains(passengerSelected))
+				bookingRecordId = super.getRequest().getData("id", int.class);
+
+				if (bookingRecordId == 0) {
+					Passenger passengerSelected = this.repository.findPassengerById(passengerId);
+					Collection<Passenger> passengersAvilable = this.repository.findPassengersPublishedByCustomerId(customerId);
+					Collection<Passenger> passengersAssociated = this.repository.findPassengersByBookingId(booking.getId());
+					passengersAvilable.removeAll(passengersAssociated);
+					status = passengerId == 0 || passengerSelected != null && passengersAvilable.contains(passengerSelected);
+
+				} else
 					status = false;
+
 			}
 		}
 		super.getResponse().setAuthorised(status);
@@ -79,16 +88,17 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 			Customer customer = this.repository.findBookingById(bookingRecord.getBooking().getId()).getCustomer();
 			Collection<Passenger> customerPassengers = this.repository.findPassengersByCustomerId(customer.getId());
 
-			if (customerPassengers.contains(passenger))
+			if (passenger != null && customerPassengers.contains(passenger))
 				validPassenger = true;
 			super.state(validPassenger, "passenger", "acme.validation.booking-record.create.passenger-not-from-customer.message");
 
 		}
 		{
-			boolean passengerPublished;
+			boolean passengerPublished = true;
 			Passenger passenger = bookingRecord.getPassenger();
 
-			passengerPublished = !passenger.isDraftMode();
+			if (passenger != null)
+				passengerPublished = !passenger.isDraftMode();
 			super.state(passengerPublished, "passenger", "acme.validation.booking-record.create.passenger-not-published.message");
 		}
 		{
@@ -111,15 +121,19 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 	public void unbind(final BookingRecord bookingRecord) {
 		Dataset dataset;
 		Collection<Passenger> passengers;
+		Collection<Passenger> passengersAssociated;
 		SelectChoices choices;
 		int customerId;
 		Passenger selectedPassenger = bookingRecord.getPassenger();
 
 		customerId = bookingRecord.getBooking().getCustomer().getId();
 		passengers = this.repository.findPassengersPublishedByCustomerId(customerId);
+		passengersAssociated = this.repository.findPassengersByBookingId(bookingRecord.getBooking().getId());
 
 		if (selectedPassenger != null && !passengers.contains(selectedPassenger))
 			selectedPassenger = null;
+
+		passengers.removeAll(passengersAssociated);
 
 		choices = SelectChoices.from(passengers, "passportNumber", selectedPassenger);
 

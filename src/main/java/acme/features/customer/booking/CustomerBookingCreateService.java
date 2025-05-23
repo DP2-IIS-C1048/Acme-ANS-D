@@ -29,6 +29,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		boolean status;
 		String method;
 		int flightId;
+		int bookingId;
 		Date moment;
 
 		method = super.getRequest().getMethod();
@@ -37,11 +38,14 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		if (method.equals("GET"))
 			status = true;
 		else {
-			status = true;
-			flightId = super.getRequest().getData("flight", int.class);
-			Flight flightSelected = this.repository.findFlightById(flightId);
-			Collection<Flight> flightsAvilable = this.repository.findFlightsWithFirstLegAfter(moment);
-			if (flightSelected == null || flightSelected != null && !flightsAvilable.contains(flightSelected))
+			bookingId = super.getRequest().getData("id", int.class);
+
+			if (bookingId == 0) {
+				flightId = super.getRequest().getData("flight", int.class);
+				Flight flightSelected = this.repository.findFlightById(flightId);
+				Collection<Flight> flightsAvilable = this.repository.findFlightsWithFirstLegAfter(moment);
+				status = flightId == 0 || flightSelected != null && flightsAvilable.contains(flightSelected);
+			} else
 				status = false;
 		}
 		super.getResponse().setAuthorised(status);
@@ -83,7 +87,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 			Date moment;
 			moment = MomentHelper.getCurrentMoment();
 
-			if (booking.getFlight() != null) {
+			if (booking.getFlight() != null && !booking.getFlight().isDraftMode()) {
 				boolean flightDepartureFuture = booking.getFlight().getScheduledDeparture().after(moment);
 				super.state(flightDepartureFuture, "flight", "acme.validation.booking.departure-not-in-future.message");
 			}

@@ -1,3 +1,4 @@
+
 package acme.features.customer.bookingRecord;
 
 import java.util.Collection;
@@ -36,4 +37,8 @@ public interface CustomerBookingRecordRepository extends AbstractRepository {
 
 	@Query("select b.passenger from BookingRecord b where b.id = :bookingRecordId")
 	Collection<Passenger> findPassengersByBookingRecordId(int bookingRecordId);
+
+	@Query("select br.passenger from BookingRecord br where br.booking.id = :bookingId")
+	Collection<Passenger> findPassengersByBookingId(int bookingId);
+
 }
