@@ -64,7 +64,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		boolean isNotWrongResolution = true;
 		boolean isNotWrongResolution2 = true;
 		boolean isNotMaxCompleted = true;
-		boolean isWrongResolutionPercentage3 = true;
+		boolean isWrongResolutionPercentage4 = true;
 
 		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getIndicator() != null)
 			isNotWrongResolutionPercentage = trackingLog.getIndicator().equals(TrackingLogIndicator.PENDING);
@@ -83,7 +83,8 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 				highestTrackingLog = trackingLogs.stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).get();
 				long completedTrackingLogs = trackingLogs.stream().filter(t -> t.getResolutionPercentage().equals(100.00)).count();
 				if (highestTrackingLog.getId() != trackingLog.getId()) {
-					isWrongResolutionPercentage3 = highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage();
+					if (highestTrackingLog.getResolutionPercentage() < trackingLog.getResolutionPercentage())
+						isWrongResolutionPercentage4 = false;
 					if (highestTrackingLog.getResolutionPercentage() == 100 && trackingLog.getResolutionPercentage() == 100)
 						isNotMaxCompleted = !highestTrackingLog.isDraftMode() && completedTrackingLogs < 2;
 				}
@@ -97,7 +98,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 		super.state(isNotWrongResolution, "resolution", "acme.validation.trackingLog.isNotWrongResolution.message");
 		super.state(isNotWrongResolution2, "resolution", "acme.validation.trackingLog.isNotWrongResolution2.message");
 		super.state(isNotMaxCompleted, "resolutionPercentage", "acme.validation.trackingLog.isNotMaxCompleted.message");
-		super.state(isWrongResolutionPercentage3, "resolutionPercentage", "acme.validation.trackingLog.isWrongResolutionPercentage3.message");
+		super.state(isWrongResolutionPercentage4, "resolutionPercentage", "acme.validation.trackingLog.isWrongResolutionPercentage3.message");
 
 	}
 
