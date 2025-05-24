@@ -137,7 +137,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
 		if (selectedFlight != null && !flights.contains(selectedFlight))
-			selectedFlight = null;
+			flights.add(selectedFlight);
 
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 

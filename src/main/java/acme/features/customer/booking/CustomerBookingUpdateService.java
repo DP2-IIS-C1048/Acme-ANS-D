@@ -39,7 +39,6 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		if (status) {
 			String method;
 			int flightId;
-			int bookingId;
 			Date moment;
 
 			method = super.getRequest().getMethod();
@@ -48,7 +47,6 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 			if (method.equals("GET"))
 				status = true;
 			else {
-				bookingId = super.getRequest().getData("id", int.class);
 
 				flightId = super.getRequest().getData("flight", int.class);
 				Flight flightSelected = this.repository.findFlightById(flightId);
