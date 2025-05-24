@@ -7,6 +7,7 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.maintenance.Involves;
+import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.Task;
 import acme.realms.technician.Technician;
 
@@ -37,12 +38,17 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 	@Override
 	public void load() {
 		Involves involves;
+		MaintenanceRecord maintenanceRecord;
 		int involvesId;
+		boolean isMaintenanceRecordInDraftMode;
 
 		involvesId = super.getRequest().getData("id", int.class);
 		involves = this.repository.findInvolvesById(involvesId);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(involves.getMaintenanceRecord().getId());
+		isMaintenanceRecordInDraftMode = maintenanceRecord.isDraftMode();
 
 		super.getBuffer().addData(involves);
+		super.getResponse().addGlobal("isMaintenanceRecordInDraftMode", isMaintenanceRecordInDraftMode);
 	}
 
 	@Override
@@ -53,8 +59,8 @@ public class TechnicianInvolvesDeleteService extends AbstractGuiService<Technici
 	@Override
 	public void validate(final Involves involves) {
 		{
-			boolean maintenanceRecordIsAlreadyPublished = involves.getMaintenanceRecord().isDraftMode();
-			super.state(maintenanceRecordIsAlreadyPublished, "*", "acme.validation.involves.maintenance-record-is-already-published");
+			boolean maintenanceRecordIsNotPublishedYet = involves.getMaintenanceRecord().isDraftMode();
+			super.state(maintenanceRecordIsNotPublishedYet, "*", "acme.validation.involves.maintenance-record-is-not-published-yet");
 		}
 	}
 
