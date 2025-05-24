@@ -28,6 +28,7 @@ import lombok.Setter;
 @Setter
 @Table(indexes = {
 	@Index(columnList = "draftMode")
+	@Index(columnList = "draftMode, flightId, scheduledDeparture")
 })
 public class Flight extends AbstractEntity {
 
