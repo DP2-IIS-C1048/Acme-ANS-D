@@ -13,7 +13,6 @@ import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.manager.Manager;
@@ -31,14 +30,10 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		boolean status;
 		int legId;
 		Leg leg;
-		Flight flight;
-		Manager manager;
 
 		legId = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(legId);
-		flight = leg == null ? null : leg.getFlight();
-		manager = flight == null ? null : flight.getManager();
-		status = flight != null && leg != null && flight.isDraftMode() && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		status = leg != null && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()) && leg.isDraftMode() && leg.getFlight().isDraftMode();
 
 		if (status) {
 			String method;
@@ -112,7 +107,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 			Collection<Leg> existingLegs;
 
 			existingLegs = this.repository.findLegsPublishedByArrivalDepartureDate(leg.getScheduledDeparture(), leg.getScheduledArrival(), leg.getFlight().getId());
-			uniqueArrivalAndDepartureDate = existingLegs.isEmpty() || !existingLegs.isEmpty() && existingLegs.contains(leg);
+			uniqueArrivalAndDepartureDate = existingLegs.isEmpty();
 
 			super.state(uniqueArrivalAndDepartureDate, "scheduledDeparture", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
 			super.state(uniqueArrivalAndDepartureDate, "scheduledArrival", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
@@ -133,7 +128,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 			Leg firstLegPublished;
 			Leg lastLegPublished;
 
-			if (totalLegs > 0) {
+			if (totalLegs > 0 && leg.getDepartureAirport() != null && leg.getArrivalAirport() != null) {
 				firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
 				lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
 
@@ -154,7 +149,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 			boolean validAircraft;
 
-			if (leg.getAircraft() != null) {
+			if (leg.getAircraft() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
 				validAircraft = this.repository.findLegsWithAircraftInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
 
 				super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");

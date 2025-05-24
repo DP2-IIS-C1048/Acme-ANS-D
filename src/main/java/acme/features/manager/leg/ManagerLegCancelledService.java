@@ -36,7 +36,7 @@ public class ManagerLegCancelledService extends AbstractGuiService<Manager, Leg>
 		leg = this.repository.findLegById(legId);
 		flight = leg == null ? null : leg.getFlight();
 		manager = flight == null ? null : flight.getManager();
-		status = leg != null && !leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		status = leg != null && super.getRequest().getPrincipal().hasRealm(manager) && !leg.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 
