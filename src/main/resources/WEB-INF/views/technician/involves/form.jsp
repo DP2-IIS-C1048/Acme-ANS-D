@@ -21,7 +21,7 @@
 	
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-select code="technician.involves.form.label.tasksInvolved" path="task" choices="${tasks}"/>
-			<acme:submit code="technician.involves.form.button.create" action="/technician/involves/create?maintenanceRecordId=${maintenanceRecordId}"/>
+			<acme:submit code="technician.involves.form.button.link" action="/technician/involves/create?maintenanceRecordId=${maintenanceRecordId}"/>
 		</jstl:when>
 
 		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
@@ -32,7 +32,7 @@
 			<acme:input-textbox code="technician.involves.form.label.technician" path="technician" readonly="true"/>
 			
 			<jstl:if test="${isMaintenanceRecordInDraftMode == true}">
-				<acme:submit code="technician.involves.form.button.delete" action="/technician/involves/delete"/>
+				<acme:submit code="technician.involves.form.button.unlink" action="/technician/involves/delete"/>
 			</jstl:if>
 		</jstl:when>
 		
