@@ -46,7 +46,6 @@ public class TechnicianInvolvesListService extends AbstractGuiService<Technician
 		isMaintenanceRecordInDraftMode = maintenanceRecord.isDraftMode();
 
 		super.getBuffer().addData(involves);
-		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
 		super.getResponse().addGlobal("isMaintenanceRecordInDraftMode", isMaintenanceRecordInDraftMode);
 	}
 
@@ -63,5 +62,14 @@ public class TechnicianInvolvesListService extends AbstractGuiService<Technician
 		dataset.put("estimatedDuration", task.getEstimatedDuration());
 
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<Involves> involves) {
+		int maintenanceRecordId;
+		maintenanceRecordId = super.getRequest().getData("masterId", int.class);
+
+		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
+
 	}
 }

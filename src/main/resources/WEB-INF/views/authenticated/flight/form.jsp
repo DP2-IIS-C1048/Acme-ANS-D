@@ -27,6 +27,6 @@
 	<acme:input-textbox code="authenticated.flight.form.label.destinationCity" path="destinationCity" readonly="true"/>
 	<acme:input-textbox code="authenticated.flight.form.label.numberOfLayovers" path="numberOfLayovers" readonly="true"/>
 	
-	<acme:button code="authenticated.flight.form.button.legs" action="/authenticated/leg/list?masterId=${id}"/>			
+	<acme:button code="authenticated.flight.form.button.legs" action="/authenticated/leg/list?flightId=${id}"/>			
 	
 </acme:form>

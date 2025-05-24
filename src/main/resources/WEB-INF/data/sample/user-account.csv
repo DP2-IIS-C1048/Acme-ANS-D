@@ -5,11 +5,11 @@ user-account-consumer-03,true,"UserIdentity{name: 'Manolo', surname: '之乎路�
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
-user-account-flight-crew-01,true,"UserIdentity{name: 'David', surname: 'Basado', email: 'david@acme.com'}",flightcrew1,flightcrew1
-user-account-flight-crew-02,true,"UserIdentity{name: 'Jesús', surname: 'Corrales', email: 'jesus@acme.com'}",flightcrew2,flightcrew2
-user-account-flight-crew-03,true,"UserIdentity{name: 'Rodrigo', surname: 'García', email: 'rodrigo@acme.com'}",flightcrew3,flightcrew3
-user-account-flight-crew-04,true,"UserIdentity{name: 'Juan', surname: 'Rogríguez', email: 'juan@acme.com'}",flightcrew4,flightcrew4
-user-account-flight-crew-05,true,"UserIdentity{name: 'Mónica', surname: 'Ruibal', email: 'monica@acme.com'}",flightcrew5,flightcrew5
+user-account-member-01,true,"UserIdentity{name: 'David', surname: 'Basado', email: 'david@acme.com'}",member1,member1
+user-account-member-02,true,"UserIdentity{name: 'Jesús', surname: 'Corrales', email: 'jesus@acme.com'}",member2,member2
+user-account-member-03,true,"UserIdentity{name: 'Rodrigo', surname: 'García', email: 'rodrigo@acme.com'}",member3,member3
+user-account-member-04,true,"UserIdentity{name: 'Juan', surname: 'Rogríguez', email: 'juan@acme.com'}",member4,member4
+user-account-member-05,true,"UserIdentity{name: 'Mónica', surname: 'Ruibal', email: 'monica@acme.com'}",member5,member5
 user-account-technician-00,true,"UserIdentity{name: 'Jackie', surname: 'Chan', email: 'jackie@acme.com'}",technician0,technician0
 user-account-technician-01,true,"UserIdentity{name: 'Jackie', surname: 'Chan', email: 'jackie@acme.com'}",technician1,technician1
 user-account-technician-02,true,"UserIdentity{name: 'Alejandro', surname: 'Galán', email: 'alegalan@acme.com'}",technician2,technician2
@@ -55,6 +55,6 @@ user-account-manager-03,true,"UserIdentity{name: 'Stephen', surname: 'Vincent St
 user-account-customer-01,true,"UserIdentity{name: 'Guillermo', surname: 'Customer', email: 'guigonvaz@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Covadonga', surname: 'Estrada', email: 'covadonga@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'José', surname: 'Bonaparte', email: 'jbon@acme.com'}",customer3,customer3
-user-account-assistance-agent-01,true,"UserIdentity{name: 'Juan', surname: 'Muñoz', email: 'juanmu@acme.com'}",assistanceagent1,assistanceagent1
-user-account-assistance-agent-02,true,"UserIdentity{name: 'Jose', surname: 'Rodríguez', email: 'josero@acme.com'}",assistanceagent2,assistanceagent2
-user-account-assistance-agent-03,true,"UserIdentity{name: 'Pepa', surname: 'Cabeza Rojas', email: 'pepa@acme.com'}",assistanceagent3,assistanceagent3
+user-account-assistance-agent-01,true,"UserIdentity{name: 'Juan', surname: 'Muñoz', email: 'juanmu@acme.com'}",agent1,agent1
+user-account-assistance-agent-02,true,"UserIdentity{name: 'Jose', surname: 'Rodríguez', email: 'josero@acme.com'}",agent2,agent2
+user-account-assistance-agent-03,true,"UserIdentity{name: 'Pepa', surname: 'Cabeza Rojas', email: 'pepa@acme.com'}",agent3,agent3

@@ -1,6 +1,7 @@
 
 package acme.entities.claim;
 
+import java.util.Comparator;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -37,7 +38,7 @@ public class Claim extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidMoment(min = "2000/01/01 00:00", past = true)
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				registrationMoment;
 
@@ -56,22 +57,22 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private ClaimType			type;
 
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 
 	@Transient
-	private TrackingLogIndicator getIndicator() {
+	public TrackingLogIndicator getIndicator() {
 		TrackingLogRepository repository = SpringHelper.getBean(TrackingLogRepository.class);
-		TrackingLog mostRecentTrackingLog = repository.findOrderedTrackingLogs(this.getId()).get().get(0);
-		return mostRecentTrackingLog.getIndicator();
+		TrackingLogIndicator res = repository.findOrderedTrackingLogs(this.getId()).stream().max(Comparator.comparingDouble(TrackingLog::getResolutionPercentage)).map(TrackingLog::getIndicator).orElse(TrackingLogIndicator.PENDING);
+		return res;
 	}
 
 	// Relationships ----------------------------------------------------------
 
-
-	@Mandatory
-	@Automapped
-	private boolean			draftMode;
 
 	@Mandatory
 	@Valid

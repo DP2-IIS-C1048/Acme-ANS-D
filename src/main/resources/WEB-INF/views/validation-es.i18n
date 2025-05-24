@@ -32,11 +32,15 @@ acme.validation.leg.invalid-leg-arrivalAirport-selfTransfer.message = El aeropue
 acme.validation.leg.invalid-leg-departureAirport-selfTransfer.message = El aeropuerto de salida introducido coincide con el aeropuerto de llegada del último tramo pero el vuelo es de transferencia propia
 acme.validation.constraints.leg.arrivalAirport.message = El valor del aeropuerto de salida no puede estar vacio
 acme.validation.constraints.leg.departureAirport.message = El valor del aeropuerto de llegada no puede estar vacio
-acme.validation.constraints.leg.aircraft.message = El valor de la aeronave no puede estar vacio
 acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
+acme.validation.constraints.leg.invalid-aircraft.message = La fecha de creación de la aerolinea de la aeronave debe ser anterior a la fecha de salida
+acme.validation.constraints.leg.invalid-departure-date.message = La fecha de salida debe ser posterior al 01/01/2000 00:00.
+acme.validation.constraints.leg.invalid-arrival-date.message = La fecha de llegada debe ser anterior al 31/12/2200 23:59.
+
 
 acme.validation.technician.duplicated-license.message = Esta licencia ya está en uso en este momento
+acme.validation.technician.duplicated-involves.message = Ya has añadido esta tarea al registro de mantenimiento
 acme.validation.task.delete.message = La tarea debe estar en modo borrador
 acme.validation.maintenance-record.valid-publication-status = El registro de mantenimiento debe estar completado
 acme.validation.maintenance-record.has-tasks = El registro de mantenimiento debe tener al menos una tarea
@@ -63,6 +67,9 @@ acme.validation.currency.message = El tipo de moneda no está disponible
 acme.validation.manager.duplicated-identifierNumber.message = El identificador numérico del manager ya existe
 acme.validation.manager.invalid-identifierNumber.message = El identificador numerico no comienza con la inicial del nombre y la inicial del apellido
 
+acme.validation.customer.invalid-identifier.message = The customer's identifier number already exists.
+acme.validation.customer.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
+
 acme.validation.customer.duplicated-identifier.message = El identificador del customer ya existe
 
 acme.validation.booking.duplicated-locatorCode.message = Este locatorCode ya existe.
@@ -84,3 +91,26 @@ acme.validation.booking-record.create.passenger-not-published.message = Este pas
 acme.validation.aircraft.airline-not-found.message = No se encontró la aerolínea.
 
 acme.validation.administrator.aircraft.status-MAINTENANCE.message = La aeronave ya está en mantenimiento.
+
+acme.validation.assistanceagent.duplicated-employeeCode.message = Código de empleado duplicado ya existe
+acme.validation.assistanceagent.invalid-employeeCode.message = Código de empleado incorrecto
+
+acme.validation.trackinglog.invalid-indicator.message = Porcentaje de resolución incorrecto
+acme.validation.trackinglog.invalid-resolution.message = Resolución incorrecta
+
+acme.validation.claim.wrongLeg.message = La fecha de registro de la queja no puede ser anterior al momento de llegada del tramo seleccionado
+acme.validation.claim.wrongType.message = El tipo de queja seleccionado no esta dentro de los disponibles
+acme.validation.claim.thereIsTrackingLogs.message = No se puede eliminar una queja con registros asociados
+acme.validation.claim.draftMode.message = No se puede borrar/publicar/actualizar una queja que no esta en modo borrador
+acme.validation.claim.nullLeg.message = No se puede publicar una queja si el tramo asociado es nulo
+
+acme.validation.trackingLog.draftMode.message = No se puede borrar/publicar/actualizar un registro que no esta en modo borrador
+acme.validation.trackingLog.wrongIndicator.message = El indicador del registro seleccionado no esta dentro de los disponibles
+acme.validation.trackingLog.claimDraftMode.message = No se puede crear un registro asociado a una queja en modo borrador
+acme.validation.trackingLog.resolutionPercentage.message = Para que un registro tenga porcentaje de resolución menor que 100 debe tener estado PENDING
+acme.validation.trackingLog.resolutionPercentage2.message = Para que un registro tenga porcentaje de resolución igual 100 debe tener estado diferente a PENDING
+acme.validation.trackingLog.isNotWrongResolution.message = Las resoluciones solo están disponibles con un porcentaje del 100% y cuando el estado no es PENDING
+acme.validation.trackingLog.isNotWrongResolution2.message = Debes introducir una resolución cuando el estado no es PENDING y el porcentaje es del 100%
+acme.validation.trackingLog.isNotMaxCompleted.message = Solo pueden haber 2 registros con porcentage de resolución igual a 100 o uno en modo borrador con 100
+acme.validation.trackingLog.isWrongResolutionPercentage3.message =  El porcentaje del nuevo registro debe ser mayor que el mayor registrado para esta queja
+acme.validation.trackingLog.isWrongResolutionPercentage4.message = El porcentaje del registro no puede aumentar

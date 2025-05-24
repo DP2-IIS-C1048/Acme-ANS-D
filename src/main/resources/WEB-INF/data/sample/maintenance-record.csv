@@ -8,8 +8,8 @@ maintenance-record-03,2024/12/31 23:59,COMPLETED,2026/07/02 12:00,EUR 10000.00,"
 maintenance-record-04,2025/01/01 0:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-01
 # maintenanceMoment - No singular values
 # status - standard variations
-maintenance-record-05,2012/07/02 10:00,PENDING,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-01
-maintenance-record-06,2012/07/02 10:00,IN_PROGRESS,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-01
+maintenance-record-05,2012/07/02 10:00,PENDING,2026/07/02 12:00,EUR 10000.00,"I love this plane!",true,aircraft-00,technician-01
+maintenance-record-06,2012/07/02 10:00,IN_PROGRESS,2026/07/02 12:00,EUR 10000.00,"I love this plane!",true,aircraft-00,technician-01
 # status - No singular values
 # inspectionDueDate - standard variations
 maintenance-record-07,2012/07/02 10:00,COMPLETED,2025/01/01 00:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-01
@@ -45,5 +45,5 @@ maintenance-record-28,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"
 # aircraft - no singular values
 # technician - standard variations
 maintenance-record-29,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-02
-maintenance-record-30,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",false,aircraft-00,technician-04
+maintenance-record-30,2012/07/02 10:00,COMPLETED,2026/07/02 12:00,EUR 10000.00,"I love this plane!",true,aircraft-00,technician-02
 # technician - no singular values

@@ -7,12 +7,14 @@ import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
+import acme.constraints.ValidInvolves;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidInvolves
 public class Involves extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
