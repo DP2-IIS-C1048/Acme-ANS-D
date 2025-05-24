@@ -31,5 +31,6 @@ technician.maintenance-record.list.label.estimatedCost = Estimated cost
 technician.maintenance-record.list.label.notes = Notes
 technician.maintenance-record.list.label.aircraft = Aircraft
 technician.maintenance-record.list.label.technician = Technician
+technician.maintenance-record.list.label.draftMode = Draft mode
 
 technician.maintenance-record.list.button.create = Create
