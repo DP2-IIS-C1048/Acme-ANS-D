@@ -25,7 +25,7 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 		ActivityLog activityLog;
 		masterId = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(masterId);
-		status = !activityLog.getFlightAssignment().isDraftMode() && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember()) && activityLog != null;
+		status = activityLog != null && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -67,7 +67,7 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 	@Override
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		dataset = super.unbindObject(activityLog, "draftMode", "typeOfIncident", "description", "severityLevel");
 		super.getResponse().addData(dataset);
 	}
 }

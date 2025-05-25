@@ -3,7 +3,6 @@ package acme.features.flight_crew_member.flight_assignments;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -36,24 +35,20 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 		masterId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		flightCrewMember = flightAssignment == null ? null : flightAssignment.getFlightCrewMember();
-		status = super.getRequest().getPrincipal().hasRealm(flightCrewMember) && flightAssignment != null;
+		status = flightAssignment != null && super.getRequest().getPrincipal().hasRealm(flightCrewMember);
 
 		if (status) {
 			String method;
 			int legtId;
-			String userFullNameInput;
-			Date lastUpdateInput;
 
 			method = super.getRequest().getMethod();
 			if (method.equals("GET"))
 				status = true;
 			else {
-				userFullNameInput = super.getRequest().getData("member", String.class);
-				lastUpdateInput = super.getRequest().getData("lastUpdate", Date.class);
 				legtId = super.getRequest().getData("leg", int.class);
 				Leg leg = this.repository.findLegById(legtId);
 				Collection<Leg> uncompletedLegs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
-				status = (legtId == 0 || uncompletedLegs.contains(leg)) && userFullNameInput.equals(flightCrewMember.getIdentity().getFullName()) && lastUpdateInput.equals(flightAssignment.getLastUpdate());
+				status = legtId == 0 || uncompletedLegs.contains(leg);
 			}
 		}
 
@@ -98,7 +93,7 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 					}
 			}
 			if (flightAssignment.getFlightCrewMember().getAvailabilityStatus() != AvailabilityStatus.AVAILABLE)
-				super.state(false, "members", "flight-crew-member.flight-assignment.validation.availability-status.publish");
+				super.state(false, "member", "flight-crew-member.flight-assignment.validation.availability-status.publish");
 			Collection<FlightAssignment> currentUserAssignments = this.repository.findPublishedUncompletedFlightAssignmentsByFlightCrewMemberId(MomentHelper.getCurrentMoment(), flightAssignment.getFlightCrewMember().getId());
 			for (FlightAssignment fa : currentUserAssignments)
 				if (fa.getLeg().getFlightNumber() == flightAssignment.getLeg().getFlightNumber()) {
@@ -133,10 +128,11 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 
 		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
 
-		if (legs.isEmpty())
-			legs = List.of(flightAssignment.getLeg());
+		if (!legs.contains(flightAssignment.getLeg()))
+			legChoices = SelectChoices.from(legs, "LegLabel", null);
+		else
+			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
 
-		legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
 		dutyChoices = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 		statusChoices = SelectChoices.from(CurrentStatus.class, flightAssignment.getCurrentStatus());
 

@@ -21,9 +21,7 @@ public class UncompletedFlightAssignmentListService extends AbstractGuiService<F
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRealmOfType(FlightCrewMember.class);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override

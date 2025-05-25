@@ -23,7 +23,7 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 		ActivityLog activityLog;
 		id = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(id);
-		status = super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember()) && activityLog != null && activityLog.isDraftMode();
+		status = activityLog != null && activityLog.isDraftMode() && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -56,9 +56,7 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
-		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
-		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
+		dataset = super.unbindObject(activityLog, "draftMode", "typeOfIncident", "description", "severityLevel");
 
 		super.getResponse().addData(dataset);
 	}
