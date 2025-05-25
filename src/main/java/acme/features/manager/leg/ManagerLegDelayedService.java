@@ -11,6 +11,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.manager.Manager;
@@ -28,10 +29,14 @@ public class ManagerLegDelayedService extends AbstractGuiService<Manager, Leg> {
 		boolean status;
 		int legId;
 		Leg leg;
+		Flight flight;
+		Manager manager;
 
 		legId = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(legId);
-		status = leg != null && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()) && !leg.isDraftMode();
+		flight = leg == null ? null : leg.getFlight();
+		manager = flight == null ? null : flight.getManager();
+		status = leg != null && super.getRequest().getPrincipal().hasRealm(manager) && !leg.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 
@@ -96,8 +101,6 @@ public class ManagerLegDelayedService extends AbstractGuiService<Manager, Leg> {
 		dataset.put("arrivalAirport", choiceArrivalAirports.getSelected().getKey());
 		dataset.put("arrivalAirports", choiceArrivalAirports);
 		dataset.put("statuses", choiceStatuses);
-		dataset.put("duration", leg.getDuration());
-		dataset.put("flightId", leg.getFlight().getId());
 
 		super.getResponse().addData(dataset);
 	}

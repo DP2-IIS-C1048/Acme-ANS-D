@@ -66,13 +66,10 @@ public class Leg extends AbstractEntity {
 
 
 	@Transient
-	public double getDuration() {
+	private double getDuration() {
 		double duration;
-		if (this.scheduledArrival != null && this.scheduledDeparture != null) {
-			Duration aux = MomentHelper.computeDuration(this.scheduledDeparture, this.scheduledArrival);
-			duration = aux.toMinutes() / 60.0;
-		} else
-			duration = 0.0;
+		Duration aux = MomentHelper.computeDuration(this.scheduledDeparture, this.scheduledArrival);
+		duration = aux.toMinutes() / 60.0;
 		return duration;
 	}
 
