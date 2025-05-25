@@ -23,6 +23,7 @@ manager.leg.form.label.draftMode = Modo borrador:
 manager.leg.form.button.landed = Aterrizado:
 manager.leg.form.button.delayed = Retrasado:
 manager.leg.form.button.cancelled = Cancelado:
+manager.leg.form.label.duration = Duración in Hours:
 
 
 manager.leg.form.button.create = Crear	
