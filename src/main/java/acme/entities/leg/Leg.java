@@ -31,16 +31,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidLeg
-@Table(indexes = {
-	//Feature Leg
-	@Index(columnList = "flight_id,draftMode,scheduledDeparture,scheduledArrival"), // 
-	@Index(columnList = "aircraft_id,draftMode,scheduledDeparture,scheduledArrival"),// 
-	@Index(columnList = "flight_id,draftMode,scheduledArrival"),// 
-	@Index(columnList = "flight_id,draftMode,scheduledDeparture"), // 
-	@Index(columnList = "flight_id,draftMode"),//
-	//Feature Claim
-	@Index(columnList = "flight_id,draftMode,scheduledArrival,aircraft_id")
-})
+// @Table(indexes = {
+// 	//Feature Leg
+// 	@Index(columnList = "flight_id,draftMode,scheduledDeparture,scheduledArrival"), // 
+// 	@Index(columnList = "aircraft_id,draftMode,scheduledDeparture,scheduledArrival"),// 
+// 	@Index(columnList = "flight_id,draftMode,scheduledArrival"),// 
+// 	@Index(columnList = "flight_id,draftMode,scheduledDeparture"), // 
+// 	@Index(columnList = "flight_id,draftMode"),//
+// 	//Feature Claim
+// 	@Index(columnList = "flight_id,draftMode,scheduledArrival,aircraft_id")
+// })
 public class Leg extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;

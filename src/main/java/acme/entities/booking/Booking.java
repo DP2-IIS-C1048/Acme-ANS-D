@@ -30,9 +30,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidBooking
-@Table(indexes = {
-	@Index(columnList = "locatorCode"), @Index(columnList = "customer_id, purchaseMoment")
-})
+// @Table(indexes = {
+// 	@Index(columnList = "locatorCode"), @Index(columnList = "customer_id, purchaseMoment")
+// })
 public class Booking extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;

@@ -23,11 +23,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidAircraft
-@Table(indexes = {
-	//Feature Leg
-	@Index(columnList = "status")//
+// @Table(indexes = {
+// 	//Feature Leg
+// 	@Index(columnList = "status")//
 
-})
+// })
 public class Aircraft extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;

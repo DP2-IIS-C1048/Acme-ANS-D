@@ -25,9 +25,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "customer_id, draftMode")
-})
+// @Table(indexes = {
+// 	@Index(columnList = "customer_id, draftMode")
+// })
 public class Passenger extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;

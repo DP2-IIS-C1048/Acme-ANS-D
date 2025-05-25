@@ -26,9 +26,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode")
-})
+// @Table(indexes = {
+// 	@Index(columnList = "draftMode")
+// })
 public class Flight extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;

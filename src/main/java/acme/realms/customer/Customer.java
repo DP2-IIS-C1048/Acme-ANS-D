@@ -20,9 +20,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidCustomer
-@Table(indexes = {
-	@Index(columnList = "identifier")
-})
+// @Table(indexes = {
+// 	@Index(columnList = "identifier")
+// })
 public class Customer extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
