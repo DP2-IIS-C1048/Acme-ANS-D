@@ -68,8 +68,6 @@ public class ManagerLegDelayedService extends AbstractGuiService<Manager, Leg> {
 			super.state(false, "status", "acme.validation.constraints.leg.status-LANDED.message");
 		if (originalLeg.getStatus().equals(LegStatus.CANCELLED))
 			super.state(false, "status", "acme.validation.constraints.leg.status-CANCELLED.message");
-		if (!originalLeg.getStatus().equals(LegStatus.ON_TIME) && leg.getStatus().equals(LegStatus.ON_TIME))
-			super.state(false, "status", "acme.validation.constraints.leg.status-ON_TIME.message");
 	}
 
 	@Override

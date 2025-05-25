@@ -33,7 +33,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 		legId = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(legId);
-		status = leg != null && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()) && leg.isDraftMode() && leg.getFlight().isDraftMode();
+		status = leg != null && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()) && leg.getFlight().isDraftMode() && leg.isDraftMode();
 
 		if (status) {
 			String method;
@@ -132,7 +132,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 				firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
 				lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
 
-				if (MomentHelper.isBefore(leg.getScheduledArrival(), firstLegPublished.getScheduledDeparture()) && MomentHelper.isBefore(leg.getScheduledDeparture(), firstLegPublished.getScheduledDeparture())) {
+				if (MomentHelper.isBefore(leg.getScheduledDeparture(), firstLegPublished.getScheduledDeparture()) && MomentHelper.isBefore(leg.getScheduledArrival(), firstLegPublished.getScheduledDeparture())) {
 					if (!leg.getFlight().isRequiresSelfTransfer() && !leg.getArrivalAirport().getIataCode().equals(firstLegPublished.getDepartureAirport().getIataCode()))
 						super.state(false, "arrivalAirport", "acme.validation.leg.invalid-leg-arrivalAirport.message");
 					if (leg.getFlight().isRequiresSelfTransfer() && leg.getArrivalAirport().getIataCode().equals(firstLegPublished.getDepartureAirport().getIataCode()))
