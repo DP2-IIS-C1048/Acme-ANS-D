@@ -41,7 +41,16 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("select f from Flight f where f.id = :flightId")
 	Flight findFlightById(int flightId);
 
-	@Query("select f from Flight f join Leg l on l.flight.id = f.id where f.draftMode = false and l.scheduledDeparture > :scheduledDeparture and l.scheduledDeparture = (select min(l2.scheduledDeparture) from Leg l2 where l2.flight.id = f.id)")
+	@Query("""
+		select f from Flight f
+		join Leg l on l.flight.id = f.id
+		where f.draftMode = false
+		and l.scheduledDeparture > :scheduledDeparture
+		and not exists (
+		select 1 from Leg l2
+		where l2.flight.id = f.id
+		and l2.scheduledDeparture < l.scheduledDeparture)
+		""")
 	Collection<Flight> findFlightsWithFirstLegAfter(Date scheduledDeparture);
 
 	@Query("select f from Flight f")
