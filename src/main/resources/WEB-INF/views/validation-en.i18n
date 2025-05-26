@@ -50,7 +50,7 @@ acme.validation.maintenance-record.maintenance-record-is-not-completed-yet = You
 acme.validation.maintenance-record.tasks-are-not-duplicated = You can't publish a maintenance record with duplicated tasks
 acme.validation.maintenance-record.is-in-draft-mode = You can only publish a maintenance record if it is in draft mode
 acme.validation.involves.involves-is-possible = It is not possible to add this task to the maintenance record
-acme.validation.involves.maintenance-record-is-already-published = You can't delete tasks from a maintenance record that has already been published
+acme.validation.involves.maintenance-record-is-not-published-yet = You can't delete tasks from a maintenance record that has already been published
 
 acme.validation.promotion.duplicated-promotion-code.message = This promotion code has already been used
 acme.validation.promotion.promotion-code-pattern-mismatch.message = The format of the promotion code is not correct

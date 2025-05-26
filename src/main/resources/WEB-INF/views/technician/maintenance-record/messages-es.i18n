@@ -31,5 +31,6 @@ technician.maintenance-record.list.label.estimatedCost = Coste estimado
 technician.maintenance-record.list.label.notes = Notas
 technician.maintenance-record.list.label.aircraft = Aeronave
 technician.maintenance-record.list.label.technician = Técnico
+technician.maintenance-record.list.label.draftMode = Modo borrador
 
 technician.maintenance-record.list.button.create = Crear

@@ -18,10 +18,8 @@ technician.involves.form.label.priority = Priority
 technician.involves.form.label.estimatedDuration = Estimated duration
 technician.involves.form.label.technician = Technician
 
-technician.involves.form.button.update = Update
-technician.involves.form.button.delete = Delete
-technician.involves.form.button.publish = Publish
-technician.involves.form.button.create = Create
+technician.involves.form.button.unlink = Unlink
+technician.involves.form.button.link = Link
 
 technician.involves.list.label.type = Task type
 technician.involves.list.label.description = Description
@@ -29,4 +27,4 @@ technician.involves.list.label.priority = Priority
 technician.involves.list.label.estimatedDuration = Estimated duration
 technician.involves.list.label.technician = Technician
 
-technician.involves.list.button.create = Create
+technician.involves.list.button.link = Link

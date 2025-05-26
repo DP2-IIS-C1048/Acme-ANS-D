@@ -83,8 +83,10 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 			}
 		}
 		{
-			boolean isMaintenanceRecordCompleted = maintenanceRecord.getStatus().equals(MaintenanceStatus.COMPLETED);
-			super.state(isMaintenanceRecordCompleted, "status", "acme.validation.maintenance-record.valid-publication-status");
+			if (maintenanceRecord.getStatus() != null) {
+				boolean isMaintenanceRecordCompleted = maintenanceRecord.getStatus().equals(MaintenanceStatus.COMPLETED);
+				super.state(isMaintenanceRecordCompleted, "status", "acme.validation.maintenance-record.valid-publication-status");
+			}
 		}
 		{
 			Collection<Involves> maintenanceRecordInvolves;

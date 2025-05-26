@@ -4,9 +4,11 @@ package acme.features.technician.task;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.maintenance.Task;
+import acme.entities.maintenance.TaskType;
 import acme.realms.technician.Technician;
 
 @GuiService
@@ -66,8 +68,13 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 	@Override
 	public void unbind(final Task task) {
 		Dataset dataset;
+		SelectChoices typeChoices;
+
+		typeChoices = SelectChoices.from(TaskType.class, task.getType());
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
+		dataset.put("types", typeChoices);
+		dataset.put("technician", task.getTechnician().getLicense());
 
 		super.getResponse().addData(dataset);
 	}
