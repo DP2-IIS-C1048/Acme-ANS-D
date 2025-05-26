@@ -64,9 +64,6 @@ acme.validation.leg.invalid-futureDates.message = The date must be later than th
 
 acme.validation.currency.message = The currency is not available
 
-acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
-acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
-
 acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists.
 acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
 
