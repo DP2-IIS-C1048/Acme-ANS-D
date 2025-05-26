@@ -1,0 +1,35 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+technician.task.form.title = Formulario de tareas
+technician.task.list.title = Listado de tareas
+
+technician.task.form.label.type = Tipo de tarea
+technician.task.form.label.description = Descripción
+technician.task.form.label.priority = Prioridad
+technician.task.form.label.estimatedDuration = Duración estimada
+technician.task.form.label.technician = Técnico
+technician.task.list.label.draftMode = Modo borrador
+
+technician.task.form.placeholder.estimatedDuration = 0 - 6000
+technician.task.form.placeholder.priority = 0 - 10
+
+technician.task.form.button.update = Actualizar
+technician.task.form.button.delete = Eliminar
+technician.task.form.button.publish = Publicar
+technician.task.form.button.create = Crear
+
+technician.task.list.label.type = Tipo de tarea
+technician.task.list.label.description = Descripción
+technician.task.list.label.priority = Prioridad
+technician.task.list.label.estimatedDuration = Duración estimada
+technician.task.list.label.technician = Técnico
+
+technician.task.list.button.create = Crear

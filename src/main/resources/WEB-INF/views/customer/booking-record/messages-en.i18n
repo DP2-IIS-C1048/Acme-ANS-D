@@ -1,0 +1,14 @@
+customer.booking-record.list.label.fullName = Full name
+customer.booking-record.list.label.passportNumber = Passport number
+customer.booking-record.list.label.dateOfBirth = Date of birth
+customer.booking-record.list.button.create = Associate Passenger
+customer.booking-record.list.title = Passengers Asociated
+
+customer.booking-record.form.title = Passenger
+customer.booking-record.form.label.passenger = Passenger
+customer.booking-record.form.label.fullName = Full name:
+customer.booking-record.form.label.email = Email:
+customer.booking-record.form.label.passportNumber = Passport number:
+customer.booking-record.form.label.dateOfBirth = Date of birth:
+customer.booking-record.form.label.specialNeeds: Special needs:
+customer.booking-record.form.button.create = Create

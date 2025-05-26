@@ -19,7 +19,15 @@ public class ManagerFlightCreateService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		String method = super.getRequest().getMethod();
+		boolean status = true;
+		if (method.equals("POST")) {
+			int id = super.getRequest().getData("id", int.class);
+			status = id == 0;
+
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -45,10 +53,10 @@ public class ManagerFlightCreateService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void validate(final Flight flight) {
-
-		boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
-		super.state(validCurrency, "cost", "acme.validation.currency.message");
-
+		if (flight.getCost() != null) {
+			boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
+			super.state(validCurrency, "cost", "acme.validation.currency.message");
+		}
 	}
 
 	@Override

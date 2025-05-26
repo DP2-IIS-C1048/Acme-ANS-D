@@ -31,7 +31,7 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 		flightId = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightById(flightId);
 		manager = flight == null ? null : flight.getManager();
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		status = flight != null && super.getRequest().getPrincipal().hasRealm(manager) && flight.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 
@@ -58,8 +58,10 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	@Override
 	public void validate(final Flight flight) {
 		{
-			boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
-			super.state(validCurrency, "cost", "acme.validation.currency.message");
+			if (flight.getCost() != null) {
+				boolean validCurrency = ExchangeRate.isValidCurrency(flight.getCost().getCurrency());
+				super.state(validCurrency, "cost", "acme.validation.currency.message");
+			}
 		}
 		{
 			boolean allLegsNoDraftMode;

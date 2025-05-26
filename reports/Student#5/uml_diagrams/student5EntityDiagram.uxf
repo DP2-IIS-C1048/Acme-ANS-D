@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>5</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
-      <y>250</y>
-      <w>410</w>
-      <h>70</h>
+      <x>264</x>
+      <y>174</y>
+      <w>492</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 MaintenanceRecord
@@ -17,16 +17,17 @@ MaintenanceRecord
 + inspectionDueDate: Date {Mandatory, ValidMoment(past = false), Temporal(TemporalType.TIMESTAMP)}
 + estimatedCost: Money {Mandatory, ValidMoney(min = 0, max = 20000), Automapped}
 + notes: String {Optional, ValidString(min = 0), Automapped}
++ draftMode: boolean {Mandatory, Automapped}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>585</x>
-      <y>250</y>
-      <w>325</w>
-      <h>60</h>
+      <x>894</x>
+      <y>174</y>
+      <w>402</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
@@ -35,16 +36,17 @@ Task
 + description: String {Mandatory, ValidString(min = 1), Automapped}
 + priority: Integer {Mandatory, ValidNumber(min = 0, max = 10, integer = 2, fraction = 0), Automapped}
 + duration: Integer {Mandatory, ValidNumber(min = 0, max = 6000, integer = 4, fraction = 0), Automapped}
++ draftMode: boolean {Mandatory, Automapped}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>170</y>
-      <w>60</w>
-      <h>25</h>
+      <x>780</x>
+      <y>78</y>
+      <w>72</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Technician
@@ -55,10 +57,10 @@ bg=pink</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>365</y>
-      <w>60</w>
-      <h>30</h>
+      <x>768</x>
+      <y>312</y>
+      <w>72</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Involves
@@ -69,10 +71,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>535</x>
-      <y>305</y>
-      <w>230</w>
-      <h>95</h>
+      <x>834</x>
+      <y>246</y>
+      <w>276</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Involves &gt;
 lt=&lt;-x
@@ -80,15 +82,15 @@ m1=1
 m2=*
 
 </panel_attributes>
-    <additional_attributes>430.0;10.0;430.0;150.0;10.0;150.0</additional_attributes>
+    <additional_attributes>430.0;10.0;430.0;140.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>265</x>
-      <y>315</y>
-      <w>225</w>
-      <h>85</h>
+      <x>510</x>
+      <y>258</y>
+      <w>270</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>&lt; Involves
 lt=&lt;-x
@@ -96,15 +98,15 @@ m1=1
 m2=*
 
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0;430.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;430.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>545</x>
-      <y>175</y>
-      <w>210</w>
-      <h>85</h>
+      <x>846</x>
+      <y>84</y>
+      <w>252</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>&lt; Registered By
 lt=&lt;-x
@@ -117,10 +119,10 @@ m2=*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>175</y>
-      <w>230</w>
-      <h>85</h>
+      <x>516</x>
+      <y>84</y>
+      <w>276</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>Registered By &gt;
 lt=&lt;-x
@@ -131,26 +133,12 @@ m2=*
     <additional_attributes>440.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1025</x>
-      <y>260</y>
-      <w>90</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Aircraft
---
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>905</x>
-      <y>270</y>
-      <w>130</w>
-      <h>30</h>
+      <x>162</x>
+      <y>210</y>
+      <w>114</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>About &gt;
 lt=&lt;-x
@@ -158,6 +146,20 @@ m1=1
 m2=*
 
 </panel_attributes>
-    <additional_attributes>240.0;20.0;140.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>198</y>
+      <w>108</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Aircraft
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

@@ -1,7 +1,6 @@
 key,employee-code,phone-number,language-skills,availability-status,salary,years-of-experience,key:airline,key:user-account
-flight-crew-member-01,DBA123456,+34123456789,español;ingles,AVAILABLE,EUR 50000,30,airline-00,user-account-flight-crew-01
-flight-crew-member-02,JCO856395,+34984789384,español;inglés:francés,AVAILABLE,EUR 45000,24,airline-00,user-account-flight-crew-02
-flight-crew-member-03,RGA046295,+34243902089,español;ingles:italiano,ON_LEAVE,EUR 47000,7,airline-00,user-account-flight-crew-03
-flight-crew-member-04,JRO873715,+34875348273,español;ingles:francés,ON_VACATION,EUR 48000,12,airline-00,user-account-flight-crew-04
-flight-crew-member-05,MRU876912,+34982643926,español;ingles:alemán,ON_VACATION,EUR 49000,0,airline-00,user-account-flight-crew-05
-
+flight-crew-member-01,DBA123456,+34123456789,español;ingles,AVAILABLE,EUR 50000,30,airline-00,user-account-member-01
+flight-crew-member-02,JCO856395,+34984789384,español;inglés:francés,AVAILABLE,EUR 45000,24,airline-00,user-account-member-02
+flight-crew-member-03,RGA046295,+34243902089,español;ingles:italiano,ON_LEAVE,EUR 47000,7,airline-00,user-account-member-03
+flight-crew-member-04,JRO873715,+34875348273,español;ingles:francés,ON_VACATION,EUR 48000,12,airline-00,user-account-member-04
+flight-crew-member-05,MRU876912,+34982643926,español;ingles:alemán,ON_VACATION,EUR 49000,0,airline-00,user-account-member-05

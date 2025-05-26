@@ -8,9 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+acme.validation.length = Text too long
+acme.validation.range = Number out of range
+acme.validation.airline.duplicated-iataCode.message = An airline with this IATA code already exists
+acme.validation.confirmation.message = Confirm the operation.
 
 acme.validation.flight.crew.member.duplicated-employee-code.message = The employee Code is duplicated
-acme.validation..flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
+acme.validation.flight.crew.member.employee-code.message			  = The first two or three letters of the employee code must correspond with the initials
 
 acme.validation.activityLog.statusLeg.message = The leg must be in LANDED status
 acme.validation.aircraft.duplicated-registration-number.message = The registration number is duplicated
@@ -19,35 +23,99 @@ acme.validation.flight.leg.message = All legs must not be in draftMode
 acme.validation.flight.Delete.message = The flight must be in draftMode
 
 acme.validation.leg.duplicated-flightNumber.message = The flight number is already in use
-acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the airline's IATA code
+acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the IATA code of the airline associated with the manager
 acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
 acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
-acme.validation.leg.invalid-leg-airports.message = The entered arrival airport does not match the departure airport of the first leg or the entered departure airport does not match the arrival airport of the last leg, since the flight requires self-transfer 
+acme.validation.leg.invalid-leg-arrivalAirport.message = The entered arrival airport does not match the departure airport of the first leg, but the flight is not a self-transfer
+acme.validation.leg.invalid-leg-departureAirport.message = The entered departure airport does not match the arrival airport of the last leg, but the flight is not a self-transfer
+acme.validation.leg.invalid-leg-arrivalAirport-selfTransfer.message = The entered arrival airport matches the departure airport of the first leg, but the flight is a self-transfer
+acme.validation.leg.invalid-leg-departureAirport-selfTransfer.message = The entered departure airport matches the arrival airport of the last leg, but the flight is a self-transfer 
 acme.validation.constraints.leg.arrivalAirport.message = The departure airport value cannot be empty.  
 acme.validation.constraints.leg.departureAirport.message = The arrival airport value cannot be empty.  
-acme.validation.constraints.leg.aircraft.message = The aircraft value cannot be empty.
 acme.validation.constraints.leg.invalid-airports.message = The arrival and departure airport can not be the same airport
 acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
+acme.validation.constraints.leg.invalid-min-date.message = The date must be after 2000/01/01 00:00
+acme.validation.constraints.leg.invalid-max-date.message = The date must be before 2200/12/31 23:59
+
+
+acme.validation.technician.duplicated-license.message = This license already exists
+acme.validation.technician.duplicated-involves.message = You have already added this task to the maintenance record
+acme.validation.task.delete.message = The task must be in Draft Mode
+acme.validation.maintenance-record.valid-publication-status = The maintenance record must be completed
+acme.validation.maintenance-record.has-tasks = The maintenance record must have at least one task
+acme.validation.maintenance-record.all-tasks-are-published = The maintenance record must have all tasks published
+acme.validation.maintenance-record.inspectionDueDate-is-after-maintenanceMoment = Inspection due date must be after maintenance moment
+acme.validation.maintenance-record.maintenance-record-is-not-completed-yet = You can not create a maintenance record completed
+acme.validation.maintenance-record.tasks-are-not-duplicated = You can't publish a maintenance record with duplicated tasks
+acme.validation.maintenance-record.is-in-draft-mode = You can only publish a maintenance record if it is in draft mode
+acme.validation.involves.involves-is-possible = It is not possible to add this task to the maintenance record
+acme.validation.involves.maintenance-record-is-not-published-yet = You can't delete tasks from a maintenance record that has already been published
+
+acme.validation.promotion.duplicated-promotion-code.message = This promotion code has already been used
+acme.validation.promotion.promotion-code-pattern-mismatch.message = The format of the promotion code is not correct
+acme.validation.promotion.promotion-code-last-digits.message = The promotion is not available
+
+acme.validation.leg.aircraft-active.message=The selected aircraft must be active.
 acme.validation.constraints.leg.status-LANDED.message = The leg cannot change status as it has already landed.
 acme.validation.constraints.leg.status-CANCELLED.message = The leg cannot change status as it was cancelled.
 acme.validation.constraints.leg.status-ON_TIME.message = The leg cannot return to "ON_TIME" status as it was previously in another state.
-
-
+acme.validation.leg.invalid-futureDates.message = The date must be later than the current date
 
 acme.validation.currency.message = The currency is not available
 
+acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists.
+acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
 
-acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
-acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
+acme.validation.customer.invalid-identifier.message = The customer's identifier number already exists.
+acme.validation.customer.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.
 
-acme.validation.customer.duplicated-identifier.message = The customer identifier already exists
+acme.validation.customer.duplicated-identifier.message = The customer identifier already exists.
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
+acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
+acme.validation.booking.departure-not-in-future.message = This flight has already been deported. This is not a code 500 because a customer can create a booking with a flight. Time after, he can show the booking. That flight is not on the list due to i only list that flights that have not been deported yet and that flight has already been deported. 
+acme.validation.booking.is-not-draft-mode.message = This booking can't be updated. It isn't on draftMode
+acme.validation.booking.flight.not-found.messasge = This flight couldn't be found
+
+acme.validation.booking.publish.lastNibble-null.message = The lastNibble of this booking can't be null.
+acme.validation.booking.publish.passengers-associated.message = This booking has no passengers associated.
+acme.validation.booking.publish.passenger-associated-not-owned.message = This booking has passengers that aren't yours.
+acme.validation.booking.published.passenger-not-published.message = This booking has passengers not published.
+
+acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you
+acme.validation.booking-record.create.passenger-not-published.message = This passenger is not published
+acme.validation.booking-record.create.passenger-already-associated.message = This passenger is already associated to the booking
+
+acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
+acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
+
+acme.validation.aircraft.airline-not-found.message = Airline not found.
+
+acme.validation.administrator.aircraft.status-MAINTENANCE.message = The aircraft is already in maintenance.
 
 
+acme.validation.assistanceagent.duplicated-employeeCode.message = EmployeeCode already exists
+acme.validation.assistanceagent.invalid-employeeCode.message = Incorrect employeeCode
 
+acme.validation.trackinglog.invalid-indicator.message = Incorrect resolution percentage
+acme.validation.trackinglog.invalid-resolution.message = Incorrect resolution
 
+acme.validation.claim.wrongLeg.message = The registration moment of the claim cannot be earlier than the arrival time of the selected leg
+acme.validation.claim.wrongType.message = The selected complaint type is not among the available options
+acme.validation.claim.thereIsTrackingLogs.message = A claim with associated trackinglogs cannot be deleted
+acme.validation.claim.draftMode.message = A claim that is not in draft mode cannot be deleted/publish/updated
+acme.validation.claim.nullLeg.message = A claim cannot be published if the associated leg is null
 
+acme.validation.trackingLog.draftMode.message = A trackingLog that is not in draft mode cannot be deleted/publish/updated
+acme.validation.trackingLog.wrongIndicator.message = The selected tracking log indicator is not among the available options
+acme.validation.trackingLog.claimDraftMode.message = A tracking log cannot be created for a claim in draft mode.
+acme.validation.trackingLog.resolutionPercentage.message =For a tracking log to have a resolution percentage lower than 100, it must have a estate of PENDING
+acme.validation.trackingLog.resolutionPercentage2.message = For a tracking log to have a resolution percentage of 100, it must have a estate different of PENDING
+acme.validation.trackingLog.isNotWrongResolution.message = Resolutions are only available with a 100% percentage and when the estate is not PENDING
+acme.validation.trackingLog.isNotWrongResolution2.message = You must enter a resolution when the estate is not PENDING and the percentage is 100%
+acme.validation.trackingLog.isNotMaxCompleted.message = There can only be 2 tracking logs with a resolution percentage equal to 100 or there is one in draft mode with 100
+acme.validation.trackingLog.isWrongResolutionPercentage3.message =  The percentage of the new trackinglog must be higher than the highest recorded for this claim
+acme.validation.trackingLog.isWrongResolutionPercentage4.message = The percentage of the trackinglog can not increment
 
-
+acme.validation.airport.duplicated-iataCode.message = This iataCode already exists

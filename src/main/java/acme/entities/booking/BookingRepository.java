@@ -11,4 +11,5 @@ public interface BookingRepository extends AbstractRepository {
 
 	@Query("select b from Booking b where b.locatorCode = :locatorCode")
 	Booking findBookingByLocatorCode(String locatorCode);
+
 }

@@ -6,7 +6,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -17,6 +19,7 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidLeg;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
@@ -28,6 +31,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidLeg
+@Table(indexes = {
+	//Feature Leg
+	@Index(columnList = "flight_id,draftMode,scheduledDeparture,scheduledArrival"), // 
+	@Index(columnList = "aircraft_id,draftMode,scheduledDeparture,scheduledArrival"),// 
+	@Index(columnList = "flight_id,draftMode,scheduledArrival"),// 
+	@Index(columnList = "flight_id,draftMode,scheduledDeparture"), // 
+	@Index(columnList = "flight_id,draftMode"),//
+	//Feature Claim
+	@Index(columnList = "flight_id,draftMode,scheduledArrival,aircraft_id"),//
+	@Index(columnList = "draftMode")//
+
+})
 public class Leg extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -38,12 +53,12 @@ public class Leg extends AbstractEntity {
 	private String				flightNumber;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledDeparture;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				scheduledArrival;
 
@@ -53,11 +68,19 @@ public class Leg extends AbstractEntity {
 
 
 	@Transient
-	private double getDuration() {
+	public double getDuration() {
 		double duration;
-		Duration aux = Duration.between(this.scheduledDeparture.toInstant(), this.scheduledArrival.toInstant());
-		duration = aux.toMinutes() / 60.0;
+		if (this.scheduledArrival != null && this.scheduledDeparture != null) {
+			Duration aux = MomentHelper.computeDuration(this.scheduledDeparture, this.scheduledArrival);
+			duration = aux.toMinutes() / 60.0;
+		} else
+			duration = 0.0;
 		return duration;
+	}
+
+	@Transient
+	public String getLegLabel() {
+		return this.flightNumber + ": " + this.getDepartureAirport().getCity() + " " + this.getScheduledDeparture() + " - " + this.getArrivalAirport().getCity() + " " + this.getScheduledArrival();
 	}
 
 

@@ -51,19 +51,14 @@ public class Airport extends AbstractEntity {
 	private String				country;
 
 	@Optional
-	@ValidUrl
+	@ValidUrl(remote = false)
 	@Automapped
 	private String				website;
 
 	@Optional
 	@ValidEmail
 	@Automapped
-	private String				email;
-
-	@Optional
-	@ValidString(max = 50)
-	@Automapped
-	private String				adress;
+	private String				emailAddress;
 
 	@Optional
 	@ValidString(pattern = "^\\+?\\d{6,15}$")

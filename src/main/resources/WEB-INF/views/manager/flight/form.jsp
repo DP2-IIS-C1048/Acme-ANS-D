@@ -18,7 +18,7 @@
 <acme:form> 
 
 	<acme:input-textbox code="manager.flight.form.label.tag" path="tag"/>
-	<acme:input-checkbox code="manager.flight.form.label.requiresSelfTransfer" path="requiresSelfTransfer"/>
+	<acme:input-checkbox code="manager.flight.form.label.requiresSelfTransfer" path="requiresSelfTransfer" readonly="${_command != 'create'}"/>
 	<acme:input-money code="manager.flight.form.label.cost" path="cost"/>
 	<acme:input-textarea code="manager.flight.form.label.description" path="description"/>
 	<jstl:if test="${_command != 'create'}">
@@ -31,10 +31,10 @@
 	</jstl:if>
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>			
+			<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?flightId=${id}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>
+			<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?flightId=${id}"/>
 			<acme:submit code="manager.flight.form.button.update" action="/manager/flight/update"/>
 			<acme:submit code="manager.flight.form.button.delete" action="/manager/flight/delete"/>
 			<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>

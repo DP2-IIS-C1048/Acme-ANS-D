@@ -2,17 +2,17 @@
 package acme.features.manager.leg;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
+import acme.entities.aircraft.AircraftStatus;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.manager.Manager;
@@ -30,15 +30,32 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		boolean status;
 		int legId;
 		Leg leg;
-		Flight flight;
-		Manager manager;
 
 		legId = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(legId);
-		flight = leg == null ? null : leg.getFlight();
-		manager = flight == null ? null : flight.getManager();
-		status = flight != null && leg != null && flight.isDraftMode() && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		status = leg != null && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()) && leg.getFlight().isDraftMode() && leg.isDraftMode();
 
+		if (status) {
+			String method;
+			int aircraftId, departureAirportId, arrivalAirportId;
+			Aircraft aircraft;
+			Airport departureAirport, arrivalAirport;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+
+				aircraftId = super.getRequest().getData("aircraft", int.class);
+				departureAirportId = super.getRequest().getData("departureAirport", int.class);
+				arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
+				aircraft = this.repository.findAircraftById(aircraftId);
+				departureAirport = this.repository.findAirportById(departureAirportId);
+				arrivalAirport = this.repository.findAirportById(arrivalAirportId);
+				status = (aircraftId == 0 || aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE)) && (arrivalAirportId == 0 || arrivalAirport != null) && (departureAirportId == 0 || departureAirport != null);
+			}
+		}
 		super.getResponse().setAuthorised(status);
 
 	}
@@ -84,52 +101,65 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void validate(final Leg leg) {
-		Date departureDate = leg.getScheduledDeparture();
-		Date arrivalDate = leg.getScheduledArrival();
+		if (leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
 
-		boolean uniqueArrivalAndDepartureDate;
-		Collection<Leg> existingLegs;
+			boolean uniqueArrivalAndDepartureDate;
+			Collection<Leg> existingLegs;
 
-		existingLegs = this.repository.findLegsPublishedByArrivalDepartureDate(departureDate, arrivalDate, leg.getFlight().getId());
-		uniqueArrivalAndDepartureDate = existingLegs.isEmpty() || !existingLegs.isEmpty() && existingLegs.contains(leg);
+			existingLegs = this.repository.findLegsPublishedByArrivalDepartureDate(leg.getScheduledDeparture(), leg.getScheduledArrival(), leg.getFlight().getId());
+			uniqueArrivalAndDepartureDate = existingLegs.isEmpty();
 
-		super.state(uniqueArrivalAndDepartureDate, "scheduledDeparture", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
-		super.state(uniqueArrivalAndDepartureDate, "scheduledArrival", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
+			super.state(uniqueArrivalAndDepartureDate, "scheduledDeparture", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
+			super.state(uniqueArrivalAndDepartureDate, "scheduledArrival", "acme.validation.leg.duplicated-leg-arrivalDepartureDates.message");
 
-		Integer totalLegs;
+			Integer totalLegs;
 
-		totalLegs = this.repository.getNumbersOfLegsPublishedByFlightId(leg.getFlight().getId());
-		if (totalLegs > 0) {
-			Leg firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
-			Leg lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
+			totalLegs = this.repository.getNumbersOfLegsPublishedByFlightId(leg.getFlight().getId());
+			if (totalLegs > 0) {
+				Leg firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
+				Leg lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
 
-			if (!leg.getScheduledArrival().before(firstLegPublished.getScheduledDeparture()) && !leg.getScheduledDeparture().after(lastLegPublished.getScheduledArrival())) {
-				super.state(false, "scheduledDeparture", "acme.validation.leg.invalid-leg-dates.message");
-				super.state(false, "scheduledArrival", "acme.validation.leg.invalid-leg-dates.message");
+				if (!MomentHelper.isBefore(leg.getScheduledArrival(), firstLegPublished.getScheduledDeparture()) && !MomentHelper.isAfter(leg.getScheduledDeparture(), lastLegPublished.getScheduledArrival())) {
+					super.state(false, "scheduledDeparture", "acme.validation.leg.invalid-leg-dates.message");
+					super.state(false, "scheduledArrival", "acme.validation.leg.invalid-leg-dates.message");
+				}
+			}
+
+			Leg firstLegPublished;
+			Leg lastLegPublished;
+
+			if (totalLegs > 0 && leg.getDepartureAirport() != null && leg.getArrivalAirport() != null) {
+				firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
+				lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
+
+				if (MomentHelper.isBefore(leg.getScheduledDeparture(), firstLegPublished.getScheduledDeparture()) && MomentHelper.isBefore(leg.getScheduledArrival(), firstLegPublished.getScheduledDeparture())) {
+					if (!leg.getFlight().isRequiresSelfTransfer() && !leg.getArrivalAirport().getIataCode().equals(firstLegPublished.getDepartureAirport().getIataCode()))
+						super.state(false, "arrivalAirport", "acme.validation.leg.invalid-leg-arrivalAirport.message");
+					if (leg.getFlight().isRequiresSelfTransfer() && leg.getArrivalAirport().getIataCode().equals(firstLegPublished.getDepartureAirport().getIataCode()))
+						super.state(false, "arrivalAirport", "acme.validation.leg.invalid-leg-arrivalAirport-selfTransfer.message");
+				}
+				if (MomentHelper.isAfter(leg.getScheduledArrival(), lastLegPublished.getScheduledArrival()) && MomentHelper.isAfter(leg.getScheduledDeparture(), lastLegPublished.getScheduledArrival())) {
+					if (!leg.getFlight().isRequiresSelfTransfer() && !leg.getDepartureAirport().getIataCode().equals(lastLegPublished.getArrivalAirport().getIataCode()))
+						super.state(false, "departureAirport", "acme.validation.leg.invalid-leg-departureAirport.message");
+					if (leg.getFlight().isRequiresSelfTransfer() && leg.getDepartureAirport().getIataCode().equals(lastLegPublished.getArrivalAirport().getIataCode()))
+						super.state(false, "departureAirport", "acme.validation.leg.invalid-leg-departureAirport-selfTransfer.message");
+				}
+
+			}
+
+			boolean validAircraft;
+
+			if (leg.getAircraft() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null) {
+				validAircraft = this.repository.findLegsWithAircraftInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).isEmpty();
+
+				super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
 			}
 		}
+		if (leg.getScheduledDeparture() != null)
+			super.state(MomentHelper.isFuture(leg.getScheduledDeparture()), "scheduledDeparture", "acme.validation.leg.invalid-futureDates.message");
 
-		Leg firstLegPublished;
-		Leg lastLegPublished;
-
-		if (totalLegs > 0 && !leg.getFlight().isRequiresSelfTransfer()) {
-			firstLegPublished = this.repository.findFirstLegPublishedByFlightId(leg.getFlight().getId());
-			lastLegPublished = this.repository.findLastLegPublishedByFlightId(leg.getFlight().getId());
-
-			if (leg.getScheduledArrival().before(firstLegPublished.getScheduledDeparture()) && leg.getScheduledDeparture().before(firstLegPublished.getScheduledDeparture())
-				&& !leg.getArrivalAirport().getIataCode().equals(firstLegPublished.getDepartureAirport().getIataCode()))
-				super.state(false, "arrivalAirport", "acme.validation.leg.invalid-leg-arrivalAirport.message");
-			if (leg.getScheduledArrival().after(lastLegPublished.getScheduledArrival()) && leg.getScheduledDeparture().after(lastLegPublished.getScheduledArrival())
-				&& !leg.getDepartureAirport().getIataCode().equals(lastLegPublished.getArrivalAirport().getIataCode()))
-				super.state(false, "departureAirport", "acme.validation.leg.invalid-leg-departureAirport.message");
-
-		}
-
-		boolean validAircraft;
-
-		validAircraft = this.repository.isAircraftNotInUse(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival());
-
-		super.state(validAircraft, "aircraft", "acme.validation.leg.invalid-aircraft.message");
+		if (leg.getScheduledArrival() != null)
+			super.state(MomentHelper.isFuture(leg.getScheduledArrival()), "scheduledArrival", "acme.validation.leg.invalid-futureDates.message");
 
 	}
 
@@ -150,7 +180,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		SelectChoices choiceStatuses;
 
 		airports = this.repository.findAllAirports();
-		aircrafts = this.repository.findAllAircrafts();
+		aircrafts = this.repository.findActiveAircrafts();
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledArrival", "scheduledDeparture", "status", "draftMode");
 		choiceAircrafts = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
 		choiceDepartureAirports = SelectChoices.from(airports, "iataCode", leg.getDepartureAirport());
@@ -164,6 +194,8 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		dataset.put("arrivalAirport", choiceArrivalAirports.getSelected().getKey());
 		dataset.put("arrivalAirports", choiceArrivalAirports);
 		dataset.put("statuses", choiceStatuses);
+		dataset.put("duration", leg.getDuration());
+		dataset.put("flightId", leg.getFlight().getId());
 
 		super.getResponse().addData(dataset);
 	}

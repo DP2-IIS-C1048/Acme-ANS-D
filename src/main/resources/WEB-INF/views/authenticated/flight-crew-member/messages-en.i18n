@@ -1,0 +1,21 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.flight-crew-member.form.title = Flight crew member data
+
+authenticated.flight-crew-member.form.label.phone-number = Phone number
+authenticated.flight-crew-member.form.label.language-skills = Languages (separate languages ​​by a blank space)
+authenticated.flight-crew-member.form.label.availability-status = Availability status
+authenticated.flight-crew-member.form.label.years-of-experience = Years of experience (Optional)
+authenticated.flight-crew-member.form.label.airline	 = Airline
+authenticated.flight-crew-member.form.label.salary = Salary
+
+authenticated.flight-crew-member.form.button.create = Register
+authenticated.flight-crew-member.form.button.update = Update
