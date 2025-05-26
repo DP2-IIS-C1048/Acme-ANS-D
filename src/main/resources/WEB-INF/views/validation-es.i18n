@@ -34,7 +34,6 @@ acme.validation.constraints.leg.arrivalAirport.message = El valor del aeropuerto
 acme.validation.constraints.leg.departureAirport.message = El valor del aeropuerto de llegada no puede estar vacio
 acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
-acme.validation.constraints.leg.invalid-aircraft.message = La fecha de creación de la aerolinea de la aeronave debe ser anterior a la fecha de salida
 acme.validation.constraints.leg.invalid-min-date.message = La fecha debe ser posterior al 01/01/2000 00:00
 acme.validation.constraints.leg.invalid-max-date.message = La fecha debe ser anterior al 31/12/2200 23:59
 

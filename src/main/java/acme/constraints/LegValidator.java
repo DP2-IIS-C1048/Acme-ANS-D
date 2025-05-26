@@ -68,14 +68,6 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 					invalidAirports = false;
 				super.state(context, invalidAirports, "arrivalAirport", "acme.validation.constraints.leg.invalid-airports.message");
 			}
-
-			{
-				boolean invalidAircraft = true;
-
-				if (leg.getAircraft() != null && departureDate != null && MomentHelper.isBefore(departureDate, leg.getAircraft().getAirline().getFoundationMoment()))
-					invalidAircraft = false;
-				super.state(context, invalidAircraft, "aircraft", "acme.validation.constraints.leg.invalid-aircraft.message");
-			}
 			{
 				Date minDate = MomentHelper.parse("2000-01-01 00:00", "yyyy-MM-dd HH:mm");
 				Date maxDate = MomentHelper.parse("2200-12-31 23:59", "yyyy-MM-dd HH:mm");
