@@ -22,7 +22,7 @@ acme.validation.flight.leg.message = Todas las legs tienen que estar en modo no 
 acme.validation.flight.Delete.message = El vuelo tiene que estar en modo borrador
 
 acme.validation.leg.duplicated-flightNumber.message = El número de vuelo ya está en uso
-acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea
+acme.validation.constraints.leg.flightNumber-IATACode.message =  El número de vuelo debe comenzar por el código IATA de la aerolinea del manager
 acme.validation.constraints.leg.arrivalDepartureDates.message = La fecha de salida debe ser anterior que la de llegada
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = Las fechas de salida o de llegada coinciden en el intervalo de otro tramo
 acme.validation.leg.invalid-leg-dates.message = El tramo introducido no es posterior o anterior al último tramo o primer tramo
@@ -34,9 +34,8 @@ acme.validation.constraints.leg.arrivalAirport.message = El valor del aeropuerto
 acme.validation.constraints.leg.departureAirport.message = El valor del aeropuerto de llegada no puede estar vacio
 acme.validation.constraints.leg.invalid-airports.message = El aeropuerto de llegada y salida no pueden ser el mismo aeropuerto.
 acme.validation.leg.invalid-aircraft.message = Este aircraft ya está en uso en ese momento
-acme.validation.constraints.leg.invalid-aircraft.message = La fecha de creación de la aerolinea de la aeronave debe ser anterior a la fecha de salida
-acme.validation.constraints.leg.invalid-departure-date.message = La fecha de salida debe ser posterior al 01/01/2000 00:00.
-acme.validation.constraints.leg.invalid-arrival-date.message = La fecha de llegada debe ser anterior al 31/12/2200 23:59.
+acme.validation.constraints.leg.invalid-min-date.message = La fecha debe ser posterior al 01/01/2000 00:00
+acme.validation.constraints.leg.invalid-max-date.message = La fecha debe ser anterior al 31/12/2200 23:59
 
 
 acme.validation.technician.duplicated-license.message = Esta licencia ya está en uso en este momento

@@ -13,7 +13,7 @@ public interface FlightRepository extends AbstractRepository {
 	@Query("""
 		    SELECT l
 		    FROM Leg l
-		    WHERE l.flight.id = :flightId
+		    WHERE l.flight.id = :flightId AND l.draftMode = false
 		    AND (l.scheduledDeparture = (SELECT MIN(l2.scheduledDeparture) FROM Leg l2 WHERE l2.flight.id = :flightId))
 		""")
 	Leg findFirstLegByFlightId(int flightId);
@@ -21,7 +21,7 @@ public interface FlightRepository extends AbstractRepository {
 	@Query("""
 		    SELECT l
 		    FROM Leg l
-		    WHERE l.flight.id = :flightId
+		    WHERE l.flight.id = :flightId AND l.draftMode = false
 		    AND (l.scheduledArrival = (SELECT MAX(l2.scheduledArrival) FROM Leg l2 WHERE l2.flight.id = :flightId))
 		""")
 	Leg findLastLegByFlightId(int flightId);

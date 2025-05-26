@@ -11,7 +11,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircraft.Aircraft;
 import acme.entities.airport.Airport;
-import acme.entities.flight.Flight;
 import acme.entities.leg.Leg;
 import acme.entities.leg.LegStatus;
 import acme.realms.manager.Manager;
@@ -29,14 +28,10 @@ public class ManagerLegCancelledService extends AbstractGuiService<Manager, Leg>
 		boolean status;
 		int legId;
 		Leg leg;
-		Flight flight;
-		Manager manager;
 
 		legId = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(legId);
-		flight = leg == null ? null : leg.getFlight();
-		manager = flight == null ? null : flight.getManager();
-		status = leg != null && !leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+		status = leg != null && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()) && !leg.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 
@@ -67,8 +62,6 @@ public class ManagerLegCancelledService extends AbstractGuiService<Manager, Leg>
 			super.state(false, "status", "acme.validation.constraints.leg.status-LANDED.message");
 		if (originalLeg.getStatus().equals(LegStatus.CANCELLED))
 			super.state(false, "status", "acme.validation.constraints.leg.status-CANCELLED.message");
-		if (!originalLeg.getStatus().equals(LegStatus.ON_TIME) && leg.getStatus().equals(LegStatus.ON_TIME))
-			super.state(false, "status", "acme.validation.constraints.leg.status-ON_TIME.message");
 	}
 
 	@Override
@@ -102,6 +95,8 @@ public class ManagerLegCancelledService extends AbstractGuiService<Manager, Leg>
 		dataset.put("arrivalAirport", choiceArrivalAirports.getSelected().getKey());
 		dataset.put("arrivalAirports", choiceArrivalAirports);
 		dataset.put("statuses", choiceStatuses);
+		dataset.put("duration", leg.getDuration());
+		dataset.put("flightId", leg.getFlight().getId());
 
 		super.getResponse().addData(dataset);
 	}

@@ -20,6 +20,7 @@ manager.leg.form.label.arrivalAirport = Arrival airport:
 manager.leg.form.label.aircraft = Aircraft:
 manager.leg.form.label.status = Status:
 manager.leg.form.label.draftMode = Draft mode:
+manager.leg.form.label.duration = Duration in Hours:
 
 manager.leg.form.button.create = Create
 manager.leg.form.button.update = Update
@@ -28,6 +29,7 @@ manager.leg.form.button.publish = Publish
 manager.leg.form.button.landed = Landed
 manager.leg.form.button.delayed = Delayed
 manager.leg.form.button.cancelled = Cancelled
+
 
 
 manager.leg.list.label.flightNumber = Flight No.

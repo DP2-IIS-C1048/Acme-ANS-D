@@ -23,7 +23,7 @@ acme.validation.flight.leg.message = All legs must not be in draftMode
 acme.validation.flight.Delete.message = The flight must be in draftMode
 
 acme.validation.leg.duplicated-flightNumber.message = The flight number is already in use
-acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the airline's IATA code
+acme.validation.constraints.leg.flightNumber-IATACode.message =  The flight number must start with the IATA code of the airline associated with the manager
 acme.validation.constraints.leg.arrivalDepartureDates.message = The departure date must be earlier than the arrival date
 acme.validation.leg.duplicated-leg-arrivalDepartureDates.message = The departure or arrival dates overlap with another leg's interval
 acme.validation.leg.invalid-leg-dates.message = The leg introduced is neither later than the first leg nor earlier than the last leg
@@ -35,9 +35,8 @@ acme.validation.constraints.leg.arrivalAirport.message = The departure airport v
 acme.validation.constraints.leg.departureAirport.message = The arrival airport value cannot be empty.  
 acme.validation.constraints.leg.invalid-airports.message = The arrival and departure airport can not be the same airport
 acme.validation.leg.invalid-aircraft.message = This aircraft is not available in that moment
-acme.validation.constraints.leg.invalid-aircraft.message = The creation date of the aircraft's airline must be earlier than the departure date
-acme.validation.constraints.leg.invalid-departure-date.message = La fecha de salida debe ser posterior al 2000/01/01 00:00.
-acme.validation.constraints.leg.invalid-arrival-date.message = La fecha de llegada debe ser anterior al 2200/12/31 23:59.
+acme.validation.constraints.leg.invalid-min-date.message = The date must be after 2000/01/01 00:00
+acme.validation.constraints.leg.invalid-max-date.message = The date must be before 2200/12/31 23:59
 
 
 acme.validation.technician.duplicated-license.message = This license already exists
@@ -64,9 +63,6 @@ acme.validation.constraints.leg.status-ON_TIME.message = The leg cannot return t
 acme.validation.leg.invalid-futureDates.message = The date must be later than the current date
 
 acme.validation.currency.message = The currency is not available
-
-acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists
-acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname
 
 acme.validation.manager.duplicated-identifierNumber.message = The manager's identifier number already exists.
 acme.validation.manager.invalid-identifierNumber.message = The identifier number does not start with the initial of the first name and the initial of the surname.

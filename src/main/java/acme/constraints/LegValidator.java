@@ -68,23 +68,21 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 					invalidAirports = false;
 				super.state(context, invalidAirports, "arrivalAirport", "acme.validation.constraints.leg.invalid-airports.message");
 			}
-
-			{
-				boolean invalidAircraft = true;
-
-				if (leg.getAircraft() != null && departureDate != null && MomentHelper.isBefore(departureDate, leg.getAircraft().getAirline().getFoundationMoment()))
-					invalidAircraft = false;
-				super.state(context, invalidAircraft, "aircraft", "acme.validation.constraints.leg.invalid-aircraft.message");
-			}
 			{
 				Date minDate = MomentHelper.parse("2000-01-01 00:00", "yyyy-MM-dd HH:mm");
 				Date maxDate = MomentHelper.parse("2200-12-31 23:59", "yyyy-MM-dd HH:mm");
 
 				if (departureDate != null && !MomentHelper.isAfterOrEqual(departureDate, minDate))
-					super.state(context, false, "scheduledDeparture", "acme.validation.constraints.leg.invalid-departure-date.message");
+					super.state(context, false, "scheduledDeparture", "acme.validation.constraints.leg.invalid-min-date.message");
 
 				if (arrivalDate != null && !MomentHelper.isBeforeOrEqual(arrivalDate, maxDate))
-					super.state(context, false, "scheduledArrival", "acme.validation.constraints.leg.invalid-arrival-date.message");
+					super.state(context, false, "scheduledArrival", "acme.validation.constraints.leg.invalid-max-date.message");
+
+				if (arrivalDate != null && !MomentHelper.isAfterOrEqual(arrivalDate, minDate))
+					super.state(context, false, "scheduledArrival", "acme.validation.constraints.leg.invalid-min-date.message");
+
+				if (departureDate != null && !MomentHelper.isBeforeOrEqual(departureDate, maxDate))
+					super.state(context, false, "scheduledDeparture", "acme.validation.constraints.leg.invalid-max-date.message");
 			}
 		}
 		result = !super.hasErrors(context);

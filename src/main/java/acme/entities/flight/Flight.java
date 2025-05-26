@@ -88,21 +88,25 @@ public class Flight extends AbstractEntity {
 	@Transient
 	public String getOriginCity() {
 		Leg firstLeg = this.getFirstLeg();
-		return firstLeg != null && firstLeg.getDepartureAirport() != null ? firstLeg.getDepartureAirport().getCity() : null;
+		return firstLeg != null ? firstLeg.getDepartureAirport().getCity() : null;
 	}
 
 	@Transient
 	public String getDestinationCity() {
 		Leg lastLeg = this.getLastLeg();
-		return lastLeg != null && lastLeg.getArrivalAirport() != null ? lastLeg.getArrivalAirport().getCity() : null;
+		return lastLeg != null ? lastLeg.getArrivalAirport().getCity() : null;
 	}
 
 	@Transient
 	public Integer getLayovers() {
 		FlightRepository repository;
+		Integer totalLegs;
 
 		repository = SpringHelper.getBean(FlightRepository.class);
-		return repository.getNumbersOfLegsByFlightId(this.getId());
+		totalLegs = repository.getNumbersOfLegsByFlightId(this.getId()) - 1;
+		if (totalLegs == -1)
+			totalLegs = 0;
+		return totalLegs;
 	}
 
 	@Transient
