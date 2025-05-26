@@ -13,6 +13,7 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
+import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
 import acme.realms.customer.Customer;
 
@@ -32,10 +33,8 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 		masterId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(masterId);
-		customer = null;
-		if (booking != null)
-			customer = booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null;
+		customer = booking == null ? null : booking.getCustomer();
+		status = booking != null && super.getRequest().getPrincipal().hasRealm(customer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,10 +54,12 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	public void unbind(final Booking booking) {
 		Dataset dataset;
 		Collection<Flight> flights;
+		SelectChoices travelClassChoices;
 		SelectChoices choices;
 		Date moment;
 		Flight selectedFlight;
 
+		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		moment = MomentHelper.getCurrentMoment();
 		selectedFlight = booking.getFlight();
 
@@ -72,6 +73,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "purchaseMoment", "draftMode");
+		dataset.put("travelClasses", travelClassChoices);
 		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 

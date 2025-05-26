@@ -74,18 +74,18 @@ acme.validation.customer.duplicated-identifier.message = The customer identifier
 
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
 acme.validation.booking.duplicated-locatorCode.message = This locatorCode already exists.
-acme.validation.booking.departure-not-in-future.message = This flight has already been deported.
-acme.validation.booking.is-not-draft-mode.message = This booking can't be updated. It isn't on draftMode.
-acme.validation.booking.flight.not-found.messasge = This flight couldn't be found.
+acme.validation.booking.departure-not-in-future.message = This flight has already been deported. This is not a code 500 because a customer can create a booking with a flight. Time after, he can show the booking. That flight is not on the list due to i only list that flights that have not been deported yet and that flight has already been deported. 
+acme.validation.booking.is-not-draft-mode.message = This booking can't be updated. It isn't on draftMode
+acme.validation.booking.flight.not-found.messasge = This flight couldn't be found
 
 acme.validation.booking.publish.lastNibble-null.message = The lastNibble of this booking can't be null.
 acme.validation.booking.publish.passengers-associated.message = This booking has no passengers associated.
 acme.validation.booking.publish.passenger-associated-not-owned.message = This booking has passengers that aren't yours.
 acme.validation.booking.published.passenger-not-published.message = This booking has passengers not published.
 
-acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you.
-acme.validation.booking-record.create.passenger-not-published.message = This passenger is not published.
-
+acme.validation.booking-record.create.passenger-not-from-customer.message = This passenger is not associated with you
+acme.validation.booking-record.create.passenger-not-published.message = This passenger is not published
+acme.validation.booking-record.create.passenger-already-associated.message = This passenger is already associated to the booking
 
 acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.
 acme.validation.customer.passenger.update.is-not-dratMode.message = This passenger is not on draftMode.

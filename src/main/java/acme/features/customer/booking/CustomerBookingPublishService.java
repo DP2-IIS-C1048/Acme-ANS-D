@@ -14,6 +14,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
 import acme.entities.booking.Booking;
+import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
 import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
@@ -35,7 +36,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		masterId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && booking.isDraftMode();
+		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -53,20 +54,12 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void bind(final Booking booking) {
-		int flightId;
-		Flight flight;
-
-		flightId = super.getRequest().getData("flight", int.class);
-		flight = this.repository.findFlightById(flightId);
-
-		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastNibble");
-		booking.setFlight(flight);
 	}
 
 	@Override
 	public void validate(final Booking booking) {
 		{
-			boolean isLastNibbleValid = booking.getLastNibble() != null && !booking.getLastNibble().trim().isEmpty();
+			boolean isLastNibbleValid = !booking.getLastNibble().isBlank() && booking.getLastNibble() != null;
 
 			super.state(isLastNibbleValid, "lastNibble", "acme.validation.booking.publish.lastNibble-null.message");
 		}
@@ -91,7 +84,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			}
 
 		}
-		if (booking.getPrice() != null && booking.getPrice().getCurrency() != null) {
+		if (booking.getPrice() != null) {
 			boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
 			super.state(validCurrency, "price", "acme.validation.currency.message");
 		}
@@ -135,18 +128,21 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Dataset dataset;
 		Collection<Flight> flights;
 		SelectChoices choices;
+		SelectChoices travelClassChoices;
 		Date moment;
 		Flight selectedFlight = booking.getFlight();
 
+		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		moment = MomentHelper.getCurrentMoment();
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
 		if (selectedFlight != null && !flights.contains(selectedFlight))
-			selectedFlight = null;
+			flights.add(selectedFlight);
 
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
 		dataset = super.unbindObject(booking, "purchaseMoment", "locatorCode", "travelClass", "price", "lastNibble", "draftMode");
+		dataset.put("travelClasses", travelClassChoices);
 		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 

@@ -1,12 +1,9 @@
 
 package acme.features.customer.bookingRecord;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
@@ -49,18 +46,16 @@ public class CustomerBookingRecordShowService extends AbstractGuiService<Custome
 	@Override
 	public void unbind(final BookingRecord bookingRecord) {
 		Dataset dataset;
-		Collection<Passenger> passengers;
-		SelectChoices choices;
-		int customerId;
+		Passenger passenger;
 
-		customerId = bookingRecord.getBooking().getCustomer().getId();
-		passengers = this.repository.findPassengersByCustomerId(customerId);
-		choices = SelectChoices.from(passengers, "passportNumber", bookingRecord.getPassenger());
+		passenger = bookingRecord.getPassenger();
 
-		dataset = super.unbindObject(bookingRecord, "passenger");
-		dataset.put("masterId", bookingRecord.getBooking().getId());
-		dataset.put("passenger", choices.getSelected().getKey());
-		dataset.put("passengers", choices);
+		dataset = super.unbindObject(bookingRecord);
+		dataset.put("passportNumber", passenger.getPassportNumber());
+		dataset.put("dateOfBirth", passenger.getDateOfBirth());
+		dataset.put("fullName", passenger.getFullName());
+		dataset.put("email", passenger.getEmail());
+		dataset.put("specialNeeds", passenger.getSpecialNeeds());
 
 		super.getResponse().addData(dataset);
 

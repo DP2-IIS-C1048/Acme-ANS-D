@@ -13,6 +13,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.components.ExchangeRate;
 import acme.entities.booking.Booking;
+import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
 import acme.realms.customer.Customer;
 
@@ -33,7 +34,29 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		masterId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
-		status = super.getRequest().getPrincipal().hasRealm(customer) && booking != null && booking.isDraftMode();
+		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
+
+		if (status) {
+			String method;
+			int flightId;
+			Date moment;
+
+			method = super.getRequest().getMethod();
+			moment = MomentHelper.getCurrentMoment();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+
+				flightId = super.getRequest().getData("flight", int.class);
+				Flight flightSelected = this.repository.findFlightById(flightId);
+				Collection<Flight> flightsAvilable = this.repository.findFlightsWithFirstLegAfter(moment);
+				if (!flightsAvilable.contains(flightSelected))
+					flightsAvilable.add(booking.getFlight());
+				status = flightId == 0 || flightSelected != null && flightsAvilable.contains(flightSelected);
+
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -74,16 +97,13 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 		}
 		{
-			if (booking.getPrice() != null && booking.getPrice().getCurrency() != null) {
+			if (booking.getPrice() != null) {
 				boolean validCurrency = ExchangeRate.isValidCurrency(booking.getPrice().getCurrency());
 				super.state(validCurrency, "price", "acme.validation.currency.message");
 			}
 		}
 		{
 			super.state(booking.isDraftMode(), "*", "acme.validation.booking.is-not-draft-mode.message");
-		}
-		{
-			super.state(booking.getFlight() != null, "flight", "acme.validation.booking.flight.not-found.messasge");
 		}
 	}
 
@@ -97,18 +117,21 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		Dataset dataset;
 		Collection<Flight> flights;
 		SelectChoices choices;
+		SelectChoices travelClassChoices;
 		Date moment;
 		Flight selectedFlight = booking.getFlight();
 
+		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		moment = MomentHelper.getCurrentMoment();
 		flights = this.repository.findFlightsWithFirstLegAfter(moment);
 
 		if (selectedFlight != null && !flights.contains(selectedFlight))
-			flights.add(selectedFlight);
+			selectedFlight = null;
 
 		choices = SelectChoices.from(flights, "flightRoute", selectedFlight);
 
 		dataset = super.unbindObject(booking, "purchaseMoment", "locatorCode", "travelClass", "price", "lastNibble", "draftMode");
+		dataset.put("travelClasses", travelClassChoices);
 		dataset.put("flight", choices.getSelected().getKey());
 		dataset.put("flights", choices);
 

@@ -10,6 +10,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRecord;
+import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -47,9 +48,14 @@ public class CustomerBookingRecordListService extends AbstractGuiService<Custome
 	@Override
 	public void unbind(final BookingRecord bookingRecord) {
 		Dataset dataset;
+		Passenger passenger;
 
-		dataset = super.unbindObject(bookingRecord, "booking");
-		dataset.put("passenger", bookingRecord.getPassenger().getPassportNumber());
+		dataset = super.unbindObject(bookingRecord);
+		passenger = bookingRecord.getPassenger();
+
+		dataset.put("passportNumber", passenger.getPassportNumber());
+		dataset.put("dateOfBirth", passenger.getDateOfBirth());
+		dataset.put("fullName", passenger.getFullName());
 
 		super.getResponse().addData(dataset);
 	}

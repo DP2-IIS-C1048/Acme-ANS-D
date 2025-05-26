@@ -4,7 +4,9 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="customer.booking-record.list.label.passenger" path="passenger" width="50%"/>
+	<acme:list-column code="customer.booking-record.list.label.fullName" path="fullName" width="40%"/>
+	<acme:list-column code="customer.booking-record.list.label.passportNumber" path="passportNumber" width="30%"/>
+	<acme:list-column code="customer.booking-record.list.label.dateOfBirth" path="dateOfBirth" width="30%"/>
 </acme:list>
 
 <jstl:if test="${showCreate}">
