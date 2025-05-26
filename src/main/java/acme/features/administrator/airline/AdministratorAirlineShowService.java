@@ -24,7 +24,16 @@ public class AdministratorAirlineShowService extends AbstractGuiService<Administ
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int airlineId;
+		Airline airline;
+
+		airlineId = super.getRequest().getData("id", int.class);
+		airline = this.repository.findAirlineById(airlineId);
+
+		status = airline != null;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
