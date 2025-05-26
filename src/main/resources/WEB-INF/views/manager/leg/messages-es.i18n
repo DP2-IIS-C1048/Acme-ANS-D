@@ -20,9 +20,6 @@ manager.leg.form.label.arrivalAirport = Aeropuerto de llegada:
 manager.leg.form.label.aircraft = Aeronave:
 manager.leg.form.label.status = Estado:
 manager.leg.form.label.draftMode = Modo borrador:
-manager.leg.form.button.landed = Aterrizado:
-manager.leg.form.button.delayed = Retrasado:
-manager.leg.form.button.cancelled = Cancelado:
 manager.leg.form.label.duration = Duración in Hours:
 
 
