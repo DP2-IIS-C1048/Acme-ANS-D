@@ -34,7 +34,7 @@ public class FlightCrewMemberFlightAssignmentShowService extends AbstractGuiServ
 		masterId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		flightCrewMember = flightAssignment == null ? null : flightAssignment.getFlightCrewMember();
-		status = super.getRequest().getPrincipal().hasRealm(flightCrewMember) && flightAssignment != null;
+		status = flightAssignment != null && super.getRequest().getPrincipal().hasRealm(flightCrewMember);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,7 +63,7 @@ public class FlightCrewMemberFlightAssignmentShowService extends AbstractGuiServ
 		if (!flightAssignment.isDraftMode()) {
 			legs = List.of(flightAssignment.getLeg());
 			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
-		} else if (!legs.contains(flightAssignment.getLeg()) || legs.isEmpty())
+		} else if (!legs.contains(flightAssignment.getLeg()))
 			legChoices = SelectChoices.from(legs, "LegLabel", null);
 		else
 			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());

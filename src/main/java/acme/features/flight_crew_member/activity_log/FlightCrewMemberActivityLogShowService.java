@@ -23,7 +23,7 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 		ActivityLog activityLog;
 		masterId = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(masterId);
-		status = super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember()) && activityLog != null;
+		status = activityLog != null && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -44,5 +44,4 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 		super.getResponse().addData(dataset);
 	}
 
-	//Quizas falta la otra funcion que está en (list)
 }

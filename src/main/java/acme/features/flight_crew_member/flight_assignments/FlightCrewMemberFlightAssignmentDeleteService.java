@@ -34,7 +34,7 @@ public class FlightCrewMemberFlightAssignmentDeleteService extends AbstractGuiSe
 		masterId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		flightCrewMember = flightAssignment == null ? null : flightAssignment.getFlightCrewMember();
-		status = super.getRequest().getPrincipal().hasRealm(flightCrewMember) && flightAssignment != null && flightAssignment.isDraftMode();
+		status = flightAssignment != null && flightAssignment.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flightCrewMember);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -80,7 +80,11 @@ public class FlightCrewMemberFlightAssignmentDeleteService extends AbstractGuiSe
 
 		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
 
-		legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
+		if (!legs.contains(flightAssignment.getLeg()))
+			legChoices = SelectChoices.from(legs, "LegLabel", null);
+		else
+			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
+
 		dutyChoices = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 		statusChoices = SelectChoices.from(CurrentStatus.class, flightAssignment.getCurrentStatus());
 
